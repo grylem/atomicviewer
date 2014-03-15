@@ -7,15 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6923AE6618D2F11E0087A0ED /* Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6518D2F11E0087A0ED /* Atom.m */; };
+		6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6818D2F1310087A0ED /* AtomFtyp.m */; };
+		6923AE6D18D2FC490087A0ED /* AtomFree.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6C18D2FC490087A0ED /* AtomFree.m */; };
+		6923AE7118D30A9C0087A0ED /* AtomMdat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7018D30A9C0087A0ED /* AtomMdat.m */; };
+		6923AE7418D30C0F0087A0ED /* AtomMoov.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7318D30C0F0087A0ED /* AtomMoov.m */; };
+		6923AE7718D325DE0087A0ED /* AtomMvhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7618D325DE0087A0ED /* AtomMvhd.m */; };
+		6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7918D326F40087A0ED /* AtomIods.m */; };
+		6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7C18D3275E0087A0ED /* AtomTrak.m */; };
+		6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7F18D327B90087A0ED /* AtomUdta.m */; };
 		69453FF5176672A400851344 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69453FF4176672A400851344 /* Cocoa.framework */; };
 		69453FFF176672A400851344 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69453FFD176672A400851344 /* InfoPlist.strings */; };
 		69454001176672A400851344 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69454000176672A400851344 /* main.m */; };
 		69454005176672A400851344 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69454003176672A400851344 /* Credits.rtf */; };
 		69454008176672A400851344 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69454007176672A400851344 /* AppDelegate.m */; };
 		6945400B176672A400851344 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69454009176672A400851344 /* MainMenu.xib */; };
+		69A163B517D672F700131614 /* MyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A163B417D672F700131614 /* MyWindowController.m */; };
+		69A163B917D67BA800131614 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A163B717D67BA800131614 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6923AE6418D2F11E0087A0ED /* Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Atom.h; path = MPEG4FileViewer/Atom.h; sourceTree = "<group>"; };
+		6923AE6518D2F11E0087A0ED /* Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Atom.m; path = MPEG4FileViewer/Atom.m; sourceTree = "<group>"; };
+		6923AE6718D2F1310087A0ED /* AtomFtyp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFtyp.h; sourceTree = "<group>"; };
+		6923AE6818D2F1310087A0ED /* AtomFtyp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFtyp.m; sourceTree = "<group>"; };
+		6923AE6B18D2FC490087A0ED /* AtomFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomFree.h; path = MPEG4FileViewer/AtomFree.h; sourceTree = "<group>"; };
+		6923AE6C18D2FC490087A0ED /* AtomFree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomFree.m; path = MPEG4FileViewer/AtomFree.m; sourceTree = "<group>"; };
+		6923AE6E18D2FC8F0087A0ED /* Atoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Atoms.h; sourceTree = "<group>"; };
+		6923AE6F18D30A9C0087A0ED /* AtomMdat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMdat.h; sourceTree = "<group>"; };
+		6923AE7018D30A9C0087A0ED /* AtomMdat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMdat.m; sourceTree = "<group>"; };
+		6923AE7218D30C0F0087A0ED /* AtomMoov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMoov.h; sourceTree = "<group>"; };
+		6923AE7318D30C0F0087A0ED /* AtomMoov.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMoov.m; sourceTree = "<group>"; };
+		6923AE7518D325DE0087A0ED /* AtomMvhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMvhd.h; sourceTree = "<group>"; };
+		6923AE7618D325DE0087A0ED /* AtomMvhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMvhd.m; sourceTree = "<group>"; };
+		6923AE7818D326F40087A0ED /* AtomIods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomIods.h; sourceTree = "<group>"; };
+		6923AE7918D326F40087A0ED /* AtomIods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomIods.m; sourceTree = "<group>"; };
+		6923AE7B18D3275E0087A0ED /* AtomTrak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTrak.h; sourceTree = "<group>"; };
+		6923AE7C18D3275E0087A0ED /* AtomTrak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTrak.m; sourceTree = "<group>"; };
+		6923AE7E18D327B90087A0ED /* AtomUdta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUdta.h; sourceTree = "<group>"; };
+		6923AE7F18D327B90087A0ED /* AtomUdta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUdta.m; sourceTree = "<group>"; };
 		69453FF1176672A400851344 /* MPEG4FileViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPEG4FileViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69453FF4176672A400851344 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		69453FF7176672A400851344 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -29,6 +59,9 @@
 		69454006176672A400851344 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69454007176672A400851344 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6945400A176672A400851344 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		69A163B317D672F700131614 /* MyWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindowController.h; sourceTree = "<group>"; };
+		69A163B417D672F700131614 /* MyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindowController.m; sourceTree = "<group>"; };
+		69A163B817D67BA800131614 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,10 +76,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6923AE6A18D2F13B0087A0ED /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				6923AE7E18D327B90087A0ED /* AtomUdta.h */,
+				6923AE7F18D327B90087A0ED /* AtomUdta.m */,
+				6923AE7B18D3275E0087A0ED /* AtomTrak.h */,
+				6923AE7C18D3275E0087A0ED /* AtomTrak.m */,
+				6923AE7218D30C0F0087A0ED /* AtomMoov.h */,
+				6923AE7318D30C0F0087A0ED /* AtomMoov.m */,
+				6923AE7518D325DE0087A0ED /* AtomMvhd.h */,
+				6923AE7618D325DE0087A0ED /* AtomMvhd.m */,
+				6923AE6F18D30A9C0087A0ED /* AtomMdat.h */,
+				6923AE7018D30A9C0087A0ED /* AtomMdat.m */,
+				6923AE6B18D2FC490087A0ED /* AtomFree.h */,
+				6923AE6C18D2FC490087A0ED /* AtomFree.m */,
+				6923AE6418D2F11E0087A0ED /* Atom.h */,
+				6923AE6518D2F11E0087A0ED /* Atom.m */,
+				6923AE6718D2F1310087A0ED /* AtomFtyp.h */,
+				6923AE6818D2F1310087A0ED /* AtomFtyp.m */,
+				6923AE6E18D2FC8F0087A0ED /* Atoms.h */,
+				6923AE7818D326F40087A0ED /* AtomIods.h */,
+				6923AE7918D326F40087A0ED /* AtomIods.m */,
+			);
+			name = Atoms;
+			sourceTree = "<group>";
+		};
 		69453FE8176672A400851344 = {
 			isa = PBXGroup;
 			children = (
 				69453FFA176672A400851344 /* MPEG4FileViewer */,
+				6923AE6A18D2F13B0087A0ED /* Atoms */,
+				69453FFB176672A400851344 /* Supporting Files */,
+				69A163B617D67B7000131614 /* Resources */,
 				69453FF3176672A400851344 /* Frameworks */,
 				69453FF2176672A400851344 /* Products */,
 			);
@@ -84,8 +146,8 @@
 			children = (
 				69454006176672A400851344 /* AppDelegate.h */,
 				69454007176672A400851344 /* AppDelegate.m */,
-				69454009176672A400851344 /* MainMenu.xib */,
-				69453FFB176672A400851344 /* Supporting Files */,
+				69A163B317D672F700131614 /* MyWindowController.h */,
+				69A163B417D672F700131614 /* MyWindowController.m */,
 			);
 			path = MPEG4FileViewer;
 			sourceTree = "<group>";
@@ -100,6 +162,17 @@
 				69454003176672A400851344 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			path = MPEG4FileViewer;
+			sourceTree = "<group>";
+		};
+		69A163B617D67B7000131614 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				69454009176672A400851344 /* MainMenu.xib */,
+				69A163B717D67BA800131614 /* MainWindow.xib */,
+			);
+			name = Resources;
+			path = MPEG4FileViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +201,7 @@
 		69453FE9176672A400851344 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jay O'Conor";
 			};
 			buildConfigurationList = 69453FEC176672A400851344 /* Build configuration list for PBXProject "MPEG4FileViewer" */;
@@ -153,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A163B917D67BA800131614 /* MainWindow.xib in Resources */,
 				69453FFF176672A400851344 /* InfoPlist.strings in Resources */,
 				69454005176672A400851344 /* Credits.rtf in Resources */,
 				6945400B176672A400851344 /* MainMenu.xib in Resources */,
@@ -166,8 +240,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6923AE7718D325DE0087A0ED /* AtomMvhd.m in Sources */,
+				6923AE7118D30A9C0087A0ED /* AtomMdat.m in Sources */,
 				69454001176672A400851344 /* main.m in Sources */,
 				69454008176672A400851344 /* AppDelegate.m in Sources */,
+				6923AE6D18D2FC490087A0ED /* AtomFree.m in Sources */,
+				6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */,
+				6923AE6618D2F11E0087A0ED /* Atom.m in Sources */,
+				6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */,
+				6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */,
+				6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */,
+				69A163B517D672F700131614 /* MyWindowController.m in Sources */,
+				6923AE7418D30C0F0087A0ED /* AtomMoov.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +282,14 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		69A163B717D67BA800131614 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69A163B817D67BA800131614 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -205,7 +297,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -238,7 +329,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -303,6 +393,7 @@
 				69454010176672A400851344 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
