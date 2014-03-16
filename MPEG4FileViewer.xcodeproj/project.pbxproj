@@ -16,6 +16,7 @@
 		6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7918D326F40087A0ED /* AtomIods.m */; };
 		6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7C18D3275E0087A0ED /* AtomTrak.m */; };
 		6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7F18D327B90087A0ED /* AtomUdta.m */; };
+		6941199118D55EE800D71C3D /* AtomUnrecognized.m in Sources */ = {isa = PBXBuildFile; fileRef = 6941199018D55EE800D71C3D /* AtomUnrecognized.m */; };
 		69453FF5176672A400851344 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69453FF4176672A400851344 /* Cocoa.framework */; };
 		69453FFF176672A400851344 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69453FFD176672A400851344 /* InfoPlist.strings */; };
 		69454001176672A400851344 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69454000176672A400851344 /* main.m */; };
@@ -33,7 +34,6 @@
 		6923AE6818D2F1310087A0ED /* AtomFtyp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFtyp.m; sourceTree = "<group>"; };
 		6923AE6B18D2FC490087A0ED /* AtomFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomFree.h; path = MPEG4FileViewer/AtomFree.h; sourceTree = "<group>"; };
 		6923AE6C18D2FC490087A0ED /* AtomFree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomFree.m; path = MPEG4FileViewer/AtomFree.m; sourceTree = "<group>"; };
-		6923AE6E18D2FC8F0087A0ED /* Atoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Atoms.h; sourceTree = "<group>"; };
 		6923AE6F18D30A9C0087A0ED /* AtomMdat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMdat.h; sourceTree = "<group>"; };
 		6923AE7018D30A9C0087A0ED /* AtomMdat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMdat.m; sourceTree = "<group>"; };
 		6923AE7218D30C0F0087A0ED /* AtomMoov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMoov.h; sourceTree = "<group>"; };
@@ -46,6 +46,8 @@
 		6923AE7C18D3275E0087A0ED /* AtomTrak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTrak.m; sourceTree = "<group>"; };
 		6923AE7E18D327B90087A0ED /* AtomUdta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUdta.h; sourceTree = "<group>"; };
 		6923AE7F18D327B90087A0ED /* AtomUdta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUdta.m; sourceTree = "<group>"; };
+		6941198F18D55EE800D71C3D /* AtomUnrecognized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUnrecognized.h; sourceTree = "<group>"; };
+		6941199018D55EE800D71C3D /* AtomUnrecognized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUnrecognized.m; sourceTree = "<group>"; };
 		69453FF1176672A400851344 /* MPEG4FileViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPEG4FileViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69453FF4176672A400851344 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		69453FF7176672A400851344 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +81,8 @@
 		6923AE6A18D2F13B0087A0ED /* Atoms */ = {
 			isa = PBXGroup;
 			children = (
+				6941198F18D55EE800D71C3D /* AtomUnrecognized.h */,
+				6941199018D55EE800D71C3D /* AtomUnrecognized.m */,
 				6923AE7E18D327B90087A0ED /* AtomUdta.h */,
 				6923AE7F18D327B90087A0ED /* AtomUdta.m */,
 				6923AE7B18D3275E0087A0ED /* AtomTrak.h */,
@@ -95,7 +99,6 @@
 				6923AE6518D2F11E0087A0ED /* Atom.m */,
 				6923AE6718D2F1310087A0ED /* AtomFtyp.h */,
 				6923AE6818D2F1310087A0ED /* AtomFtyp.m */,
-				6923AE6E18D2FC8F0087A0ED /* Atoms.h */,
 				6923AE7818D326F40087A0ED /* AtomIods.h */,
 				6923AE7918D326F40087A0ED /* AtomIods.m */,
 			);
@@ -247,6 +250,7 @@
 				6923AE6D18D2FC490087A0ED /* AtomFree.m in Sources */,
 				6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */,
 				6923AE6618D2F11E0087A0ED /* Atom.m in Sources */,
+				6941199118D55EE800D71C3D /* AtomUnrecognized.m in Sources */,
 				6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */,
 				6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */,
 				6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */,
