@@ -10,7 +10,12 @@
 
 @implementation AtomMvhd
 
--(NSString *)nodeTitle
++(void)load
+{
+    [self populateAtomToClassDict];
+}
+
++(NSString *)atomType
 {
     return (@"mvhd");
 }

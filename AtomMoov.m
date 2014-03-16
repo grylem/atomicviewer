@@ -10,8 +10,12 @@
 
 @implementation AtomMoov
 
-// This is the string we want in the outline.
--(NSString *)nodeTitle
++(void)load
+{
+    [self populateAtomToClassDict];
+}
+
++(NSString *)atomType
 {
     return (@"moov");
 }

@@ -7,7 +7,7 @@
 //
 
 #import "Atom.h"
-#import "Atoms.h"
+#import "AtomUnrecognized.h"
 #import "AppDelegate.h"  // HACK
 
 @interface Atom ()
@@ -17,22 +17,43 @@
 
 @implementation Atom
 
-+ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue
+static NSMutableDictionary *atomToClassDict;
+static dispatch_once_t pred;
+
+// HERE BE DRAGONS
+// My subclasses invoke this during their +load. BE CAREFUL
+// This is ONLY for subclasses to populate the atom type to Class dictionary.
+// Do not use for any other purpose, as heavy lifting during +load is EXTREMELY dangerous.
+// Note, +initialize cannot be used, as +initialize is invoked lazily before first message sent to the class
+// If we don't have the Class in the atomToClassDict, it'll never get messages, so +initilize will never be invoked.
+
++ (void)populateAtomToClassDict
 {
-    NSDictionary *atomToClassDict = @{@"ftyp" : [AtomFtyp class],
-                                      @"free" : [AtomFree class],
-                                      @"mdat" : [AtomMdat class],
-                                      @"moov" : [AtomMoov class],
-                                      @"mvhd" : [AtomMvhd class],
-                                      @"iods" : [AtomIods class],
-                                      @"trak" : [AtomTrak class],
-                                      @"udta" : [AtomUdta class]};
+    dispatch_once (&pred, ^{
+        atomToClassDict = [NSMutableDictionary new];
+    });
     
-    Atom *newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset usingChannel: channel onQueue:queue];
-    
-    return newAtom;
+    if (self != [Atom class]) {
+        [atomToClassDict setValue: [self class] forKey:[self atomType]];
+    }
 }
 
++ (NSString *)atomType
+{
+    return nil; // The abstact superclass does not have an atomType
+}
+
++ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue
+{
+    Class atomClass = atomToClassDict[atomType];
+    Atom *newAtom;
+    if (atomClass) {
+        newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset usingChannel: channel onQueue:queue];
+    } else {
+        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset usingChannel: channel onQueue:queue];
+    }
+    return newAtom;
+}
 
 + (void)populateContents: (NSMutableArray *)atomArray fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end
 {
@@ -58,9 +79,12 @@
                          // byteswap the length & copy the atom type to a C string
                          uint32_t atomLength = CFSwapInt32BigToHost (*(uint32_t *)buffer);
                          wholeAtomLength = atomLength;
-                         memcpy(&atomType, &buffer[4], 4);
+                         
+                         memcpy(&atomType, &buffer[4], 4); // turn the 4-byte atom type into a null-terminated C string.
                          atomType[4] = '\0';
+                         
                          if (atomLength == 1) {
+                             // Read the extended length synchronously
                              dispatch_fd_t fd = dispatch_io_get_descriptor(channel);
                              lseek(fd, dataOffset, SEEK_SET);
                              uint64_t extendedAtomLength;
@@ -69,6 +93,7 @@
                              dataOffset += sizeof(extendedAtomLength);
                              wholeAtomLength = CFSwapInt64BigToHost(extendedAtomLength);
                          }
+                         // Note the use of "@(atomType)". This is an Objective-C 2.0 boxed C String
                          atom = [self createAtomOfType: @(atomType) withLength: wholeAtomLength-length fromOffset: dataOffset usingChannel: channel onQueue:queue];
                          [atomArray addObject: atom];
                          if ((offset + wholeAtomLength) < end) {
@@ -79,7 +104,6 @@
                          });
                      });
 }
-
 
 -(BOOL) isLeaf
 {
@@ -93,14 +117,17 @@
 
 -(NSString *)nodeTitle
 {
-    return (NSStringFromClass([self class]));
+    // Most subclasses have a 4-character atom type string that is used to as the key to the atomToClassDict.
+    // That 4-character atom type is also usually what we want displayed in the outline.
+    // Some subclasses will override this, such as the "unrecognized" atom class that we just skip over, and
+    // the uuid type atoms that will supply the formatted uuid string.
+    return [[self class] atomType];
 }
 
 -(NSString *)description
 {
     return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self nodeTitle], [self dataLength]];
 }
-
 
 -(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue;
 {

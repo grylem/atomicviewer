@@ -10,10 +10,14 @@
 
 @implementation AtomMdat
 
--(NSString *)nodeTitle
++(void)load
+{
+    [self populateAtomToClassDict];
+}
+
++(NSString *)atomType
 {
     return (@"mdat");
 }
-
 
 @end

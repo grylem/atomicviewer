@@ -10,10 +10,14 @@
 
 @implementation AtomFtyp
 
--(NSString *)nodeTitle
++(void)load
+{
+    [self populateAtomToClassDict];
+}
+
++(NSString *)atomType
 {
     return (@"ftyp");
 }
-
 
 @end

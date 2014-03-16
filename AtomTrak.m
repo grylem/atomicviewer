@@ -10,7 +10,12 @@
 
 @implementation AtomTrak
 
--(NSString *)nodeTitle
++(void)load
+{
+    [self populateAtomToClassDict];
+}
+
++(NSString *)atomType
 {
     return (@"trak");
 }

@@ -15,8 +15,9 @@
 @property dispatch_queue_t queue;
 @property BOOL isLeaf;
 
++ (void)populateAtomToClassDict;
++ (NSString *)atomType;
 + (void)populateContents: (NSMutableArray *)atomArray fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end;
-
 -(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue;
 
 @end

@@ -10,9 +10,19 @@
 
 @implementation AtomUdta
 
--(NSString *)nodeTitle
++(void)load
+{
+    [self populateAtomToClassDict];
+}
+
++(NSString *)atomType
 {
     return (@"udta");
+}
+
+-(BOOL) isLeaf
+{
+    return NO;
 }
 
 @end
