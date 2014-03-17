@@ -37,10 +37,4 @@
 	[self.myWindowController showWindow:self];
 }
 
--(void)reloadOutlineView
-{
-    [self.myWindowController reloadOutlineView];
-}
-
-
 @end

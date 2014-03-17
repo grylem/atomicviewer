@@ -20,9 +20,4 @@
     return (@"udta");
 }
 
--(BOOL) isLeaf
-{
-    return NO;
-}
-
 @end

@@ -14,10 +14,13 @@
 @property dispatch_io_t io_channel;
 @property dispatch_queue_t queue;
 @property BOOL isLeaf;
+@property NSTreeController *treeController;
+@property NSIndexPath *indexPath;
+
 
 + (void)populateAtomToClassDict;
 + (NSString *)atomType;
-+ (void)populateContents: (NSMutableArray *)atomArray fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end;
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue;
++ (void)populateTree: (NSTreeController *)treeController childOf:(NSIndexPath *)indexPath atIndex:(NSInteger)index fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end;
+-(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController;
 
 @end

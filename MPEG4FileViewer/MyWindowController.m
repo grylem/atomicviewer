@@ -13,7 +13,7 @@
 @interface MyWindowController ()
 {
 	IBOutlet NSOutlineView		*myOutlineView;
-	IBOutlet NSTreeController	*treeController;
+//	IBOutlet NSTreeController	*treeController;
 	IBOutlet NSView				*placeHolderView;
 	IBOutlet NSSplitView		*splitView;
 	
@@ -28,15 +28,11 @@
 
 @property dispatch_io_t channel;
 @property NSMutableArray *contents;
+@property IBOutlet NSTreeController *treeController;
 
 @end
 
 @implementation MyWindowController
-
--(void)reloadOutlineView
-{
-    [myOutlineView reloadData];
-}
 
 - (NSString *) getMovieFilePath
 {
@@ -59,7 +55,7 @@
  
 }
 
-- (void)populateContents: (NSMutableArray *)contents fromFileAtPath: (NSString *)path onQueue: (dispatch_queue_t)queue
+- (void)populateTree: (NSTreeController *)treeController fromFileAtPath: (NSString *)path onQueue: (dispatch_queue_t)queue
 {
     // This is the top level parser
     // We start with the path name for the file, open it, determine size, and iterate over the top level atoms
@@ -80,11 +76,9 @@
                                                         self.channel = NULL;
                                                     }
                                                 });
-
-    [Atom populateContents: self.contents fromChannel: self.channel onQueue: queue atOffset: 0 upTo: statbuf.st_size];
+    
+    [Atom populateTree: treeController childOf: nil atIndex: 0 fromChannel: self.channel onQueue: queue atOffset: 0 upTo: statbuf.st_size];
 }
-
-
 
 // -------------------------------------------------------------------------------
 //	initWithWindow:window
@@ -94,10 +88,11 @@
 	self = [super initWithWindow:window];
 	if (self)
 	{
-        NSString *movieFilePath = [self getMovieFilePath];
+//        NSString *movieFilePath = [self getMovieFilePath];
 		self.contents = [[NSMutableArray alloc] init];
-        dispatchQueue = dispatch_queue_create("com.atomicviewer.fileprocessing", NULL);
-        [self populateContents: self.contents fromFileAtPath: movieFilePath onQueue: dispatchQueue];
+//        dispatchQueue = dispatch_queue_create("com.atomicviewer.fileprocessing", NULL);
+//        [self populateContents: self.contents fromFileAtPath: movieFilePath onQueue: dispatchQueue];
+//        [self populateTree: self.treeController fromFileAtPath: movieFilePath onQueue: dispatchQueue];
 	}
 	
 	return self;
@@ -108,5 +103,11 @@
 // -------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
+    NSString *movieFilePath = [self getMovieFilePath];
+    dispatchQueue = dispatch_queue_create("com.atomicviewer.fileprocessing", NULL);
+    //        [self populateContents: self.contents fromFileAtPath: movieFilePath onQueue: dispatchQueue];
+    [self populateTree: self.treeController fromFileAtPath: movieFilePath onQueue: dispatchQueue];
+
 }
+
 @end

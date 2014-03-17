@@ -8,7 +8,6 @@
 
 #import "Atom.h"
 #import "AtomUnrecognized.h"
-#import "AppDelegate.h"  // HACK
 
 @interface Atom ()
 
@@ -43,19 +42,19 @@ static dispatch_once_t pred;
     return nil; // The abstact superclass does not have an atomType
 }
 
-+ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue
++ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController
 {
     Class atomClass = atomToClassDict[atomType];
     Atom *newAtom;
     if (atomClass) {
-        newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset usingChannel: channel onQueue:queue];
+        newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset usingChannel: channel onQueue: queue inTree: treeController];
     } else {
-        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset usingChannel: channel onQueue:queue];
+        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset usingChannel: channel onQueue:queue inTree: treeController];
     }
     return newAtom;
 }
 
-+ (void)populateContents: (NSMutableArray *)atomArray fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end
++ (void)populateTree: (NSTreeController *)treeController childOf:(NSIndexPath *)indexPath atIndex: (NSInteger)index fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end
 {
     dispatch_io_read(channel,
                      offset,
@@ -68,6 +67,8 @@ static dispatch_once_t pred;
                          size_t wholeAtomLength;
                          Atom *atom;
                          char atomType[5];
+                         NSIndexPath *indexPathToAdd;
+                         NSString *atomTypeString;
                          if (error == 0) {
                              // I don't care about the returned tmpData. Just need the buffer.
                              __unused dispatch_data_t tmpData = dispatch_data_create_map(data,
@@ -94,14 +95,21 @@ static dispatch_once_t pred;
                              wholeAtomLength = CFSwapInt64BigToHost(extendedAtomLength);
                          }
                          // Note the use of "@(atomType)". This is an Objective-C 2.0 boxed C String
-                         atom = [self createAtomOfType: @(atomType) withLength: wholeAtomLength-length fromOffset: dataOffset usingChannel: channel onQueue:queue];
-                         [atomArray addObject: atom];
-                         if ((offset + wholeAtomLength) < end) {
-                             [self populateContents:atomArray fromChannel:channel onQueue:queue atOffset:(offset + wholeAtomLength) upTo:end];
+                         atomTypeString = [NSString stringWithCString:atomType encoding:NSISOLatin1StringEncoding];
+                         atom = [self createAtomOfType: atomTypeString withLength: wholeAtomLength-length fromOffset: dataOffset usingChannel: channel onQueue:queue inTree: treeController];
+//                         [atomArray addObject: atom];
+                         if (!indexPath) {
+                             indexPathToAdd = [NSIndexPath indexPathWithIndex: index];
+                         } else {
+                             indexPathToAdd = [indexPath indexPathByAddingIndex:index];
                          }
+                         [atom setIndexPath: indexPathToAdd];
                          dispatch_async(dispatch_get_main_queue(), ^{
-                             [(AppDelegate *)([NSApp delegate]) reloadOutlineView]; // HACK
+                             [treeController insertObject:atom  atArrangedObjectIndexPath:indexPathToAdd];
                          });
+                         if ((offset + wholeAtomLength) < end) {
+                             [self populateTree:treeController childOf: indexPath atIndex: index + 1 fromChannel:channel onQueue:queue atOffset:(offset + wholeAtomLength) upTo:end];
+                         }
                      });
 }
 
@@ -129,7 +137,7 @@ static dispatch_once_t pred;
     return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self nodeTitle], [self dataLength]];
 }
 
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue;
+-(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue inTree:(NSTreeController *)treeController;
 {
     self = [super init];
     if (self) {
@@ -137,6 +145,7 @@ static dispatch_once_t pred;
         self.fileOffset = offset;
         self.io_channel = channel;
         self.queue = queue;
+        self.treeController = treeController;
     }
     return self;
 }

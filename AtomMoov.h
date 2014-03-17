@@ -6,10 +6,8 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "Atom.h"
+#import "AtomParent.h"
 
-@interface AtomMoov : Atom
-{
-    NSMutableArray *children;
-}
+@interface AtomMoov : AtomParent
+
 @end

@@ -10,6 +10,5 @@
 
 @interface MyWindowController : NSWindowController
 
--(void)reloadOutlineView;
 
 @end

@@ -23,6 +23,54 @@
 		69454005176672A400851344 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69454003176672A400851344 /* Credits.rtf */; };
 		69454008176672A400851344 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69454007176672A400851344 /* AppDelegate.m */; };
 		6945400B176672A400851344 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69454009176672A400851344 /* MainMenu.xib */; };
+		697208F418D6B07E003A9E0A /* AtomParent.m in Sources */ = {isa = PBXBuildFile; fileRef = 697208F318D6B07E003A9E0A /* AtomParent.m */; };
+		697208F718D6B98B003A9E0A /* AtomMdia.m in Sources */ = {isa = PBXBuildFile; fileRef = 697208F618D6B98B003A9E0A /* AtomMdia.m */; };
+		697208FA18D6BA18003A9E0A /* AtomTkhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 697208F918D6BA18003A9E0A /* AtomTkhd.m */; };
+		697208FD18D6BC08003A9E0A /* AtomMinf.m in Sources */ = {isa = PBXBuildFile; fileRef = 697208FC18D6BC08003A9E0A /* AtomMinf.m */; };
+		6972090018D6BC6F003A9E0A /* AtomDinf.m in Sources */ = {isa = PBXBuildFile; fileRef = 697208FF18D6BC6F003A9E0A /* AtomDinf.m */; };
+		6972090318D6BE00003A9E0A /* AtomStbl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972090218D6BE00003A9E0A /* AtomStbl.m */; };
+		6972090618D6BE9E003A9E0A /* AtomEdts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972090518D6BE9E003A9E0A /* AtomEdts.m */; };
+		6972090918D6C1B5003A9E0A /* AtomTref.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972090818D6C1B5003A9E0A /* AtomTref.m */; };
+		6972090C18D6C357003A9E0A /* AtomElst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972090B18D6C357003A9E0A /* AtomElst.m */; };
+		6972090F18D6C3A9003A9E0A /* AtomChap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972090E18D6C3A9003A9E0A /* AtomChap.m */; };
+		6972091218D6C3F3003A9E0A /* AtomMdhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972091118D6C3F3003A9E0A /* AtomMdhd.m */; };
+		6972091518D6C46C003A9E0A /* AtomHdlr.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972091418D6C46C003A9E0A /* AtomHdlr.m */; };
+		6972091818D6C48D003A9E0A /* AtomSmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972091718D6C48D003A9E0A /* AtomSmhd.m */; };
+		6972091B18D6C4BC003A9E0A /* AtomStts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972091A18D6C4BC003A9E0A /* AtomStts.m */; };
+		6972091E18D6C4DC003A9E0A /* AtomStsc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972091D18D6C4DC003A9E0A /* AtomStsc.m */; };
+		6972092118D6C505003A9E0A /* AtomStsz.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972092018D6C505003A9E0A /* AtomStsz.m */; };
+		6972092418D6C572003A9E0A /* AtomCo64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972092318D6C572003A9E0A /* AtomCo64.m */; };
+		6972092718D6C5B2003A9E0A /* AtomVmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972092618D6C5B2003A9E0A /* AtomVmhd.m */; };
+		6972092A18D6C5DF003A9E0A /* AtomGmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972092918D6C5DF003A9E0A /* AtomGmhd.m */; };
+		6972092D18D6C609003A9E0A /* AtomStco.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972092C18D6C609003A9E0A /* AtomStco.m */; };
+		6972093018D6C87F003A9E0A /* AtomCtts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972092F18D6C87F003A9E0A /* AtomCtts.m */; };
+		6972093318D6C8A4003A9E0A /* AtomStss.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093218D6C8A4003A9E0A /* AtomStss.m */; };
+		6972093618D6C8CD003A9E0A /* AtomSdtp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093518D6C8CD003A9E0A /* AtomSdtp.m */; };
+		6972093918D6C8F8003A9E0A /* AtomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093818D6C8F8003A9E0A /* AtomName.m */; };
+		6972093C18D6CBFC003A9E0A /* AtomDualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093B18D6CBFC003A9E0A /* AtomDualState.m */; };
+		6972093F18D6CF37003A9E0A /* AtomMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093E18D6CF37003A9E0A /* AtomMeta.m */; };
+		6972094218D6D379003A9E0A /* AtomIlst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094118D6D379003A9E0A /* AtomIlst.m */; };
+		6972094518D6D3D3003A9E0A /* Atom----.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094418D6D3D3003A9E0A /* Atom----.m */; };
+		6972094818D6D44E003A9E0A /* AtomData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094718D6D44E003A9E0A /* AtomData.m */; };
+		6972094B18D6DBC6003A9E0A /* AtomMean.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094A18D6DBC6003A9E0A /* AtomMean.m */; };
+		6972094E18D6DC26003A9E0A /* Atom©nam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094D18D6DC26003A9E0A /* Atom©nam.m */; };
+		6972095118D6DCA7003A9E0A /* Atom©ART.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972095018D6DCA7003A9E0A /* Atom©ART.m */; };
+		6972095418D6DCEA003A9E0A /* AtomaART.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972095318D6DCEA003A9E0A /* AtomaART.m */; };
+		6972095718D6DCFE003A9E0A /* Atom©alb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972095618D6DCFE003A9E0A /* Atom©alb.m */; };
+		6972095A18D6DD13003A9E0A /* AtomTrkn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972095918D6DD13003A9E0A /* AtomTrkn.m */; };
+		6972095D18D6DD22003A9E0A /* AtomDisk.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972095C18D6DD22003A9E0A /* AtomDisk.m */; };
+		6972096018D6DD36003A9E0A /* AtomTvsh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972095F18D6DD36003A9E0A /* AtomTvsh.m */; };
+		6972096318D6DD46003A9E0A /* AtomTven.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972096218D6DD46003A9E0A /* AtomTven.m */; };
+		6972096618D6DD57003A9E0A /* AtomTvsn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972096518D6DD57003A9E0A /* AtomTvsn.m */; };
+		6972096918D6DD6B003A9E0A /* AtomTves.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972096818D6DD6B003A9E0A /* AtomTves.m */; };
+		6972096C18D6DD7E003A9E0A /* Atom©too.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972096B18D6DD7E003A9E0A /* Atom©too.m */; };
+		6972096F18D6DD91003A9E0A /* AtomHdvd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972096E18D6DD91003A9E0A /* AtomHdvd.m */; };
+		6972097218D6DD9F003A9E0A /* AtomStik.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097118D6DD9F003A9E0A /* AtomStik.m */; };
+		6972097518D6DDAF003A9E0A /* AtomRtng.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097418D6DDAF003A9E0A /* AtomRtng.m */; };
+		6972097818D6DDBF003A9E0A /* AtomPgap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097718D6DDBF003A9E0A /* AtomPgap.m */; };
+		6972097B18D6DDD1003A9E0A /* AtomCnID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097A18D6DDD1003A9E0A /* AtomCnID.m */; };
+		6972097E18D6DDE5003A9E0A /* AtomAtID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097D18D6DDE5003A9E0A /* AtomAtID.m */; };
+		6972098118D6DDF6003A9E0A /* AtomCovr.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972098018D6DDF6003A9E0A /* AtomCovr.m */; };
 		69A163B517D672F700131614 /* MyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A163B417D672F700131614 /* MyWindowController.m */; };
 		69A163B917D67BA800131614 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A163B717D67BA800131614 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
@@ -61,6 +109,102 @@
 		69454006176672A400851344 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69454007176672A400851344 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6945400A176672A400851344 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		697208F218D6B07E003A9E0A /* AtomParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomParent.h; sourceTree = "<group>"; };
+		697208F318D6B07E003A9E0A /* AtomParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomParent.m; sourceTree = "<group>"; };
+		697208F518D6B98B003A9E0A /* AtomMdia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMdia.h; sourceTree = "<group>"; };
+		697208F618D6B98B003A9E0A /* AtomMdia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMdia.m; sourceTree = "<group>"; };
+		697208F818D6BA18003A9E0A /* AtomTkhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTkhd.h; sourceTree = "<group>"; };
+		697208F918D6BA18003A9E0A /* AtomTkhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTkhd.m; sourceTree = "<group>"; };
+		697208FB18D6BC08003A9E0A /* AtomMinf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMinf.h; sourceTree = "<group>"; };
+		697208FC18D6BC08003A9E0A /* AtomMinf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMinf.m; sourceTree = "<group>"; };
+		697208FE18D6BC6F003A9E0A /* AtomDinf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDinf.h; sourceTree = "<group>"; };
+		697208FF18D6BC6F003A9E0A /* AtomDinf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomDinf.m; sourceTree = "<group>"; };
+		6972090118D6BE00003A9E0A /* AtomStbl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStbl.h; sourceTree = "<group>"; };
+		6972090218D6BE00003A9E0A /* AtomStbl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStbl.m; sourceTree = "<group>"; };
+		6972090418D6BE9E003A9E0A /* AtomEdts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomEdts.h; sourceTree = "<group>"; };
+		6972090518D6BE9E003A9E0A /* AtomEdts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomEdts.m; sourceTree = "<group>"; };
+		6972090718D6C1B5003A9E0A /* AtomTref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomTref.h; path = MPEG4FileViewer/AtomTref.h; sourceTree = "<group>"; };
+		6972090818D6C1B5003A9E0A /* AtomTref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomTref.m; path = MPEG4FileViewer/AtomTref.m; sourceTree = "<group>"; };
+		6972090A18D6C357003A9E0A /* AtomElst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomElst.h; sourceTree = "<group>"; };
+		6972090B18D6C357003A9E0A /* AtomElst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomElst.m; sourceTree = "<group>"; };
+		6972090D18D6C3A9003A9E0A /* AtomChap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomChap.h; sourceTree = "<group>"; };
+		6972090E18D6C3A9003A9E0A /* AtomChap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomChap.m; sourceTree = "<group>"; };
+		6972091018D6C3F3003A9E0A /* AtomMdhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMdhd.h; sourceTree = "<group>"; };
+		6972091118D6C3F3003A9E0A /* AtomMdhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMdhd.m; sourceTree = "<group>"; };
+		6972091318D6C46C003A9E0A /* AtomHdlr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomHdlr.h; sourceTree = "<group>"; };
+		6972091418D6C46C003A9E0A /* AtomHdlr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomHdlr.m; sourceTree = "<group>"; };
+		6972091618D6C48D003A9E0A /* AtomSmhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomSmhd.h; sourceTree = "<group>"; };
+		6972091718D6C48D003A9E0A /* AtomSmhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomSmhd.m; sourceTree = "<group>"; };
+		6972091918D6C4BC003A9E0A /* AtomStts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStts.h; sourceTree = "<group>"; };
+		6972091A18D6C4BC003A9E0A /* AtomStts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStts.m; sourceTree = "<group>"; };
+		6972091C18D6C4DC003A9E0A /* AtomStsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStsc.h; sourceTree = "<group>"; };
+		6972091D18D6C4DC003A9E0A /* AtomStsc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStsc.m; sourceTree = "<group>"; };
+		6972091F18D6C505003A9E0A /* AtomStsz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStsz.h; sourceTree = "<group>"; };
+		6972092018D6C505003A9E0A /* AtomStsz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStsz.m; sourceTree = "<group>"; };
+		6972092218D6C572003A9E0A /* AtomCo64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCo64.h; sourceTree = "<group>"; };
+		6972092318D6C572003A9E0A /* AtomCo64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCo64.m; sourceTree = "<group>"; };
+		6972092518D6C5B2003A9E0A /* AtomVmhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomVmhd.h; sourceTree = "<group>"; };
+		6972092618D6C5B2003A9E0A /* AtomVmhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomVmhd.m; sourceTree = "<group>"; };
+		6972092818D6C5DF003A9E0A /* AtomGmhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomGmhd.h; sourceTree = "<group>"; };
+		6972092918D6C5DF003A9E0A /* AtomGmhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomGmhd.m; sourceTree = "<group>"; };
+		6972092B18D6C609003A9E0A /* AtomStco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStco.h; sourceTree = "<group>"; };
+		6972092C18D6C609003A9E0A /* AtomStco.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStco.m; sourceTree = "<group>"; };
+		6972092E18D6C87F003A9E0A /* AtomCtts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCtts.h; sourceTree = "<group>"; };
+		6972092F18D6C87F003A9E0A /* AtomCtts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCtts.m; sourceTree = "<group>"; };
+		6972093118D6C8A4003A9E0A /* AtomStss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStss.h; sourceTree = "<group>"; };
+		6972093218D6C8A4003A9E0A /* AtomStss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStss.m; sourceTree = "<group>"; };
+		6972093418D6C8CD003A9E0A /* AtomSdtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomSdtp.h; sourceTree = "<group>"; };
+		6972093518D6C8CD003A9E0A /* AtomSdtp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomSdtp.m; sourceTree = "<group>"; };
+		6972093718D6C8F8003A9E0A /* AtomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomName.h; sourceTree = "<group>"; };
+		6972093818D6C8F8003A9E0A /* AtomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomName.m; sourceTree = "<group>"; };
+		6972093A18D6CBFC003A9E0A /* AtomDualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDualState.h; sourceTree = "<group>"; };
+		6972093B18D6CBFC003A9E0A /* AtomDualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomDualState.m; sourceTree = "<group>"; };
+		6972093D18D6CF37003A9E0A /* AtomMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMeta.h; sourceTree = "<group>"; };
+		6972093E18D6CF37003A9E0A /* AtomMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMeta.m; sourceTree = "<group>"; };
+		6972094018D6D379003A9E0A /* AtomIlst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomIlst.h; sourceTree = "<group>"; };
+		6972094118D6D379003A9E0A /* AtomIlst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomIlst.m; sourceTree = "<group>"; };
+		6972094318D6D3D3003A9E0A /* Atom----.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Atom----.h"; sourceTree = "<group>"; };
+		6972094418D6D3D3003A9E0A /* Atom----.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Atom----.m"; sourceTree = "<group>"; };
+		6972094618D6D44E003A9E0A /* AtomData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomData.h; sourceTree = "<group>"; };
+		6972094718D6D44E003A9E0A /* AtomData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomData.m; sourceTree = "<group>"; };
+		6972094918D6DBC6003A9E0A /* AtomMean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMean.h; sourceTree = "<group>"; };
+		6972094A18D6DBC6003A9E0A /* AtomMean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMean.m; sourceTree = "<group>"; };
+		6972094C18D6DC26003A9E0A /* Atom©nam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Atom©nam.h"; sourceTree = "<group>"; };
+		6972094D18D6DC26003A9E0A /* Atom©nam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Atom©nam.m"; sourceTree = "<group>"; };
+		6972094F18D6DCA7003A9E0A /* Atom©ART.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Atom©ART.h"; sourceTree = "<group>"; };
+		6972095018D6DCA7003A9E0A /* Atom©ART.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Atom©ART.m"; sourceTree = "<group>"; };
+		6972095218D6DCEA003A9E0A /* AtomaART.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomaART.h; sourceTree = "<group>"; };
+		6972095318D6DCEA003A9E0A /* AtomaART.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomaART.m; sourceTree = "<group>"; };
+		6972095518D6DCFE003A9E0A /* Atom©alb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Atom©alb.h"; sourceTree = "<group>"; };
+		6972095618D6DCFE003A9E0A /* Atom©alb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Atom©alb.m"; sourceTree = "<group>"; };
+		6972095818D6DD13003A9E0A /* AtomTrkn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTrkn.h; sourceTree = "<group>"; };
+		6972095918D6DD13003A9E0A /* AtomTrkn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTrkn.m; sourceTree = "<group>"; };
+		6972095B18D6DD22003A9E0A /* AtomDisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDisk.h; sourceTree = "<group>"; };
+		6972095C18D6DD22003A9E0A /* AtomDisk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomDisk.m; sourceTree = "<group>"; };
+		6972095E18D6DD36003A9E0A /* AtomTvsh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTvsh.h; sourceTree = "<group>"; };
+		6972095F18D6DD36003A9E0A /* AtomTvsh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTvsh.m; sourceTree = "<group>"; };
+		6972096118D6DD46003A9E0A /* AtomTven.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTven.h; sourceTree = "<group>"; };
+		6972096218D6DD46003A9E0A /* AtomTven.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTven.m; sourceTree = "<group>"; };
+		6972096418D6DD57003A9E0A /* AtomTvsn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTvsn.h; sourceTree = "<group>"; };
+		6972096518D6DD57003A9E0A /* AtomTvsn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTvsn.m; sourceTree = "<group>"; };
+		6972096718D6DD6B003A9E0A /* AtomTves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTves.h; sourceTree = "<group>"; };
+		6972096818D6DD6B003A9E0A /* AtomTves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTves.m; sourceTree = "<group>"; };
+		6972096A18D6DD7E003A9E0A /* Atom©too.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Atom©too.h"; sourceTree = "<group>"; };
+		6972096B18D6DD7E003A9E0A /* Atom©too.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Atom©too.m"; sourceTree = "<group>"; };
+		6972096D18D6DD91003A9E0A /* AtomHdvd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomHdvd.h; sourceTree = "<group>"; };
+		6972096E18D6DD91003A9E0A /* AtomHdvd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomHdvd.m; sourceTree = "<group>"; };
+		6972097018D6DD9F003A9E0A /* AtomStik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomStik.h; sourceTree = "<group>"; };
+		6972097118D6DD9F003A9E0A /* AtomStik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStik.m; sourceTree = "<group>"; };
+		6972097318D6DDAF003A9E0A /* AtomRtng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomRtng.h; sourceTree = "<group>"; };
+		6972097418D6DDAF003A9E0A /* AtomRtng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomRtng.m; sourceTree = "<group>"; };
+		6972097618D6DDBF003A9E0A /* AtomPgap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomPgap.h; sourceTree = "<group>"; };
+		6972097718D6DDBF003A9E0A /* AtomPgap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomPgap.m; sourceTree = "<group>"; };
+		6972097918D6DDD1003A9E0A /* AtomCnID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCnID.h; sourceTree = "<group>"; };
+		6972097A18D6DDD1003A9E0A /* AtomCnID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCnID.m; sourceTree = "<group>"; };
+		6972097C18D6DDE5003A9E0A /* AtomAtID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomAtID.h; sourceTree = "<group>"; };
+		6972097D18D6DDE5003A9E0A /* AtomAtID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomAtID.m; sourceTree = "<group>"; };
+		6972097F18D6DDF6003A9E0A /* AtomCovr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCovr.h; sourceTree = "<group>"; };
+		6972098018D6DDF6003A9E0A /* AtomCovr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCovr.m; sourceTree = "<group>"; };
 		69A163B317D672F700131614 /* MyWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindowController.h; sourceTree = "<group>"; };
 		69A163B417D672F700131614 /* MyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindowController.m; sourceTree = "<group>"; };
 		69A163B817D67BA800131614 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -81,14 +225,36 @@
 		6923AE6A18D2F13B0087A0ED /* Atoms */ = {
 			isa = PBXGroup;
 			children = (
+				6972094318D6D3D3003A9E0A /* Atom----.h */,
+				6972094418D6D3D3003A9E0A /* Atom----.m */,
+				6972090718D6C1B5003A9E0A /* AtomTref.h */,
+				6972090818D6C1B5003A9E0A /* AtomTref.m */,
 				6941198F18D55EE800D71C3D /* AtomUnrecognized.h */,
 				6941199018D55EE800D71C3D /* AtomUnrecognized.m */,
+				697208F518D6B98B003A9E0A /* AtomMdia.h */,
+				697208F618D6B98B003A9E0A /* AtomMdia.m */,
+				697208F818D6BA18003A9E0A /* AtomTkhd.h */,
+				697208F918D6BA18003A9E0A /* AtomTkhd.m */,
+				697208FB18D6BC08003A9E0A /* AtomMinf.h */,
+				697208FC18D6BC08003A9E0A /* AtomMinf.m */,
+				697208FE18D6BC6F003A9E0A /* AtomDinf.h */,
+				697208FF18D6BC6F003A9E0A /* AtomDinf.m */,
+				6972090118D6BE00003A9E0A /* AtomStbl.h */,
+				6972090218D6BE00003A9E0A /* AtomStbl.m */,
+				6972090418D6BE9E003A9E0A /* AtomEdts.h */,
+				6972090518D6BE9E003A9E0A /* AtomEdts.m */,
 				6923AE7E18D327B90087A0ED /* AtomUdta.h */,
 				6923AE7F18D327B90087A0ED /* AtomUdta.m */,
 				6923AE7B18D3275E0087A0ED /* AtomTrak.h */,
 				6923AE7C18D3275E0087A0ED /* AtomTrak.m */,
 				6923AE7218D30C0F0087A0ED /* AtomMoov.h */,
 				6923AE7318D30C0F0087A0ED /* AtomMoov.m */,
+				697208F218D6B07E003A9E0A /* AtomParent.h */,
+				697208F318D6B07E003A9E0A /* AtomParent.m */,
+				6972093A18D6CBFC003A9E0A /* AtomDualState.h */,
+				6972093B18D6CBFC003A9E0A /* AtomDualState.m */,
+				6972093D18D6CF37003A9E0A /* AtomMeta.h */,
+				6972093E18D6CF37003A9E0A /* AtomMeta.m */,
 				6923AE7518D325DE0087A0ED /* AtomMvhd.h */,
 				6923AE7618D325DE0087A0ED /* AtomMvhd.m */,
 				6923AE6F18D30A9C0087A0ED /* AtomMdat.h */,
@@ -101,6 +267,80 @@
 				6923AE6818D2F1310087A0ED /* AtomFtyp.m */,
 				6923AE7818D326F40087A0ED /* AtomIods.h */,
 				6923AE7918D326F40087A0ED /* AtomIods.m */,
+				6972090A18D6C357003A9E0A /* AtomElst.h */,
+				6972090B18D6C357003A9E0A /* AtomElst.m */,
+				6972090D18D6C3A9003A9E0A /* AtomChap.h */,
+				6972090E18D6C3A9003A9E0A /* AtomChap.m */,
+				6972091018D6C3F3003A9E0A /* AtomMdhd.h */,
+				6972091118D6C3F3003A9E0A /* AtomMdhd.m */,
+				6972091318D6C46C003A9E0A /* AtomHdlr.h */,
+				6972091418D6C46C003A9E0A /* AtomHdlr.m */,
+				6972091618D6C48D003A9E0A /* AtomSmhd.h */,
+				6972091718D6C48D003A9E0A /* AtomSmhd.m */,
+				6972091918D6C4BC003A9E0A /* AtomStts.h */,
+				6972091A18D6C4BC003A9E0A /* AtomStts.m */,
+				6972091C18D6C4DC003A9E0A /* AtomStsc.h */,
+				6972091D18D6C4DC003A9E0A /* AtomStsc.m */,
+				6972091F18D6C505003A9E0A /* AtomStsz.h */,
+				6972092018D6C505003A9E0A /* AtomStsz.m */,
+				6972092218D6C572003A9E0A /* AtomCo64.h */,
+				6972092318D6C572003A9E0A /* AtomCo64.m */,
+				6972092518D6C5B2003A9E0A /* AtomVmhd.h */,
+				6972092618D6C5B2003A9E0A /* AtomVmhd.m */,
+				6972092818D6C5DF003A9E0A /* AtomGmhd.h */,
+				6972092918D6C5DF003A9E0A /* AtomGmhd.m */,
+				6972092B18D6C609003A9E0A /* AtomStco.h */,
+				6972092C18D6C609003A9E0A /* AtomStco.m */,
+				6972092E18D6C87F003A9E0A /* AtomCtts.h */,
+				6972092F18D6C87F003A9E0A /* AtomCtts.m */,
+				6972093118D6C8A4003A9E0A /* AtomStss.h */,
+				6972093218D6C8A4003A9E0A /* AtomStss.m */,
+				6972093418D6C8CD003A9E0A /* AtomSdtp.h */,
+				6972093518D6C8CD003A9E0A /* AtomSdtp.m */,
+				6972093718D6C8F8003A9E0A /* AtomName.h */,
+				6972093818D6C8F8003A9E0A /* AtomName.m */,
+				6972094018D6D379003A9E0A /* AtomIlst.h */,
+				6972094118D6D379003A9E0A /* AtomIlst.m */,
+				6972094618D6D44E003A9E0A /* AtomData.h */,
+				6972094718D6D44E003A9E0A /* AtomData.m */,
+				6972094918D6DBC6003A9E0A /* AtomMean.h */,
+				6972094A18D6DBC6003A9E0A /* AtomMean.m */,
+				6972094C18D6DC26003A9E0A /* Atom©nam.h */,
+				6972094D18D6DC26003A9E0A /* Atom©nam.m */,
+				6972094F18D6DCA7003A9E0A /* Atom©ART.h */,
+				6972095018D6DCA7003A9E0A /* Atom©ART.m */,
+				6972095218D6DCEA003A9E0A /* AtomaART.h */,
+				6972095318D6DCEA003A9E0A /* AtomaART.m */,
+				6972095518D6DCFE003A9E0A /* Atom©alb.h */,
+				6972095618D6DCFE003A9E0A /* Atom©alb.m */,
+				6972095818D6DD13003A9E0A /* AtomTrkn.h */,
+				6972095918D6DD13003A9E0A /* AtomTrkn.m */,
+				6972095B18D6DD22003A9E0A /* AtomDisk.h */,
+				6972095C18D6DD22003A9E0A /* AtomDisk.m */,
+				6972095E18D6DD36003A9E0A /* AtomTvsh.h */,
+				6972095F18D6DD36003A9E0A /* AtomTvsh.m */,
+				6972096118D6DD46003A9E0A /* AtomTven.h */,
+				6972096218D6DD46003A9E0A /* AtomTven.m */,
+				6972096418D6DD57003A9E0A /* AtomTvsn.h */,
+				6972096518D6DD57003A9E0A /* AtomTvsn.m */,
+				6972096718D6DD6B003A9E0A /* AtomTves.h */,
+				6972096818D6DD6B003A9E0A /* AtomTves.m */,
+				6972096A18D6DD7E003A9E0A /* Atom©too.h */,
+				6972096B18D6DD7E003A9E0A /* Atom©too.m */,
+				6972096D18D6DD91003A9E0A /* AtomHdvd.h */,
+				6972096E18D6DD91003A9E0A /* AtomHdvd.m */,
+				6972097018D6DD9F003A9E0A /* AtomStik.h */,
+				6972097118D6DD9F003A9E0A /* AtomStik.m */,
+				6972097318D6DDAF003A9E0A /* AtomRtng.h */,
+				6972097418D6DDAF003A9E0A /* AtomRtng.m */,
+				6972097618D6DDBF003A9E0A /* AtomPgap.h */,
+				6972097718D6DDBF003A9E0A /* AtomPgap.m */,
+				6972097918D6DDD1003A9E0A /* AtomCnID.h */,
+				6972097A18D6DDD1003A9E0A /* AtomCnID.m */,
+				6972097C18D6DDE5003A9E0A /* AtomAtID.h */,
+				6972097D18D6DDE5003A9E0A /* AtomAtID.m */,
+				6972097F18D6DDF6003A9E0A /* AtomCovr.h */,
+				6972098018D6DDF6003A9E0A /* AtomCovr.m */,
 			);
 			name = Atoms;
 			sourceTree = "<group>";
@@ -244,18 +484,66 @@
 			buildActionMask = 2147483647;
 			files = (
 				6923AE7718D325DE0087A0ED /* AtomMvhd.m in Sources */,
+				697208FA18D6BA18003A9E0A /* AtomTkhd.m in Sources */,
+				6972094218D6D379003A9E0A /* AtomIlst.m in Sources */,
+				6972092118D6C505003A9E0A /* AtomStsz.m in Sources */,
+				6972091B18D6C4BC003A9E0A /* AtomStts.m in Sources */,
+				6972091818D6C48D003A9E0A /* AtomSmhd.m in Sources */,
+				6972091518D6C46C003A9E0A /* AtomHdlr.m in Sources */,
+				6972090618D6BE9E003A9E0A /* AtomEdts.m in Sources */,
+				6972098118D6DDF6003A9E0A /* AtomCovr.m in Sources */,
+				6972095418D6DCEA003A9E0A /* AtomaART.m in Sources */,
+				6972093318D6C8A4003A9E0A /* AtomStss.m in Sources */,
+				6972097518D6DDAF003A9E0A /* AtomRtng.m in Sources */,
+				6972091218D6C3F3003A9E0A /* AtomMdhd.m in Sources */,
+				6972097E18D6DDE5003A9E0A /* AtomAtID.m in Sources */,
 				6923AE7118D30A9C0087A0ED /* AtomMdat.m in Sources */,
 				69454001176672A400851344 /* main.m in Sources */,
 				69454008176672A400851344 /* AppDelegate.m in Sources */,
 				6923AE6D18D2FC490087A0ED /* AtomFree.m in Sources */,
+				6972096318D6DD46003A9E0A /* AtomTven.m in Sources */,
+				6972091E18D6C4DC003A9E0A /* AtomStsc.m in Sources */,
 				6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */,
+				697208F418D6B07E003A9E0A /* AtomParent.m in Sources */,
+				6972090918D6C1B5003A9E0A /* AtomTref.m in Sources */,
+				6972092D18D6C609003A9E0A /* AtomStco.m in Sources */,
+				6972094E18D6DC26003A9E0A /* Atom©nam.m in Sources */,
+				697208F718D6B98B003A9E0A /* AtomMdia.m in Sources */,
+				6972094B18D6DBC6003A9E0A /* AtomMean.m in Sources */,
 				6923AE6618D2F11E0087A0ED /* Atom.m in Sources */,
+				6972097218D6DD9F003A9E0A /* AtomStik.m in Sources */,
+				6972093F18D6CF37003A9E0A /* AtomMeta.m in Sources */,
+				697208FD18D6BC08003A9E0A /* AtomMinf.m in Sources */,
 				6941199118D55EE800D71C3D /* AtomUnrecognized.m in Sources */,
+				6972096018D6DD36003A9E0A /* AtomTvsh.m in Sources */,
+				6972096618D6DD57003A9E0A /* AtomTvsn.m in Sources */,
+				6972090C18D6C357003A9E0A /* AtomElst.m in Sources */,
+				6972090318D6BE00003A9E0A /* AtomStbl.m in Sources */,
+				6972092A18D6C5DF003A9E0A /* AtomGmhd.m in Sources */,
+				6972096C18D6DD7E003A9E0A /* Atom©too.m in Sources */,
+				6972094518D6D3D3003A9E0A /* Atom----.m in Sources */,
+				6972092718D6C5B2003A9E0A /* AtomVmhd.m in Sources */,
+				6972092418D6C572003A9E0A /* AtomCo64.m in Sources */,
 				6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */,
 				6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */,
+				6972096918D6DD6B003A9E0A /* AtomTves.m in Sources */,
+				6972093018D6C87F003A9E0A /* AtomCtts.m in Sources */,
 				6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */,
+				6972096F18D6DD91003A9E0A /* AtomHdvd.m in Sources */,
+				6972095A18D6DD13003A9E0A /* AtomTrkn.m in Sources */,
+				6972090F18D6C3A9003A9E0A /* AtomChap.m in Sources */,
+				6972095118D6DCA7003A9E0A /* Atom©ART.m in Sources */,
+				6972093918D6C8F8003A9E0A /* AtomName.m in Sources */,
+				6972094818D6D44E003A9E0A /* AtomData.m in Sources */,
 				69A163B517D672F700131614 /* MyWindowController.m in Sources */,
+				6972095718D6DCFE003A9E0A /* Atom©alb.m in Sources */,
+				6972093C18D6CBFC003A9E0A /* AtomDualState.m in Sources */,
+				6972093618D6C8CD003A9E0A /* AtomSdtp.m in Sources */,
+				6972097B18D6DDD1003A9E0A /* AtomCnID.m in Sources */,
+				6972097818D6DDBF003A9E0A /* AtomPgap.m in Sources */,
+				6972095D18D6DD22003A9E0A /* AtomDisk.m in Sources */,
 				6923AE7418D30C0F0087A0ED /* AtomMoov.m in Sources */,
+				6972090018D6BC6F003A9E0A /* AtomDinf.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
