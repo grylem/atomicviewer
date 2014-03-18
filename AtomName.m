@@ -6,6 +6,15 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
+// Ok, so name is going to be a problem.
+// The name atom can occur as a child of
+// ----, udta, or schi.
+// When a child of udta or schi, name is a simple
+// atom. When a child of ----, it's versioned.
+
+// Need to override init to test my parent to see
+// how to interpret this atom.
+
 #import "AtomName.h"
 
 @implementation AtomName
@@ -18,6 +27,11 @@
 +(NSString *)atomType
 {
     return (@"name");
+}
+
+-(BOOL)isFullBox
+{
+    return YES;
 }
 
 @end

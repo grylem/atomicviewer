@@ -10,7 +10,7 @@
 
 @interface AtomUnrecognized : Atom
 
--initWithType: (NSString *)atomType length: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController;
+-initWithType: (NSString *)atomType length: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController;
 
 @end
 

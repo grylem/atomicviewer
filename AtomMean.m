@@ -20,4 +20,9 @@
     return (@"mean");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

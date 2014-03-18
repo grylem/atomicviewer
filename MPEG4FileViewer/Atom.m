@@ -42,14 +42,14 @@ static dispatch_once_t pred;
     return nil; // The abstact superclass does not have an atomType
 }
 
-+ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController
++ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController
 {
     Class atomClass = atomToClassDict[atomType];
     Atom *newAtom;
     if (atomClass) {
-        newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset usingChannel: channel onQueue: queue inTree: treeController];
+        newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset isExtended: isExtendedLength usingChannel: channel onQueue: queue inTree: treeController];
     } else {
-        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset usingChannel: channel onQueue:queue inTree: treeController];
+        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset isExtended: isExtendedLength usingChannel: channel onQueue:queue inTree: treeController];
     }
     return newAtom;
 }
@@ -58,57 +58,78 @@ static dispatch_once_t pred;
 {
     dispatch_io_read(channel,
                      offset,
-                     8,
+                     8, // Length of size & type
                      queue,
                      ^(bool done, dispatch_data_t data, int error) {
                          const void *buffer = NULL;
-                         off_t dataOffset = 0;
                          size_t length = 0;
-                         size_t wholeAtomLength;
+                         size_t actualSize;
                          Atom *atom;
                          char atomType[5];
                          NSIndexPath *indexPathToAdd;
                          NSString *atomTypeString;
+                         BOOL isExtendedLength = NO;
                          if (error == 0) {
                              // I don't care about the returned tmpData. Just need the buffer.
                              __unused dispatch_data_t tmpData = dispatch_data_create_map(data,
                                                                                          &buffer,
                                                                                          &length);
-                             dataOffset = offset + length;
                          }
                          // We've read 8 bytes: length & atom type
                          // byteswap the length & copy the atom type to a C string
-                         uint32_t atomLength = CFSwapInt32BigToHost (*(uint32_t *)buffer);
-                         wholeAtomLength = atomLength;
+                         uint32_t size = CFSwapInt32BigToHost (*(uint32_t *)buffer);
+                         actualSize = size;
                          
                          memcpy(&atomType, &buffer[4], 4); // turn the 4-byte atom type into a null-terminated C string.
                          atomType[4] = '\0';
                          
-                         if (atomLength == 1) {
+                         // If extended length, read next 8 bytes to get the real atom length
+                         if (size == 1) {
+                             isExtendedLength = YES;
                              // Read the extended length synchronously
                              dispatch_fd_t fd = dispatch_io_get_descriptor(channel);
-                             lseek(fd, dataOffset, SEEK_SET);
-                             uint64_t extendedAtomLength;
-                             read(fd, &extendedAtomLength, sizeof(extendedAtomLength));
-                             length += sizeof(extendedAtomLength);
-                             dataOffset += sizeof(extendedAtomLength);
-                             wholeAtomLength = CFSwapInt64BigToHost(extendedAtomLength);
+                             lseek(fd, offset + 8, SEEK_SET); // Seek right after size & type
+                             uint64_t largeSize;
+                             read(fd, &largeSize, sizeof(largeSize));
+                             actualSize = CFSwapInt64BigToHost(largeSize);
                          }
-                         // Note the use of "@(atomType)". This is an Objective-C 2.0 boxed C String
+                         
+                         // Use ISO Latin-1 encoding for the atom type string.
+                         // ISO Latin-1 decodes © symbol present in some atom type strings.
                          atomTypeString = [NSString stringWithCString:atomType encoding:NSISOLatin1StringEncoding];
-                         atom = [self createAtomOfType: atomTypeString withLength: wholeAtomLength-length fromOffset: dataOffset usingChannel: channel onQueue:queue inTree: treeController];
-//                         [atomArray addObject: atom];
+                         
+                         // Now that we have the length & type, go ahead and create the atom
+                         // The returned atom will be a concrete subclass of Atom
+                         atom = [self createAtomOfType: atomTypeString withLength: actualSize fromOffset: offset isExtended: isExtendedLength usingChannel: channel onQueue:queue inTree: treeController];
+                         
+                         // Set the indexPath where this atom will be located in the treeController
+                         // I'm not crazy about this approach, but there seems to be no way to find
+                         // a specific entry in the tree from the treeController if you don't
+                         // a priori have the indexPath
                          if (!indexPath) {
                              indexPathToAdd = [NSIndexPath indexPathWithIndex: index];
                          } else {
                              indexPathToAdd = [indexPath indexPathByAddingIndex:index];
                          }
                          [atom setIndexPath: indexPathToAdd];
+                         if ([atom isFullBox]) {
+                             uint64_t version;
+                             dispatch_fd_t fd = dispatch_io_get_descriptor(channel);
+                             off_t versionOffset;
+                             versionOffset = offset + 8; // Nominally right after size & type
+                             if (isExtendedLength) {
+                                 versionOffset += 8; // But if it's extendedLength, version is later
+                             }
+                             lseek(fd, versionOffset, SEEK_SET);
+                             read(fd, &version, sizeof(version));
+                             // break the four bytes into 3 byte flags and 1 byte version
+                             // set flags & version in atom
+                         }
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [treeController insertObject:atom  atArrangedObjectIndexPath:indexPathToAdd];
                          });
-                         if ((offset + wholeAtomLength) < end) {
-                             [self populateTree:treeController childOf: indexPath atIndex: index + 1 fromChannel:channel onQueue:queue atOffset:(offset + wholeAtomLength) upTo:end];
+                         if ((offset + actualSize) < end) { // offset + wholeAtomLength is next atom
+                             [self populateTree:treeController childOf: indexPath atIndex: index + 1 fromChannel:channel onQueue:queue atOffset:(offset + actualSize) upTo:end];
                          }
                      });
 }
@@ -123,13 +144,21 @@ static dispatch_once_t pred;
     
 }
 
+-(BOOL) isFullBox
+// YES if this atom type contains version & flags
+{
+    return NO;
+}
+
 -(NSString *)nodeTitle
 {
     // Most subclasses have a 4-character atom type string that is used to as the key to the atomToClassDict.
     // That 4-character atom type is also usually what we want displayed in the outline.
     // Some subclasses will override this, such as the "unrecognized" atom class that we just skip over, and
     // the uuid type atoms that will supply the formatted uuid string.
-    return [[self class] atomType];
+    
+    return ([NSString stringWithFormat:@"Atom %@ @ %lld of size: %zu, ends @ %lld", [[self class] atomType], self.origin, self.dataLength, self.origin + self.dataLength]);
+//    return [[self class] atomType];
 }
 
 -(NSString *)description
@@ -137,15 +166,16 @@ static dispatch_once_t pred;
     return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self nodeTitle], [self dataLength]];
 }
 
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue inTree:(NSTreeController *)treeController;
+-(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue inTree:(NSTreeController *)treeController;
 {
     self = [super init];
     if (self) {
         self.dataLength = atomLength;
-        self.fileOffset = offset;
+        self.origin = offset;
         self.io_channel = channel;
         self.queue = queue;
         self.treeController = treeController;
+        self.extendedLength = isExtendedLength;
     }
     return self;
 }

@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="myOutlineView" destination="537" id="613"/>
                 <outlet property="treeController" destination="606" id="612"/>
+                <outlet property="window" destination="371" id="plC-Gb-TlN"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>

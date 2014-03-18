@@ -31,7 +31,14 @@
     
     dispatch_once(&childrenPred, ^{
         children = [NSMutableArray new];
-        [Atom populateTree: self.treeController childOf: [self indexPath] atIndex: 0 fromChannel: self.io_channel onQueue: self.queue atOffset: self.fileOffset upTo: self.fileOffset + self.dataLength];
+        off_t childrenOffset = 8; // Right after size & type
+        if (self.extendedLength) {
+            childrenOffset += 8; // Bump it past the extended length field
+        }
+        if (self.isFullBox) {
+            childrenOffset += 4; // Bump it past the flags & version field
+        }
+        [Atom populateTree: self.treeController childOf: [self indexPath] atIndex: 0 fromChannel: self.io_channel onQueue: self.queue atOffset: self.origin + childrenOffset upTo: self.origin + self.dataLength];
     });
     return children;
 }

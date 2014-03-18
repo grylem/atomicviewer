@@ -25,9 +25,10 @@
     return NO;
 }
 
--(NSUInteger) jump
+-(BOOL) isFullBox
+// YES if this atom type contains version & flags
 {
-    return 4; // The meta atom has a fixed data size before the children atoms
+    return YES;
 }
 
 @end

@@ -25,8 +25,8 @@
 
 -(BOOL) isLeaf
 {
-    // We expect a concrete subclass to set the jump value. If that hasn't happened, then treat this like a child (leaf) atom.
-    return jump == 0;
+    // We expect a concrete subclass to have a non-zero jump value. If that hasn't happened, then treat this like a child (leaf) atom.
+    return [self jump] == 0;
 }
 
 -(NSMutableArray *) children
@@ -38,8 +38,16 @@
     // "return children" most likely returns an empty array
     
     dispatch_once(&childrenPred, ^{
+        off_t childrenOffset = 8; // Just past size & type;
+        if (self.extendedLength) {
+            childrenOffset += 8; // Bump past extend length field
+        }
+        if (self.isFullBox) {
+            childrenOffset += 4; // Bump past flags & version field
+        }
+        childrenOffset += self.jump; // skip over data
         children = [NSMutableArray new];
-        [Atom populateTree: self.treeController childOf: [self indexPath] atIndex: 0 fromChannel: self.io_channel onQueue: self.queue atOffset: self.fileOffset + self.jump upTo: self.fileOffset + self.dataLength];
+        [Atom populateTree: self.treeController childOf: [self indexPath] atIndex: 0 fromChannel: self.io_channel onQueue: self.queue atOffset: self.origin + childrenOffset upTo: self.origin + self.dataLength];
     });
     return children;
 }

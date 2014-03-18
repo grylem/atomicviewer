@@ -20,4 +20,9 @@
     return (@"data");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end
