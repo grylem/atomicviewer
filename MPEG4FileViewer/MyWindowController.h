@@ -10,5 +10,7 @@
 
 @interface MyWindowController : NSWindowController
 
+@property NSString *movieFilePath;
+
 
 @end

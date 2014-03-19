@@ -10,7 +10,7 @@
 #import "MyWindowController.h"
 
 @interface AppDelegate ()
-@property MyWindowController *myWindowController;
+//@property MyWindowController *myWindowController;
 @end
 
 @implementation AppDelegate
@@ -21,10 +21,10 @@
 //	NSApplication delegate method placed here so the sample conveniently quits
 //	after we close the window.
 // -------------------------------------------------------------------------------
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender
-{
-	return YES;
-}
+//- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender
+//{
+//	return YES;
+//}
 
 // -------------------------------------------------------------------------------
 //	applicationDidFinishLaunching:notification
@@ -33,8 +33,23 @@
 {
     
 	// load the app's main window for display
-	_myWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
-	[self.myWindowController showWindow:self];
+//	_myWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
+//	[self.myWindowController showWindow:self];
+    [self openDocument:self];
 }
 
+- (void)openDocument:(id)sender
+{
+    MyWindowController *newWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    [newWindowController showWindow:self];
+    
+}
+
+-(BOOL)application:(NSApplication *)sender openFile:(NSString *)filename
+{
+    MyWindowController *newWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    newWindowController.movieFilePath = filename;
+    [newWindowController showWindow:self];
+    return YES;
+}
 @end

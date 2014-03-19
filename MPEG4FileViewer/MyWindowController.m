@@ -13,7 +13,7 @@
 @interface MyWindowController ()
 {
 	IBOutlet NSOutlineView		*myOutlineView;
-//	IBOutlet NSTreeController	*treeController;
+	IBOutlet NSTreeController	*_treeController;
 	IBOutlet NSView				*placeHolderView;
 	IBOutlet NSSplitView		*splitView;
     dispatch_queue_t            dispatchQueue;
@@ -27,14 +27,13 @@
 
 @property dispatch_io_t channel;
 @property NSMutableArray *contents;
-@property IBOutlet NSTreeController *treeController;
-@property NSString *movieFilePath;
+//@property IBOutlet NSTreeController *treeController;
 
 @end
 
 @implementation MyWindowController
 
-- (NSString *) getMovieFilePath
+- (NSString *) getMovieFilePathOnWindow:(NSWindow *)window
 {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     [panel setCanChooseDirectories:NO];
@@ -42,10 +41,15 @@
     [panel setAllowsMultipleSelection:NO];
     [panel setAllowedFileTypes:@[(NSString *)kUTTypeMPEG4]];
     
-    NSInteger clicked = [panel runModal];
-    if (clicked != NSFileHandlingPanelOKButton) {
-        [NSApp terminate:self];
-    }
+    [panel beginSheetModalForWindow:window completionHandler:^(NSInteger result) {
+        NSLog(@"result was %ld", (NSInteger)result);
+        self.movieFilePath = [[panel URL] path];
+    }];
+    
+//    NSInteger clicked = [panel runModal];
+//    if (clicked != NSFileHandlingPanelOKButton) {
+//        [NSApp terminate:self];
+//    }
     
     NSURL *movieFile = [panel URL];
     
@@ -103,10 +107,29 @@
 
 -(void)windowDidLoad
 {
-    self.movieFilePath = [self getMovieFilePath];
-    [[self window] setTitleWithRepresentedFilename:self.movieFilePath];
     dispatchQueue = dispatch_queue_create("com.atomicviewer.fileprocessing", NULL);
-    [self populateTree: self.treeController fromFileAtPath: self.movieFilePath onQueue: dispatchQueue];
+    
+    if (!self.movieFilePath) {
+        
+        NSOpenPanel *panel = [NSOpenPanel openPanel];
+        [panel setCanChooseDirectories:NO];
+        [panel setCanChooseFiles:YES];
+        [panel setAllowsMultipleSelection:NO];
+        [panel setAllowedFileTypes:@[(NSString *)kUTTypeMPEG4]];
+        
+        
+        [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+            NSLog(@"result was %ld", (NSInteger)result);
+            if (result == NSFileHandlingPanelOKButton) {
+                self.movieFilePath = [[panel URL] path];
+                [[self window] setTitleWithRepresentedFilename:self.movieFilePath];
+                [self populateTree: _treeController fromFileAtPath: self.movieFilePath onQueue: dispatchQueue];
+            }
+        }];
+    } else {
+        [[self window] setTitleWithRepresentedFilename:self.movieFilePath];
+        [self populateTree: _treeController fromFileAtPath: self.movieFilePath onQueue: dispatchQueue];
+    }
 }
 
 

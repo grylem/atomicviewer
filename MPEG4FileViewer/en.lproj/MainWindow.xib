@@ -7,8 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MyWindowController">
             <connections>
+                <outlet property="_treeController" destination="606" id="bec-0x-bEN"/>
                 <outlet property="myOutlineView" destination="537" id="613"/>
-                <outlet property="treeController" destination="606" id="612"/>
                 <outlet property="window" destination="371" id="plC-Gb-TlN"/>
             </connections>
         </customObject>

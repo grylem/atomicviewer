@@ -360,7 +360,7 @@
 				696BB64618D810B0001EDCC2 /* vmhd -  */,
 				696BB64718D810BA001EDCC2 /* gmhd -  */,
 				696BB64818D810CA001EDCC2 /* stco -  */,
-				696BB64918D810DA001EDCC2 /* ctts -  */,
+				696BB64918D810DA001EDCC2 /* ctts - Composition Time To Sample */,
 				696BB64A18D810E5001EDCC2 /* stss -  */,
 				696BB64B18D810F2001EDCC2 /* sdtp -  */,
 				696BB64C18D81100001EDCC2 /* ilst -  */,
@@ -1149,13 +1149,13 @@
 			name = "stco - ";
 			sourceTree = "<group>";
 		};
-		696BB64918D810DA001EDCC2 /* ctts -  */ = {
+		696BB64918D810DA001EDCC2 /* ctts - Composition Time To Sample */ = {
 			isa = PBXGroup;
 			children = (
 				6972092E18D6C87F003A9E0A /* AtomCtts.h */,
 				6972092F18D6C87F003A9E0A /* AtomCtts.m */,
 			);
-			name = "ctts - ";
+			name = "ctts - Composition Time To Sample";
 			sourceTree = "<group>";
 		};
 		696BB64A18D810E5001EDCC2 /* stss -  */ = {
