@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="_treeController" destination="606" id="bec-0x-bEN"/>
                 <outlet property="myOutlineView" destination="537" id="613"/>
+                <outlet property="placeHolderView" destination="gyv-oj-p7l" id="7eh-qz-ZqG"/>
                 <outlet property="window" destination="371" id="plC-Gb-TlN"/>
             </connections>
         </customObject>

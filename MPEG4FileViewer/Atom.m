@@ -92,6 +92,10 @@ static dispatch_once_t pred;
                              uint64_t largeSize;
                              read(fd, &largeSize, sizeof(largeSize));
                              actualSize = CFSwapInt64BigToHost(largeSize);
+                         } else if (size == 0) {
+                             // This had better only occur at the top level (i.e., 'end' is end-of-file)
+                             // Check assertion that indexPath is nil
+                             actualSize = end - offset;
                          }
                          
                          // Use ISO Latin-1 encoding for the atom type string.
@@ -128,7 +132,11 @@ static dispatch_once_t pred;
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [treeController insertObject:atom  atArrangedObjectIndexPath:indexPathToAdd];
                          });
-                         if ((offset + actualSize) < end) { // offset + wholeAtomLength is next atom
+//                         if ((offset + actualSize) < end) { // offset + wholeAtomLength is next atom
+                         // offset + actualSize is beginning of next atom
+                         // But there may be garbage at end of file.
+                         // Check that we can actually read an atom header by adding 8 to offset + actualSize
+                         if (end >= (offset + actualSize + 8)) { // offset + wholeAtomLength is next atom.
                              [self populateTree:treeController childOf: indexPath atIndex: index + 1 fromChannel:channel onQueue:queue atOffset:(offset + actualSize) upTo:end];
                          }
                      });
