@@ -20,4 +20,9 @@
     return (@"udta");
 }
 
++(NSString *)atomName
+{
+    return (@"User Data");
+}
+
 @end

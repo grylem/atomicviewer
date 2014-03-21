@@ -20,6 +20,11 @@
     return (@"stsd");
 }
 
++(NSString *)atomName
+{
+    return (@"Sample Description");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

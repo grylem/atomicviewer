@@ -20,6 +20,11 @@
     return (@"dref");
 }
 
++(NSString *)atomName
+{
+    return (@"Data Reference");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

@@ -20,6 +20,11 @@
     return (@"url ");
 }
 
++(NSString *)atomName
+{
+    return (@"Data Entry URL");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

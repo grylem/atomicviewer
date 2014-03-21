@@ -20,4 +20,9 @@
     return (@"iods");
 }
 
++(NSString *)atomName
+{
+    return (@"Object Descriptor");
+}
+
 @end

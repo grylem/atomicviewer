@@ -42,6 +42,16 @@ static dispatch_once_t pred;
     return nil; // The abstact superclass does not have an atomType
 }
 
++(NSString *)atomName
+{
+    return nil; // The abstract superclass does not have an atomName
+}
+
+- (NSString *)atomName
+{
+    return [[self class] atomName] ? [[self class] atomName] : @"This type of atom is unknown.";
+}
+
 + (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController
 {
     Class atomClass = atomToClassDict[atomType];
@@ -171,7 +181,7 @@ static dispatch_once_t pred;
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self nodeTitle], [self dataLength]];
+    return [NSString stringWithFormat: @"Atom type %@ of size %zu", [[self class] atomType], [self dataLength]];
 }
 
 -(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue inTree:(NSTreeController *)treeController;
@@ -186,6 +196,32 @@ static dispatch_once_t pred;
         self.extendedLength = isExtendedLength;
     }
     return self;
+}
+
+-(NSAttributedString *)explanation
+{
+    NSFont* headerFont = [NSFont fontWithName:@"AvenirNext-Bold" size:24.0];
+    NSFont* bodyFont = [NSFont fontWithName:@"AvenirNext-Medium" size:12.0];
+
+    NSString *headerString = [NSString stringWithFormat:@"Atom %@\n", [[self class] atomType]];
+    NSRange headerRange = NSMakeRange(0, [headerString length]);
+
+    NSString *bodyString = [self atomName];
+    NSRange bodyRange = NSMakeRange([headerString length], [bodyString length]);
+
+    NSString *completeString = [headerString stringByAppendingString:bodyString];
+    NSRange completeRange = NSMakeRange(0, [completeString length]);
+
+    NSMutableAttributedString *explanatoryString = [[NSMutableAttributedString alloc] initWithString: completeString];
+
+    NSMutableParagraphStyle* myStringParaStyle1 = [NSMutableParagraphStyle new];
+    myStringParaStyle1.alignment = NSCenterTextAlignment;
+    [explanatoryString addAttribute:NSParagraphStyleAttributeName value:myStringParaStyle1 range:completeRange];
+    [explanatoryString addAttribute:NSFontAttributeName value:headerFont range:headerRange];
+    [explanatoryString addAttribute:NSUnderlineStyleAttributeName value:@1 range:headerRange];
+    [explanatoryString addAttribute:NSFontAttributeName value:bodyFont range:bodyRange];
+
+    return explanatoryString;
 }
 
 @end

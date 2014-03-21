@@ -20,4 +20,9 @@
     return (@"mvhd");
 }
 
++(NSString *)atomName
+{
+    return (@"Movie Header");
+}
+
 @end

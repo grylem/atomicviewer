@@ -20,4 +20,9 @@
     return (@"vmhd");
 }
 
++(NSString *)atomName
+{
+    return (@"Video Media Header");
+}
+
 @end

@@ -20,4 +20,9 @@
     return (@"mdhd");
 }
 
++(NSString *)atomName
+{
+    return (@"Media Header");
+}
+
 @end

@@ -20,4 +20,9 @@
     return (@"minf");
 }
 
++(NSString *)atomName
+{
+    return (@"Media Information");
+}
+
 @end

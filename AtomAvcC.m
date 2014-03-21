@@ -20,4 +20,9 @@
     return (@"avcC");
 }
 
++(NSString *)atomName
+{
+    return (@"AVC Configuration");
+}
+
 @end

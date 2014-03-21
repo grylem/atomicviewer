@@ -20,6 +20,11 @@
     return (@"mp4a");
 }
 
++(NSString *)atomName
+{
+    return (@"MP4 Audio Sample Entry");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

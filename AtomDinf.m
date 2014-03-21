@@ -20,4 +20,9 @@
     return (@"dinf");
 }
 
++(NSString *)atomName
+{
+    return (@"Data Information");
+}
+
 @end

@@ -20,4 +20,9 @@
     return (@"mdat");
 }
 
++(NSString *)atomName
+{
+    return (@"Media Data");
+}
+
 @end

@@ -20,4 +20,9 @@
     return (@"sinf");
 }
 
++(NSString *)atomName
+{
+    return (@"Protection Scheme Information");
+}
+
 @end

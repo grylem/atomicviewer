@@ -20,4 +20,9 @@
     return (@"sdtp");
 }
 
++(NSString *)atomName
+{
+    return (@"Independent and Disposable Samples");
+}
+
 @end

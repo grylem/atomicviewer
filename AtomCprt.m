@@ -20,4 +20,9 @@
     return (@"cprt");
 }
 
++(NSString *)atomName
+{
+    return (@"Copyright");
+}
+
 @end

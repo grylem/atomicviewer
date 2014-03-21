@@ -20,4 +20,9 @@
     return (@"edts");
 }
 
++(NSString *)atomName
+{
+    return (@"Edit");
+}
+
 @end

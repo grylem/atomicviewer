@@ -20,4 +20,9 @@
     return (@"ftyp");
 }
 
++(NSString *)atomName
+{
+    return (@"File Type");
+}
+
 @end

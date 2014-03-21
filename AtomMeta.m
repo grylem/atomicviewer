@@ -20,6 +20,11 @@
     return (@"meta");
 }
 
++(NSString *)atomName
+{
+    return (@"Metadata");
+}
+
 -(BOOL) isLeaf
 {
     return NO;

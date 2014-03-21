@@ -20,4 +20,9 @@
     return (@"tkhd");
 }
 
++(NSString *)atomName
+{
+    return (@"Track Header");
+}
+
 @end

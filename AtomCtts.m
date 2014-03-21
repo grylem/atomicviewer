@@ -20,4 +20,9 @@
     return (@"ctts");
 }
 
++(NSString *)atomName
+{
+    return (@"Composition Time to Sample");
+}
+
 @end

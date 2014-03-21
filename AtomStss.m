@@ -20,4 +20,9 @@
     return (@"stss");
 }
 
++(NSString *)atomName
+{
+    return (@"Sync Sample");
+}
+
 @end

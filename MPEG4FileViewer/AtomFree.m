@@ -20,4 +20,9 @@
     return (@"free");
 }
 
++(NSString *)atomName
+{
+    return (@"Free Space");
+}
+
 @end

@@ -21,8 +21,10 @@
     BOOL                        buildingOutlineView; // signifies building the outline view at launch time
 }
 
-@property dispatch_io_t channel;
-@property NSMutableArray *contents;
+@property dispatch_io_t         channel;
+@property NSMutableArray*       contents;
+@property NSAttributedString*   textViewAttributedString;
+
 
 @end
 
@@ -120,7 +122,7 @@
 {
     NSTreeNode *treeNode = [myOutlineView itemAtRow:[myOutlineView selectedRow]];
     if (treeNode) {
-        [placeHolderView setString:[[treeNode representedObject] nodeTitle]];
+        self.textViewAttributedString = [[treeNode representedObject] explanation];
     } else {
         [placeHolderView setString:@""];
     }

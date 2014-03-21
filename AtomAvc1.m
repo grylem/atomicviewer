@@ -20,6 +20,11 @@
     return (@"avc1");
 }
 
++(NSString *)atomName
+{
+    return (@"AVC Sample Entry");
+}
+
 -(NSUInteger) jump
 {
     return 78;

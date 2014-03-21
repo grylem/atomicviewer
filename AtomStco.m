@@ -20,4 +20,9 @@
     return (@"stco");
 }
 
++(NSString *)atomName
+{
+    return (@"Chunk Offset");
+}
+
 @end

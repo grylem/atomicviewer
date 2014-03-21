@@ -20,4 +20,9 @@
     return (@"hdlr");
 }
 
++(NSString *)atomName
+{
+    return (@"Handler Reference");
+}
+
 @end

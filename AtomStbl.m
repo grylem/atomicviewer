@@ -20,4 +20,9 @@
     return (@"stbl");
 }
 
++(NSString *)atomName
+{
+    return (@"Sample Table");
+}
+
 @end

@@ -20,4 +20,9 @@
     return (@"tref");
 }
 
++(NSString *)atomName
+{
+    return (@"Track Reference");
+}
+
 @end

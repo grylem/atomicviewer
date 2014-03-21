@@ -20,4 +20,9 @@
     return (@"stts");
 }
 
++(NSString *)atomName
+{
+    return (@"Decoding Time to Sample");
+}
+
 @end
