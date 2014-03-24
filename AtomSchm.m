@@ -20,6 +20,11 @@
     return (@"schm");
 }
 
++(NSString *)atomName
+{
+    return (@"Scheme Type");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

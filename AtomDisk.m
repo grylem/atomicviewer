@@ -20,4 +20,9 @@
     return (@"disk");
 }
 
++(NSString *)atomName
+{
+    return (@"Disk Number");
+}
+
 @end

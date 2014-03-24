@@ -20,4 +20,9 @@
     return (@"sdes");
 }
 
++(NSString *)atomName
+{
+    return (@"Series Description");
+}
+
 @end

@@ -20,4 +20,9 @@
     return (@"ldes");
 }
 
++(NSString *)atomName
+{
+    return (@"Long Description");
+}
+
 @end

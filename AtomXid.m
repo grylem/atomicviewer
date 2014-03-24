@@ -20,4 +20,9 @@
     return (@"xid ");
 }
 
++(NSString *)atomName
+{
+    return (@"Vendor ID");
+}
+
 @end

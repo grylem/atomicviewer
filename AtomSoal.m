@@ -20,4 +20,9 @@
     return (@"soal");
 }
 
++(NSString *)atomName
+{
+    return (@"Sort Order Album");
+}
+
 @end

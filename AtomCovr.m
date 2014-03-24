@@ -20,4 +20,9 @@
     return (@"covr");
 }
 
++(NSString *)atomName
+{
+    return (@"Cover Art");
+}
+
 @end

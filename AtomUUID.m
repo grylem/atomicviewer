@@ -20,4 +20,9 @@
     return (@"UUID");
 }
 
++(NSString *)atomName
+{
+    return (@"UUID");
+}
+
 @end

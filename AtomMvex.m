@@ -17,12 +17,12 @@
 
 +(NSString *)atomType
 {
-    return (@"cprt");
+    return (@"mvex");
 }
 
 +(NSString *)atomName
 {
-    return (@"Copyright");
+    return (@"Movie Extends");
 }
 
 @end

@@ -20,4 +20,9 @@
     return (@"tvsn");
 }
 
++(NSString *)atomName
+{
+    return (@"TV Season Number");
+}
+
 @end

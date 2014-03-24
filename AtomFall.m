@@ -24,4 +24,9 @@
     return (@"fall");
 }
 
++(NSString *)atomName
+{
+    return (@"Alternate Audio Track Reference");
+}
+
 @end

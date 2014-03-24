@@ -20,4 +20,9 @@
     return (@"frma");
 }
 
++(NSString *)atomName
+{
+    return (@"Original Format");
+}
+
 @end

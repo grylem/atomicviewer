@@ -20,4 +20,9 @@
     return (@"geID");
 }
 
++(NSString *)atomName
+{
+    return (@"Genre ID");
+}
+
 @end

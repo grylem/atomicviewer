@@ -20,4 +20,9 @@
     return (@"trkn");
 }
 
++(NSString *)atomName
+{
+    return (@"Track Number");
+}
+
 @end

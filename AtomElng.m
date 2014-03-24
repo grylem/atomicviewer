@@ -20,6 +20,11 @@
     return (@"elng");
 }
 
++(NSString *)atomName
+{
+    return (@"Extended Language Tag");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

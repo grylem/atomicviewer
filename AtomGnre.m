@@ -1,14 +1,14 @@
 //
-//  AtomPlID.m
+//  AtomGnre.m
 //  MPEG4FileViewer
 //
-//  Created by Jay O'Conor on 3/17/14.
+//  Created by Jay O'Conor on 3/24/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomPlID.h"
+#import "AtomGnre.h"
 
-@implementation AtomPlID
+@implementation AtomGnre
 
 +(void)load
 {
@@ -17,12 +17,12 @@
 
 +(NSString *)atomType
 {
-    return (@"plID");
+    return (@"gnre");
 }
 
 +(NSString *)atomName
 {
-    return (@"Playlist ID");
+    return (@"Genre");
 }
 
 @end

@@ -181,7 +181,7 @@ static dispatch_once_t pred;
 //  a string explaining that we don't know about this atom
 - (NSString *)atomName
 {
-    return [[self class] atomName] ? [[self class] atomName] : @"This type of atom is unknown.";
+    return [[self class] atomName] ? [[self class] atomName] : @"The meaning of this atom is unknown.";
 }
 
 -(BOOL) isLeaf

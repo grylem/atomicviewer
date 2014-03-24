@@ -20,4 +20,9 @@
     return (@"cnID");
 }
 
++(NSString *)atomName
+{
+    return (@"Apple Store Catalog ID");
+}
+
 @end

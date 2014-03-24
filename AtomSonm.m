@@ -1,14 +1,14 @@
 //
-//  AtomFlvr.m
+//  AtomSonm.m
 //  MPEG4FileViewer
 //
-//  Created by Jay O'Conor on 3/17/14.
+//  Created by Jay O'Conor on 3/24/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomFlvr.h"
+#import "AtomSonm.h"
 
-@implementation AtomFlvr
+@implementation AtomSonm
 
 +(void)load
 {
@@ -17,12 +17,7 @@
 
 +(NSString *)atomType
 {
-    return (@"flvr");
-}
-
-+(NSString *)atomName
-{
-    return (@"Flavor");
+    return (@"sonm");
 }
 
 @end

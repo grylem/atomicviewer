@@ -157,5 +157,61 @@
                 <binding destination="-2" name="contentArray" keyPath="contents" id="611"/>
             </connections>
         </treeController>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="q1Z-nK-zp1" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="132" width="276" height="378"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="6kv-Lk-cLc">
+                <rect key="frame" x="0.0" y="0.0" width="276" height="378"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVP-Cq-KoO">
+                        <rect key="frame" x="0.0" y="0.0" width="277" height="379"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" id="Ehf-cR-8Oc">
+                            <rect key="frame" x="1" y="1" width="275" height="377"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view translatesAutoresizingMaskIntoConstraints="NO" id="D8H-do-xXj">
+                                    <rect key="frame" x="0.0" y="0.0" width="275" height="377"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17J-IR-RZo" customClass="NSTextView">
+                                            <rect key="frame" x="0.0" y="186" width="275" height="191"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </customView>
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xX-3w-C9Q" customClass="NSImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="275" height="178"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </customView>
+                                    </subviews>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="D8H-do-xXj" firstAttribute="top" secondItem="Ehf-cR-8Oc" secondAttribute="top" id="BcF-od-Kj6"/>
+                                <constraint firstAttribute="trailing" secondItem="D8H-do-xXj" secondAttribute="trailing" id="Dc5-FV-GOb"/>
+                                <constraint firstAttribute="bottom" secondItem="D8H-do-xXj" secondAttribute="bottom" id="w7X-Yz-Xls"/>
+                                <constraint firstItem="D8H-do-xXj" firstAttribute="leading" secondItem="Ehf-cR-8Oc" secondAttribute="leading" id="z9l-oV-fhj"/>
+                            </constraints>
+                        </clipView>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="DNB-3p-0Fc">
+                            <rect key="frame" x="1" y="362" width="275" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="a66-4W-wma">
+                            <rect key="frame" x="260" y="1" width="16" height="377"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FVP-Cq-KoO" firstAttribute="top" secondItem="6kv-Lk-cLc" secondAttribute="top" constant="-1" id="EMb-gJ-DTF"/>
+                    <constraint firstItem="FVP-Cq-KoO" firstAttribute="centerX" secondItem="6kv-Lk-cLc" secondAttribute="centerX" id="Pq3-F8-5rk"/>
+                    <constraint firstItem="FVP-Cq-KoO" firstAttribute="centerY" secondItem="6kv-Lk-cLc" secondAttribute="centerY" id="XZL-mL-8UK"/>
+                    <constraint firstAttribute="trailing" secondItem="FVP-Cq-KoO" secondAttribute="trailing" constant="-1" id="kKL-9F-p9z"/>
+                </constraints>
+            </view>
+        </window>
     </objects>
 </document>

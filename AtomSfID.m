@@ -20,4 +20,9 @@
     return (@"sfID");
 }
 
++(NSString *)atomName
+{
+    return (@"Storefront ID");
+}
+
 @end

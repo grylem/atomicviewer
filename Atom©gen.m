@@ -20,4 +20,9 @@
     return (@"©gen");
 }
 
++(NSString *)atomName
+{
+    return (@"Genre");
+}
+
 @end

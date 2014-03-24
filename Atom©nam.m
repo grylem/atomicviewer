@@ -20,4 +20,9 @@
     return (@"©nam");
 }
 
++(NSString *)atomName
+{
+    return (@"Title of the Content");
+}
+
 @end

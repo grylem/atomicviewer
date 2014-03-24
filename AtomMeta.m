@@ -25,13 +25,7 @@
     return (@"Metadata");
 }
 
--(BOOL) isLeaf
-{
-    return NO;
-}
-
 -(BOOL) isFullBox
-// YES if this atom type contains version & flags
 {
     return YES;
 }

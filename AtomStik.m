@@ -20,4 +20,9 @@
     return (@"stik");
 }
 
++(NSString *)atomName
+{
+    return (@"Content Type");
+}
+
 @end

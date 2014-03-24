@@ -20,4 +20,9 @@
     return (@"pgap");
 }
 
++(NSString *)atomName
+{
+    return (@"Play Gapless");
+}
+
 @end

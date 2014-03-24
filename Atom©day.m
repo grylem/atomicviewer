@@ -20,4 +20,9 @@
     return (@"©day");
 }
 
++(NSString *)atomName
+{
+    return (@"Recorded Date");
+}
+
 @end
