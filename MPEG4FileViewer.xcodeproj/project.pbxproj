@@ -16,6 +16,20 @@
 		6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7918D326F40087A0ED /* AtomIods.m */; };
 		6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7C18D3275E0087A0ED /* AtomTrak.m */; };
 		6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7F18D327B90087A0ED /* AtomUdta.m */; };
+		69390E4A18DFA8C300DEA5B3 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
+		69390E4D18DFAD7800DEA5B3 /* HexFiend.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
+		69390E5018DFD90F00DEA5B3 /* AtomPinf.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */; };
+		69390E5318DFE63300DEA5B3 /* AtomLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5218DFE63300DEA5B3 /* AtomLoad.m */; };
+		69390E5618DFE98500DEA5B3 /* AtomTx3g.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5518DFE98500DEA5B3 /* AtomTx3g.m */; };
+		69390E5918DFEAB500DEA5B3 /* AtomFtab.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5818DFEAB500DEA5B3 /* AtomFtab.m */; };
+		69390E5C18DFF1B700DEA5B3 /* AtomSkcr.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5B18DFF1B700DEA5B3 /* AtomSkcr.m */; };
+		69390E5F18DFF29000DEA5B3 /* AtomPriv.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5E18DFF29000DEA5B3 /* AtomPriv.m */; };
+		69390E6218DFF43100DEA5B3 /* AtomC608.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E6118DFF43100DEA5B3 /* AtomC608.m */; };
+		69390E6518DFF5B900DEA5B3 /* AtomUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E6418DFF5B900DEA5B3 /* AtomUser.m */; };
+		69390E6818DFF5E100DEA5B3 /* AtomRigh.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E6718DFF5E100DEA5B3 /* AtomRigh.m */; };
+		69390E6B18DFF5FB00DEA5B3 /* AtomKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E6A18DFF5FB00DEA5B3 /* AtomKey.m */; };
+		69390E6E18DFF60C00DEA5B3 /* AtomIviv.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E6D18DFF60C00DEA5B3 /* AtomIviv.m */; };
+		69390E7118DFFBC000DEA5B3 /* AtomUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E7018DFFBC000DEA5B3 /* AtomUUID.m */; };
 		6941199118D55EE800D71C3D /* AtomUnrecognized.m in Sources */ = {isa = PBXBuildFile; fileRef = 6941199018D55EE800D71C3D /* AtomUnrecognized.m */; };
 		69453FF5176672A400851344 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69453FF4176672A400851344 /* Cocoa.framework */; };
 		69453FFF176672A400851344 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69453FFD176672A400851344 /* InfoPlist.strings */; };
@@ -128,6 +142,19 @@
 		69E2CA4C18DBE8FD00EC4D8C /* AtomMfro.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA4B18DBE8FD00EC4D8C /* AtomMfro.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		69390E4C18DFAD6000DEA5B3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69390E4D18DFAD7800DEA5B3 /* HexFiend.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6923AE6418D2F11E0087A0ED /* Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Atom.h; path = MPEG4FileViewer/Atom.h; sourceTree = "<group>"; };
 		6923AE6518D2F11E0087A0ED /* Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Atom.m; path = MPEG4FileViewer/Atom.m; sourceTree = "<group>"; };
@@ -147,6 +174,31 @@
 		6923AE7C18D3275E0087A0ED /* AtomTrak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTrak.m; sourceTree = "<group>"; };
 		6923AE7E18D327B90087A0ED /* AtomUdta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUdta.h; sourceTree = "<group>"; };
 		6923AE7F18D327B90087A0ED /* AtomUdta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUdta.m; sourceTree = "<group>"; };
+		69390E4918DFA8C300DEA5B3 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HexFiend.framework; sourceTree = "<group>"; };
+		69390E4E18DFD90F00DEA5B3 /* AtomPinf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomPinf.h; sourceTree = "<group>"; };
+		69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomPinf.m; sourceTree = "<group>"; };
+		69390E5118DFE63300DEA5B3 /* AtomLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomLoad.h; sourceTree = "<group>"; };
+		69390E5218DFE63300DEA5B3 /* AtomLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomLoad.m; sourceTree = "<group>"; };
+		69390E5418DFE98500DEA5B3 /* AtomTx3g.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTx3g.h; sourceTree = "<group>"; };
+		69390E5518DFE98500DEA5B3 /* AtomTx3g.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTx3g.m; sourceTree = "<group>"; };
+		69390E5718DFEAB500DEA5B3 /* AtomFtab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFtab.h; sourceTree = "<group>"; };
+		69390E5818DFEAB500DEA5B3 /* AtomFtab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFtab.m; sourceTree = "<group>"; };
+		69390E5A18DFF1B700DEA5B3 /* AtomSkcr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomSkcr.h; sourceTree = "<group>"; };
+		69390E5B18DFF1B700DEA5B3 /* AtomSkcr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomSkcr.m; sourceTree = "<group>"; };
+		69390E5D18DFF29000DEA5B3 /* AtomPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomPriv.h; sourceTree = "<group>"; };
+		69390E5E18DFF29000DEA5B3 /* AtomPriv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomPriv.m; sourceTree = "<group>"; };
+		69390E6018DFF43100DEA5B3 /* AtomC608.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomC608.h; sourceTree = "<group>"; };
+		69390E6118DFF43100DEA5B3 /* AtomC608.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomC608.m; sourceTree = "<group>"; };
+		69390E6318DFF5B900DEA5B3 /* AtomUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUser.h; sourceTree = "<group>"; };
+		69390E6418DFF5B900DEA5B3 /* AtomUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUser.m; sourceTree = "<group>"; };
+		69390E6618DFF5E100DEA5B3 /* AtomRigh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomRigh.h; sourceTree = "<group>"; };
+		69390E6718DFF5E100DEA5B3 /* AtomRigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomRigh.m; sourceTree = "<group>"; };
+		69390E6918DFF5FB00DEA5B3 /* AtomKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomKey.h; sourceTree = "<group>"; };
+		69390E6A18DFF5FB00DEA5B3 /* AtomKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomKey.m; sourceTree = "<group>"; };
+		69390E6C18DFF60C00DEA5B3 /* AtomIviv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomIviv.h; sourceTree = "<group>"; };
+		69390E6D18DFF60C00DEA5B3 /* AtomIviv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomIviv.m; sourceTree = "<group>"; };
+		69390E6F18DFFBC000DEA5B3 /* AtomUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUUID.h; sourceTree = "<group>"; };
+		69390E7018DFFBC000DEA5B3 /* AtomUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUUID.m; sourceTree = "<group>"; };
 		6941198F18D55EE800D71C3D /* AtomUnrecognized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUnrecognized.h; sourceTree = "<group>"; };
 		6941199018D55EE800D71C3D /* AtomUnrecognized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUnrecognized.m; sourceTree = "<group>"; };
 		69453FF1176672A400851344 /* MPEG4FileViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPEG4FileViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -375,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69453FF5176672A400851344 /* Cocoa.framework in Frameworks */,
+				69390E4A18DFA8C300DEA5B3 /* HexFiend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +454,30 @@
 				696BB65918D811D2001EDCC2 /* drms -  */,
 				696BB64018D8102C001EDCC2 /* elng - Extended Language */,
 				696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */,
+				69390E4E18DFD90F00DEA5B3 /* AtomPinf.h */,
+				69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */,
+				69390E5118DFE63300DEA5B3 /* AtomLoad.h */,
+				69390E5218DFE63300DEA5B3 /* AtomLoad.m */,
+				69390E5418DFE98500DEA5B3 /* AtomTx3g.h */,
+				69390E5518DFE98500DEA5B3 /* AtomTx3g.m */,
+				69390E5718DFEAB500DEA5B3 /* AtomFtab.h */,
+				69390E5818DFEAB500DEA5B3 /* AtomFtab.m */,
+				69390E5A18DFF1B700DEA5B3 /* AtomSkcr.h */,
+				69390E5B18DFF1B700DEA5B3 /* AtomSkcr.m */,
+				69390E5D18DFF29000DEA5B3 /* AtomPriv.h */,
+				69390E5E18DFF29000DEA5B3 /* AtomPriv.m */,
+				69390E6018DFF43100DEA5B3 /* AtomC608.h */,
+				69390E6118DFF43100DEA5B3 /* AtomC608.m */,
+				69390E6318DFF5B900DEA5B3 /* AtomUser.h */,
+				69390E6418DFF5B900DEA5B3 /* AtomUser.m */,
+				69390E6618DFF5E100DEA5B3 /* AtomRigh.h */,
+				69390E6718DFF5E100DEA5B3 /* AtomRigh.m */,
+				69390E6918DFF5FB00DEA5B3 /* AtomKey.h */,
+				69390E6A18DFF5FB00DEA5B3 /* AtomKey.m */,
+				69390E6C18DFF60C00DEA5B3 /* AtomIviv.h */,
+				69390E6D18DFF60C00DEA5B3 /* AtomIviv.m */,
+				69390E6F18DFFBC000DEA5B3 /* AtomUUID.h */,
+				69390E7018DFFBC000DEA5B3 /* AtomUUID.m */,
 			);
 			name = Atoms;
 			sourceTree = "<group>";
@@ -428,6 +505,7 @@
 		69453FF3176672A400851344 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69390E4918DFA8C300DEA5B3 /* HexFiend.framework */,
 				69453FF4176672A400851344 /* Cocoa.framework */,
 				69453FF6176672A400851344 /* Other Frameworks */,
 			);
@@ -1586,6 +1664,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6945400E176672A400851344 /* Build configuration list for PBXNativeTarget "MPEG4FileViewer" */;
 			buildPhases = (
+				69390E4C18DFAD6000DEA5B3 /* CopyFiles */,
 				69453FED176672A400851344 /* Sources */,
 				69453FEE176672A400851344 /* Frameworks */,
 				69453FEF176672A400851344 /* Resources */,
@@ -1647,6 +1726,8 @@
 				6923AE7718D325DE0087A0ED /* AtomMvhd.m in Sources */,
 				69E2CA2C18DBE6D800EC4D8C /* AtomTrex.m in Sources */,
 				69E2CA3C18DBE7E800EC4D8C /* AtomTfhd.m in Sources */,
+				69390E7118DFFBC000DEA5B3 /* AtomUUID.m in Sources */,
+				69390E6218DFF43100DEA5B3 /* AtomC608.m in Sources */,
 				697208FA18D6BA18003A9E0A /* AtomTkhd.m in Sources */,
 				6972094218D6D379003A9E0A /* AtomIlst.m in Sources */,
 				6972092118D6C505003A9E0A /* AtomStsz.m in Sources */,
@@ -1656,6 +1737,7 @@
 				6972091818D6C48D003A9E0A /* AtomSmhd.m in Sources */,
 				6972091518D6C46C003A9E0A /* AtomHdlr.m in Sources */,
 				69E2CA1818DBE12500EC4D8C /* AtomStdp.m in Sources */,
+				69390E5018DFD90F00DEA5B3 /* AtomPinf.m in Sources */,
 				6972090618D6BE9E003A9E0A /* AtomEdts.m in Sources */,
 				6972098118D6DDF6003A9E0A /* AtomCovr.m in Sources */,
 				6972095418D6DCEA003A9E0A /* AtomaART.m in Sources */,
@@ -1680,6 +1762,7 @@
 				696BB59F18D78844001EDCC2 /* AtomStsd.m in Sources */,
 				6972091E18D6C4DC003A9E0A /* AtomStsc.m in Sources */,
 				696BB5D518D7CE83001EDCC2 /* AtomSdes.m in Sources */,
+				69390E5918DFEAB500DEA5B3 /* AtomFtab.m in Sources */,
 				6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */,
 				697208F418D6B07E003A9E0A /* AtomParent.m in Sources */,
 				69E2CA3418DBE77900EC4D8C /* AtomMfhd.m in Sources */,
@@ -1689,6 +1772,7 @@
 				6972094E18D6DC26003A9E0A /* Atom©nam.m in Sources */,
 				697208F718D6B98B003A9E0A /* AtomMdia.m in Sources */,
 				696BB5C618D796DC001EDCC2 /* AtomDesc.m in Sources */,
+				69390E5F18DFF29000DEA5B3 /* AtomPriv.m in Sources */,
 				69E2CA0C18DBDBE100EC4D8C /* AtomNmhd.m in Sources */,
 				69E2CA1018DBDEC300EC4D8C /* AtomStz2.m in Sources */,
 				6972094B18D6DBC6003A9E0A /* AtomMean.m in Sources */,
@@ -1709,6 +1793,7 @@
 				696BB5C918D796EF001EDCC2 /* AtomLdes.m in Sources */,
 				696BB60218D7E8E8001EDCC2 /* AtomPlID.m in Sources */,
 				6972092A18D6C5DF003A9E0A /* AtomGmhd.m in Sources */,
+				69390E5318DFE63300DEA5B3 /* AtomLoad.m in Sources */,
 				6972096C18D6DD7E003A9E0A /* Atom©too.m in Sources */,
 				696BB5B418D790B5001EDCC2 /* AtomDac3.m in Sources */,
 				6972094518D6D3D3003A9E0A /* Atom----.m in Sources */,
@@ -1721,6 +1806,7 @@
 				6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */,
 				69E2CA1C18DBE17D00EC4D8C /* AtomPadb.m in Sources */,
 				6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */,
+				69390E5C18DFF1B700DEA5B3 /* AtomSkcr.m in Sources */,
 				69E2CA4418DBE86100EC4D8C /* AtomMfra.m in Sources */,
 				69E2CA4C18DBE8FD00EC4D8C /* AtomMfro.m in Sources */,
 				696BB5C318D796CB001EDCC2 /* AtomTvnn.m in Sources */,
@@ -1735,19 +1821,24 @@
 				6972096F18D6DD91003A9E0A /* AtomHdvd.m in Sources */,
 				6972095A18D6DD13003A9E0A /* AtomTrkn.m in Sources */,
 				6972090F18D6C3A9003A9E0A /* AtomChap.m in Sources */,
+				69390E5618DFE98500DEA5B3 /* AtomTx3g.m in Sources */,
 				6972095118D6DCA7003A9E0A /* Atom©ART.m in Sources */,
 				69E2CA4018DBE82600EC4D8C /* AtomTrun.m in Sources */,
 				696BB5FE18D7E8A7001EDCC2 /* AtomGeID.m in Sources */,
 				6972093918D6C8F8003A9E0A /* AtomName.m in Sources */,
+				69390E6E18DFF60C00DEA5B3 /* AtomIviv.m in Sources */,
 				6972094818D6D44E003A9E0A /* AtomData.m in Sources */,
 				696BB63718D8035E001EDCC2 /* AtomSchm.m in Sources */,
 				696BB5CC18D79CD2001EDCC2 /* AtomEsds.m in Sources */,
 				69A163B517D672F700131614 /* MyWindowController.m in Sources */,
+				69390E6B18DFF5FB00DEA5B3 /* AtomKey.m in Sources */,
 				696BB60618D7E927001EDCC2 /* AtomCprt.m in Sources */,
 				6972095718D6DCFE003A9E0A /* Atom©alb.m in Sources */,
 				696BB5F618D7E77E001EDCC2 /* AtomPurd.m in Sources */,
+				69390E6818DFF5E100DEA5B3 /* AtomRigh.m in Sources */,
 				6972093C18D6CBFC003A9E0A /* AtomDualState.m in Sources */,
 				696BB5BA18D7968B001EDCC2 /* Atom©cmt.m in Sources */,
+				69390E6518DFF5B900DEA5B3 /* AtomUser.m in Sources */,
 				6972093618D6C8CD003A9E0A /* AtomSdtp.m in Sources */,
 				696BB60A18D7E958001EDCC2 /* AtomApID.m in Sources */,
 				696BB5E518D7E531001EDCC2 /* AtomFlvr.m in Sources */,
@@ -1860,6 +1951,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HexFiend_2-hcoyrpusrqzdfxfkkaglkbkheesg/Build/Products/Debug",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPEG4FileViewer/MPEG4FileViewer-Prefix.pch";
 				INFOPLIST_FILE = "MPEG4FileViewer/MPEG4FileViewer-Info.plist";
@@ -1872,6 +1968,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HexFiend_2-hcoyrpusrqzdfxfkkaglkbkheesg/Build/Products/Debug",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPEG4FileViewer/MPEG4FileViewer-Prefix.pch";
 				INFOPLIST_FILE = "MPEG4FileViewer/MPEG4FileViewer-Info.plist";
