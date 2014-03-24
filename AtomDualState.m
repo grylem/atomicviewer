@@ -9,9 +9,6 @@
 #import "AtomDualState.h"
 
 @implementation AtomDualState
-{
-    dispatch_once_t childrenPred;
-}
 
 -(NSUInteger) jump
 {

@@ -10,6 +10,7 @@
 
 @interface AtomParent : Atom
 {
+    dispatch_once_t childrenPred;
     NSMutableArray *children;
 }
 @end

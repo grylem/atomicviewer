@@ -25,4 +25,9 @@
     return (@"Handler Reference");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

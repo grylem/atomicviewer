@@ -10,31 +10,17 @@
 #import "MyWindowController.h"
 
 @interface AppDelegate ()
-//@property MyWindowController *myWindowController;
+
 @end
 
 @implementation AppDelegate
-
-// -------------------------------------------------------------------------------
-//	applicationShouldTerminateAfterLastWindowClosed:sender
-//
-//	NSApplication delegate method placed here so the sample conveniently quits
-//	after we close the window.
-// -------------------------------------------------------------------------------
-//- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender
-//{
-//	return YES;
-//}
 
 // -------------------------------------------------------------------------------
 //	applicationDidFinishLaunching:notification
 // -------------------------------------------------------------------------------
 - (void)applicationDidFinishLaunching:(NSNotification*)notification
 {
-    
 	// load the app's main window for display
-//	_myWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
-//	[self.myWindowController showWindow:self];
     [self openDocument:self];
 }
 
@@ -42,7 +28,6 @@
 {
     MyWindowController *newWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [newWindowController showWindow:self];
-    
 }
 
 -(BOOL)application:(NSApplication *)sender openFile:(NSString *)filename

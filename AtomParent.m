@@ -7,28 +7,24 @@
 //
 
 // Abstract superclass for all atoms that are able to be parent (non-leaf) containers
-// Subclasses that may or may not be parents still should inherit from us, but need to override -isLeaf
+// Subclasses that may or may not be parents still should inherit from this class,
+// but need to override -isLeaf if the specific instance is not a parent.
 
 #import "AtomParent.h"
 
 @implementation AtomParent
-{
-    dispatch_once_t childrenPred;
-}
 
 -(BOOL) isLeaf
 {
     return NO;
 }
 
+// Here's where I need to populate the children array
+// This just initiates populating the array.
+// The array will be populated asynchronously
+// "return children" most likely returns an empty array.
 -(NSMutableArray *) children
 {
-    
-    // Here's where I need to populate the array
-    // This just initiates populating the children array.
-    // The array is not populated when this function returns.
-    // "return children" most likely returns an empty array
-    
     dispatch_once(&childrenPred, ^{
         children = [NSMutableArray new];
         off_t childrenOffset = 8; // Right after size & type

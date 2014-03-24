@@ -10,7 +10,6 @@
 
 @interface MyWindowController : NSWindowController
 
-@property NSString *movieFilePath;
-
+@property NSString *movieFilePath; // This will be set by AppDelegate if file dropped on app icon
 
 @end

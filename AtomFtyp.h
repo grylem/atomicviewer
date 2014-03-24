@@ -9,5 +9,14 @@
 #import "Atom.h"
 
 @interface AtomFtyp : Atom
+{
+    NSString *_majorBrand;
+    NSString *_minorBrand;
+    NSArray *_compatibleBrands;
+}
+
+@property (readonly) NSString *majorBrand;
+@property (readonly) NSString *minorBrand;
+@property (readonly) NSArray  *compatibleBrands;
 
 @end

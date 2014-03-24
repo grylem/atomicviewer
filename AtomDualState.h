@@ -13,6 +13,6 @@
 
 @interface AtomDualState : AtomParent
 {
-NSUInteger jump;
+    NSUInteger jump;
 }
 @end

@@ -29,4 +29,9 @@
     return [NSString stringWithFormat: @"Unrecognized atom %@", self.type];
 }
 
+-(NSString *)atomType
+{
+    return self.type;
+}
+
 @end
