@@ -20,4 +20,9 @@
     return (@"ilst");
 }
 
++(NSString *)atomName
+{
+    return (@"Metadata Item List");
+}
+
 @end

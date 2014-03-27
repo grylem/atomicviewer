@@ -39,10 +39,10 @@ typedef enum : off_t {
         _majorBrand = [NSString new];
         char majorBrandString[5];
         majorBrandString[4] = '\0';
-        dispatch_fd_t fd = dispatch_io_get_descriptor(self.io_channel);
-        lseek(fd, self.origin + majorBrand, SEEK_SET); // Seek right after size & type
-        read(fd, &majorBrandString, 4);
-        _majorBrand = [NSString stringWithCString:majorBrandString encoding:NSISOLatin1StringEncoding];
+        [self.fileHandle seekToFileOffset:self.origin + majorBrand];
+        NSData *majorBrandData = [self.fileHandle readDataOfLength:4];
+        _majorBrand = [NSString stringWithCString:[majorBrandData bytes]
+                                         encoding:NSISOLatin1StringEncoding];
     }
     return _majorBrand;
 }
@@ -52,10 +52,10 @@ typedef enum : off_t {
     if (!_minorBrand) {
         char minorBrandString[5];
         minorBrandString[4] = '\0';
-        dispatch_fd_t fd = dispatch_io_get_descriptor(self.io_channel);
-        lseek(fd, self.origin + minorBrand, SEEK_SET); // Seek right after size & type
-        read(fd, &minorBrandString, 4);
-        _minorBrand = [NSString stringWithCString:minorBrandString encoding:NSISOLatin1StringEncoding];
+        [self.fileHandle seekToFileOffset:self.origin + minorBrand];
+        NSData *minorBrandData = [self.fileHandle readDataOfLength:4];
+        _minorBrand = [NSString stringWithCString:[minorBrandData bytes]
+                                         encoding:NSISOLatin1StringEncoding];
     }
     return _minorBrand;
 }
@@ -65,13 +65,20 @@ typedef enum : off_t {
     if (!_compatibleBrands) {
         char compatibleBrandString[5];
         compatibleBrandString[4] = '\0';
-        dispatch_fd_t fd = dispatch_io_get_descriptor(self.io_channel);
         size_t compatibleBrandsLength = self.dataLength - compatibleBrands;
         unsigned long numCompatibleBrands = compatibleBrandsLength / 4;
-        _compatibleBrands = [NSArray new];
-        lseek(fd, self.origin + minorBrand, SEEK_SET); // Seek right after size & type
-        read(fd, &compatibleBrandString, 4);
-        NSString *brandString = [NSString stringWithCString:compatibleBrandString encoding:NSISOLatin1StringEncoding];
+        _compatibleBrands = [NSMutableArray new];
+        [self.fileHandle seekToFileOffset:self.origin + compatibleBrands];
+        NSData *compatibleBrandsData = [self.fileHandle readDataOfLength:compatibleBrandsLength];
+        for (int i=0; i<numCompatibleBrands; i++) {
+            memcpy(&compatibleBrandString, [compatibleBrandsData bytes] + (i * 4), 4);
+            NSString *brandString = [NSString stringWithCString:compatibleBrandString
+                                                       encoding:NSISOLatin1StringEncoding];
+            if ([brandString length]) {
+                [self.compatibleBrands addObject: brandString];
+
+            }
+        }
     }
     return _compatibleBrands;
 }
@@ -81,16 +88,25 @@ typedef enum : off_t {
 
     NSString *majorBrandString = self.majorBrand;
     NSString *minorBrandString = self.minorBrand;
-    NSArray *compatibleBrands = self.compatibleBrands;
+    NSString *compatibleBrandsString;
 
     if ([minorBrandString length] == 0) {
         minorBrandString = @"There is no minor brand.";
     } else {
         minorBrandString = [NSString stringWithFormat:@"The file type minor brand is <b>%@</b>",minorBrandString];
     }
+    if ([self.compatibleBrands count] == 0) {
+        compatibleBrandsString = @"There are no compatible brands";
+    } else {
+        compatibleBrandsString = @"The compatible brands are:<ul>";
+        for (NSString *string in self.compatibleBrands) {
+            compatibleBrandsString = [compatibleBrandsString stringByAppendingString:[NSString stringWithFormat:@"<li><b>%@</b></li>", string]];
+        }
+        compatibleBrandsString = [compatibleBrandsString stringByAppendingString:@"</ul>"];
+    }
 //    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>The file type major brand is <b>%@</b>.</p><ul><li>I am a <b>list</b> item!</li><li>I am a list item too!</li><li>I am a list item also!</li></ul></span></body>", majorBrandString, minorBrandString];
 
-    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>The file type major brand is <b>%@</b>.<br>%@</p></span></body>", majorBrandString, minorBrandString];
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>The file type major brand is <b>%@</b>.<br>%@<br>%@</p></span></body>", majorBrandString, minorBrandString, compatibleBrandsString];
     NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
     NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithData: [html dataUsingEncoding:NSUTF8StringEncoding] options:options documentAttributes:nil error:nil];
 

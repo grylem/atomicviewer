@@ -7,6 +7,7 @@
 //
 
 #import "AtomDualState.h"
+#import "AtomParent.h"
 
 @implementation AtomDualState
 
@@ -28,13 +29,7 @@
 
 -(NSMutableArray *) children
 {
-    
-    // Here's where I need to populate the array
-    // This just initiates populating the children array.
-    // The array is not populated when this function returns.
-    // "return children" most likely returns an empty array
-    
-    dispatch_once(&childrenPred, ^{
+    if ([_children count] == 0) {
         off_t childrenOffset = 8; // Just past size & type;
         if (self.extendedLength) {
             childrenOffset += 8; // Bump past extend length field
@@ -43,10 +38,12 @@
             childrenOffset += 4; // Bump past flags & version field
         }
         childrenOffset += self.jump; // skip over data
-        children = [NSMutableArray new];
-        [Atom populateTree: self.treeController childOf: [self indexPath] atIndex: 0 fromChannel: self.io_channel onQueue: self.queue atOffset: self.origin + childrenOffset upTo: self.origin + self.dataLength];
-    });
-    return children;
+        [Atom populateOutline: _children
+               fromFileHandle: self.fileHandle
+                     atOffset: self.origin + childrenOffset
+                         upTo: self.origin + self.dataLength];
+    }
+    return _children;
 }
 
 @end

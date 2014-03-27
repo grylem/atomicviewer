@@ -25,4 +25,9 @@
     return (@"Track Header");
 }
 
+-(NSUInteger)trakNumber
+{
+    return 4;
+}
+
 @end

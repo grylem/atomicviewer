@@ -14,29 +14,36 @@
 
 @implementation AtomParent
 
+-(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:(NSFileHandle *)fileHandle
+{
+    self = [super initWithLength:atomLength dataOffset:offset isExtended:isExtendedLength usingFileHandle:fileHandle];
+    if (self) {
+        _children = [NSMutableArray array];
+    }
+    return self;
+}
+
 -(BOOL) isLeaf
 {
     return NO;
 }
 
-// Here's where I need to populate the children array
-// This just initiates populating the array.
-// The array will be populated asynchronously
-// "return children" most likely returns an empty array.
--(NSMutableArray *) children
+-(NSArray *) children
 {
-    dispatch_once(&childrenPred, ^{
-        children = [NSMutableArray new];
-        off_t childrenOffset = 8; // Right after size & type
+    if ([_children count] == 0) {
+        off_t childrenOffset = 8;
         if (self.extendedLength) {
-            childrenOffset += 8; // Bump it past the extended length field
+            childrenOffset += 8;
         }
         if (self.isFullBox) {
-            childrenOffset += 4; // Bump it past the flags & version field
+            childrenOffset += 4;
         }
-        [Atom populateTree: self.treeController childOf: [self indexPath] atIndex: 0 fromChannel: self.io_channel onQueue: self.queue atOffset: self.origin + childrenOffset upTo: self.origin + self.dataLength];
-    });
-    return children;
+        [Atom populateOutline: _children
+               fromFileHandle: self.fileHandle
+                     atOffset: self.origin + childrenOffset
+                         upTo: self.origin + self.dataLength];
+    }
+    return _children;
 }
 
 @end

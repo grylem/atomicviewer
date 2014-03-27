@@ -10,4 +10,7 @@
 
 @interface AtomTkhd : Atom
 
+-(NSUInteger)trakNumber;
+
 @end
+

@@ -8,6 +8,8 @@
 
 #import "AtomTrak.h"
 
+#import "AtomTkhd.h"
+
 @implementation AtomTrak
 
 +(void)load
@@ -25,4 +27,21 @@
     return (@"Track");
 }
 
+-(NSString *)nodeTitle
+{
+//    return @"trak [0]";
+
+    return [NSString stringWithFormat:@"trak [%lu]", (unsigned long)[self trakNumber]];
+}
+
+-(AtomTkhd *)trakHeader
+{
+    NSUInteger trakHeaderIndex = [self.children indexOfObjectPassingTest:^BOOL (id object, NSUInteger idx, BOOL *stop){return [object isKindOfClass:[AtomTkhd class]];}];
+    return (self.children)[trakHeaderIndex];
+}
+
+-(NSUInteger)trakNumber
+{
+    return [[self trakHeader] trakNumber];
+}
 @end

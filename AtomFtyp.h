@@ -17,6 +17,6 @@
 
 @property (readonly) NSString *majorBrand;
 @property (readonly) NSString *minorBrand;
-@property (readonly) NSArray  *compatibleBrands;
+@property (readonly) NSMutableArray  *compatibleBrands;
 
 @end

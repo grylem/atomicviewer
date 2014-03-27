@@ -18,6 +18,8 @@
 static NSMutableDictionary *atomToClassDict;
 static dispatch_once_t pred;
 
+#pragma mark - Class cluster mapping
+
 // HERE BE DRAGONS
 // My subclasses invoke this during their +load. BE CAREFUL
 // This is ONLY for subclasses to populate the atom type to Class dictionary.
@@ -35,95 +37,7 @@ static dispatch_once_t pred;
     }
 }
 
-//  This is the primary means of creating atoms.
-//  This will create all the atoms at a specific level in the atom hierarchy
-+ (void)populateTree: (NSTreeController *)treeController childOf:(NSIndexPath *)indexPath atIndex: (NSInteger)index fromChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue atOffset: (off_t)offset upTo: (off_t)end
-{
-    dispatch_io_read(channel,
-                     offset,
-                     8, // Length of size & type
-                     queue,
-                     ^(bool done, dispatch_data_t data, int error) {
-                         const void *buffer = NULL;
-                         size_t length = 0;
-                         size_t actualSize;
-                         Atom *atom;
-                         char atomType[5];
-                         NSIndexPath *indexPathToAdd;
-                         NSString *atomTypeString;
-                         BOOL isExtendedLength = NO;
-                         if (error == 0) {
-                             // I don't care about the returned tmpData. Just need the buffer.
-                             __unused dispatch_data_t tmpData = dispatch_data_create_map(data,
-                                                                                         &buffer,
-                                                                                         &length);
-                         }
-                         // We've read 8 bytes: length & atom type
-                         // byteswap the length & copy the atom type to a C string
-                         uint32_t size = CFSwapInt32BigToHost (*(uint32_t *)buffer);
-                         actualSize = size;
-
-                         memcpy(&atomType, &buffer[4], 4); // turn the 4-byte atom type into a null-terminated C string.
-                         atomType[4] = '\0';
-
-                         // If extended length, read next 8 bytes to get the real atom length
-                         if (size == 1) {
-                             isExtendedLength = YES;
-                             // Read the extended length synchronously
-                             dispatch_fd_t fd = dispatch_io_get_descriptor(channel);
-                             lseek(fd, offset + 8, SEEK_SET); // Seek right after size & type
-                             uint64_t largeSize;
-                             read(fd, &largeSize, sizeof(largeSize));
-                             actualSize = CFSwapInt64BigToHost(largeSize);
-                         } else if (size == 0) {
-                             // This had better only occur at the top level (i.e., 'end' is end-of-file)
-                             // Check assertion that indexPath is nil
-                             actualSize = end - offset;
-                         }
-
-                         // Use ISO Latin-1 encoding for the atom type string.
-                         // ISO Latin-1 decodes © symbol present in some atom type strings.
-                         atomTypeString = [NSString stringWithCString:atomType encoding:NSISOLatin1StringEncoding];
-
-                         // Now that we have the length & type, go ahead and create the atom
-                         // The returned atom will be a concrete subclass of Atom
-                         atom = [self createAtomOfType: atomTypeString withLength: actualSize fromOffset: offset isExtended: isExtendedLength usingChannel: channel onQueue:queue inTree: treeController];
-
-                         // Set the indexPath where this atom will be located in the treeController
-                         // I'm not crazy about this approach, but there seems to be no way to find
-                         // a specific entry in the tree from the treeController if you don't
-                         // a priori have the indexPath
-                         if (!indexPath) {
-                             indexPathToAdd = [NSIndexPath indexPathWithIndex: index];
-                         } else {
-                             indexPathToAdd = [indexPath indexPathByAddingIndex:index];
-                         }
-                         [atom setIndexPath: indexPathToAdd];
-                         if ([atom isFullBox]) {
-                             uint64_t version;
-                             dispatch_fd_t fd = dispatch_io_get_descriptor(channel);
-                             off_t versionOffset;
-                             versionOffset = offset + 8; // Nominally right after size & type
-                             if (isExtendedLength) {
-                                 versionOffset += 8; // But if it's extendedLength, version is later
-                             }
-                             lseek(fd, versionOffset, SEEK_SET);
-                             read(fd, &version, sizeof(version));
-                             // break the four bytes into 3 byte flags and 1 byte version
-                             // set flags & version in atom
-                         }
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             [treeController insertObject:atom  atArrangedObjectIndexPath:indexPathToAdd];
-                         });
-                         // if ((offset + actualSize) < end) { // offset + wholeAtomLength is next atom
-                         // offset + actualSize is beginning of next atom
-                         // But there may be garbage at end of file.
-                         // Check that we can actually read an atom header by adding 8 to offset + actualSize
-                         if (end >= (offset + actualSize + 8)) { // offset + wholeAtomLength is next atom.
-                             [self populateTree:treeController childOf: indexPath atIndex: index + 1 fromChannel:channel onQueue:queue atOffset:(offset + actualSize) upTo:end];
-                         }
-                     });
-}
+#pragma mark - Class methods
 
 //  Convenience method to create a new atom.
 //  Atoms are a class cluster, so this method looks up the real class in the atomToClassDict
@@ -137,16 +51,93 @@ static dispatch_once_t pred;
 //  • The dispatch_io channel used for reading atom contents
 //  • The GCD queue on which asynchronous reads should occur
 //  • The tree controller controlling the outline in which this atom will be stored
-+ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue: (dispatch_queue_t)queue inTree: (NSTreeController *)treeController
+
++ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:fileHandle
 {
     Class atomClass = atomToClassDict[atomType];
     Atom *newAtom;
+
     if (atomClass) {
-        newAtom = [[atomToClassDict[atomType] alloc] initWithLength: atomLength dataOffset: offset isExtended: isExtendedLength usingChannel: channel onQueue: queue inTree: treeController];
+        newAtom = [[atomClass alloc] initWithLength: atomLength dataOffset: offset isExtended: isExtendedLength usingFileHandle:fileHandle];
     } else {
-        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset isExtended: isExtendedLength usingChannel: channel onQueue:queue inTree: treeController];
+        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset isExtended: isExtendedLength usingFileHandle:fileHandle];
     }
     return newAtom;
+}
+
+//  This is the primary means of creating atoms.
+//  This will create all the atoms at a specific level in the atom hierarchy
++ (void)populateOutline:(NSMutableArray *)contents fromFileHandle: (NSFileHandle *)fileHandle atOffset:(off_t)offset upTo:(off_t)end {
+
+    size_t actualSize;
+    char atomType[5];
+    BOOL isExtendedLength = NO;
+    NSString *atomTypeString;
+    Atom *atom;
+
+    [fileHandle seekToFileOffset: offset];
+    NSData *fileData = [fileHandle readDataOfLength:8];
+
+    // We've read 8 bytes: length & atom type
+    // byteswap the length & copy the atom type to a C string
+    uint32_t size = CFSwapInt32BigToHost (*(uint32_t *)[fileData bytes]);
+    actualSize = size;
+
+    memcpy(&atomType, &[fileData bytes][4], 4); // turn the 4-byte atom type into a null-terminated C string.
+    atomType[4] = '\0';
+
+    // If extended length, read next 8 bytes to get the real atom length
+    if (size == 1) {
+        isExtendedLength = YES;
+
+        // Read the extended length synchronously
+        [fileHandle seekToFileOffset: offset + 8];
+
+        NSData *largeSize = [fileHandle readDataOfLength:sizeof(size_t)];
+        actualSize = CFSwapInt64BigToHost(*(uint64_t *)[largeSize bytes]);
+
+    } else if (size == 0) {
+        // This had better only occur at the top level (i.e., 'end' is end-of-file)
+        // Check assertion that indexPath is nil
+        actualSize = end - offset;
+    }
+
+    // Use ISO Latin-1 encoding for the atom type string.
+    // ISO Latin-1 decodes © symbol present in some atom type strings.
+    atomTypeString = [NSString stringWithCString:atomType encoding:NSISOLatin1StringEncoding];
+
+    // Now that we have the length & type, go ahead and create the atom
+    // The returned atom will be a concrete subclass of Atom
+    atom = [self createAtomOfType: atomTypeString
+                       withLength: actualSize
+                       fromOffset: offset
+                       isExtended: isExtendedLength
+                  usingFileHandle: fileHandle];
+
+    if ([atom isFullBox]) {
+        off_t versionOffset;
+        versionOffset = offset + 8; // Nominally right after size & type
+        if (isExtendedLength) {
+            versionOffset += 8; // But if it's extendedLength, version is later
+        }
+        [fileHandle seekToFileOffset: versionOffset];
+        NSData *versionData = [fileHandle readDataOfLength:sizeof(uint64_t)];
+        // break the four bytes into 3 byte flags and 1 byte version
+        // set flags & version in atom
+    }
+
+    [contents addObject:atom];
+
+    // if ((offset + actualSize) < end) { // offset + wholeAtomLength is next atom
+    // offset + actualSize is beginning of next atom
+    // But there may be garbage at end of file.
+    // Check that we can actually read an atom header by adding 8 to offset + actualSize
+    if (end >= (offset + actualSize + 8)) { // offset + wholeAtomLength is next atom.
+        [self populateOutline: contents
+               fromFileHandle: fileHandle
+                     atOffset: (offset + actualSize)
+                         upTo: end];
+    }
 }
 
 //  The 4-character atomType is usually answered by the Class.
@@ -163,15 +154,26 @@ static dispatch_once_t pred;
     return nil;
 }
 
+#pragma mark - Instance methods
+
+//  Designated initializer for the Atom class cluster (except AtomUnrecognized)
+//  This is typically invoked by +createAtomOfType:withLength:fromOffset:isExtended:usingFileHandle:inTree:
+//  Using the class convenience method for creation handles instantiation of the correct concrete subclass.
+-(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:(NSFileHandle *)fileHandle;
+{
+    self = [super init];
+    if (self) {
+        self.dataLength = atomLength;
+        self.origin = offset;
+        self.fileHandle = fileHandle;
+        self.extendedLength = isExtendedLength;
+    }
+    return self;
+}
+
 -(NSString *)atomType
 {
     return [[self class] atomType];
-}
-
-//  This is the formatted textual explantion of the content of the atom
-- (NSAttributedString *)decodedExplanation
-{
-    return nil; // The abstract superclass does not have a decodedExplanation
 }
 
 //  This is the human-readable atomName
@@ -189,11 +191,6 @@ static dispatch_once_t pred;
     return YES;
 }
 
--(void)setIsLeaf:(BOOL)isLeaf
-{
-    
-}
-
 //  YES if this atom type contains version & flags
 -(BOOL) isFullBox
 {
@@ -207,29 +204,27 @@ static dispatch_once_t pred;
     // Some subclasses will override this, such as the "unrecognized" atom class that we just skip over, and
     // the uuid type atoms that will supply the formatted uuid string.
     
-    return ([NSString stringWithFormat:@"Atom %@ @ %lld of size: %zu, ends @ %lld", [self atomType], self.origin, self.dataLength, self.origin + self.dataLength]);
+    return [self atomType];
+}
+
+-(NSUInteger)nodeOrigin
+{
+    return self.origin;
+}
+
+-(NSUInteger)nodeLength
+{
+    return self.dataLength;
+}
+
+-(NSUInteger)nodeEnd
+{
+    return self.origin + self.dataLength;
 }
 
 -(NSString *)description
 {
     return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self atomType], [self dataLength]];
-}
-
-//  Designated initializer for the Atom class cluster (except AtomUnrecognized)
-//  This is typically invoked by +createAtomOfType:withLength:fromOffset:isExtended:usingChannel:onQueue:inTree:
-//  Using the class convenience method for creation handles instantiation of the correct concrete subclass.
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingChannel: (dispatch_io_t)channel onQueue:(dispatch_queue_t)queue inTree:(NSTreeController *)treeController;
-{
-    self = [super init];
-    if (self) {
-        self.dataLength = atomLength;
-        self.origin = offset;
-        self.io_channel = channel;
-        self.queue = queue;
-        self.treeController = treeController;
-        self.extendedLength = isExtendedLength;
-    }
-    return self;
 }
 
 -(NSAttributedString *)explanation
@@ -276,6 +271,12 @@ static dispatch_once_t pred;
     }
 
     return explanatoryString;
+}
+
+//  This is the formatted textual explantion of the content of the atom
+- (NSAttributedString *)decodedExplanation
+{
+    return nil; // The abstract superclass does not have a decodedExplanation
 }
 
 @end
