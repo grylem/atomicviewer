@@ -174,4 +174,9 @@ static dispatch_once_t pred;
     return @"";
 }
 
+-(void)dealloc
+{
+    [_fileHandle closeFile];
+    [_hfFileReference close];
+}
 @end

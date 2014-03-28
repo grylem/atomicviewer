@@ -189,6 +189,9 @@
                     <constraint firstItem="616" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="uQc-I7-0m6"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="NGf-Uk-j5M"/>
+            </connections>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="q1Z-nK-zp1" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
