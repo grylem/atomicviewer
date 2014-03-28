@@ -25,4 +25,9 @@
     return (@"Degradation Priority");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

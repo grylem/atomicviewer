@@ -25,4 +25,9 @@
     return (@"Movie Fragment Random Access Offset");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

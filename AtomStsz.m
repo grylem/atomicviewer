@@ -25,4 +25,9 @@
     return (@"Sample Size");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

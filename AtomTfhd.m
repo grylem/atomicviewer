@@ -25,4 +25,9 @@
     return (@"Track Fragment Header");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

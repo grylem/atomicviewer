@@ -25,4 +25,9 @@
     return (@"Sync Sample");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

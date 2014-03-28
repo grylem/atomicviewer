@@ -1,14 +1,14 @@
 //
-//  AtomCo64.m
+//  AtomTapt.m
 //  MPEG4FileViewer
 //
-//  Created by Jay O'Conor on 3/16/14.
+//  Created by Jay O'Conor on 3/27/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomCo64.h"
+#import "AtomTapt.h"
 
-@implementation AtomCo64
+@implementation AtomTapt
 
 +(void)load
 {
@@ -17,17 +17,12 @@
 
 +(NSString *)atomType
 {
-    return (@"co64");
+    return (@"tapt");
 }
 
 +(NSString *)atomName
 {
-    return (@"Chunk Large Offset");
-}
-
--(BOOL)isFullBox
-{
-    return YES;
+    return (@"Track Aperture Mode Dimensions");
 }
 
 @end

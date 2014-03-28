@@ -20,4 +20,9 @@
     return (@"©too");
 }
 
++(NSString *)atomName
+{
+    return (@"Encoder");
+}
+
 @end

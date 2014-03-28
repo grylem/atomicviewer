@@ -25,4 +25,9 @@
     return (@"Chunk Offset");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

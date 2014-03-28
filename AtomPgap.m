@@ -22,7 +22,7 @@
 
 +(NSString *)atomName
 {
-    return (@"Play Gapless");
+    return (@"Gapless Playback");
 }
 
 @end

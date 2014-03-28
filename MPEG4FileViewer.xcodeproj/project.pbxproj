@@ -16,6 +16,8 @@
 		6923AE7A18D326F40087A0ED /* AtomIods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7918D326F40087A0ED /* AtomIods.m */; };
 		6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7C18D3275E0087A0ED /* AtomTrak.m */; };
 		6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7F18D327B90087A0ED /* AtomUdta.m */; };
+		6930D06B18E4E973001E6397 /* AtomTapt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930D06A18E4E973001E6397 /* AtomTapt.m */; };
+		6930D06F18E4EE4F001E6397 /* AtomCios.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930D06E18E4EE4F001E6397 /* AtomCios.m */; };
 		69390E4A18DFA8C300DEA5B3 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
 		69390E4D18DFAD7800DEA5B3 /* HexFiend.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
 		69390E5018DFD90F00DEA5B3 /* AtomPinf.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */; };
@@ -96,7 +98,6 @@
 		6972093318D6C8A4003A9E0A /* AtomStss.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093218D6C8A4003A9E0A /* AtomStss.m */; };
 		6972093618D6C8CD003A9E0A /* AtomSdtp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093518D6C8CD003A9E0A /* AtomSdtp.m */; };
 		6972093918D6C8F8003A9E0A /* AtomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093818D6C8F8003A9E0A /* AtomName.m */; };
-		6972093C18D6CBFC003A9E0A /* AtomDualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093B18D6CBFC003A9E0A /* AtomDualState.m */; };
 		6972093F18D6CF37003A9E0A /* AtomMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972093E18D6CF37003A9E0A /* AtomMeta.m */; };
 		6972094218D6D379003A9E0A /* AtomIlst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094118D6D379003A9E0A /* AtomIlst.m */; };
 		6972094518D6D3D3003A9E0A /* Atom----.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972094418D6D3D3003A9E0A /* Atom----.m */; };
@@ -126,6 +127,10 @@
 		697A716F18E0C11100A4A9DD /* AtomSonm.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A716E18E0C11100A4A9DD /* AtomSonm.m */; };
 		697A717218E0C12D00A4A9DD /* AtomSoar.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A717118E0C12D00A4A9DD /* AtomSoar.m */; };
 		697A717A18E0CB6900A4A9DD /* AtomAkID.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A717918E0CB6900A4A9DD /* AtomAkID.m */; };
+		6996CCE218E4EE9600121640 /* AtomClef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCE118E4EE9600121640 /* AtomClef.m */; };
+		6996CCE518E4EEA100121640 /* AtomProf.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCE418E4EEA100121640 /* AtomProf.m */; };
+		6996CCE818E4EEDE00121640 /* AtomEnof.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCE718E4EEDE00121640 /* AtomEnof.m */; };
+		6996CCEB18E4EF3000121640 /* AtomUuidLC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCEA18E4EF3000121640 /* AtomUuidLC.m */; };
 		69A163B517D672F700131614 /* MyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A163B417D672F700131614 /* MyWindowController.m */; };
 		69A163B917D67BA800131614 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A163B717D67BA800131614 /* MainWindow.xib */; };
 		69E2CA0818DBDB7B00EC4D8C /* AtomHmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA0718DBDB7B00EC4D8C /* AtomHmhd.m */; };
@@ -180,6 +185,10 @@
 		6923AE7C18D3275E0087A0ED /* AtomTrak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTrak.m; sourceTree = "<group>"; };
 		6923AE7E18D327B90087A0ED /* AtomUdta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUdta.h; sourceTree = "<group>"; };
 		6923AE7F18D327B90087A0ED /* AtomUdta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUdta.m; sourceTree = "<group>"; };
+		6930D06918E4E973001E6397 /* AtomTapt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTapt.h; sourceTree = "<group>"; };
+		6930D06A18E4E973001E6397 /* AtomTapt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTapt.m; sourceTree = "<group>"; };
+		6930D06D18E4EE4F001E6397 /* AtomCios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCios.h; sourceTree = "<group>"; };
+		6930D06E18E4EE4F001E6397 /* AtomCios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCios.m; sourceTree = "<group>"; };
 		69390E4918DFA8C300DEA5B3 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HexFiend.framework; sourceTree = "<group>"; };
 		69390E4E18DFD90F00DEA5B3 /* AtomPinf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomPinf.h; sourceTree = "<group>"; };
 		69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomPinf.m; sourceTree = "<group>"; };
@@ -338,8 +347,6 @@
 		6972093518D6C8CD003A9E0A /* AtomSdtp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomSdtp.m; sourceTree = "<group>"; };
 		6972093718D6C8F8003A9E0A /* AtomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomName.h; sourceTree = "<group>"; };
 		6972093818D6C8F8003A9E0A /* AtomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomName.m; sourceTree = "<group>"; };
-		6972093A18D6CBFC003A9E0A /* AtomDualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDualState.h; sourceTree = "<group>"; };
-		6972093B18D6CBFC003A9E0A /* AtomDualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomDualState.m; sourceTree = "<group>"; };
 		6972093D18D6CF37003A9E0A /* AtomMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMeta.h; sourceTree = "<group>"; };
 		6972093E18D6CF37003A9E0A /* AtomMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMeta.m; sourceTree = "<group>"; };
 		6972094018D6D379003A9E0A /* AtomIlst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomIlst.h; sourceTree = "<group>"; };
@@ -399,6 +406,14 @@
 		697A717118E0C12D00A4A9DD /* AtomSoar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomSoar.m; sourceTree = "<group>"; };
 		697A717818E0CB6900A4A9DD /* AtomAkID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomAkID.h; sourceTree = "<group>"; };
 		697A717918E0CB6900A4A9DD /* AtomAkID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomAkID.m; sourceTree = "<group>"; };
+		6996CCE018E4EE9600121640 /* AtomClef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomClef.h; sourceTree = "<group>"; };
+		6996CCE118E4EE9600121640 /* AtomClef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomClef.m; sourceTree = "<group>"; };
+		6996CCE318E4EEA100121640 /* AtomProf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomProf.h; sourceTree = "<group>"; };
+		6996CCE418E4EEA100121640 /* AtomProf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomProf.m; sourceTree = "<group>"; };
+		6996CCE618E4EEDE00121640 /* AtomEnof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomEnof.h; sourceTree = "<group>"; };
+		6996CCE718E4EEDE00121640 /* AtomEnof.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomEnof.m; sourceTree = "<group>"; };
+		6996CCE918E4EF3000121640 /* AtomUuidLC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUuidLC.h; sourceTree = "<group>"; };
+		6996CCEA18E4EF3000121640 /* AtomUuidLC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUuidLC.m; sourceTree = "<group>"; };
 		69A163B317D672F700131614 /* MyWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindowController.h; sourceTree = "<group>"; };
 		69A163B417D672F700131614 /* MyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindowController.m; sourceTree = "<group>"; };
 		69A163B817D67BA800131614 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -487,8 +502,18 @@
 				69754A1818E0A68B0076E6F1 /* key  -  */,
 				69754A1918E0A69A0076E6F1 /* iviv -  */,
 				69754A1A18E0A6A20076E6F1 /* UUID -  */,
+				6996CCF018E4F12900121640 /* uuid -  */,
 			);
 			name = Atoms;
+			sourceTree = "<group>";
+		};
+		6930D06C18E4ED34001E6397 /* tapt - Track Aperture Mode Dimensions */ = {
+			isa = PBXGroup;
+			children = (
+				6930D06918E4E973001E6397 /* AtomTapt.h */,
+				6930D06A18E4E973001E6397 /* AtomTapt.m */,
+			);
+			name = "tapt - Track Aperture Mode Dimensions";
 			sourceTree = "<group>";
 		};
 		69453FE8176672A400851344 = {
@@ -559,6 +584,11 @@
 		696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */ = {
 			isa = PBXGroup;
 			children = (
+				6930D06C18E4ED34001E6397 /* tapt - Track Aperture Mode Dimensions */,
+				6996CCEC18E4EFE900121640 /* cios -  */,
+				6996CCED18E4F00200121640 /* clef - Track Clean Aperture Dimensions */,
+				6996CCEE18E4F01600121640 /* prof - Track Production Aperture Dimensions */,
+				6996CCEF18E4F03000121640 /* enof - Track Encoded Pixels Dimensions */,
 				697A717B18E0CB8B00A4A9DD /* akid -  */,
 				696BB61B18D7ED37001EDCC2 /* ---- - Reverse DNS style tag */,
 				696BB61A18D7ED2A001EDCC2 /* mean - Reverse DNS mean */,
@@ -566,11 +596,11 @@
 				696BB61818D7ED0F001EDCC2 /* data - Reverse DNS data */,
 				696BB61718D7ED02001EDCC2 /* sdes - Series Description */,
 				696BB61618D7ECF2001EDCC2 /* ©nam - Title of the Content */,
-				696BB61518D7ECE0001EDCC2 /* ©ART -  */,
-				696BB61418D7ECD4001EDCC2 /* aART -  */,
-				696BB61318D7ECC5001EDCC2 /* ©alb -  */,
-				696BB61218D7ECB8001EDCC2 /* ©too -  */,
-				696BB61118D7EC95001EDCC2 /* ©cmt -  */,
+				696BB61518D7ECE0001EDCC2 /* ©ART - Artist */,
+				696BB61418D7ECD4001EDCC2 /* aART - Album Artist */,
+				696BB61318D7ECC5001EDCC2 /* ©alb - Album */,
+				696BB61218D7ECB8001EDCC2 /* ©too - Encoder */,
+				696BB61118D7EC95001EDCC2 /* ©cmt - Comment */,
 				696BB61018D7EC86001EDCC2 /* hdvd -  */,
 				696BB60B18D7E979001EDCC2 /* apID - Apple Store ID */,
 				696BB5EA18D7E67C001EDCC2 /* atID - Album Title ID */,
@@ -579,7 +609,7 @@
 				696BB5DA18D7DDEA001EDCC2 /* desc - Description */,
 				696BB5E818D7E632001EDCC2 /* disk - Disk x of y */,
 				696BB5D818D7DCC2001EDCC2 /* ldes - Long Description */,
-				696BB5E718D7E60D001EDCC2 /* pgap - Play Gapless */,
+				696BB5E718D7E60D001EDCC2 /* pgap - Gapless Playback */,
 				696BB5DE18D7E236001EDCC2 /* stik - Content Type */,
 				696BB5E918D7E64C001EDCC2 /* trkn - Track Number */,
 				696BB5E118D7E480001EDCC2 /* tven - TV Episode Number */,
@@ -611,8 +641,6 @@
 				6923AE6518D2F11E0087A0ED /* Atom.m */,
 				697208F218D6B07E003A9E0A /* AtomParent.h */,
 				697208F318D6B07E003A9E0A /* AtomParent.m */,
-				6972093A18D6CBFC003A9E0A /* AtomDualState.h */,
-				6972093B18D6CBFC003A9E0A /* AtomDualState.m */,
 				6941198F18D55EE800D71C3D /* AtomUnrecognized.h */,
 				6941199018D55EE800D71C3D /* AtomUnrecognized.m */,
 			);
@@ -727,13 +755,13 @@
 			name = "flvr - Flavor";
 			sourceTree = "<group>";
 		};
-		696BB5E718D7E60D001EDCC2 /* pgap - Play Gapless */ = {
+		696BB5E718D7E60D001EDCC2 /* pgap - Gapless Playback */ = {
 			isa = PBXGroup;
 			children = (
 				6972097618D6DDBF003A9E0A /* AtomPgap.h */,
 				6972097718D6DDBF003A9E0A /* AtomPgap.m */,
 			);
-			name = "pgap - Play Gapless";
+			name = "pgap - Gapless Playback";
 			sourceTree = "<group>";
 		};
 		696BB5E818D7E632001EDCC2 /* disk - Disk x of y */ = {
@@ -862,49 +890,49 @@
 			name = "hdvd - ";
 			sourceTree = "<group>";
 		};
-		696BB61118D7EC95001EDCC2 /* ©cmt -  */ = {
+		696BB61118D7EC95001EDCC2 /* ©cmt - Comment */ = {
 			isa = PBXGroup;
 			children = (
 				696BB5B818D7968B001EDCC2 /* Atom©cmt.h */,
 				696BB5B918D7968B001EDCC2 /* Atom©cmt.m */,
 			);
-			name = "©cmt - ";
+			name = "©cmt - Comment";
 			sourceTree = "<group>";
 		};
-		696BB61218D7ECB8001EDCC2 /* ©too -  */ = {
+		696BB61218D7ECB8001EDCC2 /* ©too - Encoder */ = {
 			isa = PBXGroup;
 			children = (
 				6972096A18D6DD7E003A9E0A /* Atom©too.h */,
 				6972096B18D6DD7E003A9E0A /* Atom©too.m */,
 			);
-			name = "©too - ";
+			name = "©too - Encoder";
 			sourceTree = "<group>";
 		};
-		696BB61318D7ECC5001EDCC2 /* ©alb -  */ = {
+		696BB61318D7ECC5001EDCC2 /* ©alb - Album */ = {
 			isa = PBXGroup;
 			children = (
 				6972095518D6DCFE003A9E0A /* Atom©alb.h */,
 				6972095618D6DCFE003A9E0A /* Atom©alb.m */,
 			);
-			name = "©alb - ";
+			name = "©alb - Album";
 			sourceTree = "<group>";
 		};
-		696BB61418D7ECD4001EDCC2 /* aART -  */ = {
+		696BB61418D7ECD4001EDCC2 /* aART - Album Artist */ = {
 			isa = PBXGroup;
 			children = (
 				6972095218D6DCEA003A9E0A /* AtomaART.h */,
 				6972095318D6DCEA003A9E0A /* AtomaART.m */,
 			);
-			name = "aART - ";
+			name = "aART - Album Artist";
 			sourceTree = "<group>";
 		};
-		696BB61518D7ECE0001EDCC2 /* ©ART -  */ = {
+		696BB61518D7ECE0001EDCC2 /* ©ART - Artist */ = {
 			isa = PBXGroup;
 			children = (
 				6972094F18D6DCA7003A9E0A /* Atom©ART.h */,
 				6972095018D6DCA7003A9E0A /* Atom©ART.m */,
 			);
-			name = "©ART - ";
+			name = "©ART - Artist";
 			sourceTree = "<group>";
 		};
 		696BB61618D7ECF2001EDCC2 /* ©nam - Title of the Content */ = {
@@ -1582,6 +1610,51 @@
 			name = "akid - ";
 			sourceTree = "<group>";
 		};
+		6996CCEC18E4EFE900121640 /* cios -  */ = {
+			isa = PBXGroup;
+			children = (
+				6930D06D18E4EE4F001E6397 /* AtomCios.h */,
+				6930D06E18E4EE4F001E6397 /* AtomCios.m */,
+			);
+			name = "cios - ";
+			sourceTree = "<group>";
+		};
+		6996CCED18E4F00200121640 /* clef - Track Clean Aperture Dimensions */ = {
+			isa = PBXGroup;
+			children = (
+				6996CCE018E4EE9600121640 /* AtomClef.h */,
+				6996CCE118E4EE9600121640 /* AtomClef.m */,
+			);
+			name = "clef - Track Clean Aperture Dimensions";
+			sourceTree = "<group>";
+		};
+		6996CCEE18E4F01600121640 /* prof - Track Production Aperture Dimensions */ = {
+			isa = PBXGroup;
+			children = (
+				6996CCE318E4EEA100121640 /* AtomProf.h */,
+				6996CCE418E4EEA100121640 /* AtomProf.m */,
+			);
+			name = "prof - Track Production Aperture Dimensions";
+			sourceTree = "<group>";
+		};
+		6996CCEF18E4F03000121640 /* enof - Track Encoded Pixels Dimensions */ = {
+			isa = PBXGroup;
+			children = (
+				6996CCE618E4EEDE00121640 /* AtomEnof.h */,
+				6996CCE718E4EEDE00121640 /* AtomEnof.m */,
+			);
+			name = "enof - Track Encoded Pixels Dimensions";
+			sourceTree = "<group>";
+		};
+		6996CCF018E4F12900121640 /* uuid -  */ = {
+			isa = PBXGroup;
+			children = (
+				6996CCE918E4EF3000121640 /* AtomUuidLC.h */,
+				6996CCEA18E4EF3000121640 /* AtomUuidLC.m */,
+			);
+			name = "uuid - ";
+			sourceTree = "<group>";
+		};
 		69A163B617D67B7000131614 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1920,6 +1993,7 @@
 				696BB5FA18D7E834001EDCC2 /* AtomSfID.m in Sources */,
 				696BB5D218D7CD89001EDCC2 /* AtomSinf.m in Sources */,
 				697A716C18E0C0E300A4A9DD /* AtomGnre.m in Sources */,
+				6996CCE518E4EEA100121640 /* AtomProf.m in Sources */,
 				6972091818D6C48D003A9E0A /* AtomSmhd.m in Sources */,
 				6972091518D6C46C003A9E0A /* AtomHdlr.m in Sources */,
 				69E2CA1818DBE12500EC4D8C /* AtomStdp.m in Sources */,
@@ -1931,6 +2005,7 @@
 				6972097518D6DDAF003A9E0A /* AtomRtng.m in Sources */,
 				696BB60E18D7EA0D001EDCC2 /* AtomCpil.m in Sources */,
 				696BB5CF18D7CC82001EDCC2 /* AtomDrms.m in Sources */,
+				6930D06B18E4E973001E6397 /* AtomTapt.m in Sources */,
 				69E2CA2818DBE69600EC4D8C /* AtomMehd.m in Sources */,
 				696BB5A218D78B5A001EDCC2 /* AtomAvc1.m in Sources */,
 				6972091218D6C3F3003A9E0A /* AtomMdhd.m in Sources */,
@@ -1960,6 +2035,7 @@
 				6972094E18D6DC26003A9E0A /* Atom©nam.m in Sources */,
 				697208F718D6B98B003A9E0A /* AtomMdia.m in Sources */,
 				697A717A18E0CB6900A4A9DD /* AtomAkID.m in Sources */,
+				6996CCE818E4EEDE00121640 /* AtomEnof.m in Sources */,
 				696BB5C618D796DC001EDCC2 /* AtomDesc.m in Sources */,
 				69390E5F18DFF29000DEA5B3 /* AtomPriv.m in Sources */,
 				69E2CA0C18DBDBE100EC4D8C /* AtomNmhd.m in Sources */,
@@ -1975,6 +2051,7 @@
 				6941199118D55EE800D71C3D /* AtomUnrecognized.m in Sources */,
 				6972096018D6DD36003A9E0A /* AtomTvsh.m in Sources */,
 				6972096618D6DD57003A9E0A /* AtomTvsn.m in Sources */,
+				6930D06F18E4EE4F001E6397 /* AtomCios.m in Sources */,
 				6972090C18D6C357003A9E0A /* AtomElst.m in Sources */,
 				69E2CA1418DBE08500EC4D8C /* AtomStsh.m in Sources */,
 				6972090318D6BE00003A9E0A /* AtomStbl.m in Sources */,
@@ -2016,7 +2093,9 @@
 				69E2CA4018DBE82600EC4D8C /* AtomTrun.m in Sources */,
 				696BB5FE18D7E8A7001EDCC2 /* AtomGeID.m in Sources */,
 				6972093918D6C8F8003A9E0A /* AtomName.m in Sources */,
+				6996CCE218E4EE9600121640 /* AtomClef.m in Sources */,
 				69390E6E18DFF60C00DEA5B3 /* AtomIviv.m in Sources */,
+				6996CCEB18E4EF3000121640 /* AtomUuidLC.m in Sources */,
 				6972094818D6D44E003A9E0A /* AtomData.m in Sources */,
 				696BB63718D8035E001EDCC2 /* AtomSchm.m in Sources */,
 				696BB5CC18D79CD2001EDCC2 /* AtomEsds.m in Sources */,
@@ -2026,7 +2105,6 @@
 				6972095718D6DCFE003A9E0A /* Atom©alb.m in Sources */,
 				696BB5F618D7E77E001EDCC2 /* AtomPurd.m in Sources */,
 				69390E6818DFF5E100DEA5B3 /* AtomRigh.m in Sources */,
-				6972093C18D6CBFC003A9E0A /* AtomDualState.m in Sources */,
 				696BB5BA18D7968B001EDCC2 /* Atom©cmt.m in Sources */,
 				69390E6518DFF5B900DEA5B3 /* AtomUser.m in Sources */,
 				6972093618D6C8CD003A9E0A /* AtomSdtp.m in Sources */,

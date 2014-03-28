@@ -1,14 +1,14 @@
 //
-//  AtomCo64.m
+//  AtomUuidLC.m
 //  MPEG4FileViewer
 //
-//  Created by Jay O'Conor on 3/16/14.
+//  Created by Jay O'Conor on 3/27/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomCo64.h"
+#import "AtomUuidLC.h"
 
-@implementation AtomCo64
+@implementation AtomUuidLC
 
 +(void)load
 {
@@ -17,17 +17,12 @@
 
 +(NSString *)atomType
 {
-    return (@"co64");
+    return (@"uuid");
 }
 
 +(NSString *)atomName
 {
-    return (@"Chunk Large Offset");
-}
-
--(BOOL)isFullBox
-{
-    return YES;
+    return (@"uuid");
 }
 
 @end

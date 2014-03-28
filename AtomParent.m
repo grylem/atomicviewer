@@ -28,6 +28,11 @@
     return NO;
 }
 
+-(NSUInteger) jump
+{
+    return 0;
+}
+
 -(NSArray *) children
 {
     if ([_children count] == 0) {
@@ -38,6 +43,7 @@
         if (self.isFullBox) {
             childrenOffset += 4;
         }
+        childrenOffset += self.jump; // skip over data
         [Atom populateOutline: _children
                fromFileHandle: self.fileHandle
                      atOffset: self.origin + childrenOffset

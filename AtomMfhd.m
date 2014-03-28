@@ -25,4 +25,9 @@
     return (@"Movie Fragment Header");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

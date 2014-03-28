@@ -25,4 +25,9 @@
     return (@"Composition Time to Sample");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

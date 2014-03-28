@@ -25,4 +25,9 @@
     return (@"Movie Extends Header");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

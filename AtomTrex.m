@@ -25,4 +25,9 @@
     return (@"Track Extends");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

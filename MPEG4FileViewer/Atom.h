@@ -20,6 +20,7 @@
 + (void)populateAtomToClassDict;
 + (NSString *)atomType;
 + (void)populateOutline: (NSMutableArray *)contents fromFileHandle: fileHandle atOffset: (off_t)offset upTo: (off_t)end;
+
 -(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle: (NSFileHandle *)fileHandle;
 -(BOOL) isFullBox;
 -(NSAttributedString *)explanation;

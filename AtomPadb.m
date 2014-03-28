@@ -25,4 +25,9 @@
     return (@"Padding Bits");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

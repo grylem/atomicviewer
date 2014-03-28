@@ -1,14 +1,14 @@
 //
-//  AtomTfra.m
+//  AtomProf.m
 //  MPEG4FileViewer
 //
-//  Created by Jay O'Conor on 3/20/14.
+//  Created by Jay O'Conor on 3/27/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomTfra.h"
+#import "AtomProf.h"
 
-@implementation AtomTfra
+@implementation AtomProf
 
 +(void)load
 {
@@ -17,12 +17,12 @@
 
 +(NSString *)atomType
 {
-    return (@"tfra");
+    return (@"prof");
 }
 
 +(NSString *)atomName
 {
-    return (@"Track Fragment Random Access");
+    return (@"Track Production Aperture Dimensions");
 }
 
 -(BOOL)isFullBox

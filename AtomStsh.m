@@ -25,4 +25,9 @@
     return (@"Shadow Sync Sample");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

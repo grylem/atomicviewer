@@ -1,14 +1,14 @@
 //
-//  AtomTfra.m
+//  AtomEnof.m
 //  MPEG4FileViewer
 //
-//  Created by Jay O'Conor on 3/20/14.
+//  Created by Jay O'Conor on 3/27/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomTfra.h"
+#import "AtomEnof.h"
 
-@implementation AtomTfra
+@implementation AtomEnof
 
 +(void)load
 {
@@ -17,12 +17,12 @@
 
 +(NSString *)atomType
 {
-    return (@"tfra");
+    return (@"enof");
 }
 
 +(NSString *)atomName
 {
-    return (@"Track Fragment Random Access");
+    return (@"Track Encoded Pixels Dimensions");
 }
 
 -(BOOL)isFullBox

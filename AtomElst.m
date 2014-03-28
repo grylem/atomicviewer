@@ -25,4 +25,9 @@
     return (@"Edit List");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

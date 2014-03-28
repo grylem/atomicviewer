@@ -20,7 +20,7 @@ static dispatch_once_t pred;
 
 #pragma mark - Class cluster mapping
 
-// HERE BE DRAGONS
+// HERE BE MONSTERS
 // My subclasses invoke this during their +load. BE CAREFUL
 // This is ONLY for subclasses to populate the atom type to Class dictionary.
 // Do not use for any other purpose, as heavy lifting during +load is EXTREMELY dangerous.
@@ -96,9 +96,10 @@ static dispatch_once_t pred;
         NSData *largeSize = [fileHandle readDataOfLength:sizeof(size_t)];
         actualSize = CFSwapInt64BigToHost(*(uint64_t *)[largeSize bytes]);
 
-    } else if (size == 0) {
-        // This had better only occur at the top level (i.e., 'end' is end-of-file)
-        // Check assertion that indexPath is nil
+    // if size == zero, then the real size extends to the end of file. This case should only be at top level.
+    // if the size reported in the atom extends past end of container, limit size to that of the container.
+    // I should probably "asterisk" the size, to note in the UI that it's been changed from what was reported.
+    } else if ((size == 0) || (end < offset + actualSize)) {
         actualSize = end - offset;
     }
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomDualState.h"
+#import "AtomParent.h"
 
-@interface AtomAvc1 : AtomDualState
+@interface AtomAvc1 : AtomParent
 
 @end

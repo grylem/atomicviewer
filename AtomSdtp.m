@@ -25,4 +25,9 @@
     return (@"Independent and Disposable Samples");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

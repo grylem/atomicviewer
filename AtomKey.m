@@ -20,4 +20,8 @@
     return (@"key ");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
 @end

@@ -25,4 +25,9 @@
     return (@"Object Descriptor");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

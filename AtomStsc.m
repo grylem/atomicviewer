@@ -25,4 +25,9 @@
     return (@"Sample To Chunk");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

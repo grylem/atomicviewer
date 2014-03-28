@@ -25,4 +25,9 @@
     return (@"Track Fragment Run");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end

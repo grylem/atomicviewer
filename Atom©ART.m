@@ -20,4 +20,9 @@
     return (@"©ART");
 }
 
++(NSString *)atomName
+{
+    return (@"Artist");
+}
+
 @end

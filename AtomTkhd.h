@@ -9,6 +9,9 @@
 #import "Atom.h"
 
 @interface AtomTkhd : Atom
+{
+    NSUInteger _trakNumber;
+}
 
 -(NSUInteger)trakNumber;
 

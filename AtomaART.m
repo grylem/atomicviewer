@@ -20,4 +20,9 @@
     return (@"aART");
 }
 
++(NSString *)atomName
+{
+    return (@"Album Artist");
+}
+
 @end

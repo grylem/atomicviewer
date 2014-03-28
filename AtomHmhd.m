@@ -25,4 +25,9 @@
     return (@"Hint Media Header");
 }
 
+-(BOOL)isFullBox
+{
+    return YES;
+}
+
 @end
