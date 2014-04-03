@@ -479,7 +479,6 @@
 				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
 				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
 				696BB64718D810BA001EDCC2 /* gmhd -  */,
-				696BB64C18D81100001EDCC2 /* ilst - Metadata Item List */,
 				696BB64D18D8110D001EDCC2 /* rtng -  */,
 				696BB65218D81168001EDCC2 /* pasp -  */,
 				696BB65318D81176001EDCC2 /* colr -  */,
@@ -584,6 +583,7 @@
 		696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */ = {
 			isa = PBXGroup;
 			children = (
+				696BB64C18D81100001EDCC2 /* ilst - Metadata Item List */,
 				6930D06C18E4ED34001E6397 /* tapt - Track Aperture Mode Dimensions */,
 				6996CCEC18E4EFE900121640 /* cios -  */,
 				6996CCED18E4F00200121640 /* clef - Track Clean Aperture Dimensions */,

@@ -26,6 +26,8 @@
 @property HFFileByteSlice*              currentByteSlice;
 @property NSFileHandle*                 fileHandle;
 
+- (IBAction)switch2Action:(id)sender;
+
 @end
 
 @implementation MyWindowController
@@ -65,7 +67,6 @@ static dispatch_once_t pred;
         });
         [windowControllers addObject:self ];
 	}
-
 	return self;
 }
 
@@ -118,21 +119,41 @@ static dispatch_once_t pred;
 
 -(void)outlineViewSelectionDidChange:(NSNotification*)notification
 {
-    Atom *atom = [self.myOutlineView itemAtRow:[self.myOutlineView selectedRow]];
-    if (atom) {
-        self.textViewAttributedString = [atom explanation];
-        HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference
-                                                                    offset:[atom origin]
-                                                                    length:[atom dataLength]];
-        HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
-        [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
-        [self.hfController setByteArray:byteArray];
+
+    // There's a chance the file has been closed behind our back.
+    // If that's the case, Hex Fiend view will fail in an unfriendly manner
+    // Test the file descriptor first to see if it's still valid.
+
+    struct stat fileStat;
+    int success = fstat([self.fileHandle fileDescriptor], &fileStat);
+    if (success == -1) {
+        NSLog(@"fstat() failed with %d, %s", errno, strerror(errno));
+        NSAlert *alert = [NSAlert new];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        [alert setMessageText:@"The file is no longer available"];
+        [alert setInformativeText:@"The window will now be closed"];
+        [alert beginSheetModalForWindow: self.window
+                      completionHandler: ^(NSModalResponse result){
+                          [[alert window] orderOut:self];
+                          [self.window performClose:nil];
+         }];
     } else {
-        self.textViewAttributedString = [[NSAttributedString alloc] initWithString:@""];
-        HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference];
-        HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
-        [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
-        [self.hfController setByteArray:byteArray];
+        Atom *atom = [self.myOutlineView itemAtRow:[self.myOutlineView selectedRow]];
+        if (atom) {
+            self.textViewAttributedString = [atom explanation];
+            HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference
+                                                                        offset:[atom origin]
+                                                                        length:[atom dataLength]];
+            HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
+            [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
+            [self.hfController setByteArray:byteArray];
+        } else {
+            self.textViewAttributedString = [[NSAttributedString alloc] initWithString:@""];
+            HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference];
+            HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
+            [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
+            [self.hfController setByteArray:byteArray];
+        }
     }
 }
 
@@ -172,6 +193,29 @@ static dispatch_once_t pred;
         return @([item nodeEnd]);
     }
     return @"";
+}
+
+//  This relies on the menu item's tag being the same as the table column index
+- (void)switch2Action:(id)sender
+{
+    NSTableColumn *tableColumn = [self.myOutlineView tableColumns][[sender tag]];
+    [tableColumn setHidden: ([tableColumn isHidden] ? NO : YES)];
+}
+
+
+- (BOOL)validateMenuItem:(NSMenuItem *)item
+{
+    if ([item tag] == 1) {
+        NSTableColumn *tableColumn = [self.myOutlineView tableColumnWithIdentifier: @"origin"];
+        [item setTitle: ([tableColumn isHidden] ? @"Show Offset" : @"Hide Offset")];
+    } else if ([item tag] == 2) {
+        NSTableColumn *tableColumn = [self.myOutlineView tableColumnWithIdentifier: @"length"];
+        [item setTitle: ([tableColumn isHidden] ? @"Show Length" : @"Hide Length")];
+    } else if ([item tag] == 3) {
+        NSTableColumn *tableColumn = [self.myOutlineView tableColumnWithIdentifier: @"end"];
+        [item setTitle: ([tableColumn isHidden] ? @"Show End" : @"Hide End")];
+    }
+    return YES;
 }
 
 -(void)dealloc
