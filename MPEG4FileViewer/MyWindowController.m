@@ -18,7 +18,7 @@
 @property IBOutlet NSOutlineView*       myOutlineView;
 @property IBOutlet HFTextView*          hfTextView;
 @property IBOutlet NSProgressIndicator* progressIndicator;
-@property IBOutlet NSSplitView*         splitView;
+@property NSSplitView*                  splitView;
 @property HFController*                 hfController;
 @property NSMutableArray*               contents;
 @property NSAttributedString*           textViewAttributedString;
@@ -26,7 +26,7 @@
 @property HFFileByteSlice*              currentByteSlice;
 @property NSFileHandle*                 fileHandle;
 
-- (IBAction)switch2Action:(id)sender;
+- (IBAction)showHideColumn:(id)sender;
 
 @end
 
@@ -34,6 +34,7 @@
 
 static NSMutableArray *windowControllers;
 static dispatch_once_t pred;
+static NSArray *columnTitles;
 
 - (void)populateOutline: (NSMutableArray *)contents fromFileAtPath: (NSString *)path
 {
@@ -60,12 +61,17 @@ static dispatch_once_t pred;
 	self = [super initWithWindow:window];
 	if (self)
 	{
-		self.contents = [[NSMutableArray alloc] init];
+		self.contents = [NSMutableArray new];
 
         dispatch_once (&pred, ^{
             windowControllers = [NSMutableArray new];
+            // Array of Arrays
+            columnTitles = @[ @[@"Show Offset", @"Hide Offset"],
+                              @[@"Show Length", @"Hide Length"],
+                              @[@"Show End",    @"Hide End"]
+                              ];
         });
-        [windowControllers addObject:self ];
+        [windowControllers addObject:self];
 	}
 	return self;
 }
@@ -195,28 +201,25 @@ static dispatch_once_t pred;
     return @"";
 }
 
-//  This relies on the menu item's tag being the same as the table column index
-- (void)switch2Action:(id)sender
-{
-    NSTableColumn *tableColumn = [self.myOutlineView tableColumns][[sender tag]];
-    [tableColumn setHidden: ([tableColumn isHidden] ? NO : YES)];
-}
+#pragma mark - Menu manipulation
 
-
+// item tag is index into tableColumns
+// item tag - 1 is index into columnTitles
+//
 - (BOOL)validateMenuItem:(NSMenuItem *)item
 {
-    if ([item tag] == 1) {
-        NSTableColumn *tableColumn = [self.myOutlineView tableColumnWithIdentifier: @"origin"];
-        [item setTitle: ([tableColumn isHidden] ? @"Show Offset" : @"Hide Offset")];
-    } else if ([item tag] == 2) {
-        NSTableColumn *tableColumn = [self.myOutlineView tableColumnWithIdentifier: @"length"];
-        [item setTitle: ([tableColumn isHidden] ? @"Show Length" : @"Hide Length")];
-    } else if ([item tag] == 3) {
-        NSTableColumn *tableColumn = [self.myOutlineView tableColumnWithIdentifier: @"end"];
-        [item setTitle: ([tableColumn isHidden] ? @"Show End" : @"Hide End")];
-    }
+    [item setTitle:columnTitles[[item tag] - 1][[[self.myOutlineView tableColumns][[item tag]] isHidden] ? 0 : 1]];
     return YES;
 }
+
+//  This relies on the menu item's tag being the same as the table column index
+- (void)showHideColumn:(id)sender
+{
+    NSTableColumn *tableColumn = [self.myOutlineView tableColumns][[sender tag]];
+    [tableColumn setHidden: [tableColumn isHidden] ? NO : YES];
+}
+
+#pragma mark -
 
 -(void)dealloc
 {

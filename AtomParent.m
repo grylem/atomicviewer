@@ -52,4 +52,16 @@
     return _children;
 }
 
+#pragma mark - Child atom searching
+
+-(Atom *)findChildAtomOfType:(NSString *)typeString
+{
+    for (Atom *atom in _children) {
+        if ([[atom atomType]  isEqual: typeString]) {
+            return atom;
+        }
+    }
+    return nil;
+}
+
 @end
