@@ -56,7 +56,7 @@
 
 -(Atom *)findChildAtomOfType:(NSString *)typeString
 {
-    for (Atom *atom in _children) {
+    for (Atom *atom in self.children) {
         if ([[atom atomType]  isEqual: typeString]) {
             return atom;
         }

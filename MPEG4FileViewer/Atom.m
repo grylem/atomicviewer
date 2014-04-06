@@ -280,4 +280,14 @@ static dispatch_once_t pred;
     return nil; // The abstract superclass does not have a decodedExplanation
 }
 
+- (BOOL)hasImage
+{
+    return NO;
+}
+
+- (NSImage *)image
+{
+    return nil;
+}
+
 @end

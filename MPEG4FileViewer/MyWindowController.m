@@ -15,9 +15,12 @@
 @interface MyWindowController ()
 
 @property IBOutlet NSTextView*          placeHolderView;
+@property IBOutlet NSTextView*          textWithImageView;
 @property IBOutlet NSOutlineView*       myOutlineView;
 @property IBOutlet HFTextView*          hfTextView;
 @property IBOutlet NSProgressIndicator* progressIndicator;
+@property IBOutlet NSImageView*         imageView;
+@property IBOutlet NSTabView*           tabView;
 @property NSSplitView*                  splitView;
 @property HFController*                 hfController;
 @property NSMutableArray*               contents;
@@ -146,6 +149,12 @@ static NSArray *columnTitles;
     } else {
         Atom *atom = [self.myOutlineView itemAtRow:[self.myOutlineView selectedRow]];
         if (atom) {
+            if ([atom hasImage]) {
+                [self.tabView selectTabViewItemAtIndex:1];
+                [self.imageView setImage: [atom image]];
+            } else {
+                [self.tabView selectTabViewItemAtIndex:0];
+            }
             self.textViewAttributedString = [atom explanation];
             HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference
                                                                         offset:[atom origin]
@@ -154,6 +163,7 @@ static NSArray *columnTitles;
             [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
             [self.hfController setByteArray:byteArray];
         } else {
+            [self.tabView selectTabViewItemAtIndex:0];
             self.textViewAttributedString = [[NSAttributedString alloc] initWithString:@""];
             HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference];
             HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];

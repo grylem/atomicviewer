@@ -30,5 +30,7 @@
 -(NSUInteger)nodeOrigin;
 -(NSUInteger)nodeLength;
 -(NSUInteger)nodeEnd;
+-(BOOL)hasImage;
+-(NSImage *)image;
 
 @end

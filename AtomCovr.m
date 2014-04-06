@@ -27,9 +27,14 @@
 
 -(NSString *)atomName
 {
-    NSImage *image = [self image];
     return [[self class] atomName];
 }
+
+-(BOOL)hasImage
+{
+    return YES;
+}
+
 -(NSImage *)image
 {
     Atom *dataAtom = [self findChildAtomOfType: @"data"];
