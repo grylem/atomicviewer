@@ -52,23 +52,41 @@ static dispatch_once_t pred;
 //  • The GCD queue on which asynchronous reads should occur
 //  • The tree controller controlling the outline in which this atom will be stored
 
-+ (Atom *)createAtomOfType: (NSString *)atomType withLength: (size_t)atomLength fromOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:fileHandle
++ (Atom *)createAtomOfType: (NSString *)atomType
+                withLength: (size_t)atomLength
+                fromOffset: (off_t)offset
+                isExtended: (BOOL)isExtendedLength
+           usingFileHandle: fileHandle
+                withParent: (Atom *)parent
 {
     Class atomClass = atomToClassDict[atomType];
     Atom *newAtom;
 
     if (atomClass) {
-        newAtom = [[atomClass alloc] initWithLength: atomLength dataOffset: offset isExtended: isExtendedLength usingFileHandle:fileHandle];
+        newAtom = [[atomClass alloc] initWithLength: atomLength
+                                         dataOffset: offset
+                                         isExtended: isExtendedLength
+                                    usingFileHandle:fileHandle
+                                         withParent: parent];
     } else {
-        newAtom = [[AtomUnrecognized alloc] initWithType: atomType length: atomLength dataOffset: offset isExtended: isExtendedLength usingFileHandle:fileHandle];
+        newAtom = [[AtomUnrecognized alloc] initWithType: atomType
+                                                  length: atomLength
+                                              dataOffset: offset
+                                              isExtended: isExtendedLength
+                                         usingFileHandle: fileHandle];
     }
     return newAtom;
 }
 
 //  This is the primary means of creating atoms.
 //  This will create all the atoms at a specific level in the atom hierarchy
-+ (void)populateOutline:(NSMutableArray *)contents fromFileHandle: (NSFileHandle *)fileHandle atOffset:(off_t)offset upTo:(off_t)end {
 
++ (void)populateOutline: (NSMutableArray *)contents
+         fromFileHandle: (NSFileHandle *)fileHandle
+               atOffset: (off_t)offset
+                   upTo: (off_t)end
+              asChildOf: (Atom *)parent
+{
     size_t actualSize;
     char atomType[5];
     BOOL isExtendedLength = NO;
@@ -113,7 +131,8 @@ static dispatch_once_t pred;
                        withLength: actualSize
                        fromOffset: offset
                        isExtended: isExtendedLength
-                  usingFileHandle: fileHandle];
+                  usingFileHandle: fileHandle
+                       withParent: parent];
 
     if ([atom isFullBox]) {
         off_t versionOffset;
@@ -122,9 +141,12 @@ static dispatch_once_t pred;
             versionOffset += 8; // But if it's extendedLength, version is later
         }
         [fileHandle seekToFileOffset: versionOffset];
-        NSData *versionData = [fileHandle readDataOfLength:sizeof(uint64_t)];
-        // break the four bytes into 3 byte flags and 1 byte version
+        NSData *versionData = [fileHandle readDataOfLength:sizeof(uint32_t)];
+        // break the four bytes into 1 byte version and 3 bytes flags
         // set flags & version in atom
+        uint32_t versionAndFlags = CFSwapInt32BigToHost (*(uint32_t *)[versionData bytes]);
+        atom.version = versionAndFlags >> 24;
+        atom.flags = versionAndFlags & 0x00FFFFFF;
     }
 
     [contents addObject:atom];
@@ -137,7 +159,8 @@ static dispatch_once_t pred;
         [self populateOutline: contents
                fromFileHandle: fileHandle
                      atOffset: (offset + actualSize)
-                         upTo: end];
+                         upTo: end
+                    asChildOf: parent];
     }
 }
 
@@ -160,7 +183,11 @@ static dispatch_once_t pred;
 //  Designated initializer for the Atom class cluster (except AtomUnrecognized)
 //  This is typically invoked by +createAtomOfType:withLength:fromOffset:isExtended:usingFileHandle:inTree:
 //  Using the class convenience method for creation handles instantiation of the correct concrete subclass.
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:(NSFileHandle *)fileHandle;
+-(instancetype) initWithLength: (size_t)atomLength
+                    dataOffset: (off_t)offset
+                    isExtended: (BOOL)isExtendedLength
+               usingFileHandle: (NSFileHandle *)fileHandle
+                    withParent: (Atom *)parent
 {
     self = [super init];
     if (self) {
@@ -168,6 +195,7 @@ static dispatch_once_t pred;
         self.origin = offset;
         self.fileHandle = fileHandle;
         self.extendedLength = isExtendedLength;
+        self.parent = parent;
     }
     return self;
 }
@@ -288,6 +316,61 @@ static dispatch_once_t pred;
 - (NSImage *)image
 {
     return nil;
+}
+
+// atomHierarchyString is a period separated string
+// representing a path through the atom hierarchy.
+//
+// Search the parent chain for the last atom in the path.
+// Once the nearest parent is found, each atom parent
+// must match the previous atom type in the path.
+// There may be an indeterminate number of unspecified
+// atoms in between us and the last atom type in the path.
+
+-(BOOL)isDescendantOf: (NSString *)pathString
+{
+    NSArray *pathArray = [pathString componentsSeparatedByString:@"."];
+    NSString *nearestParentString = [pathArray lastObject];
+    Atom *nextParent = self.parent;
+
+    while (nextParent) {
+        if ([[nextParent atomType] isEqualToString: nearestParentString]) {
+            break; // found the nearest matching parent. Break out of the while loop with nextParent set to it.
+        }
+        nextParent = nextParent.parent;
+    }
+
+    // We traversed the whole parent chain and did not find a match
+    if (!nextParent) {
+        return NO;
+    }
+
+    // I've found the nearest matching parent (skipping over intermediaries)
+    // (nextParent matches last item in path argument)
+    // Now ensure all immediate parents match each parent specified
+
+    NSEnumerator *enumerator = [pathArray reverseObjectEnumerator];
+    for (NSString *pathElement in enumerator) {
+        if ([[nextParent atomType] isEqualToString: pathElement]) {
+            nextParent = nextParent.parent;
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+-(BOOL)isiTunesMetadata
+{
+    BOOL isDescendent = [self isDescendantOf: @"moov.udta.meta.ilst"]; // YES: skip one, entire rest of hierarchy
+    isDescendent = [self isDescendantOf:@"foo.bar.baz"];                // NO: none in hierarchy
+    isDescendent = [self isDescendantOf:@"foo.bar.meta.ilst"];          // NO: skip one, some in hierarchy
+    isDescendent = [self isDescendantOf:@"udta.meta.ilst"];             // YES: skip one, some in hierarchy
+    isDescendent = [self isDescendantOf:@"udta"];                       // YES: skip several, only one specified and found in hierarchy
+    isDescendent = [self isDescendantOf:@"foo"];                        // NO: skip several, only one specified, not found
+    isDescendent = [self isDescendantOf:@"moov.udta.meta.ilst.©nam"];   // conditional, full hierarchy
+
+    return [self isDescendantOf:@"moov.udta.meta.ilst"];
 }
 
 @end

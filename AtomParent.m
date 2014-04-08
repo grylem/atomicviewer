@@ -14,9 +14,17 @@
 
 @implementation AtomParent
 
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:(NSFileHandle *)fileHandle
+-(instancetype) initWithLength: (size_t)atomLength
+                    dataOffset: (off_t)offset
+                    isExtended: (BOOL)isExtendedLength
+               usingFileHandle: (NSFileHandle *)fileHandle
+                    withParent: (Atom *)parent
 {
-    self = [super initWithLength:atomLength dataOffset:offset isExtended:isExtendedLength usingFileHandle:fileHandle];
+    self = [super initWithLength: atomLength
+                      dataOffset: offset
+                      isExtended: isExtendedLength
+                 usingFileHandle: fileHandle
+                      withParent: parent];
     if (self) {
         _children = [NSMutableArray array];
     }
@@ -46,8 +54,9 @@
         childrenOffset += self.jump; // skip over data
         [Atom populateOutline: _children
                fromFileHandle: self.fileHandle
-                     atOffset: self.origin + childrenOffset
-                         upTo: self.origin + self.dataLength];
+                     atOffset: self.origin + childrenOffset         // maybe just pass self & childrenOffset to a new method?
+                         upTo: self.origin + self.dataLength
+                    asChildOf: self];
     }
     return _children;
 }

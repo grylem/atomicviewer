@@ -50,7 +50,7 @@ static NSArray *columnTitles;
 
     self.fileHandle = [NSFileHandle fileHandleForReadingAtPath:resolvedPath];
 
-    [Atom populateOutline:contents fromFileHandle: self.fileHandle atOffset:0 upTo:fileSize];
+    [Atom populateOutline:contents fromFileHandle: self.fileHandle atOffset:0 upTo:fileSize asChildOf:nil];
     [self.myOutlineView reloadData];
 }
 

@@ -29,9 +29,12 @@
     return (@"name");
 }
 
+// Name atom is used in different contexts.
+// Only when it's part of iTunes metadata do we know we have version & flags
+
 -(BOOL)isFullBox
 {
-    return YES;
+    return self.isiTunesMetadata;
 }
 
 @end

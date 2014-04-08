@@ -14,9 +14,17 @@
 
 @implementation AtomUnrecognized
 
--initWithType: (NSString *)atomType length: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle:(NSFileHandle *)fileHandle
+-initWithType: (NSString *)atomType
+       length: (size_t)atomLength
+   dataOffset: (off_t)offset
+   isExtended: (BOOL)isExtendedLength
+usingFileHandle: (NSFileHandle *)fileHandle
 {
-    if (self = [super initWithLength:atomLength dataOffset:offset isExtended: isExtendedLength usingFileHandle:fileHandle]) {
+    if (self = [super initWithLength: atomLength
+                          dataOffset: offset
+                          isExtended: isExtendedLength
+                     usingFileHandle: fileHandle
+                          withParent: nil]) {
 
         self.type = atomType;
     }

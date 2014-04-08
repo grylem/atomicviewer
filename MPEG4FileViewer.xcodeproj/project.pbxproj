@@ -479,7 +479,7 @@
 				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
 				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
 				696BB64718D810BA001EDCC2 /* gmhd -  */,
-				696BB64D18D8110D001EDCC2 /* rtng -  */,
+				696BB64D18D8110D001EDCC2 /* rtng - Rating (clean vs. explicit) */,
 				696BB65218D81168001EDCC2 /* pasp -  */,
 				696BB65318D81176001EDCC2 /* colr -  */,
 				696BB65618D811B2001EDCC2 /* ac-3 -  */,
@@ -1322,13 +1322,13 @@
 			name = "ilst - Metadata Item List";
 			sourceTree = "<group>";
 		};
-		696BB64D18D8110D001EDCC2 /* rtng -  */ = {
+		696BB64D18D8110D001EDCC2 /* rtng - Rating (clean vs. explicit) */ = {
 			isa = PBXGroup;
 			children = (
 				6972097318D6DDAF003A9E0A /* AtomRtng.h */,
 				6972097418D6DDAF003A9E0A /* AtomRtng.m */,
 			);
-			name = "rtng - ";
+			name = "rtng - Rating (clean vs. explicit)";
 			sourceTree = "<group>";
 		};
 		696BB64E18D81117001EDCC2 /* 8.13 dref - Data Reference */ = {

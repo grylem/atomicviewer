@@ -16,21 +16,26 @@
 @property NSIndexPath *indexPath;
 @property BOOL extendedLength;
 @property NSFileHandle *fileHandle;
+@property Atom *parent;
+@property NSUInteger version;
+@property NSUInteger flags;
 
 + (void)populateAtomToClassDict;
 + (NSString *)atomType;
-+ (void)populateOutline: (NSMutableArray *)contents fromFileHandle: fileHandle atOffset: (off_t)offset upTo: (off_t)end;
++ (void)populateOutline: (NSMutableArray *)contents fromFileHandle: fileHandle atOffset: (off_t)offset upTo: (off_t)end asChildOf: (Atom *)parent;
 
--(instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle: (NSFileHandle *)fileHandle;
--(BOOL) isFullBox;
--(NSAttributedString *)explanation;
--(NSString *)atomName;
--(NSString *)atomType;
--(NSString *)nodeTitle;
--(NSUInteger)nodeOrigin;
--(NSUInteger)nodeLength;
--(NSUInteger)nodeEnd;
--(BOOL)hasImage;
--(NSImage *)image;
+- (instancetype) initWithLength: (size_t)atomLength dataOffset: (off_t)offset isExtended: (BOOL)isExtendedLength usingFileHandle: (NSFileHandle *)fileHandle withParent: (Atom *)parent;
+- (BOOL) isFullBox;
+- (NSAttributedString *)explanation;
+- (NSString *)atomName;
+- (NSString *)atomType;
+- (NSString *)nodeTitle;
+- (NSUInteger)nodeOrigin;
+- (NSUInteger)nodeLength;
+- (NSUInteger)nodeEnd;
+- (BOOL)hasImage;
+- (NSImage *)image;
+- (BOOL)isDescendantOf:(NSString *)atomHierarchyString;
+- (BOOL)isiTunesMetadata;
 
 @end
