@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomParent.h"
+#import "AtomSimpleiTunesMetadata.h"
 
-@interface Atom_nam : AtomParent
+@interface Atom_nam : AtomSimpleiTunesMetadata
 
 @end

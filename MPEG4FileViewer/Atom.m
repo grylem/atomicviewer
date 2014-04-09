@@ -308,15 +308,7 @@ static dispatch_once_t pred;
     return nil; // The abstract superclass does not have a decodedExplanation
 }
 
-- (BOOL)hasImage
-{
-    return NO;
-}
-
-- (NSImage *)image
-{
-    return nil;
-}
+#pragma mark - Atom searching
 
 // atomHierarchyString is a period separated string
 // representing a path through the atom hierarchy.
@@ -358,6 +350,18 @@ static dispatch_once_t pred;
         }
     }
     return YES;
+}
+
+#pragma mark - Behavior to support iTunes Metadata
+
+- (BOOL)hasImage
+{
+    return NO;
+}
+
+- (NSImage *)image
+{
+    return nil;
 }
 
 -(BOOL)isiTunesMetadata

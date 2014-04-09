@@ -25,4 +25,10 @@
     return (@"Movie");
 }
 
+//  This is the formatted textual explantion of the content of the atom
+- (NSAttributedString *)decodedExplanation
+{
+    return [[NSAttributedString alloc] initWithString: @"This is the container for all the metadata" ];
+}
+
 @end

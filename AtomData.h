@@ -10,4 +10,10 @@
 
 @interface AtomData : Atom
 
+- (BOOL)isImage;
+- (BOOL)isInteger;
+
+- (NSString *)asString;
+- (NSImage *)asImage;
+
 @end
