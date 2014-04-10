@@ -39,6 +39,27 @@ static NSMutableArray *windowControllers;
 static dispatch_once_t pred;
 static NSArray *columnTitles;
 
++ (BOOL)hasOpenWindows
+{
+    return ([windowControllers count] != 0);
+}
+
+#pragma mark - Designated Initializer
+
+- (instancetype)initWithFilename:(NSString *)filename
+{
+    self = [super initWithWindowNibName:@"MainWindow"];
+    if (self) {
+    _movieFilePath = filename;
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithFilename:nil];
+}
+
 - (void)populateOutline: (NSMutableArray *)contents fromFileAtPath: (NSString *)path
 {
     // This is the top level parser
@@ -109,6 +130,9 @@ static NSArray *columnTitles;
                 HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
                 [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
                 [self.hfController setByteArray:byteArray];
+            } else {
+                [panel orderOut:self];
+                [self.window performClose: nil];
             }
         }];
     } else {

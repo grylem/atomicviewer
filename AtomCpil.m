@@ -7,6 +7,7 @@
 //
 
 #import "AtomCpil.h"
+#import "AtomData.h"
 
 @implementation AtomCpil
 
@@ -23,6 +24,11 @@
 +(NSString *)atomName
 {
     return (@"Compilation");
+}
+
+- (NSAttributedString *)decodedExplanation
+{
+    return [self decodedAsBoolean];
 }
 
 @end

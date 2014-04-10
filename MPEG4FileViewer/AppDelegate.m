@@ -21,19 +21,20 @@
 - (void)applicationDidFinishLaunching:(NSNotification*)notification
 {
 	// load the app's main window for display
-    [self openDocument:self];
+    // But if we've already gone through -application:openFile:, skip this.
+    if (![MyWindowController hasOpenWindows])
+        [self openDocument:self];
 }
 
 - (void)openDocument:(id)sender
 {
-    MyWindowController *newWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    MyWindowController *newWindowController = [[MyWindowController alloc] init];
     [newWindowController showWindow:self];
 }
 
 -(BOOL)application:(NSApplication *)sender openFile:(NSString *)filename
 {
-    MyWindowController *newWindowController = [[MyWindowController alloc] initWithWindowNibName:@"MainWindow"];
-    newWindowController.movieFilePath = filename;
+    MyWindowController *newWindowController = [[MyWindowController alloc] initWithFilename:filename];
     [newWindowController showWindow:self];
     return YES;
 }

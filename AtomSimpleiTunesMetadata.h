@@ -10,4 +10,6 @@
 
 @interface AtomSimpleiTunesMetadata : AtomParent
 
+- (NSAttributedString *)decodedAsBoolean;
+
 @end

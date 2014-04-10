@@ -479,30 +479,29 @@
 				69E2CA4F18DBF20100EC4D8C /* ISO 14496-14 MP4 file format */,
 				69E2CA5018DBF4E500EC4D8C /* ISO 14496-15 AVC file format */,
 				696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */,
-				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
-				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
-				696BB64718D810BA001EDCC2 /* gmhd -  */,
-				696BB64D18D8110D001EDCC2 /* rtng - Rating (clean vs. explicit) */,
-				696BB65218D81168001EDCC2 /* pasp -  */,
-				696BB65318D81176001EDCC2 /* colr -  */,
 				696BB65618D811B2001EDCC2 /* ac-3 -  */,
+				69754A1518E0A66E0076E6F1 /* c608 -  */,
+				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
+				696BB65318D81176001EDCC2 /* colr -  */,
 				696BB65718D811BF001EDCC2 /* dac3 -  */,
-				696BB65818D811C8001EDCC2 /* fall - Alternate Audio Track Reference */,
+				697A717618E0C64B00A4A9DD /* drmi -  */,
 				696BB65918D811D2001EDCC2 /* drms -  */,
 				696BB64018D8102C001EDCC2 /* elng - Extended Language */,
-				69754A0F18E0A61E0076E6F1 /* pinf -  */,
-				69754A1018E0A62C0076E6F1 /* load -  */,
-				69754A1118E0A6380076E6F1 /* tx3g -  */,
+				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
+				696BB65818D811C8001EDCC2 /* fall - Alternate Audio Track Reference */,
 				69754A1218E0A6460076E6F1 /* ftab -  */,
-				69754A1318E0A6500076E6F1 /* skcr -  */,
-				69754A1418E0A65B0076E6F1 /* priv -  */,
-				69754A1518E0A66E0076E6F1 /* c608 -  */,
-				697A717618E0C64B00A4A9DD /* drmi -  */,
-				697A717718E0C65500A4A9DD /* p608 -  */,
-				69754A1618E0A6780076E6F1 /* user -  */,
-				69754A1718E0A6810076E6F1 /* righ -  */,
-				69754A1818E0A68B0076E6F1 /* key  -  */,
+				696BB64718D810BA001EDCC2 /* gmhd -  */,
 				69754A1918E0A69A0076E6F1 /* iviv -  */,
+				69754A1818E0A68B0076E6F1 /* key  -  */,
+				69754A1018E0A62C0076E6F1 /* load -  */,
+				697A717718E0C65500A4A9DD /* p608 -  */,
+				696BB65218D81168001EDCC2 /* pasp -  */,
+				69754A0F18E0A61E0076E6F1 /* pinf -  */,
+				69754A1418E0A65B0076E6F1 /* priv -  */,
+				69754A1718E0A6810076E6F1 /* righ -  */,
+				69754A1318E0A6500076E6F1 /* skcr -  */,
+				69754A1118E0A6380076E6F1 /* tx3g -  */,
+				69754A1618E0A6780076E6F1 /* user -  */,
 				69754A1A18E0A6A20076E6F1 /* UUID -  */,
 				6996CCF018E4F12900121640 /* uuid -  */,
 			);
@@ -588,7 +587,7 @@
 			children = (
 				696BB64C18D81100001EDCC2 /* ilst - Metadata Item List */,
 				696BB61418D7ECD4001EDCC2 /* aART - Album Artist */,
-				697A717B18E0CB8B00A4A9DD /* akid -  */,
+				697A717B18E0CB8B00A4A9DD /* akid - iTunes Store Account Type */,
 				696BB60B18D7E979001EDCC2 /* apID - Apple Store ID */,
 				696BB5EA18D7E67C001EDCC2 /* atID - Album Title ID */,
 				6996CCEC18E4EFE900121640 /* cios -  */,
@@ -602,18 +601,19 @@
 				696BB5E618D7E548001EDCC2 /* flvr - Flavor */,
 				696BB5FF18D7E8BA001EDCC2 /* geID - Genre ID */,
 				697A717318E0C46700A4A9DD /* gnre - Genre */,
-				696BB61018D7EC86001EDCC2 /* hdvd -  */,
+				696BB61018D7EC86001EDCC2 /* hdvd - HD Video */,
 				696BB5D818D7DCC2001EDCC2 /* ldes - Long Description */,
 				696BB60318D7E8FD001EDCC2 /* plID - Playlist ID */,
 				696BB5E718D7E60D001EDCC2 /* pgap - Gapless Playback */,
 				6996CCEE18E4F01600121640 /* prof - Track Production Aperture Dimensions */,
 				696BB5F718D7E794001EDCC2 /* purd - Purchase Date */,
+				696BB64D18D8110D001EDCC2 /* rtng - Rating (clean vs. explicit) */,
 				696BB61718D7ED02001EDCC2 /* sdes - Series Description */,
 				696BB5FB18D7E852001EDCC2 /* sfID - Storefront ID */,
 				696BB5F318D7E75B001EDCC2 /* soal - Sort Order Album */,
-				697A717518E0C48B00A4A9DD /* soar -  */,
-				697A717418E0C47B00A4A9DD /* sonm -  */,
-				696BB5DE18D7E236001EDCC2 /* stik - Content Type */,
+				697A717518E0C48B00A4A9DD /* soar - Sort Order Artist */,
+				697A717418E0C47B00A4A9DD /* sonm - Sort Order Name */,
+				696BB5DE18D7E236001EDCC2 /* stik - Media Kind */,
 				6930D06C18E4ED34001E6397 /* tapt - Track Aperture Mode Dimensions */,
 				696BB5E918D7E64C001EDCC2 /* trkn - Track Number */,
 				696BB5E118D7E480001EDCC2 /* tven - TV Episode Number */,
@@ -706,13 +706,13 @@
 			name = "©gen - Genre";
 			sourceTree = "<group>";
 		};
-		696BB5DE18D7E236001EDCC2 /* stik - Content Type */ = {
+		696BB5DE18D7E236001EDCC2 /* stik - Media Kind */ = {
 			isa = PBXGroup;
 			children = (
 				6972097018D6DD9F003A9E0A /* AtomStik.h */,
 				6972097118D6DD9F003A9E0A /* AtomStik.m */,
 			);
-			name = "stik - Content Type";
+			name = "stik - Media Kind";
 			sourceTree = "<group>";
 		};
 		696BB5DF18D7E453001EDCC2 /* tves - TV Episode in Season */ = {
@@ -886,13 +886,13 @@
 			name = "cpil - Compilation";
 			sourceTree = "<group>";
 		};
-		696BB61018D7EC86001EDCC2 /* hdvd -  */ = {
+		696BB61018D7EC86001EDCC2 /* hdvd - HD Video */ = {
 			isa = PBXGroup;
 			children = (
 				6972096D18D6DD91003A9E0A /* AtomHdvd.h */,
 				6972096E18D6DD91003A9E0A /* AtomHdvd.m */,
 			);
-			name = "hdvd - ";
+			name = "hdvd - HD Video";
 			sourceTree = "<group>";
 		};
 		696BB61118D7EC95001EDCC2 /* ©cmt - Comment */ = {
@@ -1570,22 +1570,22 @@
 			name = "gnre - Genre";
 			sourceTree = "<group>";
 		};
-		697A717418E0C47B00A4A9DD /* sonm -  */ = {
+		697A717418E0C47B00A4A9DD /* sonm - Sort Order Name */ = {
 			isa = PBXGroup;
 			children = (
 				697A716D18E0C11100A4A9DD /* AtomSonm.h */,
 				697A716E18E0C11100A4A9DD /* AtomSonm.m */,
 			);
-			name = "sonm - ";
+			name = "sonm - Sort Order Name";
 			sourceTree = "<group>";
 		};
-		697A717518E0C48B00A4A9DD /* soar -  */ = {
+		697A717518E0C48B00A4A9DD /* soar - Sort Order Artist */ = {
 			isa = PBXGroup;
 			children = (
 				697A717018E0C12D00A4A9DD /* AtomSoar.h */,
 				697A717118E0C12D00A4A9DD /* AtomSoar.m */,
 			);
-			name = "soar - ";
+			name = "soar - Sort Order Artist";
 			sourceTree = "<group>";
 		};
 		697A717618E0C64B00A4A9DD /* drmi -  */ = {
@@ -1606,13 +1606,13 @@
 			name = "p608 - ";
 			sourceTree = "<group>";
 		};
-		697A717B18E0CB8B00A4A9DD /* akid -  */ = {
+		697A717B18E0CB8B00A4A9DD /* akid - iTunes Store Account Type */ = {
 			isa = PBXGroup;
 			children = (
 				697A717818E0CB6900A4A9DD /* AtomAkID.h */,
 				697A717918E0CB6900A4A9DD /* AtomAkID.m */,
 			);
-			name = "akid - ";
+			name = "akid - iTunes Store Account Type";
 			sourceTree = "<group>";
 		};
 		6996CCEC18E4EFE900121640 /* cios -  */ = {

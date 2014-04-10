@@ -7,6 +7,7 @@
 //
 
 #import "AtomStik.h"
+#import "AtomData.h"
 
 @implementation AtomStik
 
@@ -22,7 +23,44 @@
 
 +(NSString *)atomName
 {
-    return (@"Content Type");
+    return (@"Media Kind");
+}
+
+- (NSAttributedString *)decodedExplanation
+{
+    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+    NSInteger integer = [dataAtom asInteger];
+    NSString *mediaType;
+
+    switch (integer) {
+        case 0:
+            mediaType = @"Movie";
+            break;
+        case 1:
+            mediaType = @"Music";
+        case 2:
+            mediaType = @"Audiobook";
+            break;
+        case 6:
+            mediaType = @"Music Video";
+            break;
+        case 9:
+            mediaType = @"Movie";
+            break;
+        case 10:
+            mediaType = @"TV Show";
+            break;
+        case 11:
+            mediaType = @"Booklet";
+            break;
+        case 14:
+            mediaType = @"Ringtone";
+            break;
+        default:
+            mediaType = @"Unknown";
+            break;
+    };
+    return [[NSAttributedString alloc] initWithString: mediaType];
 }
 
 @end

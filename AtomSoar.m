@@ -20,4 +20,9 @@
     return (@"soar");
 }
 
++(NSString *)atomName
+{
+    return (@"Sort Order Artist");
+}
+
 @end

@@ -15,5 +15,6 @@
 
 - (NSString *)asString;
 - (NSImage *)asImage;
+- (NSInteger)asInteger;
 
 @end

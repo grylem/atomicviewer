@@ -20,4 +20,9 @@
     return (@"hdvd");
 }
 
++(NSString *)atomName
+{
+    return (@"HD Video");
+}
+
 @end

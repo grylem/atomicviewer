@@ -7,6 +7,7 @@
 //
 
 #import "AtomPgap.h"
+#import "AtomData.h"
 
 @implementation AtomPgap
 
@@ -23,6 +24,11 @@
 +(NSString *)atomName
 {
     return (@"Gapless Playback");
+}
+
+- (NSAttributedString *)decodedExplanation
+{
+    return [self decodedAsBoolean];
 }
 
 @end

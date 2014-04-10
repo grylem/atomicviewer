@@ -20,4 +20,9 @@
     return (@"sonm");
 }
 
++(NSString *)atomName
+{
+    return (@"Sort Order Name");
+}
+
 @end

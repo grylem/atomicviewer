@@ -19,6 +19,15 @@
     return [[NSAttributedString alloc] initWithString: string];
 }
 
+- (NSAttributedString *)decodedAsBoolean
+{
+    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+    NSUInteger integer = [dataAtom asInteger];
+    NSString *string = [[NSString alloc]initWithFormat:@"%@",(integer?@"YES":@"NO") ];
+
+    return [[NSAttributedString alloc] initWithString:string];
+}
+
 // The covr atom should be the only one with multiple children
 // data atoms. They should all be images if more than one.
 // Only need to test one.

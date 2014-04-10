@@ -30,8 +30,8 @@
 -(NSString *)atomName
 {
     if ([self isiTunesMetadata]) {
-        NSString *parentName = self.parent.atomName;
-        return [@"Data for parent " stringByAppendingFormat:@"%@ atom", parentName];
+        NSString *parentType = self.parent.atomType;
+        return [@"Data for parent " stringByAppendingFormat:@"%@ atom", parentType];
     } else {
         return [super atomName];
     }
@@ -42,12 +42,15 @@
     return [self asImage];
 }
 
-// Only data for "covr" atom has an image
-
-// Refactor this?
-// Perhaps "covr" should ask its "data" for the image?
-// This would allow covr to iterate over multiple data atoms
-// and allow the data atom to validate the "well-known" data type.
+- (NSAttributedString *)decodedExplanation
+{
+    if ([self isString]) {
+        return [[NSAttributedString alloc] initWithString:[self asString]];
+    } else if ([self isInteger]) {
+        return [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%ld",(long)[self asInteger]]];
+    }
+    return [[NSAttributedString alloc] initWithString:@""];
+}
 
 -(BOOL)hasImage
 {
@@ -103,6 +106,31 @@
         return [[NSString alloc]initWithBytes:[stringData bytes] length:stringSize encoding:NSUTF8StringEncoding];
     }
     return @"";
+}
+
+- (NSInteger)asInteger
+{
+    if ([self isInteger]) {
+        UInt8 onebyte;
+        UInt16 twobytes;
+        UInt32 fourbytes;
+
+        [self.fileHandle seekToFileOffset:self.origin + 16];
+        NSUInteger integerSize = self.dataLength - 16;
+        NSData *integerData = [self.fileHandle readDataOfLength:integerSize];
+        switch (integerSize) {
+            case 1:
+                return (onebyte = *(UInt8 *)[integerData bytes]);
+            case 2:
+                return (twobytes = CFSwapInt16BigToHost(*(UInt16 *)[integerData bytes]));
+            case 3:
+            case 4:
+                return (fourbytes = CFSwapInt32BigToHost(*(UInt32 *)[integerData bytes]));
+            default:
+                break;
+        }
+    }
+    return 0;
 }
 
 @end
