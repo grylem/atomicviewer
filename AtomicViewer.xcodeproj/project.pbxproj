@@ -168,12 +168,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6923AE6418D2F11E0087A0ED /* Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Atom.h; path = MPEG4FileViewer/Atom.h; sourceTree = "<group>"; };
-		6923AE6518D2F11E0087A0ED /* Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Atom.m; path = MPEG4FileViewer/Atom.m; sourceTree = "<group>"; };
+		6923AE6418D2F11E0087A0ED /* Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atom.h; sourceTree = "<group>"; };
+		6923AE6518D2F11E0087A0ED /* Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Atom.m; sourceTree = "<group>"; };
 		6923AE6718D2F1310087A0ED /* AtomFtyp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFtyp.h; sourceTree = "<group>"; };
 		6923AE6818D2F1310087A0ED /* AtomFtyp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFtyp.m; sourceTree = "<group>"; };
-		6923AE6B18D2FC490087A0ED /* AtomFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomFree.h; path = MPEG4FileViewer/AtomFree.h; sourceTree = "<group>"; };
-		6923AE6C18D2FC490087A0ED /* AtomFree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomFree.m; path = MPEG4FileViewer/AtomFree.m; sourceTree = "<group>"; };
+		6923AE6B18D2FC490087A0ED /* AtomFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFree.h; sourceTree = "<group>"; };
+		6923AE6C18D2FC490087A0ED /* AtomFree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFree.m; sourceTree = "<group>"; };
 		6923AE6F18D30A9C0087A0ED /* AtomMdat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMdat.h; sourceTree = "<group>"; };
 		6923AE7018D30A9C0087A0ED /* AtomMdat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMdat.m; sourceTree = "<group>"; };
 		6923AE7218D30C0F0087A0ED /* AtomMoov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMoov.h; sourceTree = "<group>"; };
@@ -217,15 +217,15 @@
 		69390E7018DFFBC000DEA5B3 /* AtomUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUUID.m; sourceTree = "<group>"; };
 		6941198F18D55EE800D71C3D /* AtomUnrecognized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUnrecognized.h; sourceTree = "<group>"; };
 		6941199018D55EE800D71C3D /* AtomUnrecognized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomUnrecognized.m; sourceTree = "<group>"; };
-		69453FF1176672A400851344 /* MPEG4FileViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPEG4FileViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69453FF1176672A400851344 /* AtomicViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtomicViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69453FF4176672A400851344 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		69453FF7176672A400851344 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		69453FF8176672A400851344 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		69453FF9176672A400851344 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		69453FFC176672A400851344 /* MPEG4FileViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MPEG4FileViewer-Info.plist"; sourceTree = "<group>"; };
+		69453FFC176672A400851344 /* AtomicViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AtomicViewer-Info.plist"; sourceTree = "<group>"; };
 		69453FFE176672A400851344 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69454000176672A400851344 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		69454002176672A400851344 /* MPEG4FileViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MPEG4FileViewer-Prefix.pch"; sourceTree = "<group>"; };
+		69454002176672A400851344 /* AtomicViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AtomicViewer-Prefix.pch"; sourceTree = "<group>"; };
 		69454004176672A400851344 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		69454006176672A400851344 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69454007176672A400851344 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -316,8 +316,8 @@
 		6972090218D6BE00003A9E0A /* AtomStbl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomStbl.m; sourceTree = "<group>"; };
 		6972090418D6BE9E003A9E0A /* AtomEdts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomEdts.h; sourceTree = "<group>"; };
 		6972090518D6BE9E003A9E0A /* AtomEdts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomEdts.m; sourceTree = "<group>"; };
-		6972090718D6C1B5003A9E0A /* AtomTref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomTref.h; path = MPEG4FileViewer/AtomTref.h; sourceTree = "<group>"; };
-		6972090818D6C1B5003A9E0A /* AtomTref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomTref.m; path = MPEG4FileViewer/AtomTref.m; sourceTree = "<group>"; };
+		6972090718D6C1B5003A9E0A /* AtomTref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomTref.h; sourceTree = "<group>"; };
+		6972090818D6C1B5003A9E0A /* AtomTref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTref.m; sourceTree = "<group>"; };
 		6972090A18D6C357003A9E0A /* AtomElst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomElst.h; sourceTree = "<group>"; };
 		6972090B18D6C357003A9E0A /* AtomElst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomElst.m; sourceTree = "<group>"; };
 		6972090D18D6C3A9003A9E0A /* AtomChap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomChap.h; sourceTree = "<group>"; };
@@ -480,7 +480,7 @@
 				69E2CA5018DBF4E500EC4D8C /* ISO 14496-15 AVC file format */,
 				696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */,
 				696BB65618D811B2001EDCC2 /* ac-3 -  */,
-				69754A1518E0A66E0076E6F1 /* c608 -  */,
+				69754A1518E0A66E0076E6F1 /* c608 - Closed Caption Sample Description */,
 				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
 				696BB65318D81176001EDCC2 /* colr -  */,
 				696BB65718D811BF001EDCC2 /* dac3 -  */,
@@ -505,7 +505,7 @@
 				69754A1A18E0A6A20076E6F1 /* UUID -  */,
 				6996CCF018E4F12900121640 /* uuid -  */,
 			);
-			name = Atoms;
+			path = Atoms;
 			sourceTree = "<group>";
 		};
 		6930D06C18E4ED34001E6397 /* tapt - Track Aperture Mode Dimensions */ = {
@@ -520,7 +520,7 @@
 		69453FE8176672A400851344 = {
 			isa = PBXGroup;
 			children = (
-				69453FFA176672A400851344 /* MPEG4FileViewer */,
+				69453FFA176672A400851344 /* AtomicViewer */,
 				6923AE6A18D2F13B0087A0ED /* Atoms */,
 				69453FFB176672A400851344 /* Supporting Files */,
 				69A163B617D67B7000131614 /* Resources */,
@@ -532,7 +532,7 @@
 		69453FF2176672A400851344 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69453FF1176672A400851344 /* MPEG4FileViewer.app */,
+				69453FF1176672A400851344 /* AtomicViewer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -557,7 +557,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		69453FFA176672A400851344 /* MPEG4FileViewer */ = {
+		69453FFA176672A400851344 /* AtomicViewer */ = {
 			isa = PBXGroup;
 			children = (
 				69454006176672A400851344 /* AppDelegate.h */,
@@ -565,6 +565,7 @@
 				69A163B317D672F700131614 /* MyWindowController.h */,
 				69A163B417D672F700131614 /* MyWindowController.m */,
 			);
+			name = AtomicViewer;
 			path = MPEG4FileViewer;
 			sourceTree = "<group>";
 		};
@@ -572,10 +573,10 @@
 			isa = PBXGroup;
 			children = (
 				6973EBAF18E07B2A00AF263C /* MPEG4FileViewer.entitlements */,
-				69453FFC176672A400851344 /* MPEG4FileViewer-Info.plist */,
+				69453FFC176672A400851344 /* AtomicViewer-Info.plist */,
 				69453FFD176672A400851344 /* InfoPlist.strings */,
 				69454000176672A400851344 /* main.m */,
-				69454002176672A400851344 /* MPEG4FileViewer-Prefix.pch */,
+				69454002176672A400851344 /* AtomicViewer-Prefix.pch */,
 				69454003176672A400851344 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -615,7 +616,7 @@
 				697A717418E0C47B00A4A9DD /* sonm - Sort Order Name */,
 				696BB5DE18D7E236001EDCC2 /* stik - Media Kind */,
 				6930D06C18E4ED34001E6397 /* tapt - Track Aperture Mode Dimensions */,
-				696BB5E918D7E64C001EDCC2 /* trkn - Track Number */,
+				696BB5E918D7E64C001EDCC2 /* trkn - Track x of y */,
 				696BB5E118D7E480001EDCC2 /* tven - TV Episode Number */,
 				696BB5DF18D7E453001EDCC2 /* tves - TV Episode in Season */,
 				696BB5DB18D7DFF2001EDCC2 /* tvnn - TV Network Name */,
@@ -778,13 +779,13 @@
 			name = "disk - Disk x of y";
 			sourceTree = "<group>";
 		};
-		696BB5E918D7E64C001EDCC2 /* trkn - Track Number */ = {
+		696BB5E918D7E64C001EDCC2 /* trkn - Track x of y */ = {
 			isa = PBXGroup;
 			children = (
 				6972095818D6DD13003A9E0A /* AtomTrkn.h */,
 				6972095918D6DD13003A9E0A /* AtomTrkn.m */,
 			);
-			name = "trkn - Track Number";
+			name = "trkn - Track x of y";
 			sourceTree = "<group>";
 		};
 		696BB5EA18D7E67C001EDCC2 /* atID - Album Title ID */ = {
@@ -1507,13 +1508,13 @@
 			name = "priv - ";
 			sourceTree = "<group>";
 		};
-		69754A1518E0A66E0076E6F1 /* c608 -  */ = {
+		69754A1518E0A66E0076E6F1 /* c608 - Closed Caption Sample Description */ = {
 			isa = PBXGroup;
 			children = (
 				69390E6018DFF43100DEA5B3 /* AtomC608.h */,
 				69390E6118DFF43100DEA5B3 /* AtomC608.m */,
 			);
-			name = "c608 - ";
+			name = "c608 - Closed Caption Sample Description";
 			sourceTree = "<group>";
 		};
 		69754A1618E0A6780076E6F1 /* user -  */ = {
@@ -1914,9 +1915,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		69453FF0176672A400851344 /* MPEG4FileViewer */ = {
+		69453FF0176672A400851344 /* AtomicViewer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6945400E176672A400851344 /* Build configuration list for PBXNativeTarget "MPEG4FileViewer" */;
+			buildConfigurationList = 6945400E176672A400851344 /* Build configuration list for PBXNativeTarget "AtomicViewer" */;
 			buildPhases = (
 				69390E4C18DFAD6000DEA5B3 /* CopyFiles */,
 				69453FED176672A400851344 /* Sources */,
@@ -1927,9 +1928,9 @@
 			);
 			dependencies = (
 			);
-			name = MPEG4FileViewer;
+			name = AtomicViewer;
 			productName = MPEG4FileViewer;
-			productReference = 69453FF1176672A400851344 /* MPEG4FileViewer.app */;
+			productReference = 69453FF1176672A400851344 /* AtomicViewer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1950,7 +1951,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 69453FEC176672A400851344 /* Build configuration list for PBXProject "MPEG4FileViewer" */;
+			buildConfigurationList = 69453FEC176672A400851344 /* Build configuration list for PBXProject "AtomicViewer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1962,7 +1963,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				69453FF0176672A400851344 /* MPEG4FileViewer */,
+				69453FF0176672A400851344 /* AtomicViewer */,
 			);
 		};
 /* End PBXProject section */
@@ -2233,9 +2234,9 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPEG4FileViewer/MPEG4FileViewer-Prefix.pch";
-				INFOPLIST_FILE = "MPEG4FileViewer/MPEG4FileViewer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MPEG4FileViewer/AtomicViewer-Prefix.pch";
+				INFOPLIST_FILE = "MPEG4FileViewer/AtomicViewer-Info.plist";
+				PRODUCT_NAME = AtomicViewer;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2251,9 +2252,9 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPEG4FileViewer/MPEG4FileViewer-Prefix.pch";
-				INFOPLIST_FILE = "MPEG4FileViewer/MPEG4FileViewer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MPEG4FileViewer/AtomicViewer-Prefix.pch";
+				INFOPLIST_FILE = "MPEG4FileViewer/AtomicViewer-Info.plist";
+				PRODUCT_NAME = AtomicViewer;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2261,7 +2262,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		69453FEC176672A400851344 /* Build configuration list for PBXProject "MPEG4FileViewer" */ = {
+		69453FEC176672A400851344 /* Build configuration list for PBXProject "AtomicViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6945400C176672A400851344 /* Debug */,
@@ -2270,7 +2271,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6945400E176672A400851344 /* Build configuration list for PBXNativeTarget "MPEG4FileViewer" */ = {
+		6945400E176672A400851344 /* Build configuration list for PBXNativeTarget "AtomicViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6945400F176672A400851344 /* Debug */,

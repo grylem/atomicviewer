@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'AtomicViewer' target in the 'AtomicViewer' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

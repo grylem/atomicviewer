@@ -10,6 +10,7 @@
 #import <sys/stat.h>
 #import "Atom.h"
 #import "AtomParent.h"
+#import "AtomUnrecognized.h"
 #import <HexFiend/HexFiend.h>
 
 @interface MyWindowController ()
@@ -194,6 +195,22 @@ static NSArray *columnTitles;
             [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
             [self.hfController setByteArray:byteArray];
         }
+    }
+}
+
+// Apply additional attribute(s) to an unrecognized atom.
+// We do this here, rather than in AtomUnrecognized so we
+// can get all the other values of how the system prepares
+// the cell for display (font, etc).
+// Having AtomUnrecognized supply an NSAttributedString bypasses
+// all the system default outline display behavior.
+
+-(void) outlineView: (NSOutlineView *)outlineView willDisplayCell: (id)cell forTableColumn: (NSTableColumn *)tableColumn item: (id)item
+{
+    if ([item isMemberOfClass:[AtomUnrecognized class]]) {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:[cell attributedStringValue]];
+        [string addAttribute:NSObliquenessAttributeName value:[NSNumber numberWithFloat:0.40]range:NSMakeRange(0, [string length])];
+        [cell setAttributedStringValue:string];
     }
 }
 

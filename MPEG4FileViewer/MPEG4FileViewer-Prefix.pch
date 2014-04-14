@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'MPEG4FileViewer' target in the 'MPEG4FileViewer' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
