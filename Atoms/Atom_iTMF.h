@@ -8,8 +8,11 @@
 
 #import "AtomParent.h"
 
-@interface AtomSimpleiTunesMetadata : AtomParent
+@interface Atom_iTMF : AtomParent
 
 - (NSAttributedString *)decodedAsBoolean;
+- (UInt16)getUInt16ValueAtOffset:(off_t)offset;
+- (NSInteger)asInteger;
+- (NSString *)asString;
 
 @end

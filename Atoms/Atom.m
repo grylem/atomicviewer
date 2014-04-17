@@ -9,10 +9,6 @@
 #import "Atom.h"
 #import "AtomUnrecognized.h"
 
-@interface Atom ()
-
-@end
-
 @implementation Atom
 
 static NSMutableDictionary *atomToClassDict;
@@ -350,6 +346,11 @@ static dispatch_once_t pred;
         }
     }
     return YES;
+}
+
+-(BOOL)isImmediateDescendantOf: (NSString *)expectedParentAtomType
+{
+    return [[self.parent atomType] isEqualToString: expectedParentAtomType];
 }
 
 #pragma mark - Behavior to support iTunes Metadata

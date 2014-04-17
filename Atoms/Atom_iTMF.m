@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomSimpleiTunesMetadata.h"
+#import "Atom_iTMF.h"
 #import "AtomData.h"
 
-@implementation AtomSimpleiTunesMetadata
+@implementation Atom_iTMF
 
 //  This is the formatted textual explantion of the content of the atom
 - (NSAttributedString *)decodedExplanation
@@ -21,9 +21,7 @@
 
 - (NSAttributedString *)decodedAsBoolean
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSUInteger integer = [dataAtom asInteger];
-    NSString *string = [[NSString alloc]initWithFormat:@"%@",(integer?@"YES":@"NO") ];
+    NSString *string = [[NSString alloc]initWithFormat:@"%@",([self asInteger]?@"YES":@"NO") ];
 
     return [[NSAttributedString alloc] initWithString:string];
 }
@@ -58,6 +56,28 @@
     } else {
         return nil;
     }
+}
+
+-(UInt16)getUInt16ValueAtOffset:(off_t)offset
+{
+    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+    [dataAtom.fileHandle seekToFileOffset:offset];
+    NSData *uint16Data = [dataAtom.fileHandle readDataOfLength:sizeof(UInt16)];
+    UInt16 result = NSSwapBigShortToHost(*(UInt16 *)[uint16Data bytes]);
+
+    return result;
+}
+
+-(NSInteger)asInteger
+{
+    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+    return [dataAtom asInteger];
+}
+
+- (NSString *)asString;
+{
+    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+    return [dataAtom asString];
 }
 
 @end

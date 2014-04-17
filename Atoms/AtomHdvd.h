@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomSimpleiTunesMetadata.h"
+#import "Atom_iTMF.h"
 
-@interface AtomHdvd : AtomSimpleiTunesMetadata
+@interface AtomHdvd : Atom_iTMF
 
 @end

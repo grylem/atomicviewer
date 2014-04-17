@@ -25,4 +25,14 @@
     return (@"Comment");
 }
 
+-(BOOL) isLeaf
+{
+    return ![self isiTunesMetadata];
+}
+
+- (NSAttributedString *)decodedExplanation
+{
+    return [[NSAttributedString alloc] initWithString:@""];
+}
+
 @end

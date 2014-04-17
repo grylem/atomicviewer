@@ -25,4 +25,14 @@
     return (@"Metadata Item List");
 }
 
+// Some Quicktime files may be typed as MPEG-4,
+// in which case the metadata layout is different.
+// Ignore Quicktime files for now by short-circuiting
+// the descent into ilst.
+
+-(BOOL) isLeaf
+{
+    return ![self isDescendantOf:@"moov.udta.meta"];
+}
+
 @end

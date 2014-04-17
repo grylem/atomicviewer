@@ -6,8 +6,15 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomParent.h"
+#import "Atom_iTMF.h"
 
-@interface AtomTrkn : AtomParent
+@interface AtomTrkn : Atom_iTMF
+{
+    UInt16 _trackNumber;
+    UInt16 _totalTracks;
+}
+
+@property (readonly) UInt16 trackNumber;
+@property (readonly) UInt16 totalTracks;
 
 @end

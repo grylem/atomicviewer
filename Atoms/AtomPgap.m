@@ -7,7 +7,6 @@
 //
 
 #import "AtomPgap.h"
-#import "AtomData.h"
 
 @implementation AtomPgap
 

@@ -16,7 +16,7 @@
 @property NSIndexPath *indexPath;
 @property BOOL extendedLength;
 @property NSFileHandle *fileHandle;
-@property Atom *parent;
+@property (weak) Atom *parent;
 @property NSUInteger version;
 @property NSUInteger flags;
 
@@ -36,6 +36,7 @@
 - (BOOL)hasImage;
 - (NSImage *)image;
 - (BOOL)isDescendantOf:(NSString *)atomHierarchyString;
+-( BOOL)isImmediateDescendantOf:(NSString *)expectedParentAtomType;
 - (BOOL)isiTunesMetadata;
 
 @end

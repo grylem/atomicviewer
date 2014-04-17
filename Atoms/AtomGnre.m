@@ -7,7 +7,6 @@
 //
 
 #import "AtomGnre.h"
-#import "AtomData.h"
 
 @implementation AtomGnre
 
@@ -31,16 +30,8 @@ static NSDictionary *genreDict;
 
 - (NSAttributedString *)decodedExplanation
 {
-    // We can't use [dataAtom asInteger] here, as the data atom
-    // doesn't encode itself as an integer "well-known" type.
-    // Flags will be zero, indicating we must explicitly hande
-    // interpreting the data.
-    // We know that the data will be a two-byte integer value.
 
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    [dataAtom.fileHandle seekToFileOffset:dataAtom.origin + 16];
-    NSData *integerData = [dataAtom.fileHandle readDataOfLength:2];
-    UInt16 integer = CFSwapInt16BigToHost(*(UInt16 *)[integerData bytes]);
+    UInt16 integer = [self getUInt16ValueAtOffset:16];
     NSString *genre;
 
     dispatch_once (&pred, ^{

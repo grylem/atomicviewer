@@ -7,7 +7,6 @@
 //
 
 #import "AtomSfID.h"
-#import "AtomData.h"
 
 @implementation AtomSfID
 
@@ -31,8 +30,6 @@ static NSDictionary *storefrontDict;
 
 - (NSAttributedString *)decodedExplanation
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSInteger integer = [dataAtom asInteger];
     NSArray *storefrontID;
 
     dispatch_once (&pred, ^{
@@ -61,7 +58,7 @@ static NSDictionary *storefrontDict;
                            @143441 : @[@"USA", @"United States"]
                            };
     });
-    storefrontID = storefrontDict[@(integer)];
+    storefrontID = storefrontDict[@([self asInteger])];
     return [[NSAttributedString alloc] initWithString: (storefrontID ? storefrontID[1] : @"Unknown")];
 }
 

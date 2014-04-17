@@ -12,7 +12,6 @@
 // before interpreting its contents.
 
 #import "AtomCprt.h"
-#import "AtomData.h"
 
 @implementation AtomCprt
 
@@ -35,9 +34,7 @@
 - (NSAttributedString *)decodedExplanation
 {
     if (self.isiTunesMetadata) {
-        AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-        NSString *string = [dataAtom asString];
-        return [[NSAttributedString alloc] initWithString: string];
+        return [[NSAttributedString alloc] initWithString: [self asString]];
     } else {
         return [[NSAttributedString alloc] initWithString: @"Copyright outside iTunes metadata context"];
     }

@@ -7,7 +7,6 @@
 //
 
 #import "AtomAkID.h"
-#import "AtomData.h"
 
 @implementation AtomAkID
 
@@ -28,11 +27,9 @@
 
 - (NSAttributedString *)decodedExplanation
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSInteger integer = [dataAtom asInteger];
     NSString *accountType;
 
-    switch (integer) {
+    switch ([self asInteger]) {
         case 0:
             accountType = @"iTunes";
             break;

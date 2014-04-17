@@ -25,9 +25,17 @@
     return (@"Metadata");
 }
 
+// Some Quicktime files may be typed as MPEG-4,
+// in which case, the metadata layout is different.
+// Make sure we treat meta as a "full box" only if
+// it appears as part of the MPEG-4 iTunes metadata
+// path.
+// If it appears elsewhere, we're not sure what
+// the format is.
+
 -(BOOL) isFullBox
 {
-    return YES;
+    return [self isDescendantOf:@"moov.udta"];
 }
 
 @end

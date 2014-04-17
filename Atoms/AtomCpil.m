@@ -7,7 +7,6 @@
 //
 
 #import "AtomCpil.h"
-#import "AtomData.h"
 
 @implementation AtomCpil
 

@@ -7,7 +7,6 @@
 //
 
 #import "AtomHdvd.h"
-#import "AtomData.h"
 
 @implementation AtomHdvd
 
@@ -28,11 +27,9 @@
 
 - (NSAttributedString *)decodedExplanation
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSInteger integer = [dataAtom asInteger];
     NSString *resolutionType;
 
-    switch (integer) {
+    switch ([self asInteger]) {
         case 0:
             resolutionType = @"SD Video";
             break;

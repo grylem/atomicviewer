@@ -7,7 +7,6 @@
 //
 
 #import "AtomRtng.h"
-#import "AtomData.h"
 
 @implementation AtomRtng
 
@@ -28,11 +27,9 @@
 
 - (NSAttributedString *)decodedExplanation
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSInteger integer = [dataAtom asInteger];
     NSString *rtng;
 
-    switch (integer) {
+    switch ([self asInteger]) {
         case 0:
             rtng = @"None";
             break;

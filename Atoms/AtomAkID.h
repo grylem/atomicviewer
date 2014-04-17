@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomParent.h"
+#import "Atom_iTMF.h"
 
-@interface AtomAkID : AtomParent
+@interface AtomAkID : Atom_iTMF
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "AtomGeID.h"
-#import "AtomData.h"
 
 @implementation AtomGeID
 
@@ -31,8 +30,6 @@ static NSDictionary *genreDict;
 
 - (NSAttributedString *)decodedExplanation
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSInteger integer = [dataAtom asInteger];
     NSString *genreID;
 
     dispatch_once (&pred, ^{
@@ -156,7 +153,7 @@ static NSDictionary *genreDict;
                       @50000068 : @"German Folk"
                       };
     });
-    genreID = genreDict[@(integer)];
+    genreID = genreDict[@([self asInteger])];
     if (!genreID) {
         genreID = @"Unknown";
     }
