@@ -111,6 +111,14 @@
     return @"";
 }
 
+- (NSData *)data
+{
+    [self.fileHandle seekToFileOffset: self.origin + 16];
+    NSUInteger dataSize = self.dataLength - 16;
+    NSData *data = [self.fileHandle readDataOfLength:dataSize];
+    return data;
+}
+
 - (NSInteger)asInteger
 {
     if ([self isInteger]) {

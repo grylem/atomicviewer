@@ -119,7 +119,8 @@ static NSArray *columnTitles;
         [panel setCanChooseDirectories:NO];
         [panel setCanChooseFiles:YES];
         [panel setAllowsMultipleSelection:NO];
-        [panel setAllowedFileTypes:@[(NSString *)kUTTypeMPEG4]];
+        [panel setAllowedFileTypes:@[(NSString *)kUTTypeMPEG4,
+                                     (NSString *)kUTTypeQuickTimeMovie]];
 
         [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
             if (result == NSFileHandlingPanelOKButton) {

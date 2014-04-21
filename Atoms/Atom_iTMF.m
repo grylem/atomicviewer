@@ -61,7 +61,7 @@
 -(UInt16)getUInt16ValueAtOffset:(off_t)offset
 {
     AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    [dataAtom.fileHandle seekToFileOffset:offset];
+    [dataAtom.fileHandle seekToFileOffset:dataAtom.origin + offset];
     NSData *uint16Data = [dataAtom.fileHandle readDataOfLength:sizeof(UInt16)];
     UInt16 result = NSSwapBigShortToHost(*(UInt16 *)[uint16Data bytes]);
 
@@ -74,10 +74,16 @@
     return [dataAtom asInteger];
 }
 
-- (NSString *)asString;
+- (NSString *)asString
 {
     AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
     return [dataAtom asString];
+}
+
+- (NSData *)data
+{
+    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+    return [dataAtom data];
 }
 
 @end

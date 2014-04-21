@@ -38,5 +38,6 @@
 - (BOOL)isDescendantOf:(NSString *)atomHierarchyString;
 -( BOOL)isImmediateDescendantOf:(NSString *)expectedParentAtomType;
 - (BOOL)isiTunesMetadata;
+- (UInt16)getUInt16ValueAtOffset:(off_t)offset;
 
 @end

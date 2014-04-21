@@ -32,6 +32,9 @@
 
 - (NSAttributedString *)decodedExplanation
 {
+    if ([self isiTunesMetadata]) {
+        return [super decodedExplanation];
+    }
     return [[NSAttributedString alloc] initWithString:@""];
 }
 

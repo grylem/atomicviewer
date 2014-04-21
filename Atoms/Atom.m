@@ -378,4 +378,13 @@ static dispatch_once_t pred;
     return [self isDescendantOf:@"moov.udta.meta.ilst"];
 }
 
+-(UInt16)getUInt16ValueAtOffset:(off_t)offset
+{
+    [self.fileHandle seekToFileOffset:self.origin + offset];
+    NSData *uint16Data = [self.fileHandle readDataOfLength:sizeof(UInt16)];
+    UInt16 result = NSSwapBigShortToHost(*(UInt16 *)[uint16Data bytes]);
+
+    return result;
+}
+
 @end

@@ -37,4 +37,9 @@ usingFileHandle: (NSFileHandle *)fileHandle
     return self.type;
 }
 
+- (NSString *)atomName
+{
+    return @"This atom type is not recognized.";
+}
+
 @end
