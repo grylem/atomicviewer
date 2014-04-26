@@ -35,6 +35,7 @@
             break;
         case 1:
             mediaType = @"Music";
+            break;
         case 2:
             mediaType = @"Audiobook";
             break;
