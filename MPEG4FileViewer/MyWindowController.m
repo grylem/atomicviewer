@@ -15,30 +15,29 @@
 
 @interface MyWindowController ()
 
-@property IBOutlet NSTextView*          placeHolderView;
-@property IBOutlet NSTextView*          textWithImageView;
-@property IBOutlet NSOutlineView*       myOutlineView;
-@property IBOutlet HFTextView*          hfTextView;
-@property IBOutlet NSProgressIndicator* progressIndicator;
-@property IBOutlet NSImageView*         imageView;
-@property IBOutlet NSTabView*           tabView;
-@property NSSplitView*                  splitView;
-@property HFController*                 hfController;
-@property NSMutableArray*               contents;
-@property NSAttributedString*           textViewAttributedString;
-@property HFFileReference*              hfFileReference;
-@property HFFileByteSlice*              currentByteSlice;
-@property NSFileHandle*                 fileHandle;
+// These properties are not part of the public interface
 
-- (IBAction)showHideColumn:(id)sender;
+@property IBOutlet NSTextView           *placeHolderView;
+@property IBOutlet NSTextView           *textWithImageView;
+@property IBOutlet NSOutlineView        *myOutlineView;
+@property IBOutlet HFTextView           *hfTextView;
+@property IBOutlet NSProgressIndicator  *progressIndicator;
+@property IBOutlet NSImageView          *imageView;
+@property IBOutlet NSTabView            *tabView;
+@property HFController                  *hfController;
+@property NSMutableArray                *contents;
+@property NSAttributedString            *textViewAttributedString;
+@property HFFileReference               *hfFileReference;
+@property NSFileHandle                  *fileHandle;
+@property NSString                      *movieFilePath;
 
 @end
 
 @implementation MyWindowController
 
-static NSMutableArray *windowControllers;
-static dispatch_once_t pred;
-static NSArray *columnTitles;
+static NSMutableArray *windowControllers;   // Strong reference to each window's controller to keep it from vanishing
+static dispatch_once_t pred;                // dispatch_once predicate for initialization of windowControllers and columnTitles
+static NSArray *columnTitles;               // 2D array of menu names for hide/show table columns
 
 + (BOOL)hasOpenWindows
 {
@@ -144,10 +143,13 @@ static NSArray *columnTitles;
     }
 }
 
--(BOOL)windowShouldClose:(id)sender
+- (void)windowWillClose:(NSNotification *)notification
 {
+    [_fileHandle closeFile];
+    [_hfFileReference close];
+    _fileHandle = nil;
+    _hfFileReference = nil;
     [windowControllers removeObject:self];
-    return YES;
 }
 
 #pragma mark - Outline view delegate methods
@@ -275,7 +277,17 @@ static NSArray *columnTitles;
 
 -(void)dealloc
 {
-    [_fileHandle closeFile];
-    [_hfFileReference close];
+    _placeHolderView = nil;
+    _textWithImageView = nil;
+    _myOutlineView = nil;
+    _hfTextView = nil;
+    _progressIndicator = nil;
+    _imageView = nil;
+    _tabView = nil;
+    _hfController = nil;
+    _contents = nil;
+    _textViewAttributedString = nil;
+    _movieFilePath = nil;
+    // hfFileReference & fileHandle have been closed & nilled in -windowWillClose
 }
 @end
