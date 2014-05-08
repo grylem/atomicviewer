@@ -10,11 +10,10 @@
 
 @interface Atom_iTMF : AtomParent
 
-- (NSAttributedString *)decodedAsBoolean;
+- (NSString *)asBooleanString;
 - (UInt16)getUInt16ValueAtOffset:(off_t)offset;
 - (NSInteger)asInteger;
 - (NSString *)asString;
-- (NSAttributedString *)decodedExplanation;
 - (NSData *)data;
 
 @end

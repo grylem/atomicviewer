@@ -25,7 +25,7 @@
     return (@"Content Advisory");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSString *rtng;
 
@@ -46,7 +46,7 @@
             rtng = @"Unknown";
             break;
     };
-    return [[NSAttributedString alloc] initWithString: rtng];
+    return rtng;
 }
 
 @end

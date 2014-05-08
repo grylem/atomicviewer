@@ -13,8 +13,6 @@
     NSMutableArray *_children;
 }
 
--(Atom *)findChildAtomOfType: (NSString *)typeString;
-
 @property (readonly) NSArray * children;
 
 @end

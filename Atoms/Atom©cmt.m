@@ -30,12 +30,12 @@
     return ![self isiTunesMetadata];
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     if ([self isiTunesMetadata]) {
-        return [super decodedExplanation];
+        return [super html];
     }
-    return [[NSAttributedString alloc] initWithString:@""];
+    return @"";
 }
 
 @end

@@ -12,18 +12,18 @@
 @implementation Atom_iTMF
 
 //  This is the formatted textual explantion of the content of the atom
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
     NSString *string = [dataAtom asString];
-    return [[NSAttributedString alloc] initWithString: string];
+    return string;
 }
 
-- (NSAttributedString *)decodedAsBoolean
+- (NSString *)asBooleanString
 {
     NSString *string = [[NSString alloc]initWithFormat:@"%@",([self asInteger]?@"YES":@"NO") ];
 
-    return [[NSAttributedString alloc] initWithString:string];
+    return string;
 }
 
 // The covr atom should be the only one with multiple children
@@ -60,10 +60,11 @@
 
 -(UInt16)getUInt16ValueAtOffset:(off_t)offset
 {
+    UInt16 result;
+    NSRange uint16DataRange = NSMakeRange(offset, 2);
     AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    [dataAtom.fileHandle seekToFileOffset:dataAtom.origin + offset];
-    NSData *uint16Data = [dataAtom.fileHandle readDataOfLength:sizeof(UInt16)];
-    UInt16 result = NSSwapBigShortToHost(*(UInt16 *)[uint16Data bytes]);
+    [dataAtom.data getBytes:&result range:uint16DataRange];
+    result = NSSwapBigShortToHost(result);
 
     return result;
 }

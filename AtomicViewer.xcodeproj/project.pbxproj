@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6916AC281919BB4B003FA268 /* AtomRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 6916AC271919BB4B003FA268 /* AtomRoot.m */; };
 		6923AE6618D2F11E0087A0ED /* Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6518D2F11E0087A0ED /* Atom.m */; };
 		6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6818D2F1310087A0ED /* AtomFtyp.m */; };
 		6923AE6D18D2FC490087A0ED /* AtomFree.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6C18D2FC490087A0ED /* AtomFree.m */; };
@@ -176,6 +177,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6916AC261919BB4B003FA268 /* AtomRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomRoot.h; sourceTree = "<group>"; };
+		6916AC271919BB4B003FA268 /* AtomRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomRoot.m; sourceTree = "<group>"; };
 		6923AE6418D2F11E0087A0ED /* Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atom.h; sourceTree = "<group>"; };
 		6923AE6518D2F11E0087A0ED /* Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Atom.m; sourceTree = "<group>"; };
 		6923AE6718D2F1310087A0ED /* AtomFtyp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFtyp.h; sourceTree = "<group>"; };
@@ -681,6 +684,8 @@
 				6970FD5A18F49BE900CFCDB4 /* Atom_iTMF.m */,
 				6941198F18D55EE800D71C3D /* AtomUnrecognized.h */,
 				6941199018D55EE800D71C3D /* AtomUnrecognized.m */,
+				6916AC261919BB4B003FA268 /* AtomRoot.h */,
+				6916AC271919BB4B003FA268 /* AtomRoot.m */,
 			);
 			name = "Abstract Atom Classes";
 			sourceTree = "<group>";
@@ -2121,6 +2126,7 @@
 				6930D06B18E4E973001E6397 /* AtomTapt.m in Sources */,
 				69E2CA2818DBE69600EC4D8C /* AtomMehd.m in Sources */,
 				696BB5A218D78B5A001EDCC2 /* AtomAvc1.m in Sources */,
+				6916AC281919BB4B003FA268 /* AtomRoot.m in Sources */,
 				6972091218D6C3F3003A9E0A /* AtomMdhd.m in Sources */,
 				6972097E18D6DDE5003A9E0A /* AtomAtID.m in Sources */,
 				696BB5A818D78CC3001EDCC2 /* AtomColr.m in Sources */,

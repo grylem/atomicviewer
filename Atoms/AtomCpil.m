@@ -25,9 +25,9 @@
     return (@"Compilation");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
-    return [self decodedAsBoolean];
+    return [self asBooleanString];
 }
 
 @end

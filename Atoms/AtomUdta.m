@@ -33,7 +33,7 @@
 
 -(BOOL) isLeaf
 {
-    return self.dataLength == 12;
+    return self.length == 12;
 }
 
 @end

@@ -45,18 +45,14 @@
 {
     if ([_children count] == 0) {
         off_t childrenOffset = 8;
-        if (self.extendedLength) {
+        if (self.isExtendedLength) {
             childrenOffset += 8;
         }
         if (self.isFullBox) {
             childrenOffset += 4;
         }
         childrenOffset += self.jump; // skip over data
-        [Atom populateOutline: _children
-               fromFileHandle: self.fileHandle
-                     atOffset: self.origin + childrenOffset         // maybe just pass self & childrenOffset to a new method?
-                         upTo: self.origin + self.dataLength
-                    asChildOf: self];
+        [self populateArray: _children fromOffset: childrenOffset ];
     }
     return _children;
 }

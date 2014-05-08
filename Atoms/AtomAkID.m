@@ -25,7 +25,7 @@
     return (@"iTunes Store Account Type");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSString *accountType;
 
@@ -40,7 +40,7 @@
             accountType = @"Unknown";
             break;
     };
-    return [[NSAttributedString alloc] initWithString: accountType];
+    return accountType;
 }
 
 @end

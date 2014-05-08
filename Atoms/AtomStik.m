@@ -25,7 +25,7 @@
     return (@"Media Kind");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSString *mediaType;
 
@@ -58,7 +58,7 @@
             mediaType = @"Unknown";
             break;
     };
-    return [[NSAttributedString alloc] initWithString: mediaType];
+    return mediaType;
 }
 
 @end

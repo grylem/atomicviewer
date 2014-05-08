@@ -15,8 +15,8 @@ typedef enum : off_t {
     datatype = 8,
     locale = 12,
     reserved1 = 16,
-    disknumber = 18,
-    totaldisks = 20
+    disknumber = 18, // -12
+    totaldisks = 20  // -12
 } offsets;
 
 @implementation AtomDisk
@@ -39,7 +39,7 @@ typedef enum : off_t {
 -(UInt16)diskNumber
 {
     if (!_diskNumber) {
-        _diskNumber = [self getUInt16ValueAtOffset:disknumber];
+        _diskNumber = [self getUInt16ValueAtOffset:6];
     }
     return _diskNumber;
 }
@@ -47,14 +47,14 @@ typedef enum : off_t {
 -(UInt16)totalDisks
 {
     if (!_totalDisks) {
-        _totalDisks = [self getUInt16ValueAtOffset:totaldisks];
+        _totalDisks = [self getUInt16ValueAtOffset:8];
     }
     return _totalDisks;
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
-    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Disk %hu of %hu", self.diskNumber, self.totalDisks]];
+    return [NSString stringWithFormat:@"Disk %hu of %hu", self.diskNumber, self.totalDisks];
 }
 
 @end

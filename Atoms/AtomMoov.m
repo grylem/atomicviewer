@@ -26,9 +26,9 @@
 }
 
 //  This is the formatted textual explantion of the content of the atom
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
-    return [[NSAttributedString alloc] initWithString: @"This is the container for all the metadata" ];
+    return @"This is the container for all the metadata";
 }
 
 @end

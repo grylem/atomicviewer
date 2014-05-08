@@ -32,11 +32,11 @@
     return (@"egid");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSData *data = [self data];
     NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    return [[NSAttributedString alloc] initWithString: string];
+    return string;
 }
 
 @end

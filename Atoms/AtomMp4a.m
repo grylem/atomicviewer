@@ -42,7 +42,7 @@
 
 -(NSUInteger) jump
 {
-    UInt16 version = [self getUInt16ValueAtOffset:16];
+    UInt16 version = [self getUInt16ValueAtOffset:8];
     if (version > 0) {
         return 44;
     }

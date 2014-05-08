@@ -42,14 +42,17 @@
     return [self asImage];
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     if ([self isString]) {
-        return [[NSAttributedString alloc] initWithString:[self asString]];
+        NSString *string = @"<xmp>";
+        string = [string stringByAppendingString:[self asString]];
+        string = [string stringByAppendingString:@"</xmp>"];
+        return string;
     } else if ([self isInteger]) {
-        return [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%ld",(long)[self asInteger]]];
+        return [[NSString alloc] initWithFormat:@"%ld",(long)[self asInteger]];
     }
-    return [[NSAttributedString alloc] initWithString:@""];
+    return @"";
 }
 
 -(BOOL)hasImage
@@ -89,9 +92,9 @@
 - (NSImage *)asImage
 {
     if ([self isImage]) {
-        [self.fileHandle seekToFileOffset: self.origin + 16];
-        NSImage *image = [[NSImage alloc] initWithData:[self.fileHandle readDataOfLength:self.dataLength - 16]];
-        return image;   // May return nil if NSImage -initWithData: fails
+        // May return nil if NSImage -initWithData: fails
+        return[[NSImage alloc] initWithData:[NSData dataWithBytes:[self.data bytes] + 4
+                                                           length:[self.data length] - 4]];
     } else {
         return nil; // I'm not an image
     }
@@ -100,10 +103,9 @@
 - (NSString *)asString
 {
     if ([self isString]) { // UTF-8 String
-        [self.fileHandle seekToFileOffset: self.origin + 16];
-        NSUInteger stringSize = self.dataLength - 16;
-        NSData *stringData = [self.fileHandle readDataOfLength:stringSize];
-        return [[NSString alloc]initWithBytes:[stringData bytes] length:stringSize encoding:NSUTF8StringEncoding];
+        return [[NSString alloc]initWithBytes:[self.data bytes] + 4
+                                       length:[self.data length] - 4
+                                     encoding:NSUTF8StringEncoding];
     } else if ([self isInteger]) {
         NSInteger integer = [self asInteger];
         return ([[NSString alloc]initWithFormat:@"%ld", integer]);
@@ -111,32 +113,19 @@
     return @"";
 }
 
-- (NSData *)data
-{
-    [self.fileHandle seekToFileOffset: self.origin + 16];
-    NSUInteger dataSize = self.dataLength - 16;
-    NSData *data = [self.fileHandle readDataOfLength:dataSize];
-    return data;
-}
-
 - (NSInteger)asInteger
 {
     if ([self isInteger]) {
-        UInt64 integer;
-
-        [self.fileHandle seekToFileOffset:self.origin + 16];
-        NSUInteger integerSize = self.dataLength - 16;
-        NSData *integerData = [self.fileHandle readDataOfLength:integerSize];
-        switch (integerSize) {
+        switch ([self.data length] - 4) {
             case 1:
-                return (integer = *(UInt8 *)[integerData bytes]);
+                return *(UInt8 *)([self.data bytes] + 4);
             case 2:
-                return (integer = CFSwapInt16BigToHost(*(UInt16 *)[integerData bytes]));
+                return CFSwapInt16BigToHost(*(UInt16 *)([self.data bytes] + 4));
 //            case 3:
             case 4:
-                return (integer = CFSwapInt32BigToHost(*(UInt32 *)[integerData bytes]));
+                return CFSwapInt32BigToHost(*(UInt32 *)([self.data bytes] + 4));
             case 8:
-                return (integer = CFSwapInt64BigToHost(*(UInt64 *)[integerData bytes]));
+                return CFSwapInt64BigToHost(*(UInt64 *)([self.data bytes] + 4));
             default:
                 break;
         }

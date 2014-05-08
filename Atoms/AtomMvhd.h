@@ -10,4 +10,6 @@
 
 @interface AtomMvhd : Atom
 
+- (uint32_t)timescale;
+
 @end

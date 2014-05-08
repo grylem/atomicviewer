@@ -28,7 +28,7 @@ static NSDictionary *storefrontDict;
     return (@"Storefront ID");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSArray *storefrontID;
 
@@ -59,7 +59,7 @@ static NSDictionary *storefrontDict;
                            };
     });
     storefrontID = storefrontDict[@([self asInteger])];
-    return [[NSAttributedString alloc] initWithString: (storefrontID ? storefrontID[1] : @"Unknown")];
+    return (storefrontID ? storefrontID[1] : @"Unknown");
 }
 
 @end

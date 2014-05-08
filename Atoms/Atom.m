@@ -8,6 +8,11 @@
 
 #import "Atom.h"
 #import "AtomUnrecognized.h"
+#import "AtomRoot.h"
+
+@interface Atom ()
+@property NSFileHandle *fileHandle;
+@end
 
 @implementation Atom
 
@@ -35,10 +40,19 @@ static dispatch_once_t pred;
 
 #pragma mark - Class methods
 
++ (Atom *)createRootWithFileHandle: (NSFileHandle *)fileHandle
+                            ofSize: (size_t)fileSize
+{
+    Atom *root = [[AtomRoot alloc] initWithLength: fileSize
+                                       dataOffset: 0
+                                       isExtended: NO
+                                  usingFileHandle: fileHandle
+                                       withParent: nil];
+    return root;
+}
+
 //  Convenience method to create a new atom.
-//  Atoms are a class cluster, so this method looks up the real class in the atomToClassDict
-//  and creates an instance of the class found there. An instance of AtomUnrecognized is created
-//  if the atom type is not found in atomToClassDict.
+//  Atoms are a class cluster, so this method looks up the real class in the atomToClassDict and creates an instance of the class found there. An instance of AtomUnrecognized is created if the atom type is not found in atomToClassDict.
 //  The new instance is initialized with:
 //  • The 4-character atomType
 //  • The real length of the entire atom (including length & type fields)
@@ -52,7 +66,6 @@ static dispatch_once_t pred;
                 withLength: (size_t)atomLength
                 fromOffset: (off_t)offset
                 isExtended: (BOOL)isExtendedLength
-           usingFileHandle: fileHandle
                 withParent: (Atom *)parent
 {
     Class atomClass = atomToClassDict[atomType];
@@ -62,14 +75,14 @@ static dispatch_once_t pred;
         newAtom = [[atomClass alloc] initWithLength: atomLength
                                          dataOffset: offset
                                          isExtended: isExtendedLength
-                                    usingFileHandle:fileHandle
+                                    usingFileHandle: parent.fileHandle
                                          withParent: parent];
     } else {
         newAtom = [[AtomUnrecognized alloc] initWithType: atomType
                                                   length: atomLength
                                               dataOffset: offset
                                               isExtended: isExtendedLength
-                                         usingFileHandle: fileHandle];
+                                         usingFileHandle: parent.fileHandle];
     }
     return newAtom;
 }
@@ -77,11 +90,11 @@ static dispatch_once_t pred;
 //  This is the primary means of creating atoms.
 //  This will create all the atoms at a specific level in the atom hierarchy
 
-+ (void)populateOutline: (NSMutableArray *)contents
-         fromFileHandle: (NSFileHandle *)fileHandle
-               atOffset: (off_t)offset
-                   upTo: (off_t)end
-              asChildOf: (Atom *)parent
++ (void)populateArray: (NSMutableArray *)contents
+       fromFileHandle: (NSFileHandle *)fileHandle
+             atOffset: (off_t)offset
+                 upTo: (off_t)end
+            asChildOf: (Atom *)parent
 {
     size_t actualSize;
     char atomType[5];
@@ -127,7 +140,6 @@ static dispatch_once_t pred;
                        withLength: actualSize
                        fromOffset: offset
                        isExtended: isExtendedLength
-                  usingFileHandle: fileHandle
                        withParent: parent];
 
     if ([atom isFullBox]) {
@@ -152,11 +164,11 @@ static dispatch_once_t pred;
     // But there may be garbage at end of file.
     // Check that we can actually read an atom header by adding 8 to offset + actualSize
     if (end >= (offset + actualSize + 8)) { // offset + wholeAtomLength is next atom.
-        [self populateOutline: contents
-               fromFileHandle: fileHandle
-                     atOffset: (offset + actualSize)
-                         upTo: end
-                    asChildOf: parent];
+        [self populateArray: contents
+             fromFileHandle: fileHandle
+                   atOffset: (offset + actualSize)
+                       upTo: end
+                  asChildOf: parent];
     }
 }
 
@@ -187,13 +199,22 @@ static dispatch_once_t pred;
 {
     self = [super init];
     if (self) {
-        self.dataLength = atomLength;
+        self.length = atomLength;
         self.origin = offset;
         self.fileHandle = fileHandle;
-        self.extendedLength = isExtendedLength;
+        self.isExtendedLength = isExtendedLength;
         self.parent = parent;
     }
     return self;
+}
+
+- (void) populateArray: (NSMutableArray *)array fromOffset: (off_t)myOffset
+{
+    [[self class] populateArray: array
+                 fromFileHandle: self.fileHandle
+                       atOffset: self.origin + myOffset
+                           upTo: self.origin + self.length
+                      asChildOf: self];
 }
 
 -(NSString *)atomType
@@ -226,8 +247,7 @@ static dispatch_once_t pred;
 {
     // Most subclasses have a 4-character atom type string that is used to as the key to the atomToClassDict.
     // That 4-character atom type is also usually what we want displayed in the outline.
-    // Some subclasses will override this, such as the "unrecognized" atom class that we just skip over, and
-    // the uuid type atoms that will supply the formatted uuid string.
+    // Some instances will override this, such as the "unrecognized" atom class where we get the nodeTitle from the content rather than the class, and the uuid type atoms that will supply the formatted uuid string.
     
     return [self atomType];
 }
@@ -239,17 +259,17 @@ static dispatch_once_t pred;
 
 -(NSUInteger)nodeLength
 {
-    return self.dataLength;
+    return self.length;
 }
 
 -(NSUInteger)nodeEnd
 {
-    return self.origin + self.dataLength;
+    return self.origin + self.length;
 }
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self atomType], [self dataLength]];
+    return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self atomType], [self length]];
 }
 
 -(NSAttributedString *)explanation
@@ -289,19 +309,51 @@ static dispatch_once_t pred;
 
     [explanatoryString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n\n"]];
 
-    NSAttributedString* decodedExplanation = [self decodedExplanation];
+    NSString* html = [self html];
 
-    if (decodedExplanation) {
-        [explanatoryString appendAttributedString:decodedExplanation];
+    if (html) {
+        NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
+        NSData *htmlData = [html dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithData:htmlData options: options documentAttributes:nil error:nil];
+
+        [explanatoryString appendAttributedString:attrString];
     }
 
     return explanatoryString;
 }
 
-//  This is the formatted textual explantion of the content of the atom
-- (NSAttributedString *)decodedExplanation
+//  This is the HTML formatted textual explantion of the content of the atom
+- (NSString *)html
 {
-    return nil; // The abstract superclass does not have a decodedExplanation
+    return nil; // The abstract superclass does not have an HTML string
+}
+
+- (off_t)dataOffset
+{
+    // data begins after size & type, or if extended length, after size, type & extended length
+    // If the atom also has version & flags, data begins after that.
+    return self.origin + (self.isExtendedLength ? 16 : 8) + (self.isFullBox ? 4 : 0);
+}
+
+- (size_t)dataLength
+{
+    // data length is atom length minus the size & type, which may include extended length
+    // If the atom also has version & flags, data begins after that.
+    return self.length - (self.isExtendedLength ? 16 : 8) - (self.isFullBox ? 4 : 0);
+}
+
+- (NSArray *)children
+{
+    return nil; // Only subclasses of AtomParent have children
+}
+
+- (NSData *)data
+{
+    if (!_data) {
+        [self.fileHandle seekToFileOffset:self.dataOffset];
+        _data = [self.fileHandle readDataOfLength:self.dataLength];
+    }
+    return _data;
 }
 
 #pragma mark - Atom searching
@@ -353,6 +405,31 @@ static dispatch_once_t pred;
     return [[self.parent atomType] isEqualToString: expectedParentAtomType];
 }
 
+-(Atom *)findChildAtomOfType: (NSString *)typeString;
+{
+    return nil;
+}
+
+- (Atom *)findAtomAtPath:(NSString *)atomPath
+{
+    Atom *nextParent = self.parent;
+    while (![nextParent isMemberOfClass:[AtomRoot class]]) {
+        nextParent = nextParent.parent;
+    }
+    if (!nextParent) {
+        return nil; // somehow didn't find root
+    }
+    Atom *atom = nextParent;
+    NSArray *pathArray = [atomPath componentsSeparatedByString:@"."];
+    for (NSString *atomName in pathArray) {
+        atom = [atom findChildAtomOfType: atomName];
+        if (!atom) {
+            break;
+        }
+    }
+    return atom;
+}
+
 #pragma mark - Behavior to support iTunes Metadata
 
 - (BOOL)hasImage
@@ -367,22 +444,15 @@ static dispatch_once_t pred;
 
 -(BOOL)isiTunesMetadata
 {
-    BOOL isDescendent = [self isDescendantOf: @"moov.udta.meta.ilst"]; // YES: skip one, entire rest of hierarchy
-    isDescendent = [self isDescendantOf:@"foo.bar.baz"];                // NO: none in hierarchy
-    isDescendent = [self isDescendantOf:@"foo.bar.meta.ilst"];          // NO: skip one, some in hierarchy
-    isDescendent = [self isDescendantOf:@"udta.meta.ilst"];             // YES: skip one, some in hierarchy
-    isDescendent = [self isDescendantOf:@"udta"];                       // YES: skip several, only one specified and found in hierarchy
-    isDescendent = [self isDescendantOf:@"foo"];                        // NO: skip several, only one specified, not found
-    isDescendent = [self isDescendantOf:@"moov.udta.meta.ilst.©nam"];   // conditional, full hierarchy
-
     return [self isDescendantOf:@"moov.udta.meta.ilst"];
 }
 
 -(UInt16)getUInt16ValueAtOffset:(off_t)offset
 {
-    [self.fileHandle seekToFileOffset:self.origin + offset];
-    NSData *uint16Data = [self.fileHandle readDataOfLength:sizeof(UInt16)];
-    UInt16 result = NSSwapBigShortToHost(*(UInt16 *)[uint16Data bytes]);
+    UInt16 result;
+    NSRange uint16DataRange = NSMakeRange(offset, 2);
+    [self.data getBytes:&result range:uint16DataRange];
+    result = NSSwapBigShortToHost(result);
 
     return result;
 }

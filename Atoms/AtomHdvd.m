@@ -25,7 +25,7 @@
     return (@"HD Video");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSString *resolutionType;
 
@@ -40,7 +40,7 @@
             resolutionType = @"HD Video: 1080p";
             break;
     };
-    return [[NSAttributedString alloc] initWithString: resolutionType];
+    return resolutionType;
 }
 
 @end

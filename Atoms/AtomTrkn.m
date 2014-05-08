@@ -15,8 +15,8 @@ typedef enum : off_t {
     datatype = 8,
     locale = 12,
     reserved1 = 16,
-    tracknumber = 18,
-    totaltracks = 20
+    tracknumber = 18, // -12
+    totaltracks = 20  // -12
 } offsets;
 
 @implementation AtomTrkn
@@ -39,7 +39,7 @@ typedef enum : off_t {
 -(UInt16)trackNumber
 {
     if (!_trackNumber) {
-        _trackNumber = [self getUInt16ValueAtOffset:tracknumber];
+        _trackNumber = [self getUInt16ValueAtOffset:6];
     }
     return _trackNumber;
 }
@@ -47,14 +47,14 @@ typedef enum : off_t {
 -(UInt16)totalTracks
 {
     if (!_totalTracks) {
-        _totalTracks = [self getUInt16ValueAtOffset:totaltracks];
+        _totalTracks = [self getUInt16ValueAtOffset:8];
     }
     return _totalTracks;
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
-    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Track %hu of %hu", self.trackNumber, self.totalTracks]];
+    return [NSString stringWithFormat:@"Track %hu of %hu", self.trackNumber, self.totalTracks];
 }
 
 @end

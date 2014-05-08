@@ -31,12 +31,12 @@
 }
 
 //  This is the formatted textual explantion of the content of the atom
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     if (self.isiTunesMetadata) {
-        return [[NSAttributedString alloc] initWithString: [self asString]];
+        return [self asString];
     } else {
-        return [[NSAttributedString alloc] initWithString: @"Copyright outside iTunes metadata context"];
+        return @"Copyright outside iTunes metadata context";
     }
 }
 

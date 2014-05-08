@@ -9,7 +9,6 @@
 #import "MyWindowController.h"
 #import <sys/stat.h>
 #import "Atom.h"
-#import "AtomParent.h"
 #import "AtomUnrecognized.h"
 #import <HexFiend/HexFiend.h>
 
@@ -25,11 +24,11 @@
 @property IBOutlet NSImageView          *imageView;
 @property IBOutlet NSTabView            *tabView;
 @property HFController                  *hfController;
-@property NSMutableArray                *contents;
 @property NSAttributedString            *textViewAttributedString;
 @property HFFileReference               *hfFileReference;
 @property NSFileHandle                  *fileHandle;
 @property NSString                      *movieFilePath;
+@property Atom                          *root;
 
 @end
 
@@ -60,18 +59,16 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
     return [self initWithFilename:nil];
 }
 
-- (void)populateOutline: (NSMutableArray *)contents fromFileAtPath: (NSString *)path
+- (void)createRootAtomFromFileAtPath: (NSString *)path
 {
-    // This is the top level parser
-    // We start with the path name for the file, open it, determine size, and iterate over the top level atoms
-
     NSString *resolvedPath = [path stringByResolvingSymlinksInPath];
     NSDictionary *fileAttrDict = [[NSFileManager defaultManager] attributesOfItemAtPath:resolvedPath error:nil];
     size_t fileSize = [fileAttrDict fileSize];
 
     self.fileHandle = [NSFileHandle fileHandleForReadingAtPath:resolvedPath];
 
-    [Atom populateOutline:contents fromFileHandle: self.fileHandle atOffset:0 upTo:fileSize asChildOf:nil];
+    self.root = [Atom createRootWithFileHandle: self.fileHandle ofSize: fileSize];
+
     [self.myOutlineView reloadData];
 }
 
@@ -83,10 +80,7 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
 - (id)initWithWindow:(NSWindow *)window
 {
 	self = [super initWithWindow:window];
-	if (self)
-	{
-		self.contents = [NSMutableArray new];
-
+	if (self) {
         dispatch_once (&pred, ^{
             windowControllers = [NSMutableArray new];
             // Array of Arrays
@@ -113,7 +107,6 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
 -(void)windowDidLoad
 {
     if (!self.movieFilePath) {
-
         NSOpenPanel *panel = [NSOpenPanel openPanel];
         [panel setCanChooseDirectories:NO];
         [panel setCanChooseFiles:YES];
@@ -125,7 +118,7 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
             if (result == NSFileHandlingPanelOKButton) {
                 self.movieFilePath = [[panel URL] path];
                 [[self window] setTitleWithRepresentedFilename:self.movieFilePath];
-                [self populateOutline: self.contents fromFileAtPath: self.movieFilePath];
+                [self createRootAtomFromFileAtPath: self.movieFilePath];
                 self.hfFileReference = [[HFFileReference alloc] initWithPath:self.movieFilePath error:NULL];
                 HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference];
                 HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
@@ -138,7 +131,7 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
         }];
     } else {
         [[self window] setTitleWithRepresentedFilename:self.movieFilePath];
-        [self populateOutline: self.contents fromFileAtPath: self.movieFilePath];
+        [self createRootAtomFromFileAtPath: self.movieFilePath];
         self.hfFileReference = [[HFFileReference alloc] initWithPath:self.movieFilePath error:NULL];
     }
 }
@@ -186,7 +179,7 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
             self.textViewAttributedString = [atom explanation];
             HFFileByteSlice *byteSlice = [[HFFileByteSlice alloc] initWithFile:self.hfFileReference
                                                                         offset:[atom origin]
-                                                                        length:[atom dataLength]];
+                                                                        length:[atom length]];
             HFByteArray *byteArray = [[HFBTreeByteArray alloc] init];
             [byteArray insertByteSlice:byteSlice inRange:HFRangeMake(0, 0)];
             [self.hfController setByteArray:byteArray];
@@ -202,11 +195,8 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
 }
 
 // Apply additional attribute(s) to an unrecognized atom.
-// We do this here, rather than in AtomUnrecognized so we
-// can get all the other values of how the system prepares
-// the cell for display (font, etc).
-// Having AtomUnrecognized supply an NSAttributedString bypasses
-// all the system default outline display behavior.
+// We do this here, rather than in AtomUnrecognized so we can get all the other values of how the system prepares the cell for display (font, etc).
+// Having AtomUnrecognized supply an NSAttributedString bypasses all the system default outline display behavior.
 
 -(void) outlineView: (NSOutlineView *)outlineView willDisplayCell: (id)cell forTableColumn: (NSTableColumn *)tableColumn item: (id)item
 {
@@ -219,10 +209,10 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
 
 #pragma mark - Outline view data source methods
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(AtomParent *)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(Atom *)item
 {
     if (item == nil) {
-        return _contents[index];
+        return self.root.children[index];
     } else {
         return (item.children)[index];
     }
@@ -233,10 +223,10 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
     return ![item isLeaf];
 }
 
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(AtomParent *)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(Atom *)item
 {
     if (item == nil) {
-        return [_contents count];
+        return [self.root.children count];
     }
     return [item.children count];
 }
@@ -273,21 +263,4 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
     [tableColumn setHidden: [tableColumn isHidden] ? NO : YES];
 }
 
-#pragma mark -
-
--(void)dealloc
-{
-    _placeHolderView = nil;
-    _textWithImageView = nil;
-    _myOutlineView = nil;
-    _hfTextView = nil;
-    _progressIndicator = nil;
-    _imageView = nil;
-    _tabView = nil;
-    _hfController = nil;
-    _contents = nil;
-    _textViewAttributedString = nil;
-    _movieFilePath = nil;
-    // hfFileReference & fileHandle have been closed & nilled in -windowWillClose
-}
 @end

@@ -28,10 +28,10 @@ static NSDictionary *genreDict;
     return (@"Genre");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
 
-    UInt16 integer = [self getUInt16ValueAtOffset:16];
+    UInt16 integer = [self getUInt16ValueAtOffset:4];
     NSString *genre;
 
     dispatch_once (&pred, ^{
@@ -123,7 +123,7 @@ static NSDictionary *genreDict;
     if (!genre) {
         genre = @"Unknown";
     }
-    return [[NSAttributedString alloc] initWithString: genre];
+    return genre;
 }
 
 @end

@@ -28,7 +28,7 @@ static NSDictionary *genreDict;
     return (@"Genre ID");
 }
 
-- (NSAttributedString *)decodedExplanation
+- (NSString *)html
 {
     NSString *genreID;
 
@@ -157,7 +157,7 @@ static NSDictionary *genreDict;
     if (!genreID) {
         genreID = @"Unknown";
     }
-    return [[NSAttributedString alloc] initWithString: genreID];
+    return genreID;
 }
 
 @end
