@@ -174,6 +174,7 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
                 [self.tabView selectTabViewItemAtIndex:1];
                 [self.imageView setImage: [atom image]];
             } else {
+                [self.placeHolderView scrollPoint:NSZeroPoint];
                 [self.tabView selectTabViewItemAtIndex:0];
             }
             self.textViewAttributedString = [atom explanation];

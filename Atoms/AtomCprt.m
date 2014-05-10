@@ -34,7 +34,12 @@
 - (NSString *)html
 {
     if (self.isiTunesMetadata) {
-        return [self asString];
+
+        NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+        NSString *htmlTrailer = @"</p></span></body>";
+        NSString *string = [htmlHeader stringByAppendingString:[self asString]];
+        string = [string stringByAppendingString:htmlTrailer];
+        return string;
     } else {
         return @"Copyright outside iTunes metadata context";
     }

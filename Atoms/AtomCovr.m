@@ -25,4 +25,10 @@
     return (@"Cover Art");
 }
 
+// short-circuit superclass html string generation. We're an image, we don't need an html string.
+- (NSString *)html
+{
+    return nil;
+}
+
 @end

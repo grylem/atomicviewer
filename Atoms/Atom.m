@@ -312,10 +312,10 @@ static dispatch_once_t pred;
     NSString* html = [self html];
 
     if (html) {
-        NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
-        NSData *htmlData = [html dataUsingEncoding:NSUTF8StringEncoding];
-        NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithData:htmlData options: options documentAttributes:nil error:nil];
-
+        NSString *charsetHeader = @"<meta charset=\"utf-8\">";
+        NSString *htmlString = [charsetHeader stringByAppendingString:html];
+        NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithHTML:htmlData documentAttributes:nil];
         [explanatoryString appendAttributedString:attrString];
     }
 

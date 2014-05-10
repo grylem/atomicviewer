@@ -11,12 +11,25 @@
 
 @implementation Atom_iTMF
 
+// If an iTunes metadata atom is used outside the context of the iTunes metadata atom hierarchy (e.g., in a QuickTime file), don't assume it has child atom(s).
+- (BOOL)isLeaf
+{
+    return (![self isiTunesMetadata]);
+}
+
 //  This is the formatted textual explantion of the content of the atom
 - (NSString *)html
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    NSString *string = [dataAtom asString];
-    return string;
+    if ([self isiTunesMetadata]) {
+        AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
+        NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+        NSString *htmlTrailer = @"</p></span></body>";
+        NSString *string = [htmlHeader stringByAppendingString: [dataAtom asString]];
+        string = [string stringByAppendingString:htmlTrailer];
+        return string;
+    } else {
+        return nil;
+    }
 }
 
 - (NSString *)asBooleanString

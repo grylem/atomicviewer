@@ -198,7 +198,7 @@ typedef struct mvhd_ver1
     [self.data getBytes:&next_track_ID range:next_track_IDRange];
     next_track_ID = CFSwapInt32BigToHost(next_track_ID);
 
-    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>Creation date: %@<br>Modification date: %@<br>Timescale: %u<br>Duration: %u (%02u:%02u:%09.6f)<br>Rate: %u.%u<br>Volume: %u.%u<br>Matrix:<br>%u.%u, %u.%u, %u.%u<br>%u.%u, %u.%u, %u.%u<br>%u.%u, %u.%u, %u.%u<br>Next Track ID: %u</p></span></body>", creationDate, modificationDate, timescale, duration, hours, minutes, seconds, rate_hi, rate_lo, volume_hi, volume_lo, matrixa_hi, matrixa_lo, matrixb_hi, matrixb_lo, matrixu_hi, matrixu_lo, matrixc_hi, matrixc_lo, matrixd_hi, matrixd_lo, matrixv_hi, matrixv_lo, matrixtx_hi, matrixtx_lo, matrixty_hi, matrixty_lo, matrixw_hi, matrixw_lo, next_track_ID];
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>Creation date: %@<br>Modification date: %@<br>Timescale: %u<br>Duration: %u (%02u:%02u:%09.6f)<br>Rate: %u.%u<br>Volume: %u.%u<br>Transformation Matrix:<TABLE style=\"font-size:1.0em;\"><TR><TD>%u.%u</TD><TD>%u.%u</TD><TD>%u.%u</TD></TR><TR><TD>%u.%u</TD><TD>%u.%u</TD><TD>%u.%u</TD></TR><TR><TD>%u.%u</TD><TD>%u.%u</TD><TD>%u.%u</TD></TR></TABLE><br>Next Track ID: %u</p></span></body>", creationDate, modificationDate, timescale, duration, hours, minutes, seconds, rate_hi, rate_lo, volume_hi, volume_lo, matrixa_hi, matrixa_lo, matrixb_hi, matrixb_lo, matrixu_hi, matrixu_lo, matrixc_hi, matrixc_lo, matrixd_hi, matrixd_lo, matrixv_hi, matrixv_lo, matrixtx_hi, matrixtx_lo, matrixty_hi, matrixty_lo, matrixw_hi, matrixw_lo, next_track_ID];
 
     return html;
 }

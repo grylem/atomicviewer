@@ -157,7 +157,11 @@ static NSDictionary *genreDict;
     if (!genreID) {
         genreID = @"Unknown";
     }
-    return genreID;
+    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+    NSString *htmlTrailer = @"</p></span></body>";
+    NSString *string = [htmlHeader stringByAppendingString:genreID];
+    string = [string stringByAppendingString:htmlTrailer];
+    return string;
 }
 
 @end

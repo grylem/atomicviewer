@@ -58,7 +58,11 @@
             mediaType = @"Unknown";
             break;
     };
-    return mediaType;
+    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+    NSString *htmlTrailer = @"</p></span></body>";
+    NSString *string = [htmlHeader stringByAppendingString:mediaType];
+    string = [string stringByAppendingString:htmlTrailer];
+    return string;
 }
 
 @end

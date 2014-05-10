@@ -59,7 +59,12 @@ static NSDictionary *storefrontDict;
                            };
     });
     storefrontID = storefrontDict[@([self asInteger])];
-    return (storefrontID ? storefrontID[1] : @"Unknown");
+    NSString *storefrontString = storefrontID ? storefrontID[1] : @"Unknown";
+    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+    NSString *htmlTrailer = @"</p></span></body>";
+    NSString *string = [htmlHeader stringByAppendingString:storefrontString];
+    string = [string stringByAppendingString:htmlTrailer];
+    return string;
 }
 
 @end
