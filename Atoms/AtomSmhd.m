@@ -20,7 +20,7 @@
     return (@"smhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Sound Media Header");
 }

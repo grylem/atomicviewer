@@ -20,7 +20,7 @@
     return (@"©too");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Encoder");
 }

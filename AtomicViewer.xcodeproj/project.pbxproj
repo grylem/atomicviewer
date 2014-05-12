@@ -506,6 +506,7 @@
 				69E2CA4F18DBF20100EC4D8C /* ISO 14496-14 MP4 file format */,
 				69E2CA5018DBF4E500EC4D8C /* ISO 14496-15 AVC file format */,
 				696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */,
+				69B4D5B71920BA7F004CD77A /* QuickTime Atom Classes */,
 				696BB65618D811B2001EDCC2 /* ac-3 -  */,
 				69754A1518E0A66E0076E6F1 /* c608 - Closed Caption Sample Description */,
 				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
@@ -517,7 +518,6 @@
 				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
 				696BB65818D811C8001EDCC2 /* fall - Alternate Audio Track Reference */,
 				69754A1218E0A6460076E6F1 /* ftab -  */,
-				696BB64718D810BA001EDCC2 /* gmhd -  */,
 				69754A1918E0A69A0076E6F1 /* iviv -  */,
 				69754A1818E0A68B0076E6F1 /* key  -  */,
 				69754A1018E0A62C0076E6F1 /* load -  */,
@@ -1311,13 +1311,13 @@
 			name = "8.11.2 vmhd - Video Media Header";
 			sourceTree = "<group>";
 		};
-		696BB64718D810BA001EDCC2 /* gmhd -  */ = {
+		696BB64718D810BA001EDCC2 /* gmhd - Base Media Information Header */ = {
 			isa = PBXGroup;
 			children = (
 				6972092818D6C5DF003A9E0A /* AtomGmhd.h */,
 				6972092918D6C5DF003A9E0A /* AtomGmhd.m */,
 			);
-			name = "gmhd - ";
+			name = "gmhd - Base Media Information Header";
 			sourceTree = "<group>";
 		};
 		696BB64818D810CA001EDCC2 /* 8.19 stco - Chunk Offset */ = {
@@ -1706,6 +1706,14 @@
 			);
 			name = Resources;
 			path = MPEG4FileViewer;
+			sourceTree = "<group>";
+		};
+		69B4D5B71920BA7F004CD77A /* QuickTime Atom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				696BB64718D810BA001EDCC2 /* gmhd - Base Media Information Header */,
+			);
+			name = "QuickTime Atom Classes";
 			sourceTree = "<group>";
 		};
 		69E2CA0918DBDB8600EC4D8C /* 8.11.4 hmhd - Hint Media Header */ = {

@@ -20,7 +20,7 @@
     return (@"clef");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Clean Aperture Dimensions");
 }

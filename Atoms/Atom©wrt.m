@@ -20,7 +20,7 @@
     return (@"©wrt");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie's Writer");
 }

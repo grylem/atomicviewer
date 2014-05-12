@@ -20,7 +20,7 @@
     return (@"moov");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie");
 }

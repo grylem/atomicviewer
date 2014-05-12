@@ -20,7 +20,7 @@
     return (@"mvex");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Extends");
 }

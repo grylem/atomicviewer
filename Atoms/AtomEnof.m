@@ -20,7 +20,7 @@
     return (@"enof");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Encoded Pixels Dimensions");
 }

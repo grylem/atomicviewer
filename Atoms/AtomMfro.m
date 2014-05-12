@@ -20,7 +20,7 @@
     return (@"mfro");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Fragment Random Access Offset");
 }

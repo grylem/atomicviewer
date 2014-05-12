@@ -20,7 +20,7 @@
     return (@"schi");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Scheme Information");
 }

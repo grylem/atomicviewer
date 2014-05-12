@@ -20,7 +20,7 @@
     return (@"purd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Purchase Date");
 }

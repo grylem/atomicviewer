@@ -20,7 +20,7 @@
     return (@"cpil");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Compilation");
 }

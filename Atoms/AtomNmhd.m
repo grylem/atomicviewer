@@ -20,7 +20,7 @@
     return (@"nmhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Null Media Header");
 }

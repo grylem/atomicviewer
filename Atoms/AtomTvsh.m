@@ -20,7 +20,7 @@
     return (@"tvsh");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"TV Show Name");
 }

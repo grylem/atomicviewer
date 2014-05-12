@@ -20,7 +20,7 @@
     return (@"pgap");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Gapless Playback");
 }

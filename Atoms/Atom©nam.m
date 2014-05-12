@@ -20,7 +20,7 @@
     return (@"©nam");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Title of the Content");
 }

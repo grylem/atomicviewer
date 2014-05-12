@@ -27,7 +27,7 @@
 
 #pragma mark - Representation in views
 
--(NSString *)atomName
+- (NSString *)atomName
 {
     if ([self isiTunesMetadata]) {
         NSString *parentType = self.parent.atomType;

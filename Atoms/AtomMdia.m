@@ -20,7 +20,7 @@
     return (@"mdia");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Media");
 }

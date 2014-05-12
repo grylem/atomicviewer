@@ -20,7 +20,7 @@
     return (@"tven");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"TV Episode Number");
 }

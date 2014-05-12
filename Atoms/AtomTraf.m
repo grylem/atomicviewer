@@ -20,7 +20,7 @@
     return (@"traf");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Fragment");
 }

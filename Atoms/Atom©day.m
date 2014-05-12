@@ -20,7 +20,7 @@
     return (@"©day");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Recorded Date");
 }

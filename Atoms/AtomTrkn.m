@@ -31,7 +31,7 @@ typedef enum : off_t {
     return (@"trkn");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Number");
 }

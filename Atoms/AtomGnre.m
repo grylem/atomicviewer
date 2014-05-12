@@ -23,7 +23,7 @@ static NSDictionary *genreDict;
     return (@"gnre");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Genre");
 }

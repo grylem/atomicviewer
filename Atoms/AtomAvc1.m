@@ -20,7 +20,7 @@
     return (@"avc1");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"AVC Sample Entry");
 }

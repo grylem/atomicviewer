@@ -20,7 +20,7 @@
     return (@"moof");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Fragment");
 }

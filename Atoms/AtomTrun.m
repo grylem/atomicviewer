@@ -20,7 +20,7 @@
     return (@"trun");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Fragment Run");
 }

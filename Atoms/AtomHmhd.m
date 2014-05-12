@@ -20,7 +20,7 @@
     return (@"hmhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Hint Media Header");
 }

@@ -23,7 +23,7 @@ static NSDictionary *storefrontDict;
     return (@"sfID");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Storefront ID");
 }

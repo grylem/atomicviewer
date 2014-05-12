@@ -20,7 +20,7 @@
     return (@"skip");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Free Space");
 }

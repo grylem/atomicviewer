@@ -20,7 +20,7 @@
     return (@"apID");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Apple Store ID");
 }

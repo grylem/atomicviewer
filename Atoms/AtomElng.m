@@ -20,7 +20,7 @@
     return (@"elng");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Extended Language Tag");
 }

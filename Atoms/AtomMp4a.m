@@ -35,7 +35,7 @@
     return (@"mp4a");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"MP4 Audio Sample Entry");
 }

@@ -63,7 +63,7 @@ typedef enum : off_t {
     return (@"tkhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Header");
 }

@@ -20,7 +20,7 @@
     return (@"stdp");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Degradation Priority");
 }

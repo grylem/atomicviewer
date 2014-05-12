@@ -20,7 +20,7 @@
     return (@"tapt");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Aperture Mode Dimensions");
 }

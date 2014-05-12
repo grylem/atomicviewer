@@ -20,7 +20,7 @@
     return (@"sonm");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Sort Order Name");
 }

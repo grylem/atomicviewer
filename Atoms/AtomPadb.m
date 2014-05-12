@@ -20,7 +20,7 @@
     return (@"padb");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Padding Bits");
 }

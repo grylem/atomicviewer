@@ -20,7 +20,7 @@
     return (@"mehd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Extends Header");
 }

@@ -20,7 +20,7 @@
     return (@"----");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return @"Reverse DNS Style iTunes Metadata";
 }

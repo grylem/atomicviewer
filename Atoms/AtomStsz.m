@@ -20,7 +20,7 @@
     return (@"stsz");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Sample Size");
 }

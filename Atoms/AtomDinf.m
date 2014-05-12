@@ -20,7 +20,7 @@
     return (@"dinf");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Data Information");
 }

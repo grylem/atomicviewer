@@ -20,7 +20,7 @@
     return (@"url ");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Data Entry URL");
 }

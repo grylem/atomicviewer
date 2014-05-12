@@ -22,7 +22,7 @@
     return (@"trak");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track");
 }

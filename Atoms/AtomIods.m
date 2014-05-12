@@ -20,7 +20,7 @@
     return (@"iods");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Object Descriptor");
 }

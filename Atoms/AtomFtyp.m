@@ -30,7 +30,7 @@ typedef struct ftyp {
     return (@"ftyp");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"File Type");
 }

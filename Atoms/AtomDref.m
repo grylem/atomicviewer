@@ -20,7 +20,7 @@
     return (@"dref");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Data Reference");
 }

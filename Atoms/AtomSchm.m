@@ -20,7 +20,7 @@
     return (@"schm");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Scheme Type");
 }

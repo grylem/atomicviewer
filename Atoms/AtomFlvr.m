@@ -20,7 +20,7 @@
     return (@"flvr");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Flavor");
 }

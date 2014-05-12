@@ -20,7 +20,7 @@
     return (@"elst");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Edit List");
 }

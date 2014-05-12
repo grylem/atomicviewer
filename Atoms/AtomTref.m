@@ -20,7 +20,7 @@
     return (@"tref");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Reference");
 }

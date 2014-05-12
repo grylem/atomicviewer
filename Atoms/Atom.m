@@ -179,12 +179,12 @@ static dispatch_once_t pred;
     return nil; // The abstact superclass does not have an atomType
 }
 
-//  This is the human-readable atomName.
-//  But this abstract superclass does not have an atomName
-+(NSString *)atomName
-{
-    return nil;
-}
+////  This is the human-readable atomName.
+////  But this abstract superclass does not have an atomName
+//+(NSString *)atomName
+//{
+//    return nil;
+//}
 
 #pragma mark - Instance methods
 
@@ -229,7 +229,9 @@ static dispatch_once_t pred;
 //  a string explaining that we don't know about this atom
 - (NSString *)atomName
 {
-    return [[self class] atomName] ? [[self class] atomName] : @"The meaning of this atom is unknown.";
+//    return [[self class] atomName] ? [[self class] atomName] : @"The meaning of this atom is unknown.";
+    return @"The meaning of this atom is unknown.";
+
 }
 
 -(BOOL) isLeaf

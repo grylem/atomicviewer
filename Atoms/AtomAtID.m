@@ -20,7 +20,7 @@
     return (@"atID");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Album Title ID");
 }

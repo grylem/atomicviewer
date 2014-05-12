@@ -20,7 +20,7 @@
     return (@"meta");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Metadata");
 }

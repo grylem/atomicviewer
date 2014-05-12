@@ -20,7 +20,7 @@
     return (@"stsh");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Shadow Sync Sample");
 }

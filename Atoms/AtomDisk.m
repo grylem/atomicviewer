@@ -31,7 +31,7 @@ typedef enum : off_t {
     return (@"disk");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Disk Number");
 }

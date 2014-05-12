@@ -20,7 +20,7 @@
     return (@"mfhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Fragment Header");
 }

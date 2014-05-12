@@ -20,14 +20,9 @@
     return (@"gmhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Base Media Information Header");
-}
-
--(BOOL)isFullBox
-{
-    return YES;
 }
 
 @end

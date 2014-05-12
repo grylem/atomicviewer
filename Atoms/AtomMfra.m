@@ -20,7 +20,7 @@
     return (@"mfra");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Fragment Random Access");
 }

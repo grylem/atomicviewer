@@ -20,7 +20,7 @@
     return (@"©cmt");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Comment");
 }

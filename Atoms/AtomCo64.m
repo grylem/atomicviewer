@@ -20,7 +20,7 @@
     return (@"co64");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Chunk Large Offset");
 }

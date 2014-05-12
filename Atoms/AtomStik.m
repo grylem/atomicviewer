@@ -20,7 +20,7 @@
     return (@"stik");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Media Kind");
 }

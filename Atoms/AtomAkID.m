@@ -20,7 +20,7 @@
     return (@"akID");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"iTunes Store Account Type");
 }

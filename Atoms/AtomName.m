@@ -12,9 +12,6 @@
 // When a child of udta or schi, name is a simple
 // atom. When a child of ----, it's versioned.
 
-// Need to override init to test my parent to see
-// how to interpret this atom.
-
 #import "AtomName.h"
 
 @implementation AtomName

@@ -20,7 +20,7 @@
     return (@"tfhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Fragment Header");
 }

@@ -20,7 +20,7 @@
     return (@"hdlr");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Handler Reference");
 }

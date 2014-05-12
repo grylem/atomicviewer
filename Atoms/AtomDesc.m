@@ -20,7 +20,7 @@
     return (@"desc");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Description");
 }

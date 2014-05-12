@@ -20,7 +20,7 @@
     return (@"©alb");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Album");
 }

@@ -54,7 +54,7 @@ typedef struct mvhd_ver1
     return (@"mvhd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Movie Header");
 }

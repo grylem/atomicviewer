@@ -20,7 +20,7 @@
     return (@"ilst");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Metadata Item List");
 }

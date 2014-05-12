@@ -20,7 +20,7 @@
     return (@"uuid");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"uuid");
 }

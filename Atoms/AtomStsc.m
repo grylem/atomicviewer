@@ -20,7 +20,7 @@
     return (@"stsc");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Sample To Chunk");
 }

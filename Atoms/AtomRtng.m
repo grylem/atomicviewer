@@ -20,7 +20,7 @@
     return (@"rtng");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Content Advisory");
 }

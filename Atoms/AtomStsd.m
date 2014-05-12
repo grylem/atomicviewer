@@ -20,7 +20,7 @@
     return (@"stsd");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Sample Description");
 }

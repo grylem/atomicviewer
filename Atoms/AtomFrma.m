@@ -20,7 +20,7 @@
     return (@"frma");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Original Format");
 }

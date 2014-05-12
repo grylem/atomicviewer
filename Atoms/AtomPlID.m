@@ -20,7 +20,7 @@
     return (@"plID");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Playlist ID");
 }

@@ -20,7 +20,7 @@
     return (@"tfra");
 }
 
-+(NSString *)atomName
+- (NSString *)atomName
 {
     return (@"Track Fragment Random Access");
 }
