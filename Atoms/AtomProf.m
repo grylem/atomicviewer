@@ -8,6 +8,14 @@
 
 #import "AtomProf.h"
 
+#pragma pack(push,1)
+typedef struct prof
+{
+    uint32_t width;
+    uint32_t height;
+} prof;
+#pragma pack(pop)
+
 @implementation AtomProf
 
 +(void)load
@@ -28,6 +36,28 @@
 -(BOOL)isFullBox
 {
     return YES;
+}
+
+- (NSString *)html
+{
+    const struct prof *prof = [[self data] bytes];
+
+    uint32_t width = CFSwapInt32BigToHost(prof->width);
+    int16_t width_hi = width >> 16;
+    int16_t width_lo = width & 0xffff;
+    uint32_t height = CFSwapInt32BigToHost(prof->height);
+    int16_t height_hi = height >> 16;
+    int16_t height_lo = height & 0xffff;
+
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      Width: <b>%u.%u</b><br>\
+                      Height: <b>%u.%u</b>\
+                      </p></span></body>",
+                      width_hi,
+                      width_lo,
+                      height_hi,
+                      height_lo];
+    return html;
 }
 
 @end

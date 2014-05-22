@@ -10,6 +10,15 @@
 
 @implementation AtomSchm
 
+#pragma pack(push,1)
+typedef struct schm
+{
+    uint32_t scheme_type;
+    uint32_t scheme_version;
+    uint8_t scheme_uri[];        // only if low-order bit of flags is set
+} schm;
+#pragma pack(pop)
+
 +(void)load
 {
     [self populateAtomToClassDict];
@@ -28,6 +37,17 @@
 -(BOOL)isFullBox
 {
     return YES;
+}
+
+- (NSString *)html
+{
+    const schm *scheme = [[self data] bytes];
+
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      Scheme type: <b>%@</b>\
+                      </p></span></body>",
+                      [self stringFromFourCC:&scheme->scheme_type]];
+    return html;
 }
 
 @end

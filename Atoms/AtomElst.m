@@ -7,8 +7,31 @@
 //
 
 #import "AtomElst.h"
+#import "AtomMvhd.h"
 
 @implementation AtomElst
+
+#pragma pack(push,1)
+typedef struct elst_ver0
+{
+    uint32_t entry_count;
+    struct {
+        uint32_t segment_duration;
+        int32_t media_time;
+        uint32_t media_rate;
+    } entry[];
+} elst_ver0;
+typedef struct elst_ver1
+{
+    uint32_t entry_count;
+    struct {
+        uint64_t segment_duration;
+        int64_t media_time;
+        uint32_t media_rate;
+    } entry[];
+
+} elst_ver1;
+#pragma pack(pop)
 
 +(void)load
 {
@@ -28,6 +51,42 @@
 -(BOOL)isFullBox
 {
     return YES;
+}
+
+- (double)timescale
+{
+    AtomMvhd *atom = (AtomMvhd *)[self findAtomAtPath:@"moov.mvhd"];
+    return [atom timescale];
+}
+
+- (NSString *)html
+{
+    const elst_ver0 *elst = [[self data] bytes];
+
+    NSString *html = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+    <TABLE style=\"font-size:1.0em;\">\
+    <TR> <TH>Segment Duration</TH><TH>Media Time</TH><TH>Media Rate</TH>";
+
+    uint32_t count = CFSwapInt32BigToHost(elst->entry_count);
+
+    for (int i=0; i<count; i++) {
+        uint16_t hours;
+        uint16_t minutes;
+        double seconds;
+        uint32_t duration = [self getUInt32DurationValueAtOffset: offsetof(struct elst_ver0, entry[i].segment_duration)
+                                                  usingTimescale: [self timescale]
+                                                           hours: &hours
+                                                         minutes: &minutes
+                                                         seconds: &seconds];
+        int32_t mtime = CFSwapInt32BigToHost(elst->entry[i].media_time);
+        uint32_t rate = CFSwapInt32BigToHost(elst->entry[i].media_rate);
+        int16_t rate_hi = rate >> 16;
+        int16_t rate_lo = rate & 0xffff;
+
+        html = [html stringByAppendingFormat:@"<TR><TD>%u (%02u:%02u:%09.6f)</TD><TD>%u</TD><TD>%u.%u</TD></TR>", duration, hours, minutes, seconds, mtime, rate_hi, rate_lo];
+    }
+    html = [html stringByAppendingString:@"</TABLE><br></p></span></body>"];
+    return html;
 }
 
 @end

@@ -25,4 +25,18 @@
     return (@"uuid");
 }
 
+- (NSString *)html
+{
+    const unsigned char *uuid_addr = [[self data] bytes];
+    NSUUID *uuid;
+
+    uuid = [[NSUUID alloc] initWithUUIDBytes:uuid_addr];
+
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      UUID: <b>%@</b><br>\
+                      </p></span></body>",
+                      [uuid UUIDString]];
+    return html;
+
+}
 @end

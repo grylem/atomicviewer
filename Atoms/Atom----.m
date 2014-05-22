@@ -25,4 +25,37 @@
     return @"Reverse DNS Style iTunes Metadata";
 }
 
+- (BOOL)isRating
+{
+    Atom *atom = [self findChildAtomOfType:@"name"];
+    if ([[atom asString] isEqualToString: @"iTunEXTC"]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSString *)html
+{
+    NSArray *ratingsLabels = @[@"Rating Organization: ", @"Rating: ", @"Rating Value: ", @"Rating Explanation: "];
+    NSString *html = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+
+    if ([self isRating]) {
+        Atom *atom = [self findChildAtomOfType:@"data"];
+        NSString *string = [atom asString];
+        NSArray *ratingsArray = [string componentsSeparatedByString:@"|"];
+
+        int i = 0;
+        for (NSString *ratingString in ratingsArray) {
+            if ([ratingString length] > 0) {
+                html = [html stringByAppendingString:[NSString stringWithFormat:@"%@<b>%@</b><br>",
+                        ratingsLabels[i],
+                        ratingString]];
+            }
+            i++;
+        }
+    }
+    html = [html stringByAppendingString:@"</p></span></body>"];
+    return html;
+}
+
 @end

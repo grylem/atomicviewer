@@ -46,7 +46,11 @@
             rtng = @"Unknown";
             break;
     };
-    return rtng;
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      %@\
+                      </p></span></body>",
+                      rtng];
+    return html;
 }
 
 @end

@@ -25,15 +25,4 @@
     return (@"User Data");
 }
 
-// Historically, Quicktime files may have udta atoms
-// with a zero-terminated list of children (rather
-// than being driven by size). Make sure we don't have
-// just an empty, zero-terminated list by ensuring we have enough
-// room to accommodate children before looking for them.
-
--(BOOL) isLeaf
-{
-    return self.length == 12;
-}
-
 @end

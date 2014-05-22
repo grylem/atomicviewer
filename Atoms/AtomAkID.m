@@ -40,7 +40,11 @@
             accountType = @"Unknown";
             break;
     };
-    return accountType;
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      %@\
+                      </p></span></body>",
+                      accountType];
+    return html;
 }
 
 @end

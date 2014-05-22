@@ -20,6 +20,11 @@
     return (@"drmi");
 }
 
+- (NSString *)atomName
+{
+    return (@"FairPlay Protected Video");
+}
+
 -(BOOL)isFullBox
 {
     return YES;

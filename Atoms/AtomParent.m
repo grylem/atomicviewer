@@ -31,9 +31,12 @@
     return self;
 }
 
+// Make sure I'm big enough to have children.
+// In particular, the udta atom may have a zero terminated list of children, in which case my size will be 12 (my size, 8, plus 4 byte zero termination). I've also seen empty udta atoms (8-byte length).
+// In any case, any atom that is less that 16 bytes couldn't possibly be a parent. My size & type, plus one child's size & type would be a minimum of 16 bytes.
 -(BOOL) isLeaf
 {
-    return NO;
+    return self.length < 16;
 }
 
 -(NSUInteger) jump

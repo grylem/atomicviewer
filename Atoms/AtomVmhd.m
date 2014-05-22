@@ -8,6 +8,18 @@
 
 #import "AtomVmhd.h"
 
+#pragma pack(push,1)
+typedef struct vmhd
+{
+    uint16_t graphicsmode;
+    struct {
+        uint16_t red;
+        uint16_t green;
+        uint16_t blue;
+    } opcolor;
+} vmhd;
+#pragma pack(pop)
+
 @implementation AtomVmhd
 
 +(void)load
@@ -28,6 +40,24 @@
 -(BOOL)isFullBox
 {
     return YES;
+}
+
+- (NSString *)html
+{
+    const struct vmhd *vmhd = [[self data] bytes];
+
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      Graphics Mode: <b>%u</b>\
+                      <br>\
+                      <br>Red: <b>%u</b>\
+                      <br>Green: <b>%u</b>\
+                      <br>Blue: <b>%u</b>\
+                      </p></span></body>",
+                      CFSwapInt16BigToHost(vmhd->graphicsmode),
+                      CFSwapInt16BigToHost(vmhd->opcolor.red),
+                      CFSwapInt16BigToHost(vmhd->opcolor.green),
+                      CFSwapInt16BigToHost(vmhd->opcolor.blue)];
+    return html;
 }
 
 @end

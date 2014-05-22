@@ -10,6 +10,13 @@
 
 @implementation AtomStsd
 
+#pragma pack(push,1)
+typedef struct stsd
+{
+    uint32_t entry_count;
+}stsd;
+#pragma pack(pop)
+
 +(void)load
 {
     [self populateAtomToClassDict];
@@ -32,8 +39,18 @@
 
 -(NSUInteger) jump
 {
-    // stsd atoms have a four byte "entry count" before the children atoms
-    return 4;
+    return sizeof(stsd);
+}
+
+- (NSString *)html
+{
+    const struct stsd *stsd = [[self data] bytes];
+
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      <br>Number of Sample Descriptions: <b>%u</b>\
+                      </p></span></body>",
+                      CFSwapInt32BigToHost(stsd->entry_count)];
+    return html;
 }
 
 @end

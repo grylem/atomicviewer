@@ -25,6 +25,26 @@
 
 @implementation AtomMp4a
 
+#pragma pack(push,1)
+typedef struct mp4a
+{
+    uint8_t reserved[6];
+    uint16_t data_reference_index;
+    uint16_t version;
+    uint16_t revision_level;
+    uint32_t vendor;
+    uint16_t number_of_channels;
+    uint16_t sample_size;
+    uint16_t compression_ID;
+    uint16_t packet_size;
+    uint32_t sample_rate; // Version 0 ends after this field (28 bytes)
+    uint32_t samples_per_packet;
+    uint32_t bytes_per_packet;
+    uint32_t bytes_per_frame;
+    uint32_t bytes_per_sample;
+}mp4a;
+#pragma pack(pop)
+
 +(void)load
 {
     [self populateAtomToClassDict];
@@ -37,17 +57,18 @@
 
 - (NSString *)atomName
 {
-    return (@"MP4 Audio Sample Entry");
+    return (@"MP4 Audio Sample Description");
 }
 
 -(NSUInteger) jump
 {
-    UInt16 version = [self getUInt16ValueAtOffset:8];
-    if (version > 0) {
-        return 44;
-    }
+    const mp4a* mp4a = [[self data] bytes];
 
-    return 28;
+    uint16_t version = CFSwapInt16BigToHost(mp4a->version);
+    if (version == 1) {
+        return sizeof(struct mp4a);
+    }
+    return offsetof(struct mp4a, samples_per_packet);
 }
 
 @end

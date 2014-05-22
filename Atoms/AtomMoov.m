@@ -28,7 +28,7 @@
 //  This is the formatted textual explantion of the content of the atom
 - (NSString *)html
 {
-    return @"This is the container for all the metadata";
+    return @"This is the container for the information that describes a movie's data";
 }
 
 @end

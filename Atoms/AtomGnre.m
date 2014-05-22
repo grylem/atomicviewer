@@ -123,7 +123,11 @@ static NSDictionary *genreDict;
     if (!genre) {
         genre = @"Unknown";
     }
-    return genre;
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      %@\
+                      </p></span></body>",
+                      genre];
+    return html;
 }
 
 @end

@@ -37,33 +37,20 @@ typedef struct ftyp {
 
 - (NSString *)html
 {
-    char majorBrandBytes[5];
-    majorBrandBytes[4] = '\0';
-    NSRange majorBrandRange = NSMakeRange(offsetof(struct ftyp, majorBrand), member_size(ftyp, majorBrand));
-    [self.data getBytes:&majorBrandBytes range:majorBrandRange];
-    NSString *majorBrandString = [NSString stringWithCString:majorBrandBytes encoding:NSISOLatin1StringEncoding];
+    const ftyp *ftyp = [[self data] bytes];
 
-    char minorBrandBytes[5];
-    minorBrandBytes[4] = '\0';
-    NSRange minorBrandRange = NSMakeRange(offsetof(struct ftyp, minorBrand), member_size(ftyp, minorBrand));
-    [self.data getBytes:&minorBrandBytes range:minorBrandRange];
-    NSString *minorBrandString = [NSString stringWithCString:minorBrandBytes encoding:NSISOLatin1StringEncoding];
+    NSString *majorBrandString = [self stringFromFourCC:&ftyp->majorBrand encoding:NSISOLatin1StringEncoding];
+    NSString *minorBrandString = [self stringFromFourCC:&ftyp->minorBrand];
 
-    char compatibleBrandString[5];
-    compatibleBrandString[4] = '\0';
     size_t compatibleBrandsLength = self.dataLength - offsetof(struct ftyp, compatibleBrands);
-    NSRange compatibleBrandsRange = NSMakeRange(offsetof(struct ftyp, compatibleBrands), 4);
     unsigned long numCompatibleBrands = compatibleBrandsLength / 4;
 
-    NSMutableArray *__compatibleBrands = [NSMutableArray new];
+    NSMutableArray *compatibleBrandsArray = [NSMutableArray new];
 
     for (int i=0; i<numCompatibleBrands; i++) {
-        [self.data getBytes:&compatibleBrandString range:compatibleBrandsRange];
-        memcpy(&compatibleBrandString, [self.data bytes] + offsetof(struct ftyp, compatibleBrands) + (i * 4), 4);
-        NSString *brandString = [NSString stringWithCString:compatibleBrandString
-                                                   encoding:NSISOLatin1StringEncoding];
+        NSString *brandString = [self stringFromFourCC:&ftyp->compatibleBrands[i] encoding:NSISOLatin1StringEncoding];
         if ([brandString length]) {
-            [__compatibleBrands addObject: brandString];
+            [compatibleBrandsArray addObject: brandString];
         }
     }
 
@@ -74,17 +61,17 @@ typedef struct ftyp {
     } else {
         minorBrandString = [NSString stringWithFormat:@"The file type minor brand is <b>%@</b>",minorBrandString];
     }
-    if ([__compatibleBrands count] == 0) {
+    if ([compatibleBrandsArray count] == 0) {
         compatibleBrandsString = @"There are no compatible brands";
     } else {
         compatibleBrandsString = @"The compatible brands are:<ul>";
-        for (NSString *string in __compatibleBrands) {
+        for (NSString *string in compatibleBrandsArray) {
             compatibleBrandsString = [compatibleBrandsString stringByAppendingString:[NSString stringWithFormat:@"<li><b>%@</b></li>", string]];
         }
         compatibleBrandsString = [compatibleBrandsString stringByAppendingString:@"</ul>"];
     }
 
-    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>The file type major brand is <b>%@</b>.<br>%@<br>%@</p></span></body>", majorBrandString, minorBrandString, compatibleBrandsString];
+    NSString *html = [NSString stringWithFormat:@"<body>The file type atom allows the reader to determine if this is a type of file the reader understands. It identifies the specifications with which the file is compatible.<span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>The file type major brand is <b>%@</b>.<br>%@<br>%@</p></span></body>", majorBrandString, minorBrandString, compatibleBrandsString];
 
     return html;
 }

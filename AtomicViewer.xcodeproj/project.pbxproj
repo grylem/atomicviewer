@@ -19,6 +19,8 @@
 		6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE7F18D327B90087A0ED /* AtomUdta.m */; };
 		6930D06B18E4E973001E6397 /* AtomTapt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930D06A18E4E973001E6397 /* AtomTapt.m */; };
 		6930D06F18E4EE4F001E6397 /* AtomCios.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930D06E18E4EE4F001E6397 /* AtomCios.m */; };
+		6930E5B5192C133100598BD0 /* AtomGmin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930E5B4192C133100598BD0 /* AtomGmin.m */; };
+		6930E5B9192C1DE800598BD0 /* AtomForc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930E5B8192C1DE800598BD0 /* AtomForc.m */; };
 		69390E4A18DFA8C300DEA5B3 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
 		69390E4D18DFAD7800DEA5B3 /* HexFiend.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
 		69390E5018DFD90F00DEA5B3 /* AtomPinf.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */; };
@@ -123,6 +125,7 @@
 		6972097B18D6DDD1003A9E0A /* AtomCnID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097A18D6DDD1003A9E0A /* AtomCnID.m */; };
 		6972097E18D6DDE5003A9E0A /* AtomAtID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972097D18D6DDE5003A9E0A /* AtomAtID.m */; };
 		6972098118D6DDF6003A9E0A /* AtomCovr.m in Sources */ = {isa = PBXBuildFile; fileRef = 6972098018D6DDF6003A9E0A /* AtomCovr.m */; };
+		69744C551924987E00C5A011 /* AtomFolw.m in Sources */ = {isa = PBXBuildFile; fileRef = 69744C541924987E00C5A011 /* AtomFolw.m */; };
 		697A716618E0BF2C00A4A9DD /* AtomDrmi.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A716518E0BF2C00A4A9DD /* AtomDrmi.m */; };
 		697A716918E0C01100A4A9DD /* AtomP608.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A716818E0C01100A4A9DD /* AtomP608.m */; };
 		697A716C18E0C0E300A4A9DD /* AtomGnre.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A716B18E0C0E300A4A9DD /* AtomGnre.m */; };
@@ -161,6 +164,7 @@
 		69EF0AD71900925F007DC40C /* AtomItnu.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0AD61900925F007DC40C /* AtomItnu.m */; };
 		69EF0ADB190092C4007DC40C /* AtomRndu.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0ADA190092C4007DC40C /* AtomRndu.m */; };
 		69EF0ADF190092F7007DC40C /* AtomRpdu.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0ADE190092F7007DC40C /* AtomRpdu.m */; };
+		69FE65EF192309F5009F55F3 /* AtomKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FE65EE192309F5009F55F3 /* AtomKeys.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -201,6 +205,10 @@
 		6930D06A18E4E973001E6397 /* AtomTapt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTapt.m; sourceTree = "<group>"; };
 		6930D06D18E4EE4F001E6397 /* AtomCios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCios.h; sourceTree = "<group>"; };
 		6930D06E18E4EE4F001E6397 /* AtomCios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCios.m; sourceTree = "<group>"; };
+		6930E5B3192C133100598BD0 /* AtomGmin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomGmin.h; path = Atoms/AtomGmin.h; sourceTree = "<group>"; };
+		6930E5B4192C133100598BD0 /* AtomGmin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomGmin.m; path = Atoms/AtomGmin.m; sourceTree = "<group>"; };
+		6930E5B7192C1DE800598BD0 /* AtomForc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomForc.h; path = Atoms/AtomForc.h; sourceTree = "<group>"; };
+		6930E5B8192C1DE800598BD0 /* AtomForc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomForc.m; path = Atoms/AtomForc.m; sourceTree = "<group>"; };
 		69390E4918DFA8C300DEA5B3 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HexFiend.framework; sourceTree = "<group>"; };
 		69390E4E18DFD90F00DEA5B3 /* AtomPinf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomPinf.h; sourceTree = "<group>"; };
 		69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomPinf.m; sourceTree = "<group>"; };
@@ -408,6 +416,8 @@
 		6972097F18D6DDF6003A9E0A /* AtomCovr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCovr.h; sourceTree = "<group>"; };
 		6972098018D6DDF6003A9E0A /* AtomCovr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCovr.m; sourceTree = "<group>"; };
 		6973EBAF18E07B2A00AF263C /* MPEG4FileViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MPEG4FileViewer.entitlements; sourceTree = "<group>"; };
+		69744C531924987E00C5A011 /* AtomFolw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFolw.h; sourceTree = "<group>"; };
+		69744C541924987E00C5A011 /* AtomFolw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFolw.m; sourceTree = "<group>"; };
 		697A716418E0BF2C00A4A9DD /* AtomDrmi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDrmi.h; sourceTree = "<group>"; };
 		697A716518E0BF2C00A4A9DD /* AtomDrmi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomDrmi.m; sourceTree = "<group>"; };
 		697A716718E0C01100A4A9DD /* AtomP608.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomP608.h; sourceTree = "<group>"; };
@@ -483,6 +493,8 @@
 		69EF0ADA190092C4007DC40C /* AtomRndu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomRndu.m; sourceTree = "<group>"; };
 		69EF0ADD190092F7007DC40C /* AtomRpdu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomRpdu.h; path = Atoms/AtomRpdu.h; sourceTree = "<group>"; };
 		69EF0ADE190092F7007DC40C /* AtomRpdu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtomRpdu.m; path = Atoms/AtomRpdu.m; sourceTree = "<group>"; };
+		69FE65ED192309F5009F55F3 /* AtomKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomKeys.h; sourceTree = "<group>"; };
+		69FE65EE192309F5009F55F3 /* AtomKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomKeys.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,33 +516,24 @@
 				696BB5D718D7D007001EDCC2 /* Abstract Atom Classes */,
 				69E2CA4E18DBEFA600EC4D8C /* ISO 14496-12 ISO base media file format */,
 				69E2CA4F18DBF20100EC4D8C /* ISO 14496-14 MP4 file format */,
-				69E2CA5018DBF4E500EC4D8C /* ISO 14496-15 AVC file format */,
 				696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */,
 				69B4D5B71920BA7F004CD77A /* QuickTime Atom Classes */,
 				696BB65618D811B2001EDCC2 /* ac-3 -  */,
 				69754A1518E0A66E0076E6F1 /* c608 - Closed Caption Sample Description */,
-				696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */,
-				696BB65318D81176001EDCC2 /* colr -  */,
+				696BB65318D81176001EDCC2 /* colr - Color Parameter */,
 				696BB65718D811BF001EDCC2 /* dac3 -  */,
-				697A717618E0C64B00A4A9DD /* drmi -  */,
-				696BB65918D811D2001EDCC2 /* drms -  */,
-				696BB64018D8102C001EDCC2 /* elng - Extended Language */,
-				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
-				696BB65818D811C8001EDCC2 /* fall - Alternate Audio Track Reference */,
-				69754A1218E0A6460076E6F1 /* ftab -  */,
+				69754A1218E0A6460076E6F1 /* ftab - Font Table */,
 				69754A1918E0A69A0076E6F1 /* iviv -  */,
 				69754A1818E0A68B0076E6F1 /* key  -  */,
 				69754A1018E0A62C0076E6F1 /* load -  */,
 				697A717718E0C65500A4A9DD /* p608 -  */,
-				696BB65218D81168001EDCC2 /* pasp -  */,
+				696BB65218D81168001EDCC2 /* pasp - Pixel Aspect Ratio */,
 				69754A0F18E0A61E0076E6F1 /* pinf -  */,
 				69754A1418E0A65B0076E6F1 /* priv -  */,
 				69754A1718E0A6810076E6F1 /* righ -  */,
 				69754A1318E0A6500076E6F1 /* skcr -  */,
-				69754A1118E0A6380076E6F1 /* tx3g -  */,
-				69754A1618E0A6780076E6F1 /* user -  */,
+				69754A1618E0A6780076E6F1 /* user - Apple ID user number (?) */,
 				69754A1A18E0A6A20076E6F1 /* UUID -  */,
-				6996CCF018E4F12900121640 /* uuid -  */,
 			);
 			path = Atoms;
 			sourceTree = "<group>";
@@ -544,11 +547,40 @@
 			name = "tapt - Track Aperture Mode Dimensions";
 			sourceTree = "<group>";
 		};
+		6930E5B6192C133800598BD0 /* gmin - Base Media Info */ = {
+			isa = PBXGroup;
+			children = (
+				6930E5B3192C133100598BD0 /* AtomGmin.h */,
+				6930E5B4192C133100598BD0 /* AtomGmin.m */,
+			);
+			name = "gmin - Base Media Info";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6930E5BA192C1DFB00598BD0 /* forc - Forced Subtitle Track Reference */ = {
+			isa = PBXGroup;
+			children = (
+				6930E5B7192C1DE800598BD0 /* AtomForc.h */,
+				6930E5B8192C1DE800598BD0 /* AtomForc.m */,
+			);
+			name = "forc - Forced Subtitle Track Reference";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		69448EE9192D2D8300FA13E8 /* Sample Descriptions */ = {
+			isa = PBXGroup;
+			children = (
+				69E2CA5018DBF4E500EC4D8C /* ISO 14496-15 AVC file format */,
+			);
+			name = "Sample Descriptions";
+			sourceTree = "<group>";
+		};
 		69453FE8176672A400851344 = {
 			isa = PBXGroup;
 			children = (
 				69453FFA176672A400851344 /* AtomicViewer */,
 				6923AE6A18D2F13B0087A0ED /* Atoms */,
+				69448EE9192D2D8300FA13E8 /* Sample Descriptions */,
 				69453FFB176672A400851344 /* Supporting Files */,
 				69A163B617D67B7000131614 /* Resources */,
 				69453FF3176672A400851344 /* Frameworks */,
@@ -613,14 +645,12 @@
 		696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */ = {
 			isa = PBXGroup;
 			children = (
-				696BB64C18D81100001EDCC2 /* ilst - Metadata Item List */,
 				696BB61418D7ECD4001EDCC2 /* aART - Album Artist */,
 				697A717B18E0CB8B00A4A9DD /* akid - iTunes Store Account Type */,
 				696BB60B18D7E979001EDCC2 /* apID - Apple Store ID */,
 				696BB5EA18D7E67C001EDCC2 /* atID - Album Title ID */,
 				69EF0AD4190091FA007DC40C /* catg -  */,
 				6996CCEC18E4EFE900121640 /* cios -  */,
-				6996CCED18E4F00200121640 /* clef - Track Clean Aperture Dimensions */,
 				69EF0AD01900919B007DC40C /* cmID -  */,
 				696BB5DC18D7E042001EDCC2 /* cnID - Apple Store Catalog ID */,
 				696BB5D918D7DCE0001EDCC2 /* covr - Cover Art */,
@@ -628,16 +658,15 @@
 				696BB5DA18D7DDEA001EDCC2 /* desc - Description */,
 				696BB5E818D7E632001EDCC2 /* disk - Disk x of y */,
 				69EF0A5618FF8B77007DC40C /* egid -  */,
-				6996CCEF18E4F03000121640 /* enof - Track Encoded Pixels Dimensions */,
 				696BB5E618D7E548001EDCC2 /* flvr - Flavor */,
 				696BB5FF18D7E8BA001EDCC2 /* geID - Genre ID */,
 				697A717318E0C46700A4A9DD /* gnre - Genre */,
 				696BB61018D7EC86001EDCC2 /* hdvd - HD Video */,
+				696BB64C18D81100001EDCC2 /* ilst - Metadata Item List */,
 				69EF0AD819009266007DC40C /* itnu -  */,
 				696BB5D818D7DCC2001EDCC2 /* ldes - Long Description */,
 				696BB60318D7E8FD001EDCC2 /* plID - Playlist ID */,
 				696BB5E718D7E60D001EDCC2 /* pgap - Gapless Playback */,
-				6996CCEE18E4F01600121640 /* prof - Track Production Aperture Dimensions */,
 				696BB5F718D7E794001EDCC2 /* purd - Purchase Date */,
 				69EF0ADC190092DA007DC40C /* rndu -  */,
 				69EF0AE0190092FE007DC40C /* rpdu -  */,
@@ -1212,13 +1241,13 @@
 			name = "5.1 iods - Object Descriptor";
 			sourceTree = "<group>";
 		};
-		696BB63018D7F3C9001EDCC2 /* chap - Chapter (track reference?) */ = {
+		696BB63018D7F3C9001EDCC2 /* chap - Chapter Track Reference */ = {
 			isa = PBXGroup;
 			children = (
 				6972090D18D6C3A9003A9E0A /* AtomChap.h */,
 				6972090E18D6C3A9003A9E0A /* AtomChap.m */,
 			);
-			name = "chap - Chapter (track reference?)";
+			name = "chap - Chapter Track Reference";
 			sourceTree = "<group>";
 		};
 		696BB63418D80315001EDCC2 /* 8.45.2 frma - Original Format */ = {
@@ -1410,22 +1439,22 @@
 			name = "5.3.4.1 avc1 - Sample Description";
 			sourceTree = "<group>";
 		};
-		696BB65218D81168001EDCC2 /* pasp -  */ = {
+		696BB65218D81168001EDCC2 /* pasp - Pixel Aspect Ratio */ = {
 			isa = PBXGroup;
 			children = (
 				696BB5A318D78CA3001EDCC2 /* AtomPasp.h */,
 				696BB5A418D78CA3001EDCC2 /* AtomPasp.m */,
 			);
-			name = "pasp - ";
+			name = "pasp - Pixel Aspect Ratio";
 			sourceTree = "<group>";
 		};
-		696BB65318D81176001EDCC2 /* colr -  */ = {
+		696BB65318D81176001EDCC2 /* colr - Color Parameter */ = {
 			isa = PBXGroup;
 			children = (
 				696BB5A618D78CC3001EDCC2 /* AtomColr.h */,
 				696BB5A718D78CC3001EDCC2 /* AtomColr.m */,
 			);
-			name = "colr - ";
+			name = "colr - Color Parameter";
 			sourceTree = "<group>";
 		};
 		696BB65418D8119C001EDCC2 /* 5.3.4.1 avcC - AVC Configuration */ = {
@@ -1473,13 +1502,13 @@
 			name = "fall - Alternate Audio Track Reference";
 			sourceTree = "<group>";
 		};
-		696BB65918D811D2001EDCC2 /* drms -  */ = {
+		696BB65918D811D2001EDCC2 /* drms - FairPlay Protected Audio */ = {
 			isa = PBXGroup;
 			children = (
 				696BB5CD18D7CC82001EDCC2 /* AtomDrms.h */,
 				696BB5CE18D7CC82001EDCC2 /* AtomDrms.m */,
 			);
-			name = "drms - ";
+			name = "drms - FairPlay Protected Audio";
 			sourceTree = "<group>";
 		};
 		696BB65A18D811DC001EDCC2 /* 8.45.1 sinf - Protection Scheme Information */ = {
@@ -1489,6 +1518,15 @@
 				696BB5D118D7CD89001EDCC2 /* AtomSinf.m */,
 			);
 			name = "8.45.1 sinf - Protection Scheme Information";
+			sourceTree = "<group>";
+		};
+		69744C561924988700C5A011 /* folw - Subtitle Follows Track Reference */ = {
+			isa = PBXGroup;
+			children = (
+				69744C531924987E00C5A011 /* AtomFolw.h */,
+				69744C541924987E00C5A011 /* AtomFolw.m */,
+			);
+			name = "folw - Subtitle Follows Track Reference";
 			sourceTree = "<group>";
 		};
 		69754A0F18E0A61E0076E6F1 /* pinf -  */ = {
@@ -1509,22 +1547,22 @@
 			name = "load - ";
 			sourceTree = "<group>";
 		};
-		69754A1118E0A6380076E6F1 /* tx3g -  */ = {
+		69754A1118E0A6380076E6F1 /* tx3g - Subtitle Sample Description */ = {
 			isa = PBXGroup;
 			children = (
 				69390E5418DFE98500DEA5B3 /* AtomTx3g.h */,
 				69390E5518DFE98500DEA5B3 /* AtomTx3g.m */,
 			);
-			name = "tx3g - ";
+			name = "tx3g - Subtitle Sample Description";
 			sourceTree = "<group>";
 		};
-		69754A1218E0A6460076E6F1 /* ftab -  */ = {
+		69754A1218E0A6460076E6F1 /* ftab - Font Table */ = {
 			isa = PBXGroup;
 			children = (
 				69390E5718DFEAB500DEA5B3 /* AtomFtab.h */,
 				69390E5818DFEAB500DEA5B3 /* AtomFtab.m */,
 			);
-			name = "ftab - ";
+			name = "ftab - Font Table";
 			sourceTree = "<group>";
 		};
 		69754A1318E0A6500076E6F1 /* skcr -  */ = {
@@ -1554,13 +1592,13 @@
 			name = "c608 - Closed Caption Sample Description";
 			sourceTree = "<group>";
 		};
-		69754A1618E0A6780076E6F1 /* user -  */ = {
+		69754A1618E0A6780076E6F1 /* user - Apple ID user number (?) */ = {
 			isa = PBXGroup;
 			children = (
 				69390E6318DFF5B900DEA5B3 /* AtomUser.h */,
 				69390E6418DFF5B900DEA5B3 /* AtomUser.m */,
 			);
-			name = "user - ";
+			name = "user - Apple ID user number (?)";
 			sourceTree = "<group>";
 		};
 		69754A1718E0A6810076E6F1 /* righ -  */ = {
@@ -1626,13 +1664,13 @@
 			name = "soar - Sort Order Artist";
 			sourceTree = "<group>";
 		};
-		697A717618E0C64B00A4A9DD /* drmi -  */ = {
+		697A717618E0C64B00A4A9DD /* drmi - FairPlay Protected Video */ = {
 			isa = PBXGroup;
 			children = (
 				697A716418E0BF2C00A4A9DD /* AtomDrmi.h */,
 				697A716518E0BF2C00A4A9DD /* AtomDrmi.m */,
 			);
-			name = "drmi - ";
+			name = "drmi - FairPlay Protected Video";
 			sourceTree = "<group>";
 		};
 		697A717718E0C65500A4A9DD /* p608 -  */ = {
@@ -1689,13 +1727,13 @@
 			name = "enof - Track Encoded Pixels Dimensions";
 			sourceTree = "<group>";
 		};
-		6996CCF018E4F12900121640 /* uuid -  */ = {
+		6996CCF018E4F12900121640 /* 4.2 uuid -  */ = {
 			isa = PBXGroup;
 			children = (
 				6996CCE918E4EF3000121640 /* AtomUuidLC.h */,
 				6996CCEA18E4EF3000121640 /* AtomUuidLC.m */,
 			);
-			name = "uuid - ";
+			name = "4.2 uuid - ";
 			sourceTree = "<group>";
 		};
 		69A163B617D67B7000131614 /* Resources */ = {
@@ -1711,7 +1749,21 @@
 		69B4D5B71920BA7F004CD77A /* QuickTime Atom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				696BB63018D7F3C9001EDCC2 /* chap - Chapter Track Reference */,
+				697A717618E0C64B00A4A9DD /* drmi - FairPlay Protected Video */,
+				696BB65918D811D2001EDCC2 /* drms - FairPlay Protected Audio */,
+				696BB61F18D7EF51001EDCC2 /* esds - Elementary Stream Descriptor */,
+				6996CCED18E4F00200121640 /* clef - Track Clean Aperture Dimensions */,
+				696BB64018D8102C001EDCC2 /* elng - Extended Language */,
+				696BB65818D811C8001EDCC2 /* fall - Alternate Audio Track Reference */,
+				69744C561924988700C5A011 /* folw - Subtitle Follows Track Reference */,
+				6996CCEF18E4F03000121640 /* enof - Track Encoded Pixels Dimensions */,
+				6930E5BA192C1DFB00598BD0 /* forc - Forced Subtitle Track Reference */,
 				696BB64718D810BA001EDCC2 /* gmhd - Base Media Information Header */,
+				6930E5B6192C133800598BD0 /* gmin - Base Media Info */,
+				69FE65F019230EF9009F55F3 /* keys - Metadata Atom Keys */,
+				6996CCEE18E4F01600121640 /* prof - Track Production Aperture Dimensions */,
+				69754A1118E0A6380076E6F1 /* tx3g - Subtitle Sample Description */,
 			);
 			name = "QuickTime Atom Classes";
 			sourceTree = "<group>";
@@ -1881,6 +1933,7 @@
 		69E2CA4E18DBEFA600EC4D8C /* ISO 14496-12 ISO base media file format */ = {
 			isa = PBXGroup;
 			children = (
+				6996CCF018E4F12900121640 /* 4.2 uuid -  */,
 				696BB61D18D7EF11001EDCC2 /* 4.3 ftyp - File Type */,
 				696BB62018D7EFA7001EDCC2 /* 8.1 moov - Movie */,
 				696BB62E18D7F1C0001EDCC2 /* 8.2 mdat - Media Data */,
@@ -1955,6 +2008,7 @@
 				696BB65418D8119C001EDCC2 /* 5.3.4.1 avcC - AVC Configuration */,
 			);
 			name = "ISO 14496-15 AVC file format";
+			path = Atoms;
 			sourceTree = "<group>";
 		};
 		69EF0A5218FF89DB007DC40C /* ©wrt - Name of movie's writer */ = {
@@ -2030,6 +2084,15 @@
 			);
 			name = "rpdu - ";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		69FE65F019230EF9009F55F3 /* keys - Metadata Atom Keys */ = {
+			isa = PBXGroup;
+			children = (
+				69FE65ED192309F5009F55F3 /* AtomKeys.h */,
+				69FE65EE192309F5009F55F3 /* AtomKeys.m */,
+			);
+			name = "keys - Metadata Atom Keys";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2129,10 +2192,12 @@
 				6972095418D6DCEA003A9E0A /* AtomaART.m in Sources */,
 				6972093318D6C8A4003A9E0A /* AtomStss.m in Sources */,
 				6972097518D6DDAF003A9E0A /* AtomRtng.m in Sources */,
+				69744C551924987E00C5A011 /* AtomFolw.m in Sources */,
 				696BB60E18D7EA0D001EDCC2 /* AtomCpil.m in Sources */,
 				696BB5CF18D7CC82001EDCC2 /* AtomDrms.m in Sources */,
 				6930D06B18E4E973001E6397 /* AtomTapt.m in Sources */,
 				69E2CA2818DBE69600EC4D8C /* AtomMehd.m in Sources */,
+				6930E5B5192C133100598BD0 /* AtomGmin.m in Sources */,
 				696BB5A218D78B5A001EDCC2 /* AtomAvc1.m in Sources */,
 				6916AC281919BB4B003FA268 /* AtomRoot.m in Sources */,
 				6972091218D6C3F3003A9E0A /* AtomMdhd.m in Sources */,
@@ -2180,6 +2245,7 @@
 				69EF0ADF190092F7007DC40C /* AtomRpdu.m in Sources */,
 				69EF0ACB190090D9007DC40C /* AtomTmpo.m in Sources */,
 				696BB5B718D79548001EDCC2 /* AtomFall.m in Sources */,
+				6930E5B9192C1DE800598BD0 /* AtomForc.m in Sources */,
 				6941199118D55EE800D71C3D /* AtomUnrecognized.m in Sources */,
 				6972096018D6DD36003A9E0A /* AtomTvsh.m in Sources */,
 				6972096618D6DD57003A9E0A /* AtomTvsn.m in Sources */,
@@ -2225,6 +2291,7 @@
 				6972090F18D6C3A9003A9E0A /* AtomChap.m in Sources */,
 				69390E5618DFE98500DEA5B3 /* AtomTx3g.m in Sources */,
 				6972095118D6DCA7003A9E0A /* Atom©ART.m in Sources */,
+				69FE65EF192309F5009F55F3 /* AtomKeys.m in Sources */,
 				69E2CA4018DBE82600EC4D8C /* AtomTrun.m in Sources */,
 				696BB5FE18D7E8A7001EDCC2 /* AtomGeID.m in Sources */,
 				6972093918D6C8F8003A9E0A /* AtomName.m in Sources */,

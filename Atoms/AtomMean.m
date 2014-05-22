@@ -25,4 +25,17 @@
     return YES;
 }
 
+- (NSString *)html
+{
+    NSString *html = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+
+    NSUInteger maxLen = [[self data] length];
+    maxLen = MIN(maxLen, 256);
+    maxLen = strnlen([[self data] bytes], maxLen);
+    NSString *nameString = [[NSString alloc] initWithBytes:[[self data] bytes] length:maxLen encoding:NSUTF8StringEncoding];
+    html = [html stringByAppendingFormat:@"<b>%@</b>", nameString];
+    html = [html stringByAppendingString:@"</p></span></body>"];
+    return html;
+}
+
 @end

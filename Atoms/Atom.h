@@ -26,6 +26,7 @@
 #pragma mark - Class methods
 
 + (Atom *)createRootWithFileHandle: (NSFileHandle *)fileHandle ofSize: (size_t)fileSize;
++ (NSString *)stringFromFourCC: (const void *)fourCCPtr encoding: (NSStringEncoding) encoding;
 
 #pragma mark - Instance methods
 
@@ -39,6 +40,7 @@
 - (NSUInteger)nodeLength;
 - (NSUInteger)nodeEnd;
 - (NSAttributedString *)explanation;
+- (NSString *)asString;
 - (NSString *)html;
 - (off_t)dataOffset;
 - (size_t)dataLength;
@@ -55,6 +57,17 @@
 - (BOOL)hasImage;
 - (NSImage *)image;
 - (BOOL)isiTunesMetadata;
+
+#pragma mark - Data access
+
 - (UInt16)getUInt16ValueAtOffset:(off_t)offset;
+- (UInt32)getUInt32ValueAtOffset:(off_t)offset;
+- (uint32_t)get1616ValueAtOffset: (off_t)offset hi: (uint16_t*)hi lo: (uint16_t*)lo;
+- (uint16_t)get88ValueAtOffset: (off_t)offset hi: (uint8_t*)hi lo: (uint8_t*)lo;
+- (uint32_t)get230ValueAtOffset: (off_t)offset hi: (uint8_t*)hi lo: (uint32_t*)lo;
+- (NSDate*)getUInt32TimeValueAtOffset: (off_t)offset;
+- (uint32_t)getUInt32DurationValueAtOffset: (off_t)offset usingTimescale: (uint32_t)timescale hours: (uint16_t*)hours minutes: (uint16*)minutes seconds: (double*)seconds;
+- (NSString *)stringFromFourCC: (const void *)fourCCPtr encoding: (NSStringEncoding)encoding;
+- (NSString *)stringFromFourCC: (const void *)fourCCPtr;
 
 @end

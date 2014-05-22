@@ -31,7 +31,23 @@
 
 -(BOOL)isFullBox
 {
-    return self.isiTunesMetadata;
+    return [self isImmediateDescendantOf:@"----"];
+}
+
+- (NSString *)asString
+{
+    NSUInteger maxLen = MIN([[self data] length], 256);
+    maxLen = strnlen([[self data] bytes], maxLen);
+    return [[NSString alloc] initWithBytes:[[self data] bytes] length: maxLen encoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)html
+{
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      <b>%@</b>\
+                      </p></span></body>",
+                      [self asString]];
+    return html;
 }
 
 @end

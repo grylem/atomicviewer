@@ -25,4 +25,14 @@
     return (@"Original Format");
 }
 
+- (NSString *)html
+{
+    NSString *html = [NSString stringWithFormat: @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+    Original Format: <b>%@</b>\
+    </p></span></body>",
+    [self stringFromFourCC:[[self data]bytes]]];
+
+    return html;
+}
+
 @end

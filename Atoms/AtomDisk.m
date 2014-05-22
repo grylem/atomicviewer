@@ -54,7 +54,12 @@ typedef enum : off_t {
 
 - (NSString *)html
 {
-    return [NSString stringWithFormat:@"Disk %hu of %hu", self.diskNumber, self.totalDisks];
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      Disk %hu of %hu\
+                      </p></span></body>",
+                      self.diskNumber,
+                      self.totalDisks];
+    return html;
 }
 
 @end

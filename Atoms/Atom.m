@@ -97,7 +97,6 @@ static dispatch_once_t pred;
             asChildOf: (Atom *)parent
 {
     size_t actualSize;
-    char atomType[5];
     BOOL isExtendedLength = NO;
     NSString *atomTypeString;
     Atom *atom;
@@ -109,9 +108,6 @@ static dispatch_once_t pred;
     // byteswap the length & copy the atom type to a C string
     uint32_t size = CFSwapInt32BigToHost (*(uint32_t *)[fileData bytes]);
     actualSize = size;
-
-    memcpy(&atomType, &[fileData bytes][4], 4); // turn the 4-byte atom type into a null-terminated C string.
-    atomType[4] = '\0';
 
     // If extended length, read next 8 bytes to get the real atom length
     if (size == 1) {
@@ -132,7 +128,7 @@ static dispatch_once_t pred;
 
     // Use ISO Latin-1 encoding for the atom type string.
     // ISO Latin-1 decodes © symbol present in some atom type strings.
-    atomTypeString = [NSString stringWithCString:atomType encoding:NSISOLatin1StringEncoding];
+    atomTypeString = [self stringFromFourCC:  &[fileData bytes][4] encoding: NSISOLatin1StringEncoding];
 
     // Now that we have the length & type, go ahead and create the atom
     // The returned atom will be a concrete subclass of Atom
@@ -179,12 +175,13 @@ static dispatch_once_t pred;
     return nil; // The abstact superclass does not have an atomType
 }
 
-////  This is the human-readable atomName.
-////  But this abstract superclass does not have an atomName
-//+(NSString *)atomName
-//{
-//    return nil;
-//}
++ (NSString *)stringFromFourCC: (const void *)fourCCPtr encoding: (NSStringEncoding) encoding
+{
+    char fourcc[5];
+    memcpy(&fourcc, fourCCPtr, 4); // turn the 4-byte atom type into a null-terminated C string.
+    fourcc[4] = '\0';
+    return [NSString stringWithCString: fourcc encoding: encoding];
+}
 
 #pragma mark - Instance methods
 
@@ -324,6 +321,11 @@ static dispatch_once_t pred;
     return explanatoryString;
 }
 
+- (NSString *)asString
+{
+    return nil; // The abstract superclass does not have a string
+}
+
 //  This is the HTML formatted textual explantion of the content of the atom
 - (NSString *)html
 {
@@ -449,14 +451,91 @@ static dispatch_once_t pred;
     return [self isDescendantOf:@"moov.udta.meta.ilst"];
 }
 
+#pragma mark - Data access
+
 -(UInt16)getUInt16ValueAtOffset:(off_t)offset
 {
     UInt16 result;
     NSRange uint16DataRange = NSMakeRange(offset, 2);
     [self.data getBytes:&result range:uint16DataRange];
-    result = NSSwapBigShortToHost(result);
+    result = CFSwapInt16BigToHost(result);
 
     return result;
+}
+
+-(UInt32)getUInt32ValueAtOffset:(off_t)offset
+{
+    UInt32 result;
+    NSRange uint32DataRange = NSMakeRange(offset, 4);
+    [self.data getBytes:&result range:uint32DataRange];
+    result = CFSwapInt32BigToHost(result);
+
+    return result;
+}
+
+- (uint32_t)get1616ValueAtOffset: (off_t)offset hi:(uint16_t *)hi lo:(uint16_t *)lo
+{
+    uint32_t result = [self getUInt32ValueAtOffset:offset];
+    *hi = result >> 16;
+    *lo = result & 0xffff;
+    return result;
+}
+
+- (uint16_t)get88ValueAtOffset: (off_t)offset hi:(uint8_t *)hi lo:(uint8_t *)lo
+{
+    uint16_t result = [self getUInt16ValueAtOffset:offset];
+    *hi = result >> 8;
+    *lo = result & 0xff;
+    return result;
+}
+
+- (uint32_t)get230ValueAtOffset: (off_t)offset hi:(uint8_t *)hi lo:(uint32_t *)lo
+{
+    uint32_t result = [self getUInt32ValueAtOffset:offset];
+    *hi = result >> 30;
+    *lo = result & 0x3fffffff;
+    return result;
+}
+
+- (NSDate *)getUInt32TimeValueAtOffset:(off_t)offset
+{
+    return [NSDate dateWithTimeInterval: [self getUInt32ValueAtOffset:offset]
+                              sinceDate: [NSDate dateWithString:@"1904-01-01 00:00:00 +0000"]];
+}
+
+- (uint32_t)getUInt32DurationValueAtOffset: (off_t)offset
+                            usingTimescale: (uint32_t)timescale
+                                     hours: (uint16_t *)hours
+                                   minutes: (uint16 *)minutes
+                                   seconds: (double *)seconds
+{
+    uint32_t duration = [self getUInt32ValueAtOffset:offset];
+    double total_seconds = (double)duration / (double)timescale;
+    uint16_t tmp_hours = 0;
+    uint16_t tmp_minutes = 0;
+    double tmp_seconds = total_seconds;
+    if (tmp_seconds >= 60) {
+        tmp_minutes = tmp_seconds / 60;
+        tmp_seconds = tmp_seconds - (tmp_minutes * 60);
+    }
+    if (tmp_minutes >= 60) {
+        tmp_hours = total_seconds / (60 * 60);
+        tmp_minutes = tmp_minutes - (tmp_hours * 60);
+    }
+    *hours = tmp_hours;
+    *minutes = tmp_minutes;
+    *seconds = tmp_seconds;
+    return duration;
+}
+
+- (NSString *)stringFromFourCC: (const void *)fourCCPtr encoding: (NSStringEncoding)encoding
+{
+    return [[self class] stringFromFourCC: fourCCPtr encoding:encoding];
+}
+
+- (NSString *)stringFromFourCC: (const void *)fourCCPtr
+{
+    return [self stringFromFourCC: fourCCPtr encoding:NSUTF8StringEncoding];
 }
 
 @end

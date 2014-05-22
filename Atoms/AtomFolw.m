@@ -1,14 +1,14 @@
 //
-//  AtomChap.m
-//  MPEG4FileViewer
+//  AtomFolw.m
+//  AtomicViewer
 //
-//  Created by Jay O'Conor on 3/16/14.
+//  Created by Jay O'Conor on 5/14/14.
 //  Copyright (c) 2014 Jay O'Conor. All rights reserved.
 //
 
-#import "AtomChap.h"
+#import "AtomFolw.h"
 
-@implementation AtomChap
+@implementation AtomFolw
 
 +(void)load
 {
@@ -17,17 +17,17 @@
 
 +(NSString *)atomType
 {
-    return (@"chap");
+    return (@"folw");
 }
 
 - (NSString *)atomName
 {
-    return (@"Chapter Track Reference");
+    return (@"Subtitle Follows Track Reference");
 }
 
 - (NSString *)html
 {
-    NSString *html = @"<body>This atom contains a track reference to the chapter track.<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+    NSString *html = @"<body>This atom contains a track reference for the default subtitle track to be used for this audio track.<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
 
     NSUInteger count = [[self data] length] / sizeof(uint32_t);
 

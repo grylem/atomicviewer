@@ -30,4 +30,17 @@
     return YES;
 }
 
+- (NSString *)html
+{
+    BOOL self_contained = [self flags] & 1;
+
+    if (self_contained) {
+        return @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+        URL Data Reference is self-contained.\
+        </p></span></body>";
+    } else {
+        return @"";
+    }
+}
+
 @end
