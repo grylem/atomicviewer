@@ -32,7 +32,9 @@ typedef struct ftab
 
 - (NSString *)atomName
 {
-    return @"Font Table";
+    return NSLocalizedStringFromTable(@"Font Table",
+                                      @"atomName",
+                                      @"Atom ftab name");
 }
 
 - (NSString *)html
@@ -40,9 +42,11 @@ typedef struct ftab
     const ftab *ftab = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Font Identifier: <b>%u</b><br>\
-                      Font Name: <b>%@</b>",
+                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b>",
+                      NSLocalizedString(@"Font Identifier",nil),
                       CFSwapInt16BigToHost(ftab->font_identifier),
+                      NSLocalizedString(@"Font Name",nil),
                       [[NSString alloc] initWithBytes:(ftab->font_name)
                                                length:ftab->font_name_length
                                              encoding:NSUTF8StringEncoding]];

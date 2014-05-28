@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Media");
+    return NSLocalizedStringFromTable(@"Media",
+                                      @"atomName",
+                                      @"Atom mdia name");
 }
 
 @end

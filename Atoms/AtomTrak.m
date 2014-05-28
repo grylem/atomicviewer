@@ -24,13 +24,13 @@
 
 - (NSString *)atomName
 {
-    return (@"Track");
+    return NSLocalizedStringFromTable(@"Track",
+                                      @"atomName",
+                                      @"Atom trak name");
 }
 
 -(NSString *)nodeTitle
 {
-//    return @"trak [0]";
-
     return [NSString stringWithFormat:@"trak [%lu]", (unsigned long)[self trakNumber]];
 }
 

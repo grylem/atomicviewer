@@ -45,7 +45,9 @@ typedef struct tx3g
 
 - (NSString *)atomName
 {
-    return @"Subtitle Sample Description";
+    return NSLocalizedStringFromTable(@"Subtitle Sample Description",
+                                      @"atomName",
+                                      @"Atom tx3g name");
 }
 
 -(NSUInteger) jump
@@ -58,34 +60,48 @@ typedef struct tx3g
     const tx3g *tx3g = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Data Reference Index: <b>%u</b><br>\
-                      All Samples are Forced: <b>%@</b><br>\
-                      Some Samples are Forced: <b>%@</b><br>\
-                      Vertical Placement: <b>%@</b><br>\
-                      Text Box Top: <b>%u</b><br>\
-                      Text Box Left: <b>%u</b><br>\
-                      Text Box Bottom: <b>%u</b><br>\
-                      Text Box Right: <b>%u</b><br>\
-                      Font Identifier: <b>%u</b><br>\
-                      Font Face Bold: <b>%@</b><br>\
-                      Font Face Italic: <b>%@</b><br>\
-                      Font Face Underline: <b>%@</b><br>\
-                      Font Size: <b>%u</b><br>\
-                      Foreground Color: <b>%u</b>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Data Reference Index",nil),
                       CFSwapInt16BigToHost(tx3g->data_reference_index),
-                      CFSwapInt32BigToHost(tx3g->display_flags) & 0x80000000 ? @"YES" : @"NO",
-                      CFSwapInt32BigToHost(tx3g->display_flags) & 0x40000000 ? @"YES" : @"NO",
-                      CFSwapInt32BigToHost(tx3g->display_flags) & 0x20000000 ? @"YES" : @"NO",
+                      NSLocalizedString(@"All Samples are Forced",nil),
+                      CFSwapInt32BigToHost(tx3g->display_flags) & 0x80000000 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
+                      NSLocalizedString(@"Some Samples are Forced",nil),
+                      CFSwapInt32BigToHost(tx3g->display_flags) & 0x40000000 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
+                      NSLocalizedString(@"Vertical Placement",nil),
+                      CFSwapInt32BigToHost(tx3g->display_flags) & 0x20000000 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
+                      NSLocalizedString(@"Text Box Top",nil),
                       CFSwapInt16BigToHost(tx3g->default_text_box.top),
+                      NSLocalizedString(@"Text Box Left",nil),
                       CFSwapInt16BigToHost(tx3g->default_text_box.left),
+                      NSLocalizedString(@"Text Box Bottom",nil),
                       CFSwapInt16BigToHost(tx3g->default_text_box.bottom),
+                      NSLocalizedString(@"Text Box Right",nil),
                       CFSwapInt16BigToHost(tx3g->default_text_box.right),
+                      NSLocalizedString(@"Font Identifier",nil),
                       CFSwapInt16BigToHost(tx3g->font_identifier),
-                      tx3g->font_face & 0x0001 ? @"YES" : @"NO",
-                      tx3g->font_face & 0x0002 ? @"YES" : @"NO",
-                      tx3g->font_face & 0x0004 ? @"YES" : @"NO",
+                      NSLocalizedString(@"Font Face Bold",nil),
+                      tx3g->font_face & 0x01 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
+                      NSLocalizedString(@"Font Face Italic",nil),
+                      tx3g->font_face & 0x02 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
+                      NSLocalizedString(@"Font Face Underline",nil),
+                      tx3g->font_face & 0x04 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
+                      NSLocalizedString(@"Font Size",nil),
                       tx3g->font_size,
+                      NSLocalizedString(@"Foreground Color",nil),
                       CFSwapInt32BigToHost(tx3g->foreground_color)];
     return html;
 }

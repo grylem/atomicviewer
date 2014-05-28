@@ -20,9 +20,4 @@
     return (@"rndu");
 }
 
-//+(NSString *)atomName
-//{
-//    return (@"Track Aperture Mode Dimensions");
-//}
-
 @end

@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Content Advisory");
+    return NSLocalizedStringFromTable(@"Content Advisory",
+                                      @"atomName",
+                                      @"Atom rtng name");
 }
 
 - (NSString *)html
@@ -31,19 +33,24 @@
 
     switch ([self asInteger]) {
         case 0:
-            rtng = @"None";
+            rtng = NSLocalizedString(@"None",
+                                     @"Content Advisory");
             break;
         case 1:
-            rtng = @"Explicit";
+            rtng = NSLocalizedString(@"Explicit",
+                                     @"Content Advisory");
             break;
         case 2:
-            rtng = @"Clean";
+            rtng = NSLocalizedString(@"Clean",
+                                     @"Content Advisory");
             break;
 //        case 4:
-//            rtng = @"Explicit";
+//            rtng = NSLocalizedString(@"Explicit",
+//                                     @"Content Advisory");
 //            break;
         default:
-            rtng = @"Unknown";
+            rtng = NSLocalizedString(@"Unknown Content Advisory",
+                                     @"Content Advisory");
             break;
     };
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\

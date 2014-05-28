@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Encoder");
+    return NSLocalizedStringFromTable(@"Encoder",
+                                      @"atomName",
+                                      @"Atom ©too name");
 }
 
 @end

@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Compilation");
+    return NSLocalizedStringFromTable(@"Compilation",
+                                      @"atomName",
+                                      @"Atom cpil name");
 }
 
 - (NSString *)html

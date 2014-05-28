@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Free Space");
+    return NSLocalizedStringFromTable(@"Free Space",
+                                      @"atomName",
+                                      @"Atom free name");
 }
 
 @end

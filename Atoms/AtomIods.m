@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Object Descriptor");
+    return NSLocalizedStringFromTable(@"Object Descriptor",
+                                      @"atomName",
+                                      @"Atom iods name");
 }
 
 -(BOOL)isFullBox

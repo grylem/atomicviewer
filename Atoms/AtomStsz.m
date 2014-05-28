@@ -31,7 +31,9 @@ typedef struct stsz
 
 - (NSString *)atomName
 {
-    return (@"Sample Size");
+    return NSLocalizedStringFromTable(@"Sample Size",
+                                      @"atomName",
+                                      @"Atom stsz name");
 }
 
 -(BOOL)isFullBox
@@ -45,15 +47,21 @@ typedef struct stsz
     uint32_t sample_count = CFSwapInt32BigToHost(stsz->sample_count);
     uint32_t default_size = CFSwapInt32BigToHost(stsz->sample_size);
 
-    NSString *html = [NSString stringWithFormat:@"<body>This atom contains media sample sizes, either a constant size for all samples, or individual entries describing the size of each sample.<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>Number of samples: <b>%u</b>",
+    NSString *html = [NSString stringWithFormat:@"<body>%@<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      <br>%@: <b>%u</b>",
+                      NSLocalizedString(@"This atom contains media sample sizes, either a constant size for all samples, or individual entries describing the size of each sample.",nil),
+                      NSLocalizedString(@"Number of samples",nil),
                       sample_count];
 
     if (default_size) {
-        html = [html stringByAppendingFormat:@"<br>Default Size: <b>%u</b>", default_size];
+        html = [html stringByAppendingFormat:@"<br>%@: <b>%u</b>",
+                NSLocalizedString(@"Default Size",nil),
+                default_size];
     } else {
-        html = [html stringByAppendingString:@"<TABLE style=\"font-size:1.0em;\">\
-                <TR><TH>Sample #</TH><TH>Sample Size</TH></TR>"];
+        html = [html stringByAppendingFormat:@"<TABLE style=\"font-size:1.0em;\">\
+                <TR><TH>%@</TH><TH>%@</TH></TR>",
+                NSLocalizedString(@"Sample #",nil),
+                NSLocalizedString(@"Sample Size",nil)];
         sample_count = MIN(sample_count, 1000);
         for (uint32_t i=0; i<sample_count; i++) {
             @autoreleasepool {

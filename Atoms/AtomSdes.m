@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Series Description");
+    return NSLocalizedStringFromTable(@"Series Description",
+                                      @"atomName",
+                                      @"Atom sdes name");
 }
 
 @end

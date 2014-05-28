@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Track Fragment Random Access");
+    return NSLocalizedStringFromTable(@"Track Fragment Random Access",
+                                      @"atomName",
+                                      @"Atom tfra name");
 }
 
 -(BOOL)isFullBox

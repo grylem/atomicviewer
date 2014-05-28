@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Movie Fragment Header");
+    return NSLocalizedStringFromTable(@"Movie Fragment Header",
+                                      @"atomName",
+                                      @"Atom mfhd name");
 }
 
 -(BOOL)isFullBox

@@ -84,10 +84,12 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
         dispatch_once (&pred, ^{
             windowControllers = [NSMutableArray new];
             // Array of Arrays
-            columnTitles = @[ @[@"Show Offset", @"Hide Offset"],
-                              @[@"Show Length", @"Hide Length"],
-                              @[@"Show End",    @"Hide End"]
-                              ];
+            columnTitles = @[@[NSLocalizedString(@"Show Offset",nil),
+                               NSLocalizedString(@"Hide Offset",nil)],
+                             @[NSLocalizedString(@"Show Length",nil),
+                               NSLocalizedString(@"Hide Length",nil)],
+                             @[NSLocalizedString(@"Show End",nil),
+                               NSLocalizedString(@"Hide End",nil)]];
         });
         [windowControllers addObject:self];
 	}
@@ -160,8 +162,8 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
         NSLog(@"fstat() failed with %d, %s", errno, strerror(errno));
         NSAlert *alert = [NSAlert new];
         [alert setAlertStyle:NSCriticalAlertStyle];
-        [alert setMessageText:@"The file is no longer available"];
-        [alert setInformativeText:@"The window will now be closed"];
+        [alert setMessageText:NSLocalizedString(@"The file is no longer available",nil)];
+        [alert setInformativeText:NSLocalizedString(@"The window will now be closed",nil)];
         [alert beginSheetModalForWindow: self.window
                       completionHandler: ^(NSModalResponse result){
                           [[alert window] orderOut:self];

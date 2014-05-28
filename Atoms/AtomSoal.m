@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Sort Order Album");
+    return NSLocalizedStringFromTable(@"Sort Order Album",
+                                      @"atomName",
+                                      @"Atom soal name");
 }
 
 @end

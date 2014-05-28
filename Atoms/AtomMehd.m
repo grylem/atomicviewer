@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Movie Extends Header");
+    return NSLocalizedStringFromTable(@"Movie Extends Header",
+                                      @"atomName",
+                                      @"Atom mehd name");
 }
 
 -(BOOL)isFullBox

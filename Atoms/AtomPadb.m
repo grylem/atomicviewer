@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Padding Bits");
+    return NSLocalizedStringFromTable(@"Padding Bits",
+                                      @"atomName",
+                                      @"Atom padb name");
 }
 
 -(BOOL)isFullBox

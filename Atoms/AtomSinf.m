@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Protection Scheme Information");
+    return NSLocalizedStringFromTable(@"Protection Scheme Information",
+                                      @"atomName",
+                                      @"Atom sinf name");
 }
 
 @end

@@ -25,7 +25,9 @@ static NSDictionary *storefrontDict;
 
 - (NSString *)atomName
 {
-    return (@"Storefront ID");
+    return NSLocalizedStringFromTable(@"Storefront ID",
+                                      @"atomName",
+                                      @"Atom sfID name");
 }
 
 - (NSString *)html
@@ -34,37 +36,35 @@ static NSDictionary *storefrontDict;
 
     dispatch_once (&pred, ^{
         storefrontDict = @{
-                           @143460 : @[@"AUS", @"Australia"],
-                           @143445 : @[@"AUT", @"Austria"],
-                           @143446 : @[@"BEL", @"Belgium"],
-                           @143455 : @[@"CAN", @"Canada"],
-                           @143458 : @[@"DNK", @"Denmark"],
-                           @143447 : @[@"FIN", @"Finland"],
-                           @143442 : @[@"FRA", @"France"],
-                           @143443 : @[@"DEU", @"Germany"],
-                           @143448 : @[@"GRC", @"Greece"],
-                           @143449 : @[@"IRL", @"Ireland"],
-                           @143450 : @[@"ITA", @"Italy"],
-                           @143462 : @[@"JPN", @"Japan"],
-                           @143451 : @[@"LUX", @"Luxembourg"],
-                           @143452 : @[@"NLD", @"Netherlands"],
-                           @143461 : @[@"NZL", @"New Zealand"],
-                           @143457 : @[@"NOR", @"Norway"],
-                           @143453 : @[@"PRT", @"Portugal"],
-                           @143454 : @[@"ESP", @"Spain"],
-                           @143456 : @[@"SWE", @"Sweden"],
-                           @143459 : @[@"CHE", @"Switzerland"],
-                           @143444 : @[@"GBR", @"United Kingdom"],
-                           @143441 : @[@"USA", @"United States"]
+                           @143460 : @[@"AUS", NSLocalizedString(@"Australia",@"iTunes Storefront Country")],
+                           @143445 : @[@"AUT", NSLocalizedString(@"Austria",@"iTunes Storefront Country")],
+                           @143446 : @[@"BEL", NSLocalizedString(@"Belgium",@"iTunes Storefront Country")],
+                           @143455 : @[@"CAN", NSLocalizedString(@"Canada",@"iTunes Storefront Country")],
+                           @143458 : @[@"DNK", NSLocalizedString(@"Denmark",@"iTunes Storefront Country")],
+                           @143447 : @[@"FIN", NSLocalizedString(@"Finland",@"iTunes Storefront Country")],
+                           @143442 : @[@"FRA", NSLocalizedString(@"France",@"iTunes Storefront Country")],
+                           @143443 : @[@"DEU", NSLocalizedString(@"Germany",@"iTunes Storefront Country")],
+                           @143448 : @[@"GRC", NSLocalizedString(@"Greece",@"iTunes Storefront Country")],
+                           @143449 : @[@"IRL", NSLocalizedString(@"Ireland",@"iTunes Storefront Country")],
+                           @143450 : @[@"ITA", NSLocalizedString(@"Italy",@"iTunes Storefront Country")],
+                           @143462 : @[@"JPN", NSLocalizedString(@"Japan",@"iTunes Storefront Country")],
+                           @143451 : @[@"LUX", NSLocalizedString(@"Luxembourg",@"iTunes Storefront Country")],
+                           @143452 : @[@"NLD", NSLocalizedString(@"Netherlands",@"iTunes Storefront Country")],
+                           @143461 : @[@"NZL", NSLocalizedString(@"New Zealand",@"iTunes Storefront Country")],
+                           @143457 : @[@"NOR", NSLocalizedString(@"Norway",@"iTunes Storefront Country")],
+                           @143453 : @[@"PRT", NSLocalizedString(@"Portugal",@"iTunes Storefront Country")],
+                           @143454 : @[@"ESP", NSLocalizedString(@"Spain",@"iTunes Storefront Country")],
+                           @143456 : @[@"SWE", NSLocalizedString(@"Sweden",@"iTunes Storefront Country")],
+                           @143459 : @[@"CHE", NSLocalizedString(@"Switzerland",@"iTunes Storefront Country")],
+                           @143444 : @[@"GBR", NSLocalizedString(@"United Kingdom",@"iTunes Storefront Country")],
+                           @143441 : @[@"USA", NSLocalizedString(@"United States",@"iTunes Storefront Country")]
                            };
     });
     storefrontID = storefrontDict[@([self asInteger])];
-    NSString *storefrontString = storefrontID ? storefrontID[1] : @"Unknown";
-    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
-    NSString *htmlTrailer = @"</p></span></body>";
-    NSString *string = [htmlHeader stringByAppendingString:storefrontString];
-    string = [string stringByAppendingString:htmlTrailer];
-    return string;
+    NSString *storefrontString = storefrontID ? storefrontID[1] : NSLocalizedString(@"Unknown Storefront ID",@"iTunes Storefront Country");
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>%@</p></span></body>",
+                      storefrontString];
+    return html;
 }
 
 @end

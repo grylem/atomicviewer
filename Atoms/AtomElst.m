@@ -45,7 +45,9 @@ typedef struct elst_ver1
 
 - (NSString *)atomName
 {
-    return (@"Edit List");
+    return NSLocalizedStringFromTable(@"Edit List",
+                                      @"atomName",
+                                      @"Atom elst name");
 }
 
 -(BOOL)isFullBox

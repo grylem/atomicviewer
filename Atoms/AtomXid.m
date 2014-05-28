@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Vendor ID");
+    return NSLocalizedStringFromTable(@"Vendor ID",
+                                      @"atomName",
+                                      @"Atom 'xid ' name");
 }
 
 @end

@@ -30,7 +30,9 @@ typedef struct stss
 
 - (NSString *)atomName
 {
-    return (@"Sync Sample");
+    return NSLocalizedStringFromTable(@"Sync Sample",
+                                      @"atomName",
+                                      @"Atom stss name");
 }
 
 -(BOOL)isFullBox
@@ -43,10 +45,13 @@ typedef struct stss
     const struct stss *stss = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>\
-                      Number of entries: <b>%u</b>\
+                      %@: <b>%u</b>\
                       <TABLE style=\"font-size:1.0em;\">\
-                      <TR><TH>Entry #</TH><TH>Sample Number</TH></TR>",
-                      CFSwapInt32BigToHost(stss->entry_count)];
+                      <TR><TH>%@</TH><TH>%@</TH></TR>",
+                      NSLocalizedString(@"Number of entries",nil),
+                      CFSwapInt32BigToHost(stss->entry_count),
+                      NSLocalizedString(@"Entry #",nil),
+                      NSLocalizedString(@"Sample Number",nil)];
 
     uint32_t entry_count = MIN(CFSwapInt32BigToHost(stss->entry_count), 1000);
     for (uint32_t i=0; i<entry_count; i++) {

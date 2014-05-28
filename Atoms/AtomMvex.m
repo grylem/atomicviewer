@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Movie Extends");
+    return NSLocalizedStringFromTable(@"Movie Extends",
+                                      @"atomName",
+                                      @"Atom mvex name");
 }
 
 @end

@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return @"Reverse DNS Style iTunes Metadata";
+    return NSLocalizedStringFromTable(@"Reverse DNS Style iTunes Metadata",
+                                      @"atomName",
+                                      @"Atom ---- name");
 }
 
 - (BOOL)isRating
@@ -36,7 +38,7 @@
 
 - (NSString *)html
 {
-    NSArray *ratingsLabels = @[@"Rating Organization: ", @"Rating: ", @"Rating Value: ", @"Rating Explanation: "];
+    NSArray *ratingsLabels = @[NSLocalizedString(@"Rating Organization: ",nil), NSLocalizedString(@"Rating: ",nil), NSLocalizedString(@"Rating Value: ",nil), NSLocalizedString(@"Rating Explanation: ",nil)];
     NSString *html = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
 
     if ([self isRating]) {

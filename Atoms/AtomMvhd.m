@@ -56,7 +56,9 @@ typedef struct mvhd_ver1
 
 - (NSString *)atomName
 {
-    return (@"Movie Header");
+    return NSLocalizedStringFromTable(@"Movie Header",
+                                      @"atomName",
+                                      @"Atom mvhd name");
 }
 
 -(BOOL)isFullBox
@@ -121,30 +123,39 @@ typedef struct mvhd_ver1
     [self get230ValueAtOffset:offsetof(struct mvhd_ver0, matrix[8]) hi:&matrixw_hi lo:&matrixw_lo];
     uint32_t next_track_ID = CFSwapInt32BigToHost(mvhd->next_track_ID);
 
-    NSString *html = [NSString stringWithFormat:@"<body>The movie header, describing characteristics of the entire movie, such as time scale and duration.<span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>\
-                      Creation date: <b>%@</b><br>\
-                      Modification date: <b>%@</b><br>\
-                      Timescale: <b>%u</b><br>\
-                      Duration: <b>%llu (%02u:%02u:%09.6f)</b><br>\
-                      Rate: <b>%u.%u</b><br>\
-                      Volume: <b>%u.%u</b><br>\
-                      Transformation Matrix:\
+    NSString *html = [NSString stringWithFormat:@"<body>%@<span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%llu (%02u:%02u:%09.6f)</b><br>\
+                      %@: <b>%u.%u</b><br>\
+                      %@: <b>%u.%u</b><br>\
+                      %@:\
                       <TABLE style=\"font-size:1.0em;\">\
                       <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
                       <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
                       <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
                       </TABLE><br>\
-                      Next Track ID: <b>%u<b>\
+                      %@: <b>%u<b>\
                       </p></span></body>",
+                      NSLocalizedString(@"The movie header, describing characteristics of the entire movie, such as time scale and duration.",nil),
+                      NSLocalizedString(@"Creation date",nil),
                       creationDate,
+                      NSLocalizedString(@"Modification date",nil),
                       modificationDate,
+                      NSLocalizedString(@"Timescale",nil),
                       timescale,
+                      NSLocalizedString(@"Duration",nil),
                       duration, hours, minutes, seconds,
+                      NSLocalizedString(@"Rate",nil),
                       rate_hi, rate_lo,
+                      NSLocalizedString(@"Volume",nil),
                       volume_hi, volume_lo,
+                      NSLocalizedString(@"Transformation Matrix",nil),
                       matrixa_hi, matrixa_lo, matrixb_hi, matrixb_lo, matrixu_hi, matrixu_lo,
                       matrixc_hi, matrixc_lo, matrixd_hi, matrixd_lo, matrixv_hi, matrixv_lo,
                       matrixtx_hi, matrixtx_lo, matrixty_hi, matrixty_lo, matrixw_hi, matrixw_lo,
+                      NSLocalizedString(@"Next Track ID",nil),
                       next_track_ID];
     return html;
 }

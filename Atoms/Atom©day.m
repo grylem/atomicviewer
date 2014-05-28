@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Recorded Date");
+    return NSLocalizedStringFromTable(@"Recorded Date",
+                                      @"atomName",
+                                      @"Atom ©day name");
 }
 
 @end

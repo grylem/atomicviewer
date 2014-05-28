@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Comment");
+    return NSLocalizedStringFromTable(@"Comment",
+                                      @"atomName",
+                                      @"Atom ©cmt name");
 }
 
 -(BOOL) isLeaf

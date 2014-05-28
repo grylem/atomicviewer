@@ -30,7 +30,9 @@ typedef struct pasp
 
 - (NSString *)atomName
 {
-    return (@"Pixel Aspect Ratio");
+    return NSLocalizedStringFromTable(@"Pixel Aspect Ratio",
+                                      @"atomName",
+                                      @"Atom pasp name");
 }
 
 - (NSString *)html
@@ -38,10 +40,12 @@ typedef struct pasp
     const struct pasp *pasp = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      hSpacing: <b>%u</b><br>\
-                      vSpacing: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
                       </p></span></body>",
+                      NSLocalizedString(@"Horizontal Spacing",nil),
                       CFSwapInt32BigToHost(pasp->hSpacing),
+                      NSLocalizedString(@"Vertical Spacing",nil),
                       CFSwapInt32BigToHost(pasp->vSpacing)];
     return html;
 }

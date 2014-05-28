@@ -31,7 +31,9 @@
 {
     if ([self isiTunesMetadata]) {
         NSString *parentType = self.parent.atomType;
-        return [@"Data for parent " stringByAppendingFormat:@"%@ atom", parentType];
+        return [NSLocalizedStringFromTable(@"Data for parent",
+                                           @"atomName",
+                                           @"Atom data name prefix - before parent atom name is filled in") stringByAppendingFormat:@" %@ atom", parentType];
     } else {
         return [super atomName];
     }

@@ -22,13 +22,15 @@
 
 - (NSString *)atomName
 {
-    return (@"Media Data");
+    return NSLocalizedStringFromTable(@"Media Data",
+                                      @"atomName",
+                                      @"Atom mdat name");
 }
 
 //  This is the formatted textual explantion of the content of the atom
 - (NSString *)html
 {
-    return @"Movie sample data";
+    return NSLocalizedString(@"Movie sample data",nil);
 }
 
 @end

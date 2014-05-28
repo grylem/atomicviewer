@@ -27,7 +27,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Elementary Stream Descriptor");
+    return NSLocalizedStringFromTable(@"Elementary Stream Descriptor",
+                                      @"atomName",
+                                      @"Atom esds name");
 }
 
 - (NSString *)html

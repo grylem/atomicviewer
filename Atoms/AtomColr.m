@@ -32,7 +32,9 @@ typedef struct colr
 
 - (NSString *)atomName
 {
-    return (@"Color Parameter");
+    return NSLocalizedStringFromTable(@"Color Parameter",
+                                      @"atomName",
+                                      @"Atom colr name");
 }
 
 - (NSString *)html
@@ -41,14 +43,18 @@ typedef struct colr
     NSString *type = [self stringFromFourCC:(colr->type)];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Color Parameter Type: <b>%@</b><br>\
-                      Primaries Index: <b>%u</b><br>\
-                      Transfer Function Index: <b>%u</b><br>\
-                      Matrix Index: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
                       </p></span></body>",
+                      NSLocalizedString(@"Color Parameter Type",nil),
                       type,
+                      NSLocalizedString(@"Primaries Index",nil),
                       CFSwapInt16BigToHost(colr->primaries_index),
+                      NSLocalizedString(@"Transfer Function Index",nil),
                       CFSwapInt16BigToHost(colr->transfer_function_index),
+                      NSLocalizedString(@"Matrix Index",nil),
                       CFSwapInt16BigToHost(colr->matrix_index)];
     return html;
 }

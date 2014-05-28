@@ -26,20 +26,23 @@
 
 - (NSString *)atomName
 {
-    return (@"Alternate Audio Track Reference");
+    return NSLocalizedStringFromTable(@"Alternate Audio Track Reference",
+                                      @"atomName",
+                                      @"Atom fall name");
 }
 
 - (NSString *)html
 {
-    NSString *html = @"<body>This track reference refers to an alternate audio track in an alternate format, but with identical content.<br>\
-    This is often used with a Surround Sound track to refer to a Stereo track for devices that cannot decode Surround audio.\
-    <span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+    NSString *html = [NSString stringWithFormat:@"<body>%@<span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>",
+                      NSLocalizedString(@"This track reference refers to an alternate audio track in an alternate format, but with identical content.<br>This is often used with a Surround Sound track to refer to a Stereo track for devices that cannot decode Surround audio.",nil)];
 
     NSUInteger count = [[self data] length] / sizeof(uint32_t);
 
     for (NSUInteger i=0; i<count; i++) {
         uint32_t track = CFSwapInt32BigToHost(*(uint32_t *)([[self data] bytes] + (i * sizeof(uint32_t))));
-        html = [html stringByAppendingFormat:@"<br>Track Number: <b>%u</b>", track];
+        html = [html stringByAppendingFormat:@"<br>%@: <b>%u</b>",
+                NSLocalizedString(@"Track Number", nil),
+                track];
 
     }
     html = [html stringByAppendingString:@"</p></span></body>"];

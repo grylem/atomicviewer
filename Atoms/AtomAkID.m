@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"iTunes Store Account Type");
+    return NSLocalizedStringFromTable(@"iTunes Store Account Type",
+                                      @"atomName",
+                                      @"Atom akID name");
 }
 
 - (NSString *)html
@@ -31,13 +33,16 @@
 
     switch ([self asInteger]) {
         case 0:
-            accountType = @"iTunes";
+            accountType = NSLocalizedString(@"iTunes",
+                                            @"iTunes Store Account Type");
             break;
         case 1:
-            accountType = @"AOL";
+            accountType = NSLocalizedString(@"AOL",
+                                            @"iTunes Store Account Type");
             break;
         default:
-            accountType = @"Unknown";
+            accountType = NSLocalizedString(@"Unknown Account Type",
+                                            @"iTunes Store Account Type");
             break;
     };
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\

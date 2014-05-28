@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Movie Fragment");
+    return NSLocalizedStringFromTable(@"Movie Fragment",
+                                      @"atomName",
+                                      @"Atom moof name");
 }
 
 @end

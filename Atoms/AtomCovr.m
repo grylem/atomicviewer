@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Cover Art");
+    return NSLocalizedStringFromTable(@"Cover Art",
+                                      @"atomName",
+                                      @"Atom covr name");
 }
 
 // short-circuit superclass html string generation. We're an image, we don't need an html string.

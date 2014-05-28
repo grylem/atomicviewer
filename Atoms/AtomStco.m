@@ -30,7 +30,9 @@ typedef struct stco
 
 - (NSString *)atomName
 {
-    return (@"Chunk Offset");
+    return NSLocalizedStringFromTable(@"Chunk Offset",
+                                      @"atomName",
+                                      @"Atom stco name");
 }
 
 -(BOOL)isFullBox
@@ -42,11 +44,15 @@ typedef struct stco
 {
     const struct stco *stco = [[self data] bytes];
 
-    NSString *html = [NSString stringWithFormat:@"<body>This atom contains offsets, from the beginning fo the file, to each chunk of media samples for this track.<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>Number of chunks: <b>%u</b>\
+    NSString *html = [NSString stringWithFormat:@"<body>%@<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
+                      <br>%@: <b>%u</b>\
                       <TABLE style=\"font-size:1.0em;\">\
-                      <TR><TH>Chunk #</TH><TH>Chunk Offset</TH></TR>",
-                      CFSwapInt32BigToHost(stco->entry_count)];
+                      <TR><TH>%@</TH><TH>%@</TH></TR>",
+                      NSLocalizedString(@"This atom contains offsets, from the beginning fo the file, to each chunk of media samples for this track.",nil),
+                      NSLocalizedString(@"Number of chunks", nil),
+                      CFSwapInt32BigToHost(stco->entry_count),
+                      NSLocalizedString(@"Chunk #",nil),
+                      NSLocalizedString(@"Chunk Offset",nil)];
 
     uint32_t entry_count = MIN(CFSwapInt32BigToHost(stco->entry_count), 1000);
     for (uint32_t i=0; i<entry_count; i++) {

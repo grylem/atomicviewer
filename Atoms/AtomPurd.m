@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Purchase Date");
+    return NSLocalizedStringFromTable(@"Purchase Date",
+                                      @"atomName",
+                                      @"Atom purd name");
 }
 
 @end

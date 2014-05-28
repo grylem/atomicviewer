@@ -22,18 +22,23 @@
 
 - (NSString *)atomName
 {
-    return (@"Subtitle Follows Track Reference");
+    return NSLocalizedStringFromTable(@"Subtitle Follows Track Reference",
+                                      @"atomName",
+                                      @"Atom folw name");
 }
 
 - (NSString *)html
 {
-    NSString *html = @"<body>This atom contains a track reference for the default subtitle track to be used for this audio track.<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
+    NSString *html = [NSString stringWithFormat:@"<body>%@<span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>",
+                      NSLocalizedString(@"This atom contains a track reference for the default subtitle track to be used for this audio track.",nil)];
 
     NSUInteger count = [[self data] length] / sizeof(uint32_t);
 
     for (NSUInteger i=0; i<count; i++) {
         uint32_t track = CFSwapInt32BigToHost(*(uint32_t *)([[self data] bytes] + (i * sizeof(uint32_t))));
-        html = [html stringByAppendingFormat:@"<br>Track Number: <b>%u</b>", track];
+        html = [html stringByAppendingFormat:@"<br>%@: <b>%u</b>",
+                NSLocalizedString(@"Track Number",nil),
+                track];
 
     }
     html = [html stringByAppendingString:@"</p></span></body>"];

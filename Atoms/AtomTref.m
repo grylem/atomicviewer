@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Track Reference");
+    return NSLocalizedStringFromTable(@"Track Reference",
+                                      @"atomName",
+                                      @"Atom tref name");
 }
 
 @end

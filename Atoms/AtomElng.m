@@ -589,7 +589,9 @@ Greek, Ancient (to 1453)	Greek, Ancient (to 1453)	grec ancien (jusqu'à 1453)	gr
 
 - (NSString *)atomName
 {
-    return (@"Extended Language Tag");
+    return NSLocalizedStringFromTable(@"Extended Language Tag",
+                                      @"atomName",
+                                      @"Atom elng name");
 }
 
 -(BOOL)isFullBox
@@ -600,8 +602,9 @@ Greek, Ancient (to 1453)	Greek, Ancient (to 1453)	grec ancien (jusqu'à 1453)	gr
 - (NSString *)html
 {
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Extended Language: <b>%s</b>\
+                      %@: <b>%s</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Extended Language",nil),
                       [[self data] bytes]];
     return html;
 }

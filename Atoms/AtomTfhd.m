@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Track Fragment Header");
+    return NSLocalizedStringFromTable(@"Track Fragment Header",
+                                      @"atomName",
+                                      @"Atom tfhd name");
 }
 
 -(BOOL)isFullBox

@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"FairPlay Protected Video");
+    return NSLocalizedStringFromTable(@"FairPlay Protected Video",
+                                      @"atomName",
+                                      @"Atom drmi name");
 }
 
 -(BOOL)isFullBox

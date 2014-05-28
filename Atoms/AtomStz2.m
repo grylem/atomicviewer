@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Compact Sample Size");
+    return NSLocalizedStringFromTable(@"Compact Sample Size",
+                                      @"atomName",
+                                      @"Atom stz2 name");
 }
 
 -(BOOL)isFullBox

@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Sort Order Artist");
+    return NSLocalizedStringFromTable(@"Sort Order Artist",
+                                      @"atomName",
+                                      @"Atom soar name");
 }
 
 @end

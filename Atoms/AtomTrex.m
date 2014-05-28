@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Track Extends");
+    return NSLocalizedStringFromTable(@"Track Extends",
+                                      @"atomName",
+                                      @"Atom trex name");
 }
 
 -(BOOL)isFullBox

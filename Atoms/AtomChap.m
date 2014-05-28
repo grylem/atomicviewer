@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Chapter Track Reference");
+    return NSLocalizedStringFromTable(@"Chapter Track Reference",
+                                      @"atomName",
+                                      @"Atom chap name");
 }
 
 - (NSString *)html
@@ -33,7 +35,9 @@
 
     for (NSUInteger i=0; i<count; i++) {
         uint32_t track = CFSwapInt32BigToHost(*(uint32_t *)([[self data] bytes] + (i * sizeof(uint32_t))));
-        html = [html stringByAppendingFormat:@"<br>Track Number: <b>%u</b>", track];
+        html = [html stringByAppendingFormat:@"<br>%@: <b>%u</b>",
+                NSLocalizedString(@"Track Number", nil),
+                track];
 
     }
     html = [html stringByAppendingString:@"</p></span></body>"];

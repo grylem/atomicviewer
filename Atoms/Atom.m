@@ -226,9 +226,9 @@ static dispatch_once_t pred;
 //  a string explaining that we don't know about this atom
 - (NSString *)atomName
 {
-//    return [[self class] atomName] ? [[self class] atomName] : @"The meaning of this atom is unknown.";
-    return @"The meaning of this atom is unknown.";
-
+    return NSLocalizedStringFromTable(@"The meaning of this atom is unknown.",
+                                      @"atomName",
+                                      @"Name string for an atom type unknown to the application");
 }
 
 -(BOOL) isLeaf
@@ -356,6 +356,15 @@ static dispatch_once_t pred;
     if (!_data) {
         [self.fileHandle seekToFileOffset:self.dataOffset];
         _data = [self.fileHandle readDataOfLength:self.dataLength];
+    }
+    return _data;
+}
+
+- (NSData *)dataFromChildDataAtom
+{
+    if (!_data) {
+        Atom *dataAtom = [self findChildAtomOfType: @"data"];
+        _data = [dataAtom data];
     }
     return _data;
 }

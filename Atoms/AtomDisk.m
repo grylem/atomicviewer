@@ -33,7 +33,9 @@ typedef enum : off_t {
 
 - (NSString *)atomName
 {
-    return (@"Disk Number");
+    return NSLocalizedStringFromTable(@"Disk Number",
+                                      @"atomName",
+                                      @"Atom disk name");
 }
 
 -(UInt16)diskNumber

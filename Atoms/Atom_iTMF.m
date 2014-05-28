@@ -34,7 +34,7 @@
 
 - (NSString *)asBooleanString
 {
-    NSString *string = [[NSString alloc]initWithFormat:@"%@",([self asInteger]?@"YES":@"NO") ];
+    NSString *string = [[NSString alloc]initWithFormat:@"%@",([self asInteger]? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil)) ];
 
     return string;
 }
@@ -63,6 +63,8 @@
 
 -(NSImage *)image
 {
+    const char *databytes = [[self data] bytes];
+
     if ([self hasImage]) {
         AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
         return [dataAtom asImage];
@@ -96,8 +98,7 @@
 
 - (NSData *)data
 {
-    AtomData *dataAtom = (AtomData *)[self findChildAtomOfType: @"data"];
-    return [dataAtom data];
+    return [super dataFromChildDataAtom];
 }
 
 @end

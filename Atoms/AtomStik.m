@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Media Kind");
+    return NSLocalizedStringFromTable(@"Media Kind",
+                                      @"atomName",
+                                      @"Atom stik name");
 }
 
 - (NSString *)html
@@ -31,38 +33,36 @@
 
     switch ([self asInteger]) {
         case 0:
-            mediaType = @"Movie";
+            mediaType = NSLocalizedStringFromTable(@"Movie",@"stik",@"Media Kind");
             break;
         case 1:
-            mediaType = @"Music";
+            mediaType = NSLocalizedStringFromTable(@"Music",@"stik",@"Media Kind");
             break;
         case 2:
-            mediaType = @"Audiobook";
+            mediaType = NSLocalizedStringFromTable(@"Audiobook",@"stik",@"Media Kind");
             break;
         case 6:
-            mediaType = @"Music Video";
+            mediaType = NSLocalizedStringFromTable(@"Music Video",@"stik",@"Media Kind");
             break;
         case 9:
-            mediaType = @"Movie";
+            mediaType = NSLocalizedStringFromTable(@"Movie",@"stik",@"Media Kind");
             break;
         case 10:
-            mediaType = @"TV Show";
+            mediaType = NSLocalizedStringFromTable(@"TV Show",@"stik",@"Media Kind");
             break;
         case 11:
-            mediaType = @"Booklet";
+            mediaType = NSLocalizedStringFromTable(@"Booklet",@"stik",@"Media Kind");
             break;
         case 14:
-            mediaType = @"Ringtone";
+            mediaType = NSLocalizedStringFromTable(@"Ringtone",@"stik",@"Media Kind");
             break;
         default:
-            mediaType = @"Unknown";
+            mediaType = NSLocalizedStringFromTable(@"Unknown Media Kind",@"stik",@"Media Kind");
             break;
     };
-    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
-    NSString *htmlTrailer = @"</p></span></body>";
-    NSString *string = [htmlHeader stringByAppendingString:mediaType];
-    string = [string stringByAppendingString:htmlTrailer];
-    return string;
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>%@</p></span></body>",
+                      mediaType];
+    return html;
 }
 
 @end

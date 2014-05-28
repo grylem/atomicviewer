@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Album");
+    return NSLocalizedStringFromTable(@"Album",
+                                      @"atomName",
+                                      @"Atom ©alb name");
 }
 
 @end

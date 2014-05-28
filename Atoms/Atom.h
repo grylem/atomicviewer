@@ -44,6 +44,7 @@
 - (NSString *)html;
 - (off_t)dataOffset;
 - (size_t)dataLength;
+- (NSData *)dataFromChildDataAtom;
 
 #pragma mark - Atom searching
 

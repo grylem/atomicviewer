@@ -20,9 +20,4 @@
     return (@"tmpo");
 }
 
-//+(NSString *)atomName
-//{
-//    return (@"Track Aperture Mode Dimensions");
-//}
-
 @end

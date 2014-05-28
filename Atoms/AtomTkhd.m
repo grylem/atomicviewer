@@ -65,7 +65,9 @@ typedef enum : off_t {
 
 - (NSString *)atomName
 {
-    return (@"Track Header");
+    return NSLocalizedStringFromTable(@"Track Header",
+                                      @"atomName",
+                                      @"Atom tkhd name");
 }
 
 -(BOOL)isFullBox
@@ -95,9 +97,6 @@ typedef enum : off_t {
     if (_trakNumber == NSUIntegerMax) {
         const tkhd_ver0 *tkhd_addr = [[self data] bytes];
         _trakNumber = CFSwapInt32BigToHost(tkhd_addr->track_ID);
-//        NSRange track_IDRange = NSMakeRange(offsetof(struct tkhd_ver0, track_ID), member_size(tkhd_ver0, track_ID));
-//        [self.data getBytes:&_trakNumber range:track_IDRange];
-//        _trakNumber = CFSwapInt32BigToHost((uint32_t)_trakNumber);
     }
     return _trakNumber;
 }
@@ -165,33 +164,43 @@ typedef enum : off_t {
     [self get1616ValueAtOffset:offsetof(struct tkhd_ver0, height) hi:&height_hi lo:&height_lo];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Creation date: <b>%@</b><br>\
-                      Modification date: <b>%@</b><br>\
-                      Track ID: <b>%u</b><br>\
-                      Duration: <b>%llu (%02u:%02u:%09.6f)</b><br>\
-                      Layer: <b>%u</b><br>\
-                      Alternate Group: <b>%u</b><br>\
-                      Volume: <b>%u.%u</b><br>\
-                      Transformation Matrix:\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%llu (%02u:%02u:%09.6f)</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u.%u</b><br>\
+                      %@:\
                       <TABLE style=\"font-size:1.0em;\">\
                       <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
                       <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
                       <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
                       </TABLE><br>\
-                      Width: <b>%u.%u</b><br>\
-                      Height: <b>%u.%u</b>\
+                      %@: <b>%u.%u</b><br>\
+                      %@: <b>%u.%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Creation date",nil),
                       creationDate,
+                      NSLocalizedString(@"Modification date",nil),
                       modificationDate,
+                      NSLocalizedString(@"Track ID",nil),
                       track_ID,
+                      NSLocalizedString(@"Duration",nil),
                       duration, hours, minutes, seconds,
+                      NSLocalizedString(@"Layer",nil),
                       layer,
+                      NSLocalizedString(@"Alternate Group",nil),
                       alternate_group,
+                      NSLocalizedString(@"Volume",nil),
                       volume_hi, volume_lo,
+                      NSLocalizedString(@"Transformation Matrix",nil),
                       matrixa_hi, matrixa_lo, matrixb_hi, matrixb_lo, matrixu_hi, matrixu_lo,
                       matrixc_hi, matrixc_lo, matrixd_hi, matrixd_lo, matrixv_hi, matrixv_lo,
                       matrixtx_hi, matrixtx_lo, matrixty_hi, matrixty_lo, matrixw_hi, matrixw_lo,
+                      NSLocalizedString(@"Width",nil),
                       width_hi, width_lo,
+                      NSLocalizedString(@"Height",nil),
                       height_hi, height_lo];
 
     return html;

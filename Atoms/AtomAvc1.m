@@ -42,7 +42,9 @@ typedef struct avc1
 
 - (NSString *)atomName
 {
-    return (@"AVC Visual Sample Description");
+    return NSLocalizedStringFromTable(@"AVC Visual Sample Description",
+                                      @"atomName",
+                                      @"Atom avc1 name");
 }
 
 -(NSUInteger) jump

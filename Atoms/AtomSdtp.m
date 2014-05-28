@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Independent and Disposable Samples");
+    return NSLocalizedStringFromTable(@"Independent and Disposable Samples",
+                                      @"atomName",
+                                      @"Atom sdtp name");
 }
 
 -(BOOL)isFullBox

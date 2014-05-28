@@ -57,7 +57,9 @@ typedef struct mp4a
 
 - (NSString *)atomName
 {
-    return (@"MP4 Audio Sample Description");
+    return NSLocalizedStringFromTable(@"MP4 Audio Sample Description",
+                                      @"atomName",
+                                      @"Atom mp4a name");
 }
 
 -(NSUInteger) jump

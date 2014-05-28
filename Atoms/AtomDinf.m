@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Data Information");
+    return NSLocalizedStringFromTable(@"Data Information",
+                                      @"atomName",
+                                      @"Atom dinf name");
 }
 
 @end

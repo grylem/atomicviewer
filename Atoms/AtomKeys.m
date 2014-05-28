@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Metadata Item Keys");
+    return NSLocalizedStringFromTable(@"Metadata Item Keys",
+                                      @"atomName",
+                                      @"Atom keys name");
 }
 
 -(BOOL)isFullBox

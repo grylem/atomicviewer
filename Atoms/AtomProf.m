@@ -30,7 +30,9 @@ typedef struct prof
 
 - (NSString *)atomName
 {
-    return (@"Track Production Aperture Dimensions");
+    return NSLocalizedStringFromTable(@"Track Production Aperture Dimensions",
+                                      @"atomName",
+                                      @"Atom prof name");
 }
 
 -(BOOL)isFullBox
@@ -50,11 +52,13 @@ typedef struct prof
     int16_t height_lo = height & 0xffff;
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Width: <b>%u.%u</b><br>\
-                      Height: <b>%u.%u</b>\
+                      %@: <b>%u.%u</b><br>\
+                      %@: <b>%u.%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Width",nil),
                       width_hi,
                       width_lo,
+                      NSLocalizedString(@"Height",nil),
                       height_hi,
                       height_lo];
     return html;

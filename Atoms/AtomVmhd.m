@@ -34,7 +34,9 @@ typedef struct vmhd
 
 - (NSString *)atomName
 {
-    return (@"Video Media Header");
+    return NSLocalizedStringFromTable(@"Video Media Header",
+                                      @"atomName",
+                                      @"Atom vmhd name");
 }
 
 -(BOOL)isFullBox
@@ -47,15 +49,19 @@ typedef struct vmhd
     const struct vmhd *vmhd = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Graphics Mode: <b>%u</b>\
+                      %@: <b>%u</b>\
                       <br>\
-                      <br>Red: <b>%u</b>\
-                      <br>Green: <b>%u</b>\
-                      <br>Blue: <b>%u</b>\
+                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Graphics Mode",nil),
                       CFSwapInt16BigToHost(vmhd->graphicsmode),
+                      NSLocalizedString(@"Red",nil),
                       CFSwapInt16BigToHost(vmhd->opcolor.red),
+                      NSLocalizedString(@"Green",nil),
                       CFSwapInt16BigToHost(vmhd->opcolor.green),
+                      NSLocalizedString(@"Blue",nil),
                       CFSwapInt16BigToHost(vmhd->opcolor.blue)];
     return html;
 }

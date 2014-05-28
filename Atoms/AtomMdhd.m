@@ -45,7 +45,9 @@ typedef struct mdhd_ver1
 
 - (NSString *)atomName
 {
-    return (@"Media Header");
+    return NSLocalizedStringFromTable(@"Media Header",
+                                      @"atomName",
+                                      @"Atom mdhd name");
 }
 
 -(BOOL)isFullBox
@@ -85,16 +87,21 @@ typedef struct mdhd_ver1
     language[3] = 0;
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Creation date: <b>%@</b><br>\
-                      Modification date: <b>%@</b><br>\
-                      Timescale: <b>%u</b><br>\
-                      Duration: <b>%llu (%02u:%02u:%09.6f)</b><br>\
-                      Language: <b>%s</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%llu (%02u:%02u:%09.6f)</b><br>\
+                      %@: <b>%s</b><br>\
                       </p></span></body>",
+                      NSLocalizedString(@"Creation date",nil),
                       creationDate,
+                      NSLocalizedString(@"Modification date",nil),
                       modificationDate,
+                      NSLocalizedString(@"Timescale",nil),
                       [self timescale],
+                      NSLocalizedString(@"Duration",nil),
                       duration, hours, minutes, seconds,
+                      NSLocalizedString(@"Language",nil),
                       languageUint16 ? language : "(None)"];
 
     return html;

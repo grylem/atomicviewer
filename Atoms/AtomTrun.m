@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Track Fragment Run");
+    return NSLocalizedStringFromTable(@"Track Fragment Run",
+                                      @"atomName",
+                                      @"Atom trun name");
 }
 
 -(BOOL)isFullBox

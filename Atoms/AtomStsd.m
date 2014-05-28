@@ -29,7 +29,9 @@ typedef struct stsd
 
 - (NSString *)atomName
 {
-    return (@"Sample Description");
+    return NSLocalizedStringFromTable(@"Sample Description",
+                                      @"atomName",
+                                      @"Atom stsd name");
 }
 
 -(BOOL)isFullBox
@@ -47,8 +49,9 @@ typedef struct stsd
     const struct stsd *stsd = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>Number of Sample Descriptions: <b>%u</b>\
+                      <br>%@: <b>%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Number of Sample Descriptions",nil),
                       CFSwapInt32BigToHost(stsd->entry_count)];
     return html;
 }

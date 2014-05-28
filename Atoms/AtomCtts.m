@@ -33,7 +33,9 @@ typedef struct ctts
 
 - (NSString *)atomName
 {
-    return (@"Composition Time to Sample");
+    return NSLocalizedStringFromTable(@"Composition Time to Sample",
+                                      @"atomName",
+                                      @"Atom ctts name");
 }
 
 -(BOOL)isFullBox
@@ -46,10 +48,13 @@ typedef struct ctts
     const struct ctts *ctts = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>\
-                      Number of entries: <b>%u</b>\
+                      %@: <b>%u</b>\
                       <TABLE style=\"font-size:1.0em;\">\
-                      <TR><TH>Sample Count</TH><TH>Sample Delta</TH></TR>",
-                      CFSwapInt32BigToHost(ctts->entry_count)];
+                      <TR><TH>%@</TH><TH>%@</TH></TR>",
+                      NSLocalizedString(@"Number of entries",nil),
+                      CFSwapInt32BigToHost(ctts->entry_count),
+                      NSLocalizedString(@"Sample Count",nil),
+                      NSLocalizedString(@"Sample Delta",nil)];
 
     uint32_t entry_count = MIN(CFSwapInt32BigToHost(ctts->entry_count), 1000);
     for (uint32_t i=0; i<entry_count; i++) {

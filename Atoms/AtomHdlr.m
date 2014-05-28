@@ -37,7 +37,9 @@ static NSDictionary *subtypeDict;
 
 - (NSString *)atomName
 {
-    return (@"Handler Reference");
+    return NSLocalizedStringFromTable(@"Handler Reference",
+                                      @"atomName",
+                                      @"Atom hdlr name");
 }
 
 -(BOOL)isFullBox
@@ -86,11 +88,11 @@ static NSDictionary *subtypeDict;
 {
     NSString *type_explanation;
     if ([[self componentType] isEqualToString:@"mhlr"]) {
-        type_explanation = @"(Media Handler)";
+        type_explanation = NSLocalizedString(@"Media Handler",nil);
     } else if ([[self componentType] isEqualToString:@"dhlr"]) {
-        type_explanation = @"(Data Handler)";
+        type_explanation = NSLocalizedString(@"Data Handler",nil);
     } else {
-        type_explanation = @"(Unrecongized Handler)";
+        type_explanation = NSLocalizedString(@"Unrecongized Handler",nil);
     }
     return type_explanation;
 }
@@ -101,25 +103,25 @@ static NSDictionary *subtypeDict;
 
     dispatch_once (&pred, ^{
         subtypeDict = @{
-                        @"vide" : @"Video",
-                        @"soun" : @"Sound",
-                        @"tmcd" : @"Timecode",
-                        @"alis" : @"Alias",
-                        @"text" : @"Text",
-                        @"clcp" : @"Closed Captioning",
-                        @"sbtl" : @"Subtitle",
-                        @"musi" : @"Music",
-                        @"MPEG" : @"MPEG-1",
-                        @"sprt" : @"Sprite",
-                        @"twen" : @"Tween",
-                        @"hint" : @"Hint",
-                        @"mdta" : @"Metadata",
-                        @"mdir" : @"iTunes Metadata",
+                        @"vide" : NSLocalizedString(@"Video",nil),
+                        @"soun" : NSLocalizedString(@"Sound",nil),
+                        @"tmcd" : NSLocalizedString(@"Timecode",nil),
+                        @"alis" : NSLocalizedString(@"Alias",nil),
+                        @"text" : NSLocalizedString(@"Text",nil),
+                        @"clcp" : NSLocalizedString(@"Closed Captioning",nil),
+                        @"sbtl" : NSLocalizedString(@"Subtitle",nil),
+                        @"musi" : NSLocalizedString(@"Music",nil),
+                        @"MPEG" : NSLocalizedString(@"MPEG-1",nil),
+                        @"sprt" : NSLocalizedString(@"Sprite",nil),
+                        @"twen" : NSLocalizedString(@"Tween",nil),
+                        @"hint" : NSLocalizedString(@"Hint",nil),
+                        @"mdta" : NSLocalizedString(@"Metadata",nil),
+                        @"mdir" : NSLocalizedString(@"iTunes Metadata",nil),
                         };
     });
     subtype_explanation = subtypeDict[[self componentSubtype]];
     if (!subtype_explanation) {
-        subtype_explanation = @"Unrecongnized";
+        subtype_explanation = NSLocalizedString(@"Unrecongnized",nil);
     }
     return subtype_explanation;
 }
@@ -129,15 +131,23 @@ static NSDictionary *subtypeDict;
     NSString *html = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
 
     if ([[self componentType] length] != 0) { // If Quicktime format hdlr atom
-        NSString *tmpString = [NSString stringWithFormat:@"Component Type: <b>%@</b> %@<br>", [self componentType], [self typeExplanation]];
+        NSString *tmpString = [NSString stringWithFormat:@"%@: <b>(%@)</b> %@<br>",
+                               NSLocalizedString(@"Component Type",nil),
+                               [self componentType],
+                               [self typeExplanation]];
         html = [html stringByAppendingString:tmpString];
     }
 
-    NSString *tmpString = [NSString stringWithFormat:@"Component Subtype: <b>%@</b> (%@)<br>", [self componentSubtype], [self subtypeExplanation]];
+    NSString *tmpString = [NSString stringWithFormat:@"%@: <b>%@</b> (%@)<br>",
+                           NSLocalizedString(@"Component Subtype",nil),
+                           [self componentSubtype],
+                           [self subtypeExplanation]];
     html = [html stringByAppendingString:tmpString];
 
     if ([[self componentName] length] != 0) {
-        tmpString = [NSString stringWithFormat:@"Component Name: <b>%@</b>", [self componentName]];
+        tmpString = [NSString stringWithFormat:@"%@: <b>%@</b>",
+                     NSLocalizedString(@"Component Name",nil),
+                     [self componentName]];
         html = [html stringByAppendingString:tmpString];
     }
     html = [html stringByAppendingString:@"</p></span></body>"];

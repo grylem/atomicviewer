@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"TV Episode Number in Season");
+    return NSLocalizedStringFromTable(@"TV Episode Number in Season",
+                                      @"atomName",
+                                      @"Atom tves name");
 }
 
 @end

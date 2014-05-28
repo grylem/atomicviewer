@@ -33,7 +33,9 @@ typedef enum : off_t {
 
 - (NSString *)atomName
 {
-    return (@"Track Number");
+    return NSLocalizedStringFromTable(@"Track Number",
+                                      @"atomName",
+                                      @"Atom trkn name");
 }
 
 -(UInt16)trackNumber

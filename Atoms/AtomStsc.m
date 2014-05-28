@@ -34,7 +34,9 @@ typedef struct stsc
 
 - (NSString *)atomName
 {
-    return (@"Sample To Chunk");
+    return NSLocalizedStringFromTable(@"Sample To Chunk",
+                                      @"atomName",
+                                      @"Atom stsc name");
 }
 
 -(BOOL)isFullBox
@@ -47,10 +49,15 @@ typedef struct stsc
     const struct stsc *stsc = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>Number of entries: <b>%u</b>\
+                      <br>%@: <b>%u</b>\
                       <TABLE style=\"font-size:1.0em;\">\
-                      <TR><TH>Entry #</TH><TH>First chunk</TH><TH>Samples per chunk</TH><TH>Description Index</TH></TR>",
-                      CFSwapInt32BigToHost(stsc->entry_count)];
+                      <TR><TH>%@</TH><TH>%@</TH><TH>%@</TH><TH>%@</TH></TR>",
+                      NSLocalizedString(@"Number of entries",nil),
+                      CFSwapInt32BigToHost(stsc->entry_count),
+                      NSLocalizedString(@"Entry #",nil),
+                      NSLocalizedString(@"First chunk",nil),
+                      NSLocalizedString(@"Samples per chunk",nil),
+                      NSLocalizedString(@"Description Index",nil)];
 
     uint32_t entry_count = MIN(CFSwapInt32BigToHost(stsc->entry_count), 1000);
     for (uint32_t i=0; i<entry_count; i++) {

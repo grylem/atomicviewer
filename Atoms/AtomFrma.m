@@ -22,16 +22,19 @@
 
 - (NSString *)atomName
 {
-    return (@"Original Format");
+    return NSLocalizedStringFromTable(@"Original Format",
+                                      @"atomName",
+                                      @"Atom frma name");
 }
 
 - (NSString *)html
 {
     NSString *html = [NSString stringWithFormat: @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-    Original Format: <b>%@</b>\
-    </p></span></body>",
-    [self stringFromFourCC:[[self data]bytes]]];
-
+                      %@: <b>%@</b>\
+                      </p></span></body>",
+                      NSLocalizedString(@"Original Format",nil),
+                      [self stringFromFourCC:[[self data]bytes]]];
+    
     return html;
 }
 

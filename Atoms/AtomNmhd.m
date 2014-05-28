@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Null Media Header");
+    return NSLocalizedStringFromTable(@"Null Media Header",
+                                      @"atomName",
+                                      @"Atom nmhd name");
 }
 
 -(BOOL)isFullBox

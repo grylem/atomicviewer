@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Movie Fragment Random Access Offset");
+    return NSLocalizedStringFromTable(@"Movie Fragment Random Access Offset",
+                                      @"atomName",
+                                      @"Atom mfro name");
 }
 
 -(BOOL)isFullBox

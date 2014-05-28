@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Data Reference");
+    return NSLocalizedStringFromTable(@"Data Reference",
+                                      @"atomName",
+                                      @"Atom dref name");
 }
 
 -(BOOL)isFullBox

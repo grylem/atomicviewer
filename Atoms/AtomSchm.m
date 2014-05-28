@@ -31,7 +31,9 @@ typedef struct schm
 
 - (NSString *)atomName
 {
-    return (@"Scheme Type");
+    return NSLocalizedStringFromTable(@"Scheme Type",
+                                      @"atomName",
+                                      @"Atom schm name");
 }
 
 -(BOOL)isFullBox
@@ -44,8 +46,9 @@ typedef struct schm
     const schm *scheme = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Scheme type: <b>%@</b>\
+                      %@: <b>%@</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Scheme type",nil),
                       [self stringFromFourCC:&scheme->scheme_type]];
     return html;
 }

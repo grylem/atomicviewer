@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Movie Fragment Random Access");
+    return NSLocalizedStringFromTable(@"Movie Fragment Random Access",
+                                      @"atomName",
+                                      @"Atom mfra name");
 }
 
 @end

@@ -27,7 +27,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Copyright");
+    return NSLocalizedStringFromTable(@"Copyright",
+                                      @"atomName",
+                                      @"Atom cprt name");
 }
 
 //  This is the formatted textual explantion of the content of the atom
@@ -41,7 +43,7 @@
         string = [string stringByAppendingString:htmlTrailer];
         return string;
     } else {
-        return @"Copyright outside iTunes metadata context";
+        return NSLocalizedString(@"Copyright outside iTunes metadata context",nil);
     }
 }
 

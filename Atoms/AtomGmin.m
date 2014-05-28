@@ -36,7 +36,9 @@ typedef struct gmin
 
 - (NSString *)atomName
 {
-    return @"Base Media Information";
+    return NSLocalizedStringFromTable(@"Base Media Information",
+                                      @"atomName",
+                                      @"Atom gmin name");
 }
 
 - (BOOL)isFullBox
@@ -53,18 +55,23 @@ typedef struct gmin
     [self get88ValueAtOffset:offsetof(struct gmin, balance) hi:&balance_hi lo:&balance_lo];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Graphics Mode: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
                       <br>\
-                      Red: <b>%u</b><br>\
-                      Green: <b>%u</b><br>\
-                      Blue: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
+                      %@: <b>%u</b><br>\
                       <br>\
-                      Balance: <b>%u.%u</b>\
+                      %@: <b>%u.%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"GraphicsMode",nil),
                       CFSwapInt16BigToHost(gmin->graphics_mode),
+                      NSLocalizedString(@"Red",nil),
                       CFSwapInt16BigToHost(gmin->opcolor.red),
+                      NSLocalizedString(@"Green",nil),
                       CFSwapInt16BigToHost(gmin->opcolor.green),
+                      NSLocalizedString(@"Blue",nil),
                       CFSwapInt16BigToHost(gmin->opcolor.blue),
+                      NSLocalizedString(@"Balance",nil),
                       balance_hi,
                       balance_lo];
     return html;

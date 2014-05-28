@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Degradation Priority");
+    return NSLocalizedStringFromTable(@"Degradation Priority",
+                                      @"atomName",
+                                      @"Atom stdp name");
 }
 
 -(BOOL)isFullBox

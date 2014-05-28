@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Base Media Information Header");
+    return NSLocalizedStringFromTable(@"Base Media Information Header",
+                                      @"atomName",
+                                      @"Atom gmhd name");
 }
 
 @end

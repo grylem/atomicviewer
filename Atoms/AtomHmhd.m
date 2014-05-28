@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Hint Media Header");
+    return NSLocalizedStringFromTable(@"Hint Media Header",
+                                      @"atomName",
+                                      @"Atom hmhd name");
 }
 
 -(BOOL)isFullBox

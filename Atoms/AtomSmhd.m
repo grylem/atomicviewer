@@ -29,7 +29,9 @@ typedef struct smhd
 
 - (NSString *)atomName
 {
-    return (@"Sound Media Header");
+    return NSLocalizedStringFromTable(@"Sound Media Header",
+                                      @"atomName",
+                                      @"Atom smhd name");
 }
 
 -(BOOL)isFullBox
@@ -45,8 +47,9 @@ typedef struct smhd
     [self get88ValueAtOffset:offsetof(struct smhd, balance) hi:&balance_hi lo:&balance_lo];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Balance: <b>%u.%u</b>\
+                      %@: <b>%u.%u</b>\
                       </p></span></body>",
+                      NSLocalizedString(@"Balance",nil),
                       balance_hi,
                       balance_lo];
     return html;

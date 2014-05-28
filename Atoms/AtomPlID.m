@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Playlist ID");
+    return NSLocalizedStringFromTable(@"Playlist ID",
+                                      @"atomName",
+                                      @"Atom plID name");
 }
 
 @end

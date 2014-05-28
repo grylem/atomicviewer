@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"HD Video");
+    return NSLocalizedStringFromTable(@"HD Video",
+                                      @"atomName",
+                                      @"Atom hdvd name");
 }
 
 - (NSString *)html
@@ -31,20 +33,19 @@
 
     switch ([self asInteger]) {
         case 0:
-            resolutionType = @"SD Video";
+            resolutionType = NSLocalizedString(@"SD Video",nil);
             break;
         case 1:
-            resolutionType = @"HD Video: 720p";
+            resolutionType = NSLocalizedString(@"HD Video: 720p",nil);
             break;
         default:
-            resolutionType = @"HD Video: 1080p";
+            resolutionType = NSLocalizedString(@"HD Video: 1080p",nil);
             break;
     };
-    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
-    NSString *htmlTrailer = @"</p></span></body>";
-    NSString *string = [htmlHeader stringByAppendingString:resolutionType];
-    string = [string stringByAppendingString:htmlTrailer];
-    return string;
+
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>%@</p></span></body>",
+                      resolutionType];
+    return html;
 }
 
 @end

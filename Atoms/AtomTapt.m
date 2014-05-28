@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Track Aperture Mode Dimensions");
+    return NSLocalizedStringFromTable(@"Track Aperture Mode Dimensions",
+                                      @"atomName",
+                                      @"Atom tapt name");
 }
 
 @end

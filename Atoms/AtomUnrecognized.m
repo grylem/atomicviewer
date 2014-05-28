@@ -39,7 +39,9 @@ usingFileHandle: (NSFileHandle *)fileHandle
 
 - (NSString *)atomName
 {
-    return @"This atom type is not recognized.";
+    return NSLocalizedStringFromTable(@"This atom type is not recognized.",
+                                      @"atomName",
+                                      @"String to use when the atom type is unrecognized");
 }
 
 @end

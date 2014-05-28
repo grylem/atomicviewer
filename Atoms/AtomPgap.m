@@ -22,16 +22,16 @@
 
 - (NSString *)atomName
 {
-    return (@"Gapless Playback");
+    return NSLocalizedStringFromTable(@"Gapless Playback",
+                                      @"atomName",
+                                      @"Atom pgap name");
 }
 
 - (NSString *)html
 {
-    NSString *htmlHeader = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
-    NSString *htmlTrailer = @"</p></span></body>";
-    NSString *string = [htmlHeader stringByAppendingString:[self asBooleanString]];
-    string = [string stringByAppendingString:htmlTrailer];
-    return string;
+    NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>%@</p></span></body>",
+                      [self asBooleanString]];
+    return html;
 }
 
 @end

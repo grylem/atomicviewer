@@ -30,7 +30,9 @@ typedef struct co64
 
 - (NSString *)atomName
 {
-    return (@"Chunk Large Offset");
+    return NSLocalizedStringFromTable(@"Chunk Large Offset",
+                                      @"atomName",
+                                      @"Atom co64 name");
 }
 
 -(BOOL)isFullBox

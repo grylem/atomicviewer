@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6908CB661934044000E6CC94 /* AtomBtrt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6908CB651934044000E6CC94 /* AtomBtrt.m */; };
 		6916AC281919BB4B003FA268 /* AtomRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 6916AC271919BB4B003FA268 /* AtomRoot.m */; };
 		6923AE6618D2F11E0087A0ED /* Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6518D2F11E0087A0ED /* Atom.m */; };
 		6923AE6918D2F1310087A0ED /* AtomFtyp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6923AE6818D2F1310087A0ED /* AtomFtyp.m */; };
@@ -132,12 +133,15 @@
 		697A716F18E0C11100A4A9DD /* AtomSonm.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A716E18E0C11100A4A9DD /* AtomSonm.m */; };
 		697A717218E0C12D00A4A9DD /* AtomSoar.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A717118E0C12D00A4A9DD /* AtomSoar.m */; };
 		697A717A18E0CB6900A4A9DD /* AtomAkID.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A717918E0CB6900A4A9DD /* AtomAkID.m */; };
+		697D74F219315B1F003660FE /* AtomText.m in Sources */ = {isa = PBXBuildFile; fileRef = 697D74F119315B1F003660FE /* AtomText.m */; };
 		6996CCE218E4EE9600121640 /* AtomClef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCE118E4EE9600121640 /* AtomClef.m */; };
 		6996CCE518E4EEA100121640 /* AtomProf.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCE418E4EEA100121640 /* AtomProf.m */; };
 		6996CCE818E4EEDE00121640 /* AtomEnof.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCE718E4EEDE00121640 /* AtomEnof.m */; };
 		6996CCEB18E4EF3000121640 /* AtomUuidLC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCEA18E4EF3000121640 /* AtomUuidLC.m */; };
 		69A163B517D672F700131614 /* MyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A163B417D672F700131614 /* MyWindowController.m */; };
 		69A163B917D67BA800131614 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A163B717D67BA800131614 /* MainWindow.xib */; };
+		69C3CE4D19353484008A43BF /* atomName.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69C3CE4B19353484008A43BF /* atomName.strings */; };
+		69C3CE50193584E6008A43BF /* ftyp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69C3CE4E193584E6008A43BF /* ftyp.strings */; };
 		69E2CA0818DBDB7B00EC4D8C /* AtomHmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA0718DBDB7B00EC4D8C /* AtomHmhd.m */; };
 		69E2CA0C18DBDBE100EC4D8C /* AtomNmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA0B18DBDBE100EC4D8C /* AtomNmhd.m */; };
 		69E2CA1018DBDEC300EC4D8C /* AtomStz2.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA0F18DBDEC300EC4D8C /* AtomStz2.m */; };
@@ -156,6 +160,13 @@
 		69E2CA4418DBE86100EC4D8C /* AtomMfra.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA4318DBE86100EC4D8C /* AtomMfra.m */; };
 		69E2CA4818DBE8AB00EC4D8C /* AtomTfra.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA4718DBE8AB00EC4D8C /* AtomTfra.m */; };
 		69E2CA4C18DBE8FD00EC4D8C /* AtomMfro.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA4B18DBE8FD00EC4D8C /* AtomMfro.m */; };
+		69E45B9D193284DD00D18DE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45B9B193284DD00D18DE1 /* Localizable.strings */; };
+		69E45BA91932BBA600D18DE1 /* geID-Movies.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45BA11932BBA600D18DE1 /* geID-Movies.strings */; };
+		69E45BAA1932BBA600D18DE1 /* geID-Music.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45BA31932BBA600D18DE1 /* geID-Music.strings */; };
+		69E45BAB1932BBA600D18DE1 /* geID-MusicVideos.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45BA51932BBA600D18DE1 /* geID-MusicVideos.strings */; };
+		69E45BAC1932BBA600D18DE1 /* geID-TVShows.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45BA71932BBA600D18DE1 /* geID-TVShows.strings */; };
+		69E45BAF1932BF9D00D18DE1 /* gnre.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45BAD1932BF9D00D18DE1 /* gnre.strings */; };
+		69E45BB21932C2E500D18DE1 /* stik.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E45BB01932C2E500D18DE1 /* stik.strings */; };
 		69EF0A5118FF89D2007DC40C /* Atom©wrt.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0A5018FF89D2007DC40C /* Atom©wrt.m */; };
 		69EF0A5518FF8B70007DC40C /* AtomEgid.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0A5418FF8B70007DC40C /* AtomEgid.m */; };
 		69EF0ACB190090D9007DC40C /* AtomTmpo.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0ACA190090D9007DC40C /* AtomTmpo.m */; };
@@ -181,6 +192,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6908CB641934044000E6CC94 /* AtomBtrt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomBtrt.h; sourceTree = "<group>"; };
+		6908CB651934044000E6CC94 /* AtomBtrt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomBtrt.m; sourceTree = "<group>"; };
 		6916AC261919BB4B003FA268 /* AtomRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomRoot.h; sourceTree = "<group>"; };
 		6916AC271919BB4B003FA268 /* AtomRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomRoot.m; sourceTree = "<group>"; };
 		6923AE6418D2F11E0087A0ED /* Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atom.h; sourceTree = "<group>"; };
@@ -430,6 +443,8 @@
 		697A717118E0C12D00A4A9DD /* AtomSoar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomSoar.m; sourceTree = "<group>"; };
 		697A717818E0CB6900A4A9DD /* AtomAkID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomAkID.h; sourceTree = "<group>"; };
 		697A717918E0CB6900A4A9DD /* AtomAkID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomAkID.m; sourceTree = "<group>"; };
+		697D74F019315B1F003660FE /* AtomText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomText.h; sourceTree = "<group>"; };
+		697D74F119315B1F003660FE /* AtomText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomText.m; sourceTree = "<group>"; };
 		6996CCE018E4EE9600121640 /* AtomClef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomClef.h; sourceTree = "<group>"; };
 		6996CCE118E4EE9600121640 /* AtomClef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomClef.m; sourceTree = "<group>"; };
 		6996CCE318E4EEA100121640 /* AtomProf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomProf.h; sourceTree = "<group>"; };
@@ -441,6 +456,8 @@
 		69A163B317D672F700131614 /* MyWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindowController.h; sourceTree = "<group>"; };
 		69A163B417D672F700131614 /* MyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindowController.m; sourceTree = "<group>"; };
 		69A163B817D67BA800131614 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		69C3CE4C19353484008A43BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/atomName.strings; sourceTree = "<group>"; };
+		69C3CE4F193584E6008A43BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ftyp.strings; sourceTree = "<group>"; };
 		69E2CA0618DBDB7B00EC4D8C /* AtomHmhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomHmhd.h; sourceTree = "<group>"; };
 		69E2CA0718DBDB7B00EC4D8C /* AtomHmhd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomHmhd.m; sourceTree = "<group>"; };
 		69E2CA0A18DBDBE100EC4D8C /* AtomNmhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomNmhd.h; sourceTree = "<group>"; };
@@ -477,6 +494,13 @@
 		69E2CA4718DBE8AB00EC4D8C /* AtomTfra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomTfra.m; sourceTree = "<group>"; };
 		69E2CA4A18DBE8FD00EC4D8C /* AtomMfro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomMfro.h; sourceTree = "<group>"; };
 		69E2CA4B18DBE8FD00EC4D8C /* AtomMfro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomMfro.m; sourceTree = "<group>"; };
+		69E45B9C193284DD00D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		69E45BA21932BBA600D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/geID-Movies.strings"; sourceTree = "<group>"; };
+		69E45BA41932BBA600D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/geID-Music.strings"; sourceTree = "<group>"; };
+		69E45BA61932BBA600D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/geID-MusicVideos.strings"; sourceTree = "<group>"; };
+		69E45BA81932BBA600D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/geID-TVShows.strings"; sourceTree = "<group>"; };
+		69E45BAE1932BF9D00D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/gnre.strings; sourceTree = "<group>"; };
+		69E45BB11932C2E500D18DE1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/stik.strings; sourceTree = "<group>"; };
 		69EF0A4F18FF89D2007DC40C /* Atom©wrt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Atom©wrt.h"; path = "Atoms/Atom©wrt.h"; sourceTree = "<group>"; };
 		69EF0A5018FF89D2007DC40C /* Atom©wrt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Atom©wrt.m"; path = "Atoms/Atom©wrt.m"; sourceTree = "<group>"; };
 		69EF0A5318FF8B70007DC40C /* AtomEgid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtomEgid.h; path = Atoms/AtomEgid.h; sourceTree = "<group>"; };
@@ -510,6 +534,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6908CB67193404B100E6CC94 /* 5.3.4.1 btrt - Bit Rate */ = {
+			isa = PBXGroup;
+			children = (
+				6908CB641934044000E6CC94 /* AtomBtrt.h */,
+				6908CB651934044000E6CC94 /* AtomBtrt.m */,
+			);
+			name = "5.3.4.1 btrt - Bit Rate";
+			sourceTree = "<group>";
+		};
 		6923AE6A18D2F13B0087A0ED /* Atoms */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +667,15 @@
 				6973EBAF18E07B2A00AF263C /* MPEG4FileViewer.entitlements */,
 				69453FFC176672A400851344 /* AtomicViewer-Info.plist */,
 				69453FFD176672A400851344 /* InfoPlist.strings */,
+				69E45B9B193284DD00D18DE1 /* Localizable.strings */,
+				69C3CE4B19353484008A43BF /* atomName.strings */,
+				69C3CE4E193584E6008A43BF /* ftyp.strings */,
+				69E45BA11932BBA600D18DE1 /* geID-Movies.strings */,
+				69E45BA31932BBA600D18DE1 /* geID-Music.strings */,
+				69E45BA51932BBA600D18DE1 /* geID-MusicVideos.strings */,
+				69E45BA71932BBA600D18DE1 /* geID-TVShows.strings */,
+				69E45BAD1932BF9D00D18DE1 /* gnre.strings */,
+				69E45BB01932C2E500D18DE1 /* stik.strings */,
 				69454000176672A400851344 /* main.m */,
 				69454002176672A400851344 /* AtomicViewer-Prefix.pch */,
 				69454003176672A400851344 /* Credits.rtf */,
@@ -1691,6 +1733,15 @@
 			name = "akid - iTunes Store Account Type";
 			sourceTree = "<group>";
 		};
+		697D74F319315B28003660FE /* text -  */ = {
+			isa = PBXGroup;
+			children = (
+				697D74F019315B1F003660FE /* AtomText.h */,
+				697D74F119315B1F003660FE /* AtomText.m */,
+			);
+			name = "text - ";
+			sourceTree = "<group>";
+		};
 		6996CCEC18E4EFE900121640 /* cios -  */ = {
 			isa = PBXGroup;
 			children = (
@@ -1749,6 +1800,7 @@
 		69B4D5B71920BA7F004CD77A /* QuickTime Atom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				697D74F319315B28003660FE /* text -  */,
 				696BB63018D7F3C9001EDCC2 /* chap - Chapter Track Reference */,
 				697A717618E0C64B00A4A9DD /* drmi - FairPlay Protected Video */,
 				696BB65918D811D2001EDCC2 /* drms - FairPlay Protected Audio */,
@@ -2004,6 +2056,7 @@
 		69E2CA5018DBF4E500EC4D8C /* ISO 14496-15 AVC file format */ = {
 			isa = PBXGroup;
 			children = (
+				6908CB67193404B100E6CC94 /* 5.3.4.1 btrt - Bit Rate */,
 				696BB65118D8115E001EDCC2 /* 5.3.4.1 avc1 - Sample Description */,
 				696BB65418D8119C001EDCC2 /* 5.3.4.1 avcC - AVC Configuration */,
 			);
@@ -2156,9 +2209,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C3CE50193584E6008A43BF /* ftyp.strings in Resources */,
+				69E45B9D193284DD00D18DE1 /* Localizable.strings in Resources */,
+				69E45BAB1932BBA600D18DE1 /* geID-MusicVideos.strings in Resources */,
+				69E45BB21932C2E500D18DE1 /* stik.strings in Resources */,
 				69A163B917D67BA800131614 /* MainWindow.xib in Resources */,
 				69453FFF176672A400851344 /* InfoPlist.strings in Resources */,
+				69E45BAF1932BF9D00D18DE1 /* gnre.strings in Resources */,
+				69C3CE4D19353484008A43BF /* atomName.strings in Resources */,
 				69454005176672A400851344 /* Credits.rtf in Resources */,
+				69E45BA91932BBA600D18DE1 /* geID-Movies.strings in Resources */,
+				69E45BAC1932BBA600D18DE1 /* geID-TVShows.strings in Resources */,
+				69E45BAA1932BBA600D18DE1 /* geID-Music.strings in Resources */,
 				6945400B176672A400851344 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2233,6 +2295,7 @@
 				69EF0ADB190092C4007DC40C /* AtomRndu.m in Sources */,
 				696BB5C618D796DC001EDCC2 /* AtomDesc.m in Sources */,
 				69390E5F18DFF29000DEA5B3 /* AtomPriv.m in Sources */,
+				6908CB661934044000E6CC94 /* AtomBtrt.m in Sources */,
 				69E2CA0C18DBDBE100EC4D8C /* AtomNmhd.m in Sources */,
 				69E2CA1018DBDEC300EC4D8C /* AtomStz2.m in Sources */,
 				6972094B18D6DBC6003A9E0A /* AtomMean.m in Sources */,
@@ -2269,6 +2332,7 @@
 				6972092418D6C572003A9E0A /* AtomCo64.m in Sources */,
 				696BB5BD18D796A3001EDCC2 /* Atom©gen.m in Sources */,
 				6923AE7D18D3275E0087A0ED /* AtomTrak.m in Sources */,
+				697D74F219315B1F003660FE /* AtomText.m in Sources */,
 				69E2CA1C18DBE17D00EC4D8C /* AtomPadb.m in Sources */,
 				6923AE8018D327B90087A0ED /* AtomUdta.m in Sources */,
 				69390E5C18DFF1B700DEA5B3 /* AtomSkcr.m in Sources */,
@@ -2357,6 +2421,78 @@
 				69A163B817D67BA800131614 /* en */,
 			);
 			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		69C3CE4B19353484008A43BF /* atomName.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69C3CE4C19353484008A43BF /* en */,
+			);
+			name = atomName.strings;
+			sourceTree = "<group>";
+		};
+		69C3CE4E193584E6008A43BF /* ftyp.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69C3CE4F193584E6008A43BF /* en */,
+			);
+			name = ftyp.strings;
+			sourceTree = "<group>";
+		};
+		69E45B9B193284DD00D18DE1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45B9C193284DD00D18DE1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		69E45BA11932BBA600D18DE1 /* geID-Movies.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45BA21932BBA600D18DE1 /* en */,
+			);
+			name = "geID-Movies.strings";
+			sourceTree = "<group>";
+		};
+		69E45BA31932BBA600D18DE1 /* geID-Music.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45BA41932BBA600D18DE1 /* en */,
+			);
+			name = "geID-Music.strings";
+			sourceTree = "<group>";
+		};
+		69E45BA51932BBA600D18DE1 /* geID-MusicVideos.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45BA61932BBA600D18DE1 /* en */,
+			);
+			name = "geID-MusicVideos.strings";
+			sourceTree = "<group>";
+		};
+		69E45BA71932BBA600D18DE1 /* geID-TVShows.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45BA81932BBA600D18DE1 /* en */,
+			);
+			name = "geID-TVShows.strings";
+			sourceTree = "<group>";
+		};
+		69E45BAD1932BF9D00D18DE1 /* gnre.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45BAE1932BF9D00D18DE1 /* en */,
+			);
+			name = gnre.strings;
+			sourceTree = "<group>";
+		};
+		69E45BB01932C2E500D18DE1 /* stik.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E45BB11932C2E500D18DE1 /* en */,
+			);
+			name = stik.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

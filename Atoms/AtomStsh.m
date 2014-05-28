@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Shadow Sync Sample");
+    return NSLocalizedStringFromTable(@"Shadow Sync Sample",
+                                      @"atomName",
+                                      @"Atom stsh name");
 }
 
 -(BOOL)isFullBox

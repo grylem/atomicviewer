@@ -46,7 +46,9 @@ static NSDictionary *profileDict;
 
 - (NSString *)atomName
 {
-    return (@"AVC Configuration");
+    return NSLocalizedStringFromTable(@"AVC Configuration",
+                                      @"atomName",
+                                      @"Atom avcC name");
 }
 
 - (uint8_t)profileIndication
@@ -74,7 +76,7 @@ static NSDictionary *profileDict;
     });
     profile_explanation = profileDict[@([self profileIndication])];
     if (!profile_explanation) {
-        profile_explanation = @"Unrecongnized";
+        profile_explanation = NSLocalizedString(@"Unrecongnized",nil);
     }
     return profile_explanation;
 }

@@ -22,7 +22,9 @@
 
 - (NSString *)atomName
 {
-    return (@"Metadata Item List");
+    return NSLocalizedStringFromTable(@"Metadata Item List",
+                                      @"atomName",
+                                      @"Atom ilst name");
 }
 
 // Some Quicktime files may be typed as MPEG-4,
