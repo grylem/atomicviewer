@@ -52,7 +52,7 @@
         string = [string stringByAppendingString:@"</xmp>"];
         return string;
     } else if ([self isInteger]) {
-        return [[NSString alloc] initWithFormat:@"%ld",(long)[self asInteger]];
+        return [[NSString alloc] initWithFormat:@"%@",@([self asInteger])];
     }
     return @"";
 }
@@ -110,7 +110,7 @@
                                      encoding:NSUTF8StringEncoding];
     } else if ([self isInteger]) {
         NSInteger integer = [self asInteger];
-        return ([[NSString alloc]initWithFormat:@"%ld", integer]);
+        return ([[NSString alloc]initWithFormat:@"%@", @(integer)]);
     }
     return @"";
 }
