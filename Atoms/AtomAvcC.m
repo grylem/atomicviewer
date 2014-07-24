@@ -86,22 +86,22 @@ static NSDictionary *profileDict;
     const struct avcC *avcC = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Configuration Version: <b>%u</b><br><br>\
-                      AVC Profile Indication: <b>%u</b> (%@)<br>\
-                      Profile Compatibility: <b>%u</b><br>\
-                      AVC Level Indication: <b>%u</b> (%u.%u)<br><br>\
-                      Length Size Minus One: <b>%u</b><br>\
-                      Number of Sequence Parameter Sets: <b>%u</b>\
+                      Configuration Version: <b>%@</b><br><br>\
+                      AVC Profile Indication: <b>%@</b> (%@)<br>\
+                      Profile Compatibility: <b>%@</b><br>\
+                      AVC Level Indication: <b>%@</b> (%@.%@)<br><br>\
+                      Length Size Minus One: <b>%@</b><br>\
+                      Number of Sequence Parameter Sets: <b>%@</b>\
                       </p></span></body>",
-                      avcC->configurationVersion,
-                      avcC->AVCProfileIndication,
+                      @(avcC->configurationVersion),
+                      @(avcC->AVCProfileIndication),
                       [self profileExplanation],
-                      avcC->profile_compatibility,
-                      avcC->AVCLevelIndication,
-                      avcC->AVCLevelIndication / 10,
-                      avcC->AVCLevelIndication % 10,
-                      avcC->lengthSizeMinusOne & 0x03,
-                      avcC->numOfSequenceParameterSets & 0x1F];
+                      @(avcC->profile_compatibility),
+                      @(avcC->AVCLevelIndication),
+                      @(avcC->AVCLevelIndication / 10),
+                      @(avcC->AVCLevelIndication % 10),
+                      @(avcC->lengthSizeMinusOne & 0x03),
+                      @(avcC->numOfSequenceParameterSets & 0x1F)];
     return html;
 }
 

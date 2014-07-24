@@ -85,7 +85,18 @@ typedef struct elst_ver1
         int16_t rate_hi = rate >> 16;
         int16_t rate_lo = rate & 0xffff;
 
-        html = [html stringByAppendingFormat:@"<TR><TD>%u (%02u:%02u:%09.6f)</TD><TD>%u</TD><TD>%u.%u</TD></TR>", duration, hours, minutes, seconds, mtime, rate_hi, rate_lo];
+        NSNumberFormatter *hoursMinutesFormatter = [[NSNumberFormatter alloc] init];
+        [hoursMinutesFormatter setPositiveFormat: @"00"];
+        NSNumberFormatter *secondsFormatter = [[NSNumberFormatter alloc] init];
+        [secondsFormatter setPositiveFormat: @"00.000000"];
+
+        html = [html stringByAppendingFormat:@"<TR><TD>%@ (%@:%@:%@)</TD><TD>%@</TD><TD>%@.%@</TD></TR>",
+                @(duration),
+                [hoursMinutesFormatter stringFromNumber: @(hours)],
+                [hoursMinutesFormatter stringFromNumber: @(minutes)],
+                [secondsFormatter stringFromNumber: @(seconds)],
+                @(mtime),
+                @(rate_hi), @(rate_lo)];
     }
     html = [html stringByAppendingString:@"</TABLE><br></p></span></body>"];
     return html;

@@ -45,12 +45,12 @@ typedef struct stco
     const struct stco *stco = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body>%@<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%@</b>\
                       <TABLE style=\"font-size:1.0em;\">\
                       <TR><TH>%@</TH><TH>%@</TH></TR>",
                       NSLocalizedString(@"This atom contains offsets, from the beginning fo the file, to each chunk of media samples for this track.",nil),
                       NSLocalizedString(@"Number of chunks", nil),
-                      CFSwapInt32BigToHost(stco->entry_count),
+                      @(CFSwapInt32BigToHost(stco->entry_count)),
                       NSLocalizedString(@"Chunk #",nil),
                       NSLocalizedString(@"Chunk Offset",nil)];
 
@@ -58,7 +58,7 @@ typedef struct stco
     for (uint32_t i=0; i<entry_count; i++) {
         @autoreleasepool {
             uint32_t offset = CFSwapInt32BigToHost(stco->chunk_offset[i]);
-            html = [html stringByAppendingFormat:@"<TR><TD>%u</TD><TD ALIGN=RIGHT><b>%u</b></TD></TR>", i+1, offset];
+            html = [html stringByAppendingFormat:@"<TR><TD>%@</TD><TD ALIGN=RIGHT><b>%@</b></TD></TR>", @(i+1), @(offset)];
         }
     }
     html = [html stringByAppendingString:@"</TABLE></p></span></body>"];

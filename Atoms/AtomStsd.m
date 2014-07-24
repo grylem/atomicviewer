@@ -49,10 +49,10 @@ typedef struct stsd
     const struct stsd *stsd = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"Number of Sample Descriptions",nil),
-                      CFSwapInt32BigToHost(stsd->entry_count)];
+                      @(CFSwapInt32BigToHost(stsd->entry_count))];
     return html;
 }
 

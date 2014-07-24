@@ -31,7 +31,7 @@
 
 -(NSString *)nodeTitle
 {
-    return [NSString stringWithFormat:@"trak [%lu]", (unsigned long)[self trakNumber]];
+    return [NSString stringWithFormat:@"trak [%@]", @([self trakNumber])];
 }
 
 -(AtomTkhd *)trakHeader

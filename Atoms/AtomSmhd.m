@@ -47,11 +47,11 @@ typedef struct smhd
     [self get88ValueAtOffset:offsetof(struct smhd, balance) hi:&balance_hi lo:&balance_lo];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      %@: <b>%u.%u</b>\
+                      %@: <b>%@.%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"Balance",nil),
-                      balance_hi,
-                      balance_lo];
+                      @(balance_hi),
+                      @(balance_lo)];
     return html;
 }
 

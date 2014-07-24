@@ -131,7 +131,7 @@ static NSDictionary *subtypeDict;
     NSString *html = @"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>";
 
     if ([[self componentType] length] != 0) { // If Quicktime format hdlr atom
-        NSString *tmpString = [NSString stringWithFormat:@"%@: <b>(%@)</b> %@<br>",
+        NSString *tmpString = [NSString stringWithFormat:@"%@: <b>%@</b> (%@)<br>",
                                NSLocalizedString(@"Component Type",nil),
                                [self componentType],
                                [self typeExplanation]];

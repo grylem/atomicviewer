@@ -57,10 +57,10 @@ typedef enum : off_t {
 - (NSString *)html
 {
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      Track %hu of %hu\
+                      Track %@ of %@\
                       </p></span></body>",
-                      self.trackNumber,
-                      self.totalTracks];
+                      @(self.trackNumber),
+                      @(self.totalTracks)];
     return html;
 }
 

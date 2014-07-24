@@ -52,15 +52,15 @@ typedef struct enof
     int16_t height_lo = height & 0xffff;
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      %@: <b>%u.%u</b><br>\
-                      %@: <b>%u.%u</b>\
+                      %@: <b>%@.%@</b><br>\
+                      %@: <b>%@.%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"Width",nil),
-                      width_hi,
-                      width_lo,
+                      @(width_hi),
+                      @(width_lo),
                       NSLocalizedString(@"Height",nil),
-                      height_hi,
-                      height_lo];
+                      @(height_hi),
+                      @(height_lo)];
     return html;
 }
 

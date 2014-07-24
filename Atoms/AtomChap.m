@@ -35,9 +35,9 @@
 
     for (NSUInteger i=0; i<count; i++) {
         uint32_t track = CFSwapInt32BigToHost(*(uint32_t *)([[self data] bytes] + (i * sizeof(uint32_t))));
-        html = [html stringByAppendingFormat:@"<br>%@: <b>%u</b>",
+        html = [html stringByAppendingFormat:@"<br>%@: <b>%@</b>",
                 NSLocalizedString(@"Track Number", nil),
-                track];
+                @(track)];
 
     }
     html = [html stringByAppendingString:@"</p></span></body>"];

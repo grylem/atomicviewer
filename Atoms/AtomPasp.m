@@ -40,13 +40,13 @@ typedef struct pasp
     const struct pasp *pasp = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
                       </p></span></body>",
                       NSLocalizedString(@"Horizontal Spacing",nil),
-                      CFSwapInt32BigToHost(pasp->hSpacing),
+                      @(CFSwapInt32BigToHost(pasp->hSpacing)),
                       NSLocalizedString(@"Vertical Spacing",nil),
-                      CFSwapInt32BigToHost(pasp->vSpacing)];
+                      @(CFSwapInt32BigToHost(pasp->vSpacing))];
     return html;
 }
 

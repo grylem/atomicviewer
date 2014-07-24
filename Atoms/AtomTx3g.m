@@ -60,23 +60,23 @@ typedef struct tx3g
     const tx3g *tx3g = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      %@: <b>%u</b><br>\
                       %@: <b>%@</b><br>\
                       %@: <b>%@</b><br>\
                       %@: <b>%@</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
                       %@: <b>%@</b><br>\
                       %@: <b>%@</b><br>\
                       %@: <b>%@</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"Data Reference Index",nil),
-                      CFSwapInt16BigToHost(tx3g->data_reference_index),
+                      @(CFSwapInt16BigToHost(tx3g->data_reference_index)),
                       NSLocalizedString(@"All Samples are Forced",nil),
                       CFSwapInt32BigToHost(tx3g->display_flags) & 0x80000000 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
                       NSLocalizedString(@"Some Samples are Forced",nil),
@@ -84,15 +84,15 @@ typedef struct tx3g
                       NSLocalizedString(@"Vertical Placement",nil),
                       CFSwapInt32BigToHost(tx3g->display_flags) & 0x20000000 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
                       NSLocalizedString(@"Text Box Top",nil),
-                      CFSwapInt16BigToHost(tx3g->default_text_box.top),
+                      @(CFSwapInt16BigToHost(tx3g->default_text_box.top)),
                       NSLocalizedString(@"Text Box Left",nil),
-                      CFSwapInt16BigToHost(tx3g->default_text_box.left),
+                      @(CFSwapInt16BigToHost(tx3g->default_text_box.left)),
                       NSLocalizedString(@"Text Box Bottom",nil),
-                      CFSwapInt16BigToHost(tx3g->default_text_box.bottom),
+                      @(CFSwapInt16BigToHost(tx3g->default_text_box.bottom)),
                       NSLocalizedString(@"Text Box Right",nil),
-                      CFSwapInt16BigToHost(tx3g->default_text_box.right),
+                      @(CFSwapInt16BigToHost(tx3g->default_text_box.right)),
                       NSLocalizedString(@"Font Identifier",nil),
-                      CFSwapInt16BigToHost(tx3g->font_identifier),
+                      @(CFSwapInt16BigToHost(tx3g->font_identifier)),
                       NSLocalizedString(@"Font Face Bold",nil),
                       tx3g->font_face & 0x01 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
                       NSLocalizedString(@"Font Face Italic",nil),
@@ -100,9 +100,9 @@ typedef struct tx3g
                       NSLocalizedString(@"Font Face Underline",nil),
                       tx3g->font_face & 0x04 ? NSLocalizedString(@"YES",nil) : NSLocalizedString(@"NO",nil),
                       NSLocalizedString(@"Font Size",nil),
-                      tx3g->font_size,
+                      @(tx3g->font_size),
                       NSLocalizedString(@"Foreground Color",nil),
-                      CFSwapInt32BigToHost(tx3g->foreground_color)];
+                      @(CFSwapInt32BigToHost(tx3g->foreground_color))];
     return html;
 }
 

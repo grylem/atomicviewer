@@ -48,15 +48,15 @@ typedef struct stsz
     uint32_t default_size = CFSwapInt32BigToHost(stsz->sample_size);
 
     NSString *html = [NSString stringWithFormat:@"<body>%@<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>%@: <b>%u</b>",
+                      <br>%@: <b>%@</b>",
                       NSLocalizedString(@"This atom contains media sample sizes, either a constant size for all samples, or individual entries describing the size of each sample.",nil),
                       NSLocalizedString(@"Number of samples",nil),
-                      sample_count];
+                      @(sample_count)];
 
     if (default_size) {
-        html = [html stringByAppendingFormat:@"<br>%@: <b>%u</b>",
+        html = [html stringByAppendingFormat:@"<br>%@: <b>%@</b>",
                 NSLocalizedString(@"Default Size",nil),
-                default_size];
+                @(default_size)];
     } else {
         html = [html stringByAppendingFormat:@"<TABLE style=\"font-size:1.0em;\">\
                 <TR><TH>%@</TH><TH>%@</TH></TR>",
@@ -66,7 +66,7 @@ typedef struct stsz
         for (uint32_t i=0; i<sample_count; i++) {
             @autoreleasepool {
                 uint32_t offset = CFSwapInt32BigToHost(stsz->entry_size[i]);
-                html = [html stringByAppendingFormat:@"<TR><TD>%u</TD><TD><b>%u</b></TD></TR>", i+1, offset];
+                html = [html stringByAppendingFormat:@"<TR><TD>%@</TD><TD><b>%@</b></TD></TR>", @(i+1), @(offset)];
             }
         }
     }

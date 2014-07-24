@@ -71,25 +71,25 @@ typedef struct avc1
                                             encoding:NSUTF8StringEncoding];
 
     NSString *html = [NSString stringWithFormat:@"<body>This is the Visual Sample Description for AVC samples. Defined in ISO/IEC 14496-12 &sect 8.16.2 and 14496-15 &sect 5.3.4.1.<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>\
-                      Data Reference Index: <b>%u</b><br>\
-                      Width: <b>%u</b><br>\
-                      Height: <b>%u</b><br>\
-                      Horizontal Resolution: <b>%u.%u</b><br>\
-                      Vertical Resolution: <b>%u.%u</b><br>\
-                      Frame Count: <b>%u</b><br>\
+                      Data Reference Index: <b>%@</b><br>\
+                      Width: <b>%@</b><br>\
+                      Height: <b>%@</b><br>\
+                      Horizontal Resolution: <b>%@.%@</b><br>\
+                      Vertical Resolution: <b>%@.%@</b><br>\
+                      Frame Count: <b>%@</b><br>\
                       Compressor Name: <b>%@</b><br>\
-                      Depth: <b>%u</b><br>\
+                      Depth: <b>%@</b><br>\
                       </p></span></body>",
-                      CFSwapInt16BigToHost(avc1->data_reference_index),
-                      CFSwapInt16BigToHost(avc1->width),
-                      CFSwapInt16BigToHost(avc1->height),
-                      horizresolution_hi,
-                      horizresolution_lo,
-                      vertresolution_hi,
-                      vertresolution_lo,
-                      CFSwapInt16BigToHost(avc1->frame_count),
+                      @(CFSwapInt16BigToHost(avc1->data_reference_index)),
+                      @(CFSwapInt16BigToHost(avc1->width)),
+                      @(CFSwapInt16BigToHost(avc1->height)),
+                      @(horizresolution_hi),
+                      @(horizresolution_lo),
+                      @(vertresolution_hi),
+                      @(vertresolution_lo),
+                      @(CFSwapInt16BigToHost(avc1->frame_count)),
                       compressorname,
-                      CFSwapInt16BigToHost(avc1->depth)];
+                      @(CFSwapInt16BigToHost(avc1->depth))];
 
     return html;
 }

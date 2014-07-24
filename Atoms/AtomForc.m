@@ -39,11 +39,11 @@ typedef struct forc
     const forc *forc = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body>%@<br><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"This atom contains a track reference to a forced subtitle track.",nil),
                       NSLocalizedString(@"Track Number", nil),
-                      CFSwapInt32BigToHost(forc->track)];
+                      @(CFSwapInt32BigToHost(forc->track))];
     return html;
 }
 

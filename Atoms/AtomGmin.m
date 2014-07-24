@@ -55,25 +55,25 @@ typedef struct gmin
     [self get88ValueAtOffset:offsetof(struct gmin, balance) hi:&balance_hi lo:&balance_lo];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
                       <br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
                       <br>\
-                      %@: <b>%u.%u</b>\
+                      %@: <b>%@.%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"GraphicsMode",nil),
-                      CFSwapInt16BigToHost(gmin->graphics_mode),
+                      @(CFSwapInt16BigToHost(gmin->graphics_mode)),
                       NSLocalizedString(@"Red",nil),
-                      CFSwapInt16BigToHost(gmin->opcolor.red),
+                      @(CFSwapInt16BigToHost(gmin->opcolor.red)),
                       NSLocalizedString(@"Green",nil),
-                      CFSwapInt16BigToHost(gmin->opcolor.green),
+                      @(CFSwapInt16BigToHost(gmin->opcolor.green)),
                       NSLocalizedString(@"Blue",nil),
-                      CFSwapInt16BigToHost(gmin->opcolor.blue),
+                      @(CFSwapInt16BigToHost(gmin->opcolor.blue)),
                       NSLocalizedString(@"Balance",nil),
-                      balance_hi,
-                      balance_lo];
+                      @(balance_hi),
+                      @(balance_lo)];
     return html;
 }
 

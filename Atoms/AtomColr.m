@@ -44,18 +44,18 @@ typedef struct colr
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
                       %@: <b>%@</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@</b><br>\
                       </p></span></body>",
                       NSLocalizedString(@"Color Parameter Type",nil),
                       type,
                       NSLocalizedString(@"Primaries Index",nil),
-                      CFSwapInt16BigToHost(colr->primaries_index),
+                      @(CFSwapInt16BigToHost(colr->primaries_index)),
                       NSLocalizedString(@"Transfer Function Index",nil),
-                      CFSwapInt16BigToHost(colr->transfer_function_index),
+                      @(CFSwapInt16BigToHost(colr->transfer_function_index)),
                       NSLocalizedString(@"Matrix Index",nil),
-                      CFSwapInt16BigToHost(colr->matrix_index)];
+                      @(CFSwapInt16BigToHost(colr->matrix_index))];
     return html;
 }
 

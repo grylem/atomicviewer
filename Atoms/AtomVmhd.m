@@ -49,20 +49,20 @@ typedef struct vmhd
     const struct vmhd *vmhd = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      %@: <b>%u</b>\
+                      %@: <b>%@</b>\
                       <br>\
-                      <br>%@: <b>%u</b>\
-                      <br>%@: <b>%u</b>\
-                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%@</b>\
+                      <br>%@: <b>%@</b>\
+                      <br>%@: <b>%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"Graphics Mode",nil),
-                      CFSwapInt16BigToHost(vmhd->graphicsmode),
+                      @(CFSwapInt16BigToHost(vmhd->graphicsmode)),
                       NSLocalizedString(@"Red",nil),
-                      CFSwapInt16BigToHost(vmhd->opcolor.red),
+                      @(CFSwapInt16BigToHost(vmhd->opcolor.red)),
                       NSLocalizedString(@"Green",nil),
-                      CFSwapInt16BigToHost(vmhd->opcolor.green),
+                      @(CFSwapInt16BigToHost(vmhd->opcolor.green)),
                       NSLocalizedString(@"Blue",nil),
-                      CFSwapInt16BigToHost(vmhd->opcolor.blue)];
+                      @(CFSwapInt16BigToHost(vmhd->opcolor.blue))];
     return html;
 }
 

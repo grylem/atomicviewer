@@ -86,11 +86,16 @@ typedef struct mdhd_ver1
     language[2] = ((languageUint16 & 0x001f)) + 0x60;
     language[3] = 0;
 
+    NSNumberFormatter *hoursMinutesFormatter = [[NSNumberFormatter alloc] init];
+    [hoursMinutesFormatter setPositiveFormat: @"00"];
+    NSNumberFormatter *secondsFormatter = [[NSNumberFormatter alloc] init];
+    [secondsFormatter setPositiveFormat: @"00.000000"];
+
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
                       %@: <b>%@</b><br>\
                       %@: <b>%@</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%llu (%02u:%02u:%09.6f)</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@ (%@:%@:%@)</b><br>\
                       %@: <b>%s</b><br>\
                       </p></span></body>",
                       NSLocalizedString(@"Creation date",nil),
@@ -98,9 +103,12 @@ typedef struct mdhd_ver1
                       NSLocalizedString(@"Modification date",nil),
                       modificationDate,
                       NSLocalizedString(@"Timescale",nil),
-                      [self timescale],
+                      @([self timescale]),
                       NSLocalizedString(@"Duration",nil),
-                      duration, hours, minutes, seconds,
+                      @(duration),
+                      [hoursMinutesFormatter stringFromNumber: @(hours)],
+                      [hoursMinutesFormatter stringFromNumber: @(minutes)],
+                      [secondsFormatter stringFromNumber: @(seconds)],
                       NSLocalizedString(@"Language",nil),
                       languageUint16 ? language : "(None)"];
 

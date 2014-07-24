@@ -123,20 +123,25 @@ typedef struct mvhd_ver1
     [self get230ValueAtOffset:offsetof(struct mvhd_ver0, matrix[8]) hi:&matrixw_hi lo:&matrixw_lo];
     uint32_t next_track_ID = CFSwapInt32BigToHost(mvhd->next_track_ID);
 
+    NSNumberFormatter *hoursMinutesFormatter = [[NSNumberFormatter alloc] init];
+    [hoursMinutesFormatter setPositiveFormat: @"00"];
+    NSNumberFormatter *secondsFormatter = [[NSNumberFormatter alloc] init];
+    [secondsFormatter setPositiveFormat: @"00.000000"];
+
     NSString *html = [NSString stringWithFormat:@"<body>%@<span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p><br>\
                       %@: <b>%@</b><br>\
                       %@: <b>%@</b><br>\
-                      %@: <b>%u</b><br>\
-                      %@: <b>%llu (%02u:%02u:%09.6f)</b><br>\
-                      %@: <b>%u.%u</b><br>\
-                      %@: <b>%u.%u</b><br>\
+                      %@: <b>%@</b><br>\
+                      %@: <b>%@ (%@:%@:%@)</b><br>\
+                      %@: <b>%@.%@</b><br>\
+                      %@: <b>%@.%@</b><br>\
                       %@:\
                       <TABLE style=\"font-size:1.0em;\">\
-                      <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
-                      <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
-                      <TR><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD><TD><b>%u.%u</b></TD></TR>\
+                      <TR><TD><b>%@.%@</b></TD><TD><b>%@.%@</b></TD><TD><b>%@.%@</b></TD></TR>\
+                      <TR><TD><b>%@.%@</b></TD><TD><b>%@.%@</b></TD><TD><b>%@.%@</b></TD></TR>\
+                      <TR><TD><b>%@.%@</b></TD><TD><b>%@.%@</b></TD><TD><b>%@.%@</b></TD></TR>\
                       </TABLE><br>\
-                      %@: <b>%u<b>\
+                      %@: <b>%@<b>\
                       </p></span></body>",
                       NSLocalizedString(@"The movie header, describing characteristics of the entire movie, such as time scale and duration.",nil),
                       NSLocalizedString(@"Creation date",nil),
@@ -144,19 +149,22 @@ typedef struct mvhd_ver1
                       NSLocalizedString(@"Modification date",nil),
                       modificationDate,
                       NSLocalizedString(@"Timescale",nil),
-                      timescale,
+                      @(timescale),
                       NSLocalizedString(@"Duration",nil),
-                      duration, hours, minutes, seconds,
+                      @(duration),
+                      [hoursMinutesFormatter stringFromNumber: @(hours)],
+                      [hoursMinutesFormatter stringFromNumber: @(minutes)],
+                      [secondsFormatter stringFromNumber: @(seconds)],
                       NSLocalizedString(@"Rate",nil),
-                      rate_hi, rate_lo,
+                      @(rate_hi), @(rate_lo),
                       NSLocalizedString(@"Volume",nil),
-                      volume_hi, volume_lo,
+                      @(volume_hi), @(volume_lo),
                       NSLocalizedString(@"Transformation Matrix",nil),
-                      matrixa_hi, matrixa_lo, matrixb_hi, matrixb_lo, matrixu_hi, matrixu_lo,
-                      matrixc_hi, matrixc_lo, matrixd_hi, matrixd_lo, matrixv_hi, matrixv_lo,
-                      matrixtx_hi, matrixtx_lo, matrixty_hi, matrixty_lo, matrixw_hi, matrixw_lo,
+                      @(matrixa_hi), @(matrixa_lo), @(matrixb_hi), @(matrixb_lo), @(matrixu_hi), @(matrixu_lo),
+                      @(matrixc_hi), @(matrixc_lo), @(matrixd_hi), @(matrixd_lo), @(matrixv_hi), @(matrixv_lo),
+                      @(matrixtx_hi), @(matrixtx_lo), @(matrixty_hi), @(matrixty_lo), @(matrixw_hi), @(matrixw_lo),
                       NSLocalizedString(@"Next Track ID",nil),
-                      next_track_ID];
+                      @(next_track_ID)];
     return html;
 }
 @end

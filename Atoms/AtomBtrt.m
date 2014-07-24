@@ -40,16 +40,16 @@ typedef struct btrt {
     const btrt *btrt = [[self data] bytes];
 
     NSString *html = [NSString stringWithFormat:@"<body><span style=\"font-size: 14px\"><font face=\"AvenirNext-Medium\"><p>\
-                      <br>%@: <b>%u</b>\
-                      <br>%@: <b>%u</b>\
-                      <br>%@: <b>%u</b>\
+                      <br>%@: <b>%@</b>\
+                      <br>%@: <b>%@</b>\
+                      <br>%@: <b>%@</b>\
                       </p></span></body>",
                       NSLocalizedString(@"Decoding Buffer Size", nil),
-                      CFSwapInt32BigToHost(btrt->bufferSizeDB),
+                      @(CFSwapInt32BigToHost(btrt->bufferSizeDB)),
                       NSLocalizedString(@"Max Bitrate", nil),
-                      CFSwapInt32BigToHost(btrt->maxBitrate),
+                      @(CFSwapInt32BigToHost(btrt->maxBitrate)),
                       NSLocalizedString(@"Average Bitrate", nil),
-                      CFSwapInt32BigToHost(btrt->avgBitrate)];
+                      @(CFSwapInt32BigToHost(btrt->avgBitrate))];
     return html;
 }
 

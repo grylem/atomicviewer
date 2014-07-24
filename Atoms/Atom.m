@@ -268,7 +268,7 @@ static dispatch_once_t pred;
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat: @"Atom type %@ of size %zu", [self atomType], [self length]];
+    return [NSString stringWithFormat: @"Atom type %@ of size %@", [self atomType], @([self length])];
 }
 
 -(NSAttributedString *)explanation
