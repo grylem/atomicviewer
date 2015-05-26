@@ -52,6 +52,7 @@
 - (BOOL)isImmediateDescendantOf:(NSString *)expectedParentAtomType;
 - (Atom *)findChildAtomOfType: (NSString *)typeString;
 - (Atom *)findAtomAtPath:(NSString *)atomPath;
+- (Atom *)findChildAtomAtPath:(NSString *)atomPath;
 
 #pragma mark - Behavior to support iTunes Metadata
 

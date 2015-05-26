@@ -443,6 +443,19 @@ static dispatch_once_t pred;
     return atom;
 }
 
+- (Atom *)findChildAtomAtPath:(NSString *)atomPath
+{
+    Atom *atom = self;
+    NSArray *pathArray = [atomPath componentsSeparatedByString:@"."];
+    for (NSString *atomName in pathArray) {
+        atom = [atom findChildAtomOfType:atomName];
+        if (!atom) {
+            break;
+        }
+    }
+    return atom;
+}
+
 #pragma mark - Behavior to support iTunes Metadata
 
 - (BOOL)hasImage
