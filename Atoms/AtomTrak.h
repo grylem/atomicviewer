@@ -10,4 +10,6 @@
 
 @interface AtomTrak : AtomParent
 
+-(NSString *)languageFromCode:(NSString *)languageCode;
+
 @end
