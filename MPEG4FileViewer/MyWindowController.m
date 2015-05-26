@@ -101,6 +101,8 @@ static NSArray *columnTitles;               // 2D array of menu names for hide/s
 // -------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
+    /* Setup the Hex Fiend view controller the way we want it */
+
     self.hfController = [self.hfTextView controller];
     [self.hfController setBytesPerColumn:4];
     [self.hfController setEditable:NO];
