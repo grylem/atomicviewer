@@ -24,7 +24,7 @@
 		6930E5B5192C133100598BD0 /* AtomGmin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930E5B4192C133100598BD0 /* AtomGmin.m */; };
 		6930E5B9192C1DE800598BD0 /* AtomForc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6930E5B8192C1DE800598BD0 /* AtomForc.m */; };
 		69390E4A18DFA8C300DEA5B3 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
-		69390E4D18DFAD7800DEA5B3 /* HexFiend.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; };
+		69390E4D18DFAD7800DEA5B3 /* HexFiend.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69390E4918DFA8C300DEA5B3 /* HexFiend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		69390E5018DFD90F00DEA5B3 /* AtomPinf.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E4F18DFD90F00DEA5B3 /* AtomPinf.m */; };
 		69390E5318DFE63300DEA5B3 /* AtomLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5218DFE63300DEA5B3 /* AtomLoad.m */; };
 		69390E5618DFE98500DEA5B3 /* AtomTx3g.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390E5518DFE98500DEA5B3 /* AtomTx3g.m */; };
@@ -141,6 +141,7 @@
 		6996CCEB18E4EF3000121640 /* AtomUuidLC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6996CCEA18E4EF3000121640 /* AtomUuidLC.m */; };
 		69A163B517D672F700131614 /* MyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A163B417D672F700131614 /* MyWindowController.m */; };
 		69A163B917D67BA800131614 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A163B717D67BA800131614 /* MainWindow.xib */; };
+		69AA14F21B159588007C4A5C /* AtomicViewer_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AA14F11B159588007C4A5C /* AtomicViewer_Tests.m */; };
 		69C3CE4D19353484008A43BF /* atomName.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69C3CE4B19353484008A43BF /* atomName.strings */; };
 		69C3CE50193584E6008A43BF /* ftyp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69C3CE4E193584E6008A43BF /* ftyp.strings */; };
 		69E2CA0818DBDB7B00EC4D8C /* AtomHmhd.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2CA0718DBDB7B00EC4D8C /* AtomHmhd.m */; };
@@ -178,6 +179,51 @@
 		69EF0ADF190092F7007DC40C /* AtomRpdu.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF0ADE190092F7007DC40C /* AtomRpdu.m */; };
 		69FE65EF192309F5009F55F3 /* AtomKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FE65EE192309F5009F55F3 /* AtomKeys.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		694FDF5219ECC566006E3E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1107320486CEB800E47090;
+			remoteInfo = HexFiend_2;
+		};
+		694FDF5419ECC566006E3E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D01E7BB80CDC530C00943F9E;
+			remoteInfo = HexFiend_Framework;
+		};
+		694FDF5619ECC566006E3E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047E3151022CEFE00EF307B;
+			remoteInfo = "FortunateSon (PrivilegedHelper)";
+		};
+		694FDF5819ECC566006E3E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D00C15E50FF091FF006D021F;
+			remoteInfo = HexFiendling;
+		};
+		694FDF5A19ECC566006E3E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9408FBFA19DD72DE004F800E;
+			remoteInfo = "HexFiend_Framework Tests";
+		};
+		69AA14F31B159588007C4A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69453FE9176672A400851344 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69453FF0176672A400851344;
+			remoteInfo = AtomicViewer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		69390E4C18DFAD6000DEA5B3 /* CopyFiles */ = {
@@ -265,6 +311,7 @@
 		69454006176672A400851344 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69454007176672A400851344 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6945400A176672A400851344 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HexFiend_2.xcodeproj; path = ../github/HexFiend/HexFiend_2.xcodeproj; sourceTree = "<group>"; };
 		696BB59718D78057001EDCC2 /* AtomDref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDref.h; sourceTree = "<group>"; };
 		696BB59818D78057001EDCC2 /* AtomDref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomDref.m; sourceTree = "<group>"; };
 		696BB59A18D78754001EDCC2 /* AtomUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomUrl.h; sourceTree = "<group>"; };
@@ -431,7 +478,7 @@
 		6972097D18D6DDE5003A9E0A /* AtomAtID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomAtID.m; sourceTree = "<group>"; };
 		6972097F18D6DDF6003A9E0A /* AtomCovr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomCovr.h; sourceTree = "<group>"; };
 		6972098018D6DDF6003A9E0A /* AtomCovr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomCovr.m; sourceTree = "<group>"; };
-		6973EBAF18E07B2A00AF263C /* MPEG4FileViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MPEG4FileViewer.entitlements; sourceTree = "<group>"; };
+		6973EBAF18E07B2A00AF263C /* AtomicViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AtomicViewer.entitlements; path = ../AtomicViewer.entitlements; sourceTree = "<group>"; };
 		69744C531924987E00C5A011 /* AtomFolw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomFolw.h; sourceTree = "<group>"; };
 		69744C541924987E00C5A011 /* AtomFolw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomFolw.m; sourceTree = "<group>"; };
 		697A716418E0BF2C00A4A9DD /* AtomDrmi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomDrmi.h; sourceTree = "<group>"; };
@@ -459,6 +506,9 @@
 		69A163B317D672F700131614 /* MyWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindowController.h; sourceTree = "<group>"; };
 		69A163B417D672F700131614 /* MyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindowController.m; sourceTree = "<group>"; };
 		69A163B817D67BA800131614 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		69AA14ED1B159588007C4A5C /* AtomicViewer Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AtomicViewer Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69AA14F01B159588007C4A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "AtomicViewer Tests/Info.plist"; sourceTree = "<group>"; };
+		69AA14F11B159588007C4A5C /* AtomicViewer_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtomicViewer_Tests.m; sourceTree = "<group>"; };
 		69C3CE4C19353484008A43BF /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/atomName.strings; sourceTree = "<group>"; };
 		69C3CE4F193584E6008A43BF /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ftyp.strings; sourceTree = "<group>"; };
 		69E2CA0618DBDB7B00EC4D8C /* AtomHmhd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomHmhd.h; sourceTree = "<group>"; };
@@ -531,6 +581,13 @@
 			files = (
 				69453FF5176672A400851344 /* Cocoa.framework in Frameworks */,
 				69390E4A18DFA8C300DEA5B3 /* HexFiend.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69AA14EA1B159588007C4A5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,10 +683,12 @@
 		69453FE8176672A400851344 = {
 			isa = PBXGroup;
 			children = (
+				694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */,
 				69453FFA176672A400851344 /* AtomicViewer */,
 				6923AE6A18D2F13B0087A0ED /* Atoms */,
 				69453FFB176672A400851344 /* Supporting Files */,
 				69A163B617D67B7000131614 /* Resources */,
+				69AA14EE1B159588007C4A5C /* AtomicViewer Tests */,
 				69453FF3176672A400851344 /* Frameworks */,
 				69453FF2176672A400851344 /* Products */,
 			);
@@ -639,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				69453FF1176672A400851344 /* AtomicViewer.app */,
+				69AA14ED1B159588007C4A5C /* AtomicViewer Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -678,7 +738,7 @@
 		69453FFB176672A400851344 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6973EBAF18E07B2A00AF263C /* MPEG4FileViewer.entitlements */,
+				6973EBAF18E07B2A00AF263C /* AtomicViewer.entitlements */,
 				69453FFC176672A400851344 /* AtomicViewer-Info.plist */,
 				69453FFD176672A400851344 /* InfoPlist.strings */,
 				69E45B9B193284DD00D18DE1 /* Localizable.strings */,
@@ -696,6 +756,18 @@
 			);
 			name = "Supporting Files";
 			path = MPEG4FileViewer;
+			sourceTree = "<group>";
+		};
+		694FDF4919ECC566006E3E9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				694FDF5319ECC566006E3E9A /* Hex Fiend.app */,
+				694FDF5519ECC566006E3E9A /* HexFiend.framework */,
+				694FDF5719ECC566006E3E9A /* com.ridiculousfish.HexFiend.PrivilegedHelper */,
+				694FDF5919ECC566006E3E9A /* HexFiendling.app */,
+				694FDF5B19ECC566006E3E9A /* HexFiend_Framework Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		696BB5D618D7CF36001EDCC2 /* iTunes Metadata Atoms */ = {
@@ -1811,6 +1883,23 @@
 			path = MPEG4FileViewer;
 			sourceTree = "<group>";
 		};
+		69AA14EE1B159588007C4A5C /* AtomicViewer Tests */ = {
+			isa = PBXGroup;
+			children = (
+				69AA14F11B159588007C4A5C /* AtomicViewer_Tests.m */,
+				69AA14EF1B159588007C4A5C /* Supporting Files */,
+			);
+			path = "AtomicViewer Tests";
+			sourceTree = "<group>";
+		};
+		69AA14EF1B159588007C4A5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69AA14F01B159588007C4A5C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		69B4D5B71920BA7F004CD77A /* QuickTime Atom Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -2184,21 +2273,43 @@
 			productReference = 69453FF1176672A400851344 /* AtomicViewer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		69AA14EC1B159588007C4A5C /* AtomicViewer Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69AA14F51B159588007C4A5C /* Build configuration list for PBXNativeTarget "AtomicViewer Tests" */;
+			buildPhases = (
+				69AA14E91B159588007C4A5C /* Sources */,
+				69AA14EA1B159588007C4A5C /* Frameworks */,
+				69AA14EB1B159588007C4A5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69AA14F41B159588007C4A5C /* PBXTargetDependency */,
+			);
+			name = "AtomicViewer Tests";
+			productName = "AtomicViewer Tests";
+			productReference = 69AA14ED1B159588007C4A5C /* AtomicViewer Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		69453FE9176672A400851344 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jay O'Conor";
 				TargetAttributes = {
 					69453FF0176672A400851344 = {
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
+					};
+					69AA14EC1B159588007C4A5C = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 69453FF0176672A400851344;
 					};
 				};
 			};
@@ -2212,12 +2323,57 @@
 			mainGroup = 69453FE8176672A400851344;
 			productRefGroup = 69453FF2176672A400851344 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 694FDF4919ECC566006E3E9A /* Products */;
+					ProjectRef = 694FDF4819ECC566006E3E9A /* HexFiend_2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				69453FF0176672A400851344 /* AtomicViewer */,
+				69AA14EC1B159588007C4A5C /* AtomicViewer Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		694FDF5319ECC566006E3E9A /* Hex Fiend.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Hex Fiend.app";
+			remoteRef = 694FDF5219ECC566006E3E9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		694FDF5519ECC566006E3E9A /* HexFiend.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HexFiend.framework;
+			remoteRef = 694FDF5419ECC566006E3E9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		694FDF5719ECC566006E3E9A /* com.ridiculousfish.HexFiend.PrivilegedHelper */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = com.ridiculousfish.HexFiend.PrivilegedHelper;
+			remoteRef = 694FDF5619ECC566006E3E9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		694FDF5919ECC566006E3E9A /* HexFiendling.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = HexFiendling.app;
+			remoteRef = 694FDF5819ECC566006E3E9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		694FDF5B19ECC566006E3E9A /* HexFiend_Framework Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "HexFiend_Framework Tests.xctest";
+			remoteRef = 694FDF5A19ECC566006E3E9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		69453FEF176672A400851344 /* Resources */ = {
@@ -2237,6 +2393,13 @@
 				69E45BAC1932BBA600D18DE1 /* geID-TVShows.strings in Resources */,
 				69E45BAA1932BBA600D18DE1 /* geID-Music.strings in Resources */,
 				6945400B176672A400851344 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69AA14EB1B159588007C4A5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2404,7 +2567,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69AA14E91B159588007C4A5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69AA14F21B159588007C4A5C /* AtomicViewer_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69AA14F41B159588007C4A5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69453FF0176672A400851344 /* AtomicViewer */;
+			targetProxy = 69AA14F31B159588007C4A5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		69453FFD176672A400851344 /* InfoPlist.strings */ = {
@@ -2574,7 +2753,8 @@
 		6945400F176672A400851344 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = AtomicViewer.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2591,7 +2771,8 @@
 		69454010176672A400851344 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = AtomicViewer.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2602,6 +2783,71 @@
 				INFOPLIST_FILE = "MPEG4FileViewer/AtomicViewer-Info.plist";
 				PRODUCT_NAME = AtomicViewer;
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		69AA14F61B159588007C4A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "AtomicViewer Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtomicViewer.app/Contents/MacOS/AtomicViewer";
+			};
+			name = Debug;
+		};
+		69AA14F71B159588007C4A5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "AtomicViewer Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtomicViewer.app/Contents/MacOS/AtomicViewer";
 			};
 			name = Release;
 		};
@@ -2622,6 +2868,15 @@
 			buildConfigurations = (
 				6945400F176672A400851344 /* Debug */,
 				69454010176672A400851344 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69AA14F51B159588007C4A5C /* Build configuration list for PBXNativeTarget "AtomicViewer Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69AA14F61B159588007C4A5C /* Debug */,
+				69AA14F71B159588007C4A5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
