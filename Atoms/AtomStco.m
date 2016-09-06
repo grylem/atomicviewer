@@ -48,7 +48,7 @@ typedef struct stco
                       <br>%@: <b>%@</b>\
                       <TABLE style=\"font-size:1.0em;\">\
                       <TR><TH>%@</TH><TH>%@</TH></TR>",
-                      NSLocalizedString(@"This atom contains offsets, from the beginning fo the file, to each chunk of media samples for this track.",nil),
+                      NSLocalizedString(@"This atom contains offsets, from the beginning of the file, to each chunk of media samples for this track.",nil),
                       NSLocalizedString(@"Number of chunks", nil),
                       @(CFSwapInt32BigToHost(stco->entry_count)),
                       NSLocalizedString(@"Chunk #",nil),
