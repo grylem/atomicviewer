@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DB3FE044-25E9-48EC-BAAC-C16B3E154396</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>76C07F4A59779B65D48AC479277A4C09A9EE4C4F</key>
+		<string>https://github.com/ridiculousfish/HexFiend.git</string>
+		<key>7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90</key>
+		<string>https://bitbucket.org/joconor/atomicviewer.git</string>
+		<key>EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402</key>
+		<string>https://github.com/sparkle-project/Sparkle.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AtomicViewer.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>76C07F4A59779B65D48AC479277A4C09A9EE4C4F</key>
+		<string>../../../github/HexFiend</string>
+		<key>7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90</key>
+		<string>../..</string>
+		<key>EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402</key>
+		<string>../../../github/HexFiend/third_party/Sparkle</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/joconor/atomicviewer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AtomicViewer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>76C07F4A59779B65D48AC479277A4C09A9EE4C4F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HexFiend</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Sparkle</string>
+		</dict>
+	</array>
+</dict>
+</plist>

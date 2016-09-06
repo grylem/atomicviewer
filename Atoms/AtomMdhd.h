@@ -10,4 +10,6 @@
 
 @interface AtomMdhd : Atom
 
+-(NSString *)language;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface AtomHdlr : Atom
 
+-(NSString *)subtypeExplanation;
+
 @end

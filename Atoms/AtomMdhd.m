@@ -61,6 +61,20 @@ typedef struct mdhd_ver1
     return CFSwapInt32BigToHost(mdhd->timescale);
 }
 
+-(NSString *)language
+{
+    char language[4];
+
+    const mdhd_ver0 *mdhd = [[self data] bytes];
+    uint16_t languageUint16 = CFSwapInt16BigToHost(mdhd->language);
+    language[0] = ((languageUint16 & 0x7c00) >> 10) + 0x60;
+    language[1] = ((languageUint16 & 0x03e0) >> 5) + 0x60;
+    language[2] = ((languageUint16 & 0x001f)) + 0x60;
+    language[3] = 0;
+
+    return @(language);
+}
+
 - (NSString *)html
 {
     NSDate *creationDate;
@@ -80,7 +94,7 @@ typedef struct mdhd_ver1
                                               hours: &hours
                                             minutes: &minutes
                                             seconds: &seconds];
-    uint16_t languageUint16 = CFSwapInt32BigToHost(mdhd->language);
+    uint16_t languageUint16 = CFSwapInt16BigToHost(mdhd->language);
     language[0] = ((languageUint16 & 0x7c00) >> 10) + 0x60;
     language[1] = ((languageUint16 & 0x03e0) >> 5) + 0x60;
     language[2] = ((languageUint16 & 0x001f)) + 0x60;

@@ -17,15 +17,15 @@ typedef struct avcC
     uint8_t AVCLevelIndication;
     uint8_t lengthSizeMinusOne;
     uint8_t numOfSequenceParameterSets;
-    struct sequenceParameterSet {
+    struct {
         uint16_t sequenceParameterSetLength;
         uint8_t sequenceParameterSetNALUnit[];
-    };
+    }sequenceParameterSet;
     uint8_t numOfPictureParameterSets;
-    struct pictureParameterSet {
+    struct {
         uint16_t pictureParameterSetLength;
         uint8_t pictureParameterSetNALUnit[];
-    };
+    }pictureParameterSet;
 } avcC;
 #pragma pack(pop)
 

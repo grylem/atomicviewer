@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402" : 0,
+    "7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90" : 0,
+    "76C07F4A59779B65D48AC479277A4C09A9EE4C4F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DB3FE044-25E9-48EC-BAAC-C16B3E154396",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402" : "github\/HexFiend\/third_party\/Sparkle\/",
+    "7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90" : "MPEG4FileViewer\/",
+    "76C07F4A59779B65D48AC479277A4C09A9EE4C4F" : "github\/HexFiend\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AtomicViewer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AtomicViewer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ridiculousfish\/HexFiend.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "76C07F4A59779B65D48AC479277A4C09A9EE4C4F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/joconor\/atomicviewer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7F6A103B2D8DD82E5F846B669A7B0A4E3924CE90"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sparkle-project\/Sparkle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402"
+    }
+  ]
+}
